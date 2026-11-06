@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="th" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ความเท่ากันทุกประการ · คณิตศาสตร์ 4</title>
+<meta name="description" content="เงื่อนไขทั้งห้าที่ใช้สรุปว่ารูปสามเหลี่ยมสองรูปเท่ากันทุกประการ
+    ได้แก่ ด.ด.ด. · ด.ม.ด. · ม.ด.ม. · ม.ม.ด. · ฉ.ด.ด.
+    พร้อมวิธีเขียนการพิสูจน์แบบส">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Serif+Thai:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/site.css">
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+         processEscapes: true },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] },
+  chtml: { mtextInheritFont: true, scale: 1.0 },
+  startup: { typeset: true }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+
+</head>
+<body>
+<nav class="nav"><a class="nav-brand" href="../index.html">คณิต<span>ศาสตร์</span> ม.2</a><div class="nav-links"><a href="../index.html">หน้าแรก</a><a href="../c22122/index.html" aria-current="page" title="คณิตศาสตร์ 4">คณิตศาสตร์ 4</a><a href="../c22292/index.html" title="คณิตศาสตร์พัฒนาศักยภาพ 4">พัฒนาศักยภาพ 4</a><a href="../c22294/index.html" title="เทคโนโลยีเพื่อการศึกษาทางคณิตศาสตร์">เทคโนโลยีคณิตศาสตร์</a><button class="theme-btn" type="button" aria-label="สลับโหมดสี">☾</button></div></nav><div class="wrap"><div class="page"><aside class="toc"><div class="toc-label">หัวข้อในบทนี้</div><ol><li><a href="#meaning">ความหมายและการเขียนสัญลักษณ์</a></li><li><a href="#criteria">เงื่อนไขที่ใช้สรุปความเท่ากันทุกประการ</a></li><li><a href="#isosceles">สามเหลี่ยมหน้าจั่วและสามเหลี่ยมมุมฉาก</a></li><li><a href="#drill">แบบฝึกหัดท้ายบท</a></li></ol></aside><main><p class="eyebrow">คณิตศาสตร์ 4</p><h1>ความเท่ากันทุกประการ</h1><p class="lead">เงื่อนไขทั้งห้าที่ใช้สรุปว่ารูปสามเหลี่ยมสองรูปเท่ากันทุกประการ
+    ได้แก่ ด.ด.ด. · ด.ม.ด. · ม.ด.ม. · ม.ม.ด. · ฉ.ด.ด.
+    พร้อมวิธีเขียนการพิสูจน์แบบสองคอลัมน์ และกับดักที่ต้องระวัง</p><div class="badges"><span class="badge">เงื่อนไข 5 แบบ</span><span class="badge">พิสูจน์สองคอลัมน์</span><span class="badge">กับดัก ด.ด.ม.</span><span class="badge">ภาพทับรูปได้</span><span class="badge on">แบบฝึกหัด 30 ข้อ</span></div><section id="meaning"><h2>ความหมายและการเขียนสัญลักษณ์</h2><div class="box def"><span class="box-label">นิยาม</span>
+             <p>รูปสามเหลี่ยมสองรูป <b>เท่ากันทุกประการ</b> ถ้ามีการแปลงที่รักษาระยะ
+             (เลื่อนขนาน สะท้อน หมุน หรือการประกอบของสามอย่างนี้)
+             ที่ทำให้รูปหนึ่งทับอีกรูปได้สนิท</p>
+             <p>เขียนว่า \(\triangle ABC \equiv \triangle DEF\)
+             โดย <b>ลำดับตัวอักษรต้องสมนัยกัน</b>: \(A\leftrightarrow D,\
+             B\leftrightarrow E,\ C\leftrightarrow F\)</p></div><p>ลำดับตัวอักษรไม่ใช่เรื่องรูปแบบ แต่เป็นข้อมูล เมื่อเขียน
+             \(\triangle ABC\equiv\triangle DEF\) เราได้ข้อสรุป <b>หกข้อ</b> ฟรีทันที</p><div class="box thm"><span class="box-label">ผลที่ตามมา (ส่วนสมนัยของรูปที่เท่ากันทุกประการเท่ากัน)</span>
+             \[AB=DE,\quad BC=EF,\quad CA=FD\]
+             \[\angle A=\angle D,\quad \angle B=\angle E,\quad \angle C=\angle F\]
+             <p>ภาษาที่ใช้อ้างในการพิสูจน์คือ <b>"ส่วนสมนัยของรูปสามเหลี่ยม
+             ที่เท่ากันทุกประการย่อมเท่ากัน"</b></p></div><figure class="fig" data-viz="congruence" data-ax="76" data-ay="198" data-bx="196" data-by="198" data-cx="128" data-cy="106" data-dx="250" data-dy="0" data-rot="-28.0"><div class="fig-body"><svg viewBox="0 0 600 300" role="img" aria-labelledby="fig-congruence-t fig-congruence-d"><title id="fig-congruence-t">เงื่อนไขความเท่ากันทุกประการ</title><desc id="fig-congruence-d">รูปสามเหลี่ยมสองรูปวางห่างกันและหมุนต่างกัน มีขีดกำกับด้านและส่วนโค้งกำกับมุม เพื่อเน้นว่าส่วนประกอบคู่ใดเท่ากันตามเงื่อนไขที่เลือก</desc><rect width="100%" height="100%" fill="var(--paper-2)"/><text x="30" y="32" class="t-tag">เงื่อนไขที่ทำให้สามเหลี่ยมสองรูปเท่ากันทุกประการ</text><polygon points="76,198 196,198 128,106" class="f-lt" data-id="t1"/><polygon points="76,198 196,198 128,106" class="s-link"/><polygon points="326,198 431.95,141.66 328.72,92.36" class="f-at" data-id="t2"/><polygon points="326,198 431.95,141.66 328.72,92.36" class="s-accent"/><polygon points="326,198 431.95,141.66 328.72,92.36" class="f-vt" data-id="moving" opacity="0"/><g data-id="s1"><line x1="136" y1="191" x2="136" y2="205" class="s-link"/></g><g data-id="s2"><line x1="157.86" y1="158.17" x2="169.12" y2="149.85" class="s-link"/><line x1="154.88" y1="154.15" x2="166.14" y2="145.83" class="s-link"/></g><g data-id="s3"><line x1="110.55" y1="151.09" x2="98.37" y2="144.2" class="s-link"/><line x1="108.09" y1="155.44" x2="95.91" y2="148.56" class="s-link"/><line x1="105.63" y1="159.8" x2="93.45" y2="152.91" class="s-link"/></g><g data-id="s1"><line x1="375.69" y1="163.65" x2="382.26" y2="176.01" class="s-accent"/></g><g data-id="s2"><line x1="379.58" y1="124.4" x2="385.61" y2="111.77" class="s-accent"/><line x1="375.06" y1="122.25" x2="381.1" y2="109.62" class="s-accent"/></g><g data-id="s3"><line x1="334.49" y1="140.36" x2="320.49" y2="140" class="s-accent"/><line x1="334.36" y1="145.36" x2="320.36" y2="145" class="s-accent"/><line x1="334.23" y1="150.36" x2="320.23" y2="150" class="s-accent"/></g><g data-id="a1"><path d="M 98 198 A 22 22 0 0 0 86.83 178.85" class="s-link"/></g><g data-id="a2"><path d="M 182.92 180.31 A 22 22 0 0 0 174 198" class="s-link"/><path d="M 180.55 177.09 A 26 26 0 0 0 170 198" class="s-link"/></g><g data-id="a3"><path d="M 117.17 125.15 A 22 22 0 0 0 141.08 123.69" class="s-link"/></g><g data-id="a1"><path d="M 345.42 187.67 A 22 22 0 0 0 326.57 176.01" class="s-accent"/></g><g data-id="a2"><path d="M 412.1 132.18 A 22 22 0 0 0 412.53 151.99" class="s-accent"/><path d="M 408.49 130.46 A 26 26 0 0 0 409 153.87" class="s-accent"/></g><g data-id="a3"><path d="M 328.16 114.35 A 22 22 0 0 0 348.57 101.84" class="s-accent"/></g><circle cx="76" cy="198" r="4" class="f-ink"/><text x="61.89" y="210.55" text-anchor="middle" class="t-name t-link">A</text><circle cx="196" cy="198" r="4" class="f-ink"/><text x="210.37" y="210.03" text-anchor="middle" class="t-name t-link">B</text><circle cx="128" cy="106" r="4" class="f-ink"/><text x="126.61" y="95.06" text-anchor="middle" class="t-name t-link">C</text><circle cx="326" cy="198" r="4" class="f-ink"/><text x="317.09" y="216.29" text-anchor="middle" class="t-name t-accent">D</text><circle cx="431.95" cy="141.66" r="4" class="f-ink"/><text x="447.94" y="146.13" text-anchor="middle" class="t-name t-accent">E</text><circle cx="328.72" cy="92.36" r="4" class="f-ink"/><text x="320.01" y="83.93" text-anchor="middle" class="t-name t-accent">F</text><text x="30" y="254" class="t-val t-accent" data-id="crit-name">ด.ด.ด. (SSS)</text><text x="30" y="278" class="t-mono" data-id="crit-note">ด้านสามคู่ยาวเท่ากัน</text></svg></div><div class="fig-ctrl"><button type="button" data-act="sss" data-group="crit" aria-pressed="true">ด.ด.ด.</button><button type="button" data-act="sas" data-group="crit" aria-pressed="false">ด.ม.ด.</button><button type="button" data-act="asa" data-group="crit" aria-pressed="false">ม.ด.ม.</button><button type="button" data-act="aas" data-group="crit" aria-pressed="false">ม.ม.ด.</button><button type="button" data-act="rhs" data-group="crit" aria-pressed="false">ฉ.ด.ด.</button><button type="button" data-act="play" aria-pressed="false">ทับรูป</button><button type="button" data-act="reset" aria-pressed="false">แยกรูป</button><span class="fig-readout" data-readout>ด.ด.ด. (SSS) — ด้านสามคู่ยาวเท่ากัน</span></div><figcaption>กด <b>ทับรูป</b> เพื่อเลื่อนและหมุนรูปหนึ่งไปทับอีกรูป — นี่คือความหมายของคำว่า “เท่ากันทุกประการ” เลือกเงื่อนไขเพื่อดูว่าต้องรู้ส่วนประกอบใดเพียง 3 คู่ก็สรุปได้</figcaption></figure></section><section id="criteria"><h2>เงื่อนไขที่ใช้สรุปความเท่ากันทุกประการ</h2><p>รูปสามเหลี่ยมมีส่วนประกอบหกส่วน (ด้านสามด้าน มุมสามมุม)
+             แต่เราไม่ต้องตรวจทั้งหกส่วน รู้เพียง <b>สามส่วนที่เหมาะสม</b> ก็พอ</p><table class="tbl"><thead><tr><th>เงื่อนไข</th><th>ต้องรู้</th><th>ข้อควรระวัง</th></tr></thead><tbody><tr><td><b>ด.ด.ด.</b> (SSS)</td><td>ด้านสามคู่เท่ากัน</td><td>ใช้ได้เสมอ</td></tr><tr><td><b>ด.ม.ด.</b> (SAS)</td><td>ด้านสองคู่ และ <b>มุมระหว่างด้านทั้งสอง</b></td><td>มุมต้องอยู่ <i>ระหว่าง</i> ด้านสองด้านนั้น</td></tr><tr><td><b>ม.ด.ม.</b> (ASA)</td><td>มุมสองคู่ และ <b>ด้านระหว่างมุมทั้งสอง</b></td><td>ด้านต้องอยู่ <i>ระหว่าง</i> มุมสองมุมนั้น</td></tr><tr><td><b>ม.ม.ด.</b> (AAS)</td><td>มุมสองคู่ และด้านคู่หนึ่งที่ไม่อยู่ระหว่างมุม</td><td>ต้องเป็นด้านที่ <i>สมนัย</i> กันจริง</td></tr><tr><td><b>ฉ.ด.ด.</b> (RHS)</td><td>มุมฉาก ด้านตรงข้ามมุมฉาก และด้านประกอบมุมฉากอีกด้าน</td><td>ใช้เฉพาะสามเหลี่ยมมุมฉาก</td></tr></tbody></table><div class="box warn"><span class="box-label">กับดักสำคัญ: ด.ด.ม. ใช้ไม่ได้</span>
+             <p>การรู้ "ด้านสองคู่และมุมที่ <b>ไม่</b> อยู่ระหว่างด้านทั้งสอง"
+             (ด.ด.ม. / SSA) <b>ไม่เพียงพอ</b> ที่จะสรุปความเท่ากันทุกประการ</p>
+             <p><b>ตัวอย่างค้าน</b> ให้ \(\angle B=30^\circ\), \(AB=10\) และ \(AC=6\)
+             จะวาดรูปสามเหลี่ยม \(ABC\) ได้สองรูปที่ต่างกัน
+             เพราะวงกลมรัศมี \(6\) จุดศูนย์กลาง \(A\) ตัดรังสี \(BC\) ได้สองจุด</p>
+             <p>เช่นเดียวกัน <b>ม.ม.ม. (AAA) ก็ใช้ไม่ได้</b> เพราะมุมเท่ากันสามคู่
+             บอกแค่ว่ารูป <i>คล้ายกัน</i> ไม่ได้บอกว่าขนาดเท่ากัน</p></div><div class="ex"><div class="ex-head"><span class="ex-tag">ตัวอย่าง 1</span><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">เลือกเงื่อนไข</span></div><div class="ex-body">
+             รูปสามเหลี่ยม \(ABC\) และ \(DEF\) มี \(AB=DE=7\) ซม.,
+             \(\angle A=\angle D=55^\circ\) และ \(AC=DF=9\) ซม.
+             <br>ทั้งสองรูปเท่ากันทุกประการหรือไม่ ใช้เงื่อนไขใด</div><div class="ex-sol"><p class="sol-label">แนวคิดและวิธีทำ</p><ol class="steps"><li>ส่วนที่รู้คือ ด้าน \(AB\), มุม \(\angle A\), ด้าน \(AC\)</li><li>ตรวจตำแหน่งของมุม: \(\angle A\) เป็นมุมที่จุดยอด \(A\)
+                 ซึ่งเป็นจุดร่วมของด้าน \(AB\) และ \(AC\)</li><li>ดังนั้นมุมอยู่ <b>ระหว่าง</b> ด้านสองด้านที่รู้ → เข้าเงื่อนไข ด.ม.ด.</li><li>สรุป \(\triangle ABC\equiv\triangle DEF\) (ด.ม.ด.)</li></ol><p class="ans">เท่ากันทุกประการ ด้วยเงื่อนไข ด.ม.ด. (SAS)</p></div></div><div class="ex"><div class="ex-head"><span class="ex-tag">ตัวอย่าง 2</span><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">พิสูจน์</span></div><div class="ex-body">
+             รูปสี่เหลี่ยม \(ABCD\) มี \(AB=CD\) และ \(AB\parallel CD\)
+             จงพิสูจน์ว่า \(\triangle ABD\equiv\triangle CDB\)
+             และสรุปว่า \(AD\parallel BC\)</div><div class="ex-sol"><p class="sol-label">แนวคิดและวิธีทำ</p><ol class="steps"><li>ลากเส้นทแยงมุม \(BD\) ซึ่งเป็นด้านร่วมของสามเหลี่ยมสองรูป</li><li><b>ข้อ 1</b> \(AB=CD\) — <i>กำหนดให้</i></li><li><b>ข้อ 2</b> \(\angle ABD=\angle CDB\) — <i>มุมแย้งของ
+                 \(AB\parallel CD\) ที่มี \(BD\) เป็นเส้นตัด</i></li><li><b>ข้อ 3</b> \(BD=DB\) — <i>เป็นด้านร่วม (เส้นเดียวกัน)</i></li><li>จากข้อ 1–3 ด้าน–มุม–ด้าน โดยมุมอยู่ระหว่างด้านทั้งสอง
+                 จึงได้ \(\triangle ABD\equiv\triangle CDB\) (ด.ม.ด.)</li><li>ส่วนสมนัยเท่ากัน จึงได้ \(\angle ADB=\angle CBD\)</li><li>\(\angle ADB\) และ \(\angle CBD\) เป็นมุมแย้งที่เกิดจาก
+                 \(AD\) กับ \(BC\) โดยมี \(BD\) เป็นเส้นตัด
+                 เมื่อมุมแย้งเท่ากันจึงสรุปได้ว่า \(AD\parallel BC\)</li></ol><p class="ans">\(\triangle ABD\equiv\triangle CDB\) (ด.ม.ด.) และ \(AD\parallel BC\)</p></div></div><div class="box trick"><span class="box-label">กลยุทธ์หาเงื่อนไขในโจทย์พิสูจน์</span>
+             <ol>
+             <li><b>มองหาด้านร่วมหรือมุมร่วม</b> — สามเหลี่ยมสองรูปที่ซ้อนหรือ
+             ติดกันมักมีด้านร่วม นี่คือคู่ที่ได้ฟรีหนึ่งคู่</li>
+             <li><b>มองหามุมตรงข้าม</b> ถ้าเส้นสองเส้นตัดกัน ได้มุมเท่ากันฟรีอีกคู่</li>
+             <li><b>มองหาเส้นขนาน</b> ที่ให้มุมแย้งหรือมุมแย้งเท่ากัน</li>
+             <li><b>จุดกึ่งกลาง</b> ให้ด้านเท่ากันสองคู่</li>
+             <li>นับว่าได้ครบสามคู่หรือยัง แล้วตรวจว่า <b>ตำแหน่ง</b>
+             ของมุมถูกเงื่อนไขหรือไม่</li>
+             </ol></div><div class="ex"><div class="ex-head"><span class="ex-tag">ตัวอย่าง 3</span><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">พิสูจน์</span></div><div class="ex-body">
+             จุด \(M\) เป็นจุดกึ่งกลางของ \(AB\) และของ \(CD\) พร้อมกัน
+             (คือ \(AB\) และ \(CD\) แบ่งครึ่งกันที่ \(M\))
+             <br>จงพิสูจน์ว่า \(AC=BD\) และ \(AC\parallel BD\)</div><div class="ex-sol"><p class="sol-label">แนวคิดและวิธีทำ</p><ol class="steps"><li>พิจารณา \(\triangle AMC\) และ \(\triangle BMD\)</li><li>\(AM=BM\) — <i>\(M\) เป็นจุดกึ่งกลางของ \(AB\)</i></li><li>\(CM=DM\) — <i>\(M\) เป็นจุดกึ่งกลางของ \(CD\)</i></li><li>\(\angle AMC=\angle BMD\) — <i>มุมตรงข้าม</i></li><li>มุมอยู่ระหว่างด้านสองคู่ที่เท่ากัน จึงได้
+                 \(\triangle AMC\equiv\triangle BMD\) (ด.ม.ด.)</li><li>ส่วนสมนัย: \(AC=BD\) ✓</li><li>ส่วนสมนัย: \(\angle CAM=\angle DBM\) ซึ่งเป็นมุมแย้งของ
+                 \(AC\) กับ \(BD\) โดยมี \(AB\) เป็นเส้นตัด
+                 จึงได้ \(AC\parallel BD\) ✓</li></ol><p class="ans">\(AC=BD\) และ \(AC\parallel BD\)</p></div></div></section><section id="isosceles"><h2>สามเหลี่ยมหน้าจั่วและสามเหลี่ยมมุมฉาก</h2><div class="box thm"><span class="box-label">ทฤษฎีบทสามเหลี่ยมหน้าจั่ว</span>
+             <p>ในรูปสามเหลี่ยม \(ABC\)</p>
+             \[AB=AC \iff \angle B=\angle C\]
+             <p>คือ "ด้านประกอบมุมยอดเท่ากัน <b>ถ้าและเพียงถ้า</b> มุมที่ฐานเท่ากัน"</p>
+             <p>ผลพลอยได้ที่สำคัญ: ในสามเหลี่ยมหน้าจั่ว เส้นที่ลากจากมุมยอด
+             ไปยังฐานเส้นเดียวกันทำหน้าที่ <b>สามอย่างพร้อมกัน</b> คือ
+             เป็นเส้นแบ่งครึ่งมุมยอด เป็นเส้นมัธยฐาน และเป็นเส้นสูง</p></div><div class="ex"><div class="ex-head"><span class="ex-tag">ตัวอย่าง 4</span><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">พิสูจน์</span></div><div class="ex-body">
+             รูปสามเหลี่ยม \(ABC\) มี \(AB=AC\) และ \(AD\) แบ่งครึ่งมุม \(A\)
+             โดย \(D\) อยู่บน \(BC\)
+             <br>จงพิสูจน์ว่า \(D\) เป็นจุดกึ่งกลางของ \(BC\) และ \(AD\perp BC\)</div><div class="ex-sol"><p class="sol-label">แนวคิดและวิธีทำ</p><ol class="steps"><li>พิจารณา \(\triangle ABD\) และ \(\triangle ACD\)</li><li>\(AB=AC\) — <i>กำหนดให้</i></li><li>\(\angle BAD=\angle CAD\) — <i>\(AD\) แบ่งครึ่งมุม \(A\)</i></li><li>\(AD=AD\) — <i>ด้านร่วม</i></li><li>จึงได้ \(\triangle ABD\equiv\triangle ACD\) (ด.ม.ด.)</li><li>ส่วนสมนัย \(BD=CD\) ดังนั้น \(D\) เป็นจุดกึ่งกลางของ \(BC\) ✓</li><li>ส่วนสมนัย \(\angle ADB=\angle ADC\) และสองมุมนี้เป็น
+                 มุมประชิดเส้นตรง จึงรวมกันได้ \(180^\circ\)</li><li>ดังนั้นแต่ละมุมเท่ากับ \(90^\circ\) นั่นคือ \(AD\perp BC\) ✓</li></ol><p class="ans">\(BD=CD\) และ \(\angle ADB=\angle ADC=90^\circ\)</p></div></div><div class="box note"><span class="box-label">เมื่อใดจึงใช้ ฉ.ด.ด.</span>
+             <p>ในสามเหลี่ยมมุมฉาก การรู้ด้านตรงข้ามมุมฉาก (hypotenuse)
+             กับด้านประกอบมุมฉากอีกด้านหนึ่ง เพียงพอที่จะสรุปความเท่ากันทุกประการได้
+             เพราะด้านที่สามคำนวณได้แน่นอนหนึ่งค่าจากทฤษฎีบทพีทาโกรัส</p>
+             <p>มองอีกแบบ: ฉ.ด.ด. ก็คือกรณีพิเศษของ ด.ด.ด. ที่ด้านที่สาม
+             ถูกบังคับด้วยมุมฉาก — นี่คือเหตุที่ ด.ด.ม. ซึ่งโดยทั่วไปใช้ไม่ได้
+             กลับใช้ได้เมื่อมุมที่รู้เป็นมุมฉาก</p></div></section><section id="drill" class="drill"><div class="drill-head"><h3>แบบฝึกหัดท้ายบท</h3><span class="drill-stat">แสดง 30 / 30 ข้อ</span></div><p>โจทย์เรียงจากปานกลางไปยาก และปิดท้ายด้วยโจทย์ประยุกต์ ลองทำด้วยตัวเองให้ครบก่อนเปิดเฉลย</p><div class="drill-filter"><button class="btn" type="button" data-filter="all" aria-pressed="true">ทั้งหมด (30)</button><button class="btn" type="button" data-filter="med" aria-pressed="false">ปานกลาง (11)</button><button class="btn" type="button" data-filter="hard" aria-pressed="false">ยาก (12)</button><button class="btn" type="button" data-filter="apply" aria-pressed="false">ประยุกต์ (7)</button><button class="btn" type="button" data-sol-all="show">เปิดเฉลยทั้งหมด</button><button class="btn" type="button" data-sol-all="hide">ปิดเฉลยทั้งหมด</button></div><div class="q" data-lvl="med"><div class="qn">1.</div><div class="qbody">จงบอกว่าข้อมูลต่อไปนี้ใช้เงื่อนไขใด
+         สรุปความเท่ากันทุกประการ (หรือสรุปไม่ได้)
+         <br>(ก) \(AB=DE,\ BC=EF,\ CA=FD\)
+         <br>(ข) \(\angle A=\angle D,\ AB=DE,\ \angle B=\angle E\)
+         <br>(ค) \(AB=DE,\ BC=EF,\ \angle A=\angle D\)</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">เลือกเงื่อนไข</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u5-congruence-s1">ดูเฉลย</button></div><div class="qsol" id="u5-congruence-s1" hidden>(ก) <b>ด.ด.ด.</b>
+             <br>(ข) <b>ม.ด.ม.</b> เพราะ \(AB\) อยู่ระหว่าง \(\angle A\) และ \(\angle B\)
+             <br>(ค) <b>สรุปไม่ได้</b> เพราะ \(\angle A\) ไม่อยู่ระหว่าง \(AB\) และ
+             \(BC\) (เป็นกรณี ด.ด.ม.)</div></div><div class="q" data-lvl="med"><div class="qn">2.</div><div class="qbody">ถ้า \(\triangle PQR\equiv\triangle XYZ\)
+         และ \(PQ=8\), \(QR=11\), \(\angle P=43^\circ\), \(\angle Q=75^\circ\)
+         <br>จงหา \(XY\), \(YZ\), \(\angle X\), \(\angle Z\)</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">ส่วนสมนัย</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u5-congruence-s2">ดูเฉลย</button></div><div class="qsol" id="u5-congruence-s2" hidden>ลำดับสมนัย \(P\leftrightarrow X,Q\leftrightarrow Y,R\leftrightarrow Z\)
+             <br>\(XY=PQ=8\), \(YZ=QR=11\), \(\angle X=\angle P=43^\circ\)
+             <br>\(\angle Z=\angle R=180^\circ-43^\circ-75^\circ=62^\circ\)</div></div><div class="q" data-lvl="med"><div class="qn">3.</div><div class="qbody">รูปสามเหลี่ยม \(ABC\) มี \(AB=AC\)
+         และ \(\angle B=5x-10\) องศา, \(\angle C=3x+14\) องศา
+         จงหา \(x\) และมุมยอด</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">หน้าจั่ว</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u5-congruence-s3">ดูเฉลย</button></div><div class="qsol" id="u5-congruence-s3" hidden>มุมที่ฐานเท่ากัน: \(5x-10=3x+14\Rightarrow 2x=24\Rightarrow x=12\)
+             <br>\(\angle B=\angle C=50^\circ\) ดังนั้นมุมยอด \(=180-100=80^\circ\)</div></div><div class="q" data-lvl="med"><div class="qn">4.</div><div class="qbody">รูปสามเหลี่ยมด้านเท่ามีมุมภายในแต่ละมุม
+         เท่าใด จงอธิบายด้วยทฤษฎีบทสามเหลี่ยมหน้าจั่ว</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">หน้าจั่ว</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u5-congruence-s4">ดูเฉลย</button></div><div class="qsol" id="u5-congruence-s4" hidden>ด้านเท่ากันทุกด้าน จึงเป็นหน้าจั่วจากทุกจุดยอด
+             <br>มองจาก \(A\): \(\angle B=\angle C\); มองจาก \(B\): \(\angle A=\angle C\)
+             <br>ดังนั้นมุมทั้งสามเท่ากัน และรวมได้ \(180^\circ\) จึงได้มุมละ \(60^\circ\)</div></div><div class="q" data-lvl="med"><div class="qn">5.</div><div class="qbody">จุด \(O\) เป็นจุดกึ่งกลางของ \(PQ\)
+         และ \(OR=OS\) โดย \(R,S\) อยู่คนละข้างของ \(PQ\) และ \(R,O,S\)
+         อยู่บนเส้นตรงเดียวกัน
+         <br>จงพิสูจน์ว่า \(\triangle POR\equiv\triangle QOS\)</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">พิสูจน์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u5-congruence-s5">ดูเฉลย</button></div><div class="qsol" id="u5-congruence-s5" hidden>\(PO=QO\) (\(O\) เป็นจุดกึ่งกลาง \(PQ\))
+             <br>\(OR=OS\) (กำหนดให้)
+             <br>\(\angle POR=\angle QOS\) (มุมตรงข้าม เพราะ \(R,O,S\) เรียงเป็นเส้นตรง
+             และ \(P,O,Q\) เรียงเป็นเส้นตรง)
+             <br>มุมอยู่ระหว่างด้านทั้งสองคู่ จึงได้ \(\triangle POR\equiv\triangle QOS\)
+             (ด.ม.ด.)</div></div><div class="q" data-lvl="med"><div class="qn">6.</div><div class="qbody">สามเหลี่ยมมุมฉากสองรูปมีด้านตรงข้ามมุมฉาก
+         ยาว \(13\) ซม. เท่ากัน และด้านประกอบมุมฉากด้านหนึ่งยาว \(5\) ซม. เท่ากัน
+         <br>จงแสดงว่าทั้งสองรูปเท่ากันทุกประการ และหาด้านที่สาม</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">มุมฉาก</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u5-congruence-s6">ดูเฉลย</button></div><div class="qsol" id="u5-congruence-s6" hidden>เข้าเงื่อนไข <b>ฉ.ด.ด.</b> จึงเท่ากันทุกประการ
+             <br>ด้านที่สาม \(=\sqrt{13^{2}-5^{2}}=\sqrt{169-25}=\sqrt{144}=12\) ซม.
+             <br>ซึ่งเป็นค่าเดียว ยืนยันว่ารูปถูกกำหนดแน่นอน</div></div><div class="q" data-lvl="med"><div class="qn">7.</div><div class="qbody">จงอธิบายว่าเหตุใด "มุมเท่ากันสามคู่"
+         (ม.ม.ม.) จึงไม่เพียงพอ พร้อมยกตัวอย่างค้าน</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">ตัวอย่างค้าน</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u5-congruence-s7">ดูเฉลย</button></div><div class="qsol" id="u5-congruence-s7" hidden>มุมเท่ากันสามคู่บอกเพียงว่ารูป <b>คล้ายกัน</b> ไม่ได้บอกขนาด
+             <br><b>ตัวอย่างค้าน</b>: สามเหลี่ยมด้านเท่าด้านยาว \(2\) ซม.
+             และด้านยาว \(5\) ซม. มีมุมเท่ากันทุกมุม (\(60^\circ\) ทั้งสาม)
+             แต่ขนาดต่างกันจึงไม่เท่ากันทุกประการ</div></div><div class="q" data-lvl="med"><div class="qn">8.</div><div class="qbody">\(\triangle ABC\equiv\triangle DEF\)
+         โดย \(AB=2x+3\), \(DE=x+10\), \(BC=5y-4\), \(EF=3y+8\)
+         จงหา \(x\) และ \(y\)</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">หาค่า</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u5-congruence-s8">ดูเฉลย</button></div><div class="qsol" id="u5-congruence-s8" hidden>\(AB=DE\): \(2x+3=x+10\Rightarrow x=7\)
+             <br>\(BC=EF\): \(5y-4=3y+8\Rightarrow 2y=12\Rightarrow y=6\)</div></div><div class="q" data-lvl="hard"><div class="qn">9.</div><div class="qbody">รูปสี่เหลี่ยมด้านขนาน \(ABCD\)
+         จงพิสูจน์ว่าเส้นทแยงมุมแบ่งครึ่งกัน (คือ \(AC\) และ \(BD\)
+         ตัดกันที่จุดกึ่งกลางของทั้งสองเส้น)</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">พิสูจน์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u5-congruence-s9">ดูเฉลย</button></div><div class="qsol" id="u5-congruence-s9" hidden>ให้เส้นทแยงมุมตัดกันที่ \(O\) พิจารณา \(\triangle AOB\)
+             และ \(\triangle COD\)
+             <br>\(AB=CD\) (ด้านตรงข้ามของสี่เหลี่ยมด้านขนานเท่ากัน)
+             <br>\(\angle OAB=\angle OCD\) (มุมแย้งของ \(AB\parallel CD\))
+             <br>\(\angle OBA=\angle ODC\) (มุมแย้งของ \(AB\parallel CD\))
+             <br>จึงได้ \(\triangle AOB\equiv\triangle COD\) (ม.ด.ม.)
+             <br>ส่วนสมนัย: \(AO=CO\) และ \(BO=DO\)
+             <br>ดังนั้น \(O\) เป็นจุดกึ่งกลางของทั้ง \(AC\) และ \(BD\)</div></div><div class="q" data-lvl="hard"><div class="qn">10.</div><div class="qbody">รูปสามเหลี่ยม \(ABC\) มี \(AB=AC\)
+         จุด \(D\) อยู่บน \(AB\) และจุด \(E\) อยู่บน \(AC\) โดย \(AD=AE\)
+         <br>จงพิสูจน์ว่า \(BE=CD\)</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">พิสูจน์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u5-congruence-s10">ดูเฉลย</button></div><div class="qsol" id="u5-congruence-s10" hidden>พิจารณา \(\triangle ABE\) และ \(\triangle ACD\)
+             <br>\(AB=AC\) (กำหนดให้)
+             <br>\(\angle A=\angle A\) (มุมร่วม)
+             <br>\(AE=AD\) (กำหนดให้)
+             <br>มุมอยู่ระหว่างด้านทั้งสองคู่ จึงได้
+             \(\triangle ABE\equiv\triangle ACD\) (ด.ม.ด.)
+             <br>ส่วนสมนัย: \(BE=CD\)</div></div><div class="q" data-lvl="hard"><div class="qn">11.</div><div class="qbody">รูปสามเหลี่ยม \(ABC\) มี \(AB=AC\)
+         ต่อ \(BC\) ออกไปทั้งสองข้างได้จุด \(P\) (ด้าน \(B\)) และ \(Q\) (ด้าน \(C\))
+         โดย \(BP=CQ\)
+         <br>จงพิสูจน์ว่า \(AP=AQ\)</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">พิสูจน์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u5-congruence-s11">ดูเฉลย</button></div><div class="qsol" id="u5-congruence-s11" hidden>\(AB=AC\) ทำให้ \(\angle ABC=\angle ACB\)
+             <br>มุมประชิดเส้นตรง: \(\angle ABP=180^\circ-\angle ABC\) และ
+             \(\angle ACQ=180^\circ-\angle ACB\) จึงได้ \(\angle ABP=\angle ACQ\)
+             <br>พิจารณา \(\triangle ABP\) และ \(\triangle ACQ\)
+             <br>\(AB=AC\), \(\angle ABP=\angle ACQ\), \(BP=CQ\)
+             <br>จึงได้ \(\triangle ABP\equiv\triangle ACQ\) (ด.ม.ด.)
+             <br>ส่วนสมนัย: \(AP=AQ\)</div></div><div class="q" data-lvl="hard"><div class="qn">12.</div><div class="qbody">จงพิสูจน์ว่าทุกจุดบนเส้นแบ่งครึ่งตั้งฉาก
+         ของส่วนของเส้นตรง \(AB\) อยู่ห่างจาก \(A\) และ \(B\) เท่ากัน</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">พิสูจน์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u5-congruence-s12">ดูเฉลย</button></div><div class="qsol" id="u5-congruence-s12" hidden>ให้ \(M\) เป็นจุดกึ่งกลาง \(AB\) และ \(P\) เป็นจุดใด ๆ
+             บนเส้นที่ผ่าน \(M\) และตั้งฉากกับ \(AB\)
+             <br>พิจารณา \(\triangle AMP\) และ \(\triangle BMP\)
+             <br>\(AM=BM\) (\(M\) เป็นจุดกึ่งกลาง)
+             <br>\(\angle AMP=\angle BMP=90^\circ\) (เส้นตั้งฉาก)
+             <br>\(MP=MP\) (ด้านร่วม)
+             <br>จึงได้ \(\triangle AMP\equiv\triangle BMP\) (ด.ม.ด.)
+             <br>ส่วนสมนัย: \(PA=PB\)</div></div><div class="q" data-lvl="hard"><div class="qn">13.</div><div class="qbody">จงพิสูจน์ว่าทุกจุดบนเส้นแบ่งครึ่งมุม
+         อยู่ห่างจากแขนทั้งสองของมุมเท่ากัน</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">พิสูจน์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u5-congruence-s13">ดูเฉลย</button></div><div class="qsol" id="u5-congruence-s13" hidden>ให้ \(OP\) แบ่งครึ่ง \(\angle AOB\) และลาก \(PM\perp OA\),
+             \(PN\perp OB\)
+             <br>พิจารณา \(\triangle OMP\) และ \(\triangle ONP\)
+             <br>\(\angle MOP=\angle NOP\) (เส้นแบ่งครึ่งมุม)
+             <br>\(\angle OMP=\angle ONP=90^\circ\) (สร้างให้ตั้งฉาก)
+             <br>\(OP=OP\) (ด้านร่วม ซึ่งไม่อยู่ระหว่างมุมทั้งสอง)
+             <br>จึงได้ \(\triangle OMP\equiv\triangle ONP\) (<b>ม.ม.ด.</b>)
+             <br>ส่วนสมนัย: \(PM=PN\)</div></div><div class="q" data-lvl="hard"><div class="qn">14.</div><div class="qbody">รูปสี่เหลี่ยม \(ABCD\) มี \(AB=AD\)
+         และ \(CB=CD\) (รูปว่าว)
+         <br>จงพิสูจน์ว่า \(AC\) แบ่งครึ่งมุม \(A\) และมุม \(C\)
+         และ \(AC\perp BD\)</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">พิสูจน์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u5-congruence-s14">ดูเฉลย</button></div><div class="qsol" id="u5-congruence-s14" hidden>พิจารณา \(\triangle ABC\) และ \(\triangle ADC\)
+             <br>\(AB=AD\), \(CB=CD\) (กำหนดให้), \(AC=AC\) (ด้านร่วม)
+             <br>จึงได้ \(\triangle ABC\equiv\triangle ADC\) (<b>ด.ด.ด.</b>)
+             <br>ส่วนสมนัย: \(\angle BAC=\angle DAC\) → \(AC\) แบ่งครึ่งมุม \(A\) ✓
+             <br>ส่วนสมนัย: \(\angle BCA=\angle DCA\) → แบ่งครึ่งมุม \(C\) ✓
+             <br>ให้ \(AC\) ตัด \(BD\) ที่ \(O\): ใน \(\triangle ABO,\triangle ADO\)
+             มี \(AB=AD\), \(\angle BAO=\angle DAO\), \(AO=AO\) จึงเท่ากันทุกประการ
+             <br>ได้ \(\angle AOB=\angle AOD\) ซึ่งเป็นมุมประชิดเส้นตรง
+             จึงเท่ากับ \(90^\circ\) ดังนั้น \(AC\perp BD\) ✓</div></div><div class="q" data-lvl="hard"><div class="qn">15.</div><div class="qbody">รูปสามเหลี่ยม \(ABC\) มี \(\angle B=\angle C\)
+         จงพิสูจน์ว่า \(AB=AC\) (บทกลับของทฤษฎีบทสามเหลี่ยมหน้าจั่ว)</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">พิสูจน์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u5-congruence-s15">ดูเฉลย</button></div><div class="qsol" id="u5-congruence-s15" hidden>ลาก \(AD\) ให้แบ่งครึ่งมุม \(A\) โดย \(D\) อยู่บน \(BC\)
+             <br>พิจารณา \(\triangle ABD\) และ \(\triangle ACD\)
+             <br>\(\angle B=\angle C\) (กำหนดให้)
+             <br>\(\angle BAD=\angle CAD\) (เส้นแบ่งครึ่งมุม)
+             <br>\(AD=AD\) (ด้านร่วม ไม่อยู่ระหว่างมุมทั้งสอง)
+             <br>จึงได้ \(\triangle ABD\equiv\triangle ACD\) (<b>ม.ม.ด.</b>)
+             <br>ส่วนสมนัย: \(AB=AC\)</div></div><div class="q" data-lvl="hard"><div class="qn">16.</div><div class="qbody">จงสร้างตัวอย่างค้านเป็นตัวเลข
+         ที่แสดงว่า ด.ด.ม. ใช้สรุปความเท่ากันทุกประการไม่ได้</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">ตัวอย่างค้าน</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u5-congruence-s16">ดูเฉลย</button></div><div class="qsol" id="u5-congruence-s16" hidden>ให้ \(\angle B=30^\circ\), \(AB=10\), \(AC=6\)
+             <br>ลาก \(AH\perp BC\) ได้ \(AH=10\sin30^\circ=5\) ซึ่งน้อยกว่า \(6\)
+             <br>วงกลมรัศมี \(6\) จุดศูนย์กลาง \(A\) จึงตัดรังสี \(BC\) ได้ <b>สองจุด</b>
+             คือ \(C_1\) และ \(C_2\) โดย \(HC_{1,2}=\sqrt{36-25}=\sqrt{11}\)
+             <br>\(BH=10\cos30^\circ=5\sqrt3\approx8.66\)
+             <br>ได้ \(BC_1\approx8.66-3.32=5.34\) และ \(BC_2\approx8.66+3.32=11.98\)
+             <br>สามเหลี่ยมสองรูปนี้มี ด.ด.ม. เหมือนกันทั้งหมด แต่ \(BC\) ต่างกัน
+             จึง <b>ไม่เท่ากันทุกประการ</b></div></div><div class="q" data-lvl="hard"><div class="qn">17.</div><div class="qbody">รูปสามเหลี่ยมด้านเท่า \(ABC\)
+         มีจุด \(D,E,F\) อยู่บน \(BC,CA,AB\) ตามลำดับ โดย \(BD=CE=AF\)
+         <br>จงพิสูจน์ว่า \(\triangle DEF\) เป็นรูปสามเหลี่ยมด้านเท่า</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">ซ้อนรูป</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u5-congruence-s17">ดูเฉลย</button></div><div class="qsol" id="u5-congruence-s17" hidden>\(ABC\) ด้านเท่า ให้ด้านยาว \(s\) และ \(BD=CE=AF=k\)
+             <br>ดังนั้น \(DC=EA=FB=s-k\)
+             <br>พิจารณา \(\triangle BDF\), \(\triangle CED\), \(\triangle AFE\)
+             <br>\(BD=CE=AF=k\)
+             <br>\(\angle B=\angle C=\angle A=60^\circ\)
+             <br>\(BF=CD=AE=s-k\)
+             <br>ทั้งสามรูปเท่ากันทุกประการ (ด.ม.ด.)
+             <br>ส่วนสมนัย: \(DF=ED=FE\) จึงได้ \(\triangle DEF\) ด้านเท่า</div></div><div class="q" data-lvl="apply"><div class="qn">18.</div><div class="qbody">ช่างต้องการวัดความกว้างของบึง \(AB\)
+         ซึ่งเดินข้ามไม่ได้ จึงทำดังนี้: เลือกจุด \(C\) บนฝั่ง แล้วหาจุดกึ่งกลาง
+         \(M\) ของ \(AC\) จากนั้นลาก \(BM\) ต่อออกไปจนถึง \(D\) ให้ \(BM=MD\)
+         แล้ววัด \(CD\) ได้ \(47\) เมตร
+         <br>จงอธิบายว่าเหตุใด \(AB=CD\) และบอกความกว้างของบึง</div><div class="qmeta"><span class="ex-lvl apply">ประยุกต์</span><span class="ex-lvl">ประยุกต์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u5-congruence-s18">ดูเฉลย</button></div><div class="qsol" id="u5-congruence-s18" hidden>พิจารณา \(\triangle ABM\) และ \(\triangle CDM\)
+             <br>\(AM=CM\) (\(M\) เป็นจุดกึ่งกลางของ \(AC\))
+             <br>\(BM=DM\) (สร้างให้เท่ากัน)
+             <br>\(\angle AMB=\angle CMD\) (มุมตรงข้าม)
+             <br>จึงได้ \(\triangle ABM\equiv\triangle CDM\) (ด.ม.ด.)
+             <br>ส่วนสมนัย: \(AB=CD=47\) เมตร
+             <br><b>ความกว้างของบึง \(=47\) เมตร</b></div></div><div class="q" data-lvl="apply"><div class="qn">19.</div><div class="qbody">โครงเหล็กหลังคาทรงจั่วทำจากสามเหลี่ยม
+         หน้าจั่วที่มีด้านลาดเท่ากัน \(5\) ม. และฐาน \(6\) ม.
+         <br>(ก) จงหาความสูงของจั่ว
+         <br>(ข) จงอธิบายว่าเหตุใดเหล็กค้ำกลางที่ลากจากยอดลงฐานจึงตั้งฉากกับฐาน
+         <br>(ค) เหล็กค้ำกลางยาวเท่าไร</div><div class="qmeta"><span class="ex-lvl apply">ประยุกต์</span><span class="ex-lvl">ประยุกต์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u5-congruence-s19">ดูเฉลย</button></div><div class="qsol" id="u5-congruence-s19" hidden>(ข) สามเหลี่ยมหน้าจั่วที่ลากเส้นจากยอดไปจุดกึ่งกลางฐาน
+             ทำให้สามเหลี่ยมสองรูปเท่ากันทุกประการ (ด.ด.ด.)
+             <br>ส่วนสมนัยทำให้มุมที่ฐานของเส้นนั้นเท่ากัน และเป็นมุมประชิดเส้นตรง
+             จึงได้มุมละ \(90^\circ\) → ตั้งฉาก ✓
+             <br>(ก),(ค) ครึ่งฐาน \(=3\) ม. ใช้พีทาโกรัส:
+             \(h=\sqrt{5^{2}-3^{2}}=\sqrt{16}=4\) ม.
+             <br>ความสูงของจั่วและความยาวเหล็กค้ำกลาง \(=4\) ม.</div></div><div class="q" data-lvl="apply"><div class="qn">20.</div><div class="qbody">โรงงานผลิตชิ้นส่วนรูปสามเหลี่ยม
+         ให้ตรวจคุณภาพด้วยการวัดเพียง 3 ค่าต่อชิ้น
+         <br>(ก) ถ้าวัดด้านสามด้าน เพียงพอหรือไม่
+         <br>(ข) ถ้าวัดมุมสามมุม เพียงพอหรือไม่
+         <br>(ค) ถ้าวัดด้านสองด้านและมุมหนึ่งมุม ต้องกำหนดเพิ่มอะไร</div><div class="qmeta"><span class="ex-lvl apply">ประยุกต์</span><span class="ex-lvl">ประยุกต์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u5-congruence-s20">ดูเฉลย</button></div><div class="qsol" id="u5-congruence-s20" hidden>(ก) <b>เพียงพอ</b> — เข้าเงื่อนไข ด.ด.ด. รูปถูกกำหนดแน่นอน
+             <br>(ข) <b>ไม่เพียงพอ</b> — ม.ม.ม. บอกแค่รูปคล้าย ชิ้นงานอาจใหญ่หรือเล็กไป
+             <br>(ค) ต้องกำหนดว่า <b>มุมนั้นอยู่ระหว่างด้านสองด้านที่วัด</b> (ด.ม.ด.)
+             ไม่อย่างนั้นจะเป็น ด.ด.ม. ซึ่งอาจได้ชิ้นงานสองแบบ</div></div><div class="q" data-lvl="apply"><div class="qn">21.</div><div class="qbody">สะพานแขวนออกแบบให้สายเคเบิลสองฝั่ง
+         สมมาตรกันรอบเสากลาง โดยสายฝั่งซ้ายยึดที่ระยะ \(40\) ม.
+         จากเสาและทำมุม \(28^\circ\) กับพื้น
+         <br>(ก) สายฝั่งขวายึดที่ระยะเท่าไร และทำมุมเท่าไร
+         <br>(ข) จงอธิบายว่าเหตุใดสายเคเบิลทั้งสองจึงยาวเท่ากัน</div><div class="qmeta"><span class="ex-lvl apply">ประยุกต์</span><span class="ex-lvl">ประยุกต์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u5-congruence-s21">ดูเฉลย</button></div><div class="qsol" id="u5-congruence-s21" hidden>(ก) สมมาตรรอบเสากลาง (การสะท้อน) จึงได้ระยะ \(40\) ม.
+             และมุม \(28^\circ\) เท่ากัน
+             <br>(ข) สามเหลี่ยมสองรูป (เสา–พื้น–สาย) มี
+             <br>ความสูงเสาเท่ากัน (ด้านร่วม), มุมที่เสา \(=90^\circ\) เท่ากัน,
+             ระยะยึดเท่ากัน \(=40\) ม.
+             <br>จึงเท่ากันทุกประการด้วย ด.ม.ด. และส่วนสมนัยทำให้สายทั้งสองยาวเท่ากัน</div></div><div class="q" data-lvl="apply"><div class="qn">22.</div><div class="qbody">ช่างไม้ตรวจว่ากรอบประตูเป็นสี่เหลี่ยมมุมฉาก
+         จริงหรือไม่ โดยวัดเส้นทแยงมุมทั้งสอง
+         <br>(ก) ถ้าเส้นทแยงมุมยาวเท่ากัน สรุปได้อะไร (สมมติว่ารู้แล้วว่า
+         ด้านตรงข้ามยาวเท่ากัน)
+         <br>(ข) จงพิสูจน์</div><div class="qmeta"><span class="ex-lvl apply">ประยุกต์</span><span class="ex-lvl">ประยุกต์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u5-congruence-s22">ดูเฉลย</button></div><div class="qsol" id="u5-congruence-s22" hidden>(ก) สรุปได้ว่ากรอบเป็น <b>สี่เหลี่ยมมุมฉาก</b>
+             <br>(ข) ให้ \(ABCD\) มี \(AB=CD\), \(AD=BC\) (ด้านตรงข้ามเท่ากัน →
+             เป็นสี่เหลี่ยมด้านขนาน) และ \(AC=BD\)
+             <br>พิจารณา \(\triangle ABD\) และ \(\triangle BAC\)
+             <br>\(AB=BA\) (ด้านร่วม), \(AD=BC\), \(BD=AC\)
+             <br>จึงได้ \(\triangle ABD\equiv\triangle BAC\) (ด.ด.ด.)
+             <br>ส่วนสมนัย \(\angle DAB=\angle CBA\)
+             <br>แต่ \(AD\parallel BC\) ทำให้สองมุมนี้เป็นมุมภายในข้างเดียวกัน
+             จึงรวมกันได้ \(180^\circ\)
+             <br>ดังนั้นแต่ละมุมเท่ากับ \(90^\circ\) → เป็นสี่เหลี่ยมมุมฉาก</div></div><div class="q" data-lvl="apply"><div class="qn">23.</div><div class="qbody">ลายปักผ้าออกแบบจากสามเหลี่ยมมุมฉาก
+         ด้านประกอบมุมฉาก \(3\) ซม. และ \(4\) ซม. ทำซ้ำ 4 ชิ้นประกบกันรอบจุดเดียว
+         <br>(ก) ชิ้นทั้งสี่เท่ากันทุกประการด้วยเงื่อนไขใด
+         <br>(ข) รูปที่ประกบได้เป็นรูปอะไร มีพื้นที่เท่าไร
+         <br>(ค) เส้นรอบรูปของรูปที่ประกบได้ยาวเท่าไร</div><div class="qmeta"><span class="ex-lvl apply">ประยุกต์</span><span class="ex-lvl">ประยุกต์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u5-congruence-s23">ดูเฉลย</button></div><div class="qsol" id="u5-congruence-s23" hidden>(ก) ชิ้นทุกชิ้นตัดจากแบบเดียวกัน จึงมี ด.ม.ด.
+             (ด้าน \(3\), มุมฉาก, ด้าน \(4\)) เท่ากันทุกชิ้น
+             <br>(ข) ด้านตรงข้ามมุมฉาก \(=5\) ซม.
+             ประกบ 4 ชิ้นรอบจุดเดียวโดยหมุนทีละ \(90^\circ\)
+             ได้รูปสี่เหลี่ยมจัตุรัสด้านยาว \(5\) ซม. ที่มีช่องจัตุรัสเล็ก
+             ด้านยาว \(4-3=1\) ซม. อยู่ตรงกลาง
+             <br>พื้นที่สามเหลี่ยม 4 ชิ้น \(=4\left(\tfrac12\cdot3\cdot4\right)=24\) ตร.ซม.
+             <br>ตรวจ: \(25-1=24\) ✓ (นี่คือการพิสูจน์พีทาโกรัสแบบหนึ่ง)
+             <br>(ค) เส้นรอบรูป \(=4\times5=20\) ซม.</div></div><div class="q" data-lvl="med"><div class="qn">24.</div><div class="qbody">\(\triangle ABC\equiv\triangle RST\)
+         จงเขียนด้านและมุมที่สมนัยกันให้ครบทั้งหกคู่</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">ส่วนสมนัย</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u5-congruence-s24">ดูเฉลย</button></div><div class="qsol" id="u5-congruence-s24" hidden>ด้าน: \(AB=RS\), \(BC=ST\), \(CA=TR\)
+             <br>มุม: \(\angle A=\angle R\), \(\angle B=\angle S\), \(\angle C=\angle T\)</div></div><div class="q" data-lvl="med"><div class="qn">25.</div><div class="qbody">สามเหลี่ยมมุมฉากสองรูปมีด้านประกอบ
+         มุมฉากยาว \(6\) ซม. และ \(8\) ซม. เท่ากันทั้งคู่ ใช้เงื่อนไขใดสรุปได้</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">เลือกเงื่อนไข</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u5-congruence-s25">ดูเฉลย</button></div><div class="qsol" id="u5-congruence-s25" hidden>มุมฉากอยู่ <b>ระหว่าง</b> ด้านประกอบมุมฉากทั้งสอง
+             จึงเข้าเงื่อนไข <b>ด.ม.ด.</b>
+             <br>(จะใช้ ด.ด.ด. ก็ได้ เพราะด้านที่สามเป็น \(10\) ซม. ทั้งคู่
+             ตามพีทาโกรัส)</div></div><div class="q" data-lvl="med"><div class="qn">26.</div><div class="qbody">รูปสามเหลี่ยม \(ABC\) มี \(AB=AC\)
+         และ \(\angle A=\angle B\) จงหามุมทั้งสาม</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">หน้าจั่ว</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u5-congruence-s26">ดูเฉลย</button></div><div class="qsol" id="u5-congruence-s26" hidden>\(AB=AC\) ให้ \(\angle B=\angle C\)
+             <br>และโจทย์ให้ \(\angle A=\angle B\) ดังนั้นมุมทั้งสามเท่ากัน
+             <br>แต่ละมุม \(=60^\circ\) (เป็นสามเหลี่ยมด้านเท่า)</div></div><div class="q" data-lvl="hard"><div class="qn">27.</div><div class="qbody">รูปสามเหลี่ยม \(ABC\) มี \(AB=AC\)
+         ลาก \(BE\perp AC\) และ \(CF\perp AB\) โดย \(E\) บน \(AC\) และ \(F\) บน \(AB\)
+         <br>จงพิสูจน์ว่า \(BE=CF\)</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">พิสูจน์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u5-congruence-s27">ดูเฉลย</button></div><div class="qsol" id="u5-congruence-s27" hidden>พิจารณา \(\triangle ABE\) และ \(\triangle ACF\)
+             <br>\(\angle AEB=\angle AFC=90^\circ\) (สร้างให้ตั้งฉาก)
+             <br>\(\angle A=\angle A\) (มุมร่วม)
+             <br>\(AB=AC\) (กำหนดให้ — เป็นด้านตรงข้ามมุมฉากของทั้งสองรูป)
+             <br>จึงได้ \(\triangle ABE\equiv\triangle ACF\) (<b>ม.ม.ด.</b>)
+             <br>ส่วนสมนัย: \(BE=CF\)</div></div><div class="q" data-lvl="hard"><div class="qn">28.</div><div class="qbody">จงพิสูจน์ว่าถ้าจุด \(P\) อยู่ห่างจาก
+         \(A\) และ \(B\) เท่ากัน แล้ว \(P\) อยู่บนเส้นแบ่งครึ่งตั้งฉากของ \(AB\)
+         (บทกลับของข้อก่อนหน้า)</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">พิสูจน์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u5-congruence-s28">ดูเฉลย</button></div><div class="qsol" id="u5-congruence-s28" hidden>ให้ \(M\) เป็นจุดกึ่งกลางของ \(AB\) ลาก \(PM\)
+             <br>พิจารณา \(\triangle APM\) และ \(\triangle BPM\)
+             <br>\(PA=PB\) (กำหนดให้), \(AM=BM\) (จุดกึ่งกลาง),
+             \(PM=PM\) (ด้านร่วม)
+             <br>จึงได้ \(\triangle APM\equiv\triangle BPM\) (<b>ด.ด.ด.</b>)
+             <br>ส่วนสมนัย: \(\angle AMP=\angle BMP\)
+             <br>สองมุมนี้เป็นมุมประชิดเส้นตรง จึงรวมกันได้ \(180^\circ\)
+             แต่ละมุมจึงเป็น \(90^\circ\)
+             <br>ดังนั้น \(PM\perp AB\) ที่จุดกึ่งกลาง นั่นคือ \(P\)
+             อยู่บนเส้นแบ่งครึ่งตั้งฉากของ \(AB\)</div></div><div class="q" data-lvl="hard"><div class="qn">29.</div><div class="qbody">รูปสามเหลี่ยม \(ABC\) และ \(A'B'C'\)
+         มี \(AB=A'B'\), \(AC=A'C'\) และเส้นมัธยฐานจาก \(A\) และจาก \(A'\)
+         ยาวเท่ากัน จงพิสูจน์ว่าสองรูปเท่ากันทุกประการ</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">พิสูจน์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u5-congruence-s29">ดูเฉลย</button></div><div class="qsol" id="u5-congruence-s29" hidden>ให้ \(M,M'\) เป็นจุดกึ่งกลางของ \(BC,B'C'\)
+             <br>ต่อ \(AM\) ออกไปถึง \(D\) ให้ \(MD=AM\) (ทำเช่นเดียวกันกับ \(A'\))
+             <br>ใน \(\triangle ABM\) และ \(\triangle DCM\): \(BM=CM\),
+             \(AM=DM\), \(\angle AMB=\angle DMC\) (มุมตรงข้าม)
+             <br>จึงได้ \(DC=AB\) และทำนองเดียวกัน \(D'C'=A'B'\)
+             <br>ตอนนี้ใน \(\triangle ACD\) และ \(\triangle A'C'D'\):
+             <br>\(AC=A'C'\) (กำหนดให้)
+             <br>\(CD=AB=A'B'=C'D'\)
+             <br>\(AD=2AM=2A'M'=A'D'\) (เส้นมัธยฐานเท่ากัน)
+             <br>จึงได้ \(\triangle ACD\equiv\triangle A'C'D'\) (ด.ด.ด.)
+             <br>ส่วนสมนัยทำให้ \(\angle ADC=\angle A'D'C'\) และย้อนกลับไป
+             สรุปได้ว่า \(BC=B'C'\) จึงได้ \(\triangle ABC\equiv\triangle A'B'C'\) (ด.ด.ด.)</div></div><div class="q" data-lvl="apply"><div class="qn">30.</div><div class="qbody">นักสำรวจต้องการหาระยะจากจุด \(A\)
+         ไปยังยอดเขา \(T\) ที่เข้าถึงไม่ได้ จึงวางแผนดังนี้: จากจุด \(A\)
+         มองเห็น \(T\) ทำมุม \(72^\circ\) กับแนว \(AB\) และจากจุด \(B\)
+         ที่ห่างจาก \(A\) เป็นระยะ \(150\) ม. มองเห็น \(T\) ทำมุม \(58^\circ\)
+         กับแนว \(BA\)
+         <br>(ก) ข้อมูลนี้กำหนดรูปสามเหลี่ยม \(ABT\) ได้แน่นอนหรือไม่ เงื่อนไขใด
+         <br>(ข) ถ้านักสำรวจวางสามเหลี่ยมแบบเดียวกันบนพื้นราบที่วัดได้
+         แล้ววัด \(AT\) ได้ \(142\) ม. เหตุใดจึงสรุปได้ว่าระยะจริงคือ \(142\) ม.</div><div class="qmeta"><span class="ex-lvl apply">ประยุกต์</span><span class="ex-lvl">ประยุกต์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u5-congruence-s30">ดูเฉลย</button></div><div class="qsol" id="u5-congruence-s30" hidden>(ก) <b>ได้แน่นอน</b> — รู้มุมสองมุม (\(72^\circ,58^\circ\))
+             และด้านระหว่างมุมทั้งสอง (\(AB=150\) ม.) จึงเข้าเงื่อนไข <b>ม.ด.ม.</b>
+             <br>(ข) สามเหลี่ยมที่วางบนพื้นราบมี ม.ด.ม. ตรงกันทุกคู่
+             จึงเท่ากันทุกประการกับสามเหลี่ยมจริง
+             <br>ส่วนสมนัยของรูปที่เท่ากันทุกประการย่อมเท่ากัน ดังนั้น
+             \(AT\) จริง \(=142\) ม.</div></div></section><div class="pager"><a class="pl" href="u4-transform.html">การแปลงทางเรขาคณิต</a><a class="pr" href="u6-reasoning.html">การให้เหตุผลทางเรขาคณิต</a></div></main></div></div><footer class="site"><div class="wrap">คณิตศาสตร์ ม.2 · สื่อการเรียนรู้แบบอินเทอร์แอกทีฟ</div></footer>
+<script src="../assets/js/site.js"></script>
+<script src="../assets/js/viz.js"></script>
+</body>
+</html>

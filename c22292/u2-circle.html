@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="th" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ทฤษฎีวงกลม · คณิตศาสตร์พัฒนาศักยภาพ 4</title>
+<meta name="description" content="ส่วนประกอบของวงกลม ทฤษฎีบทเรื่องคอร์ด ส่วนโค้ง มุมในส่วนโค้ง
+    และเส้นสัมผัส พร้อมการพิสูจน์ จุดเซนทรอยด์ และวงกลมแนบใน–แนบนอก
+    ของรูปสามเหลี่ยม">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Serif+Thai:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/site.css">
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+         processEscapes: true },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] },
+  chtml: { mtextInheritFont: true, scale: 1.0 },
+  startup: { typeset: true }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+
+</head>
+<body>
+<nav class="nav"><a class="nav-brand" href="../index.html">คณิต<span>ศาสตร์</span> ม.2</a><div class="nav-links"><a href="../index.html">หน้าแรก</a><a href="../c22122/index.html" title="คณิตศาสตร์ 4">คณิตศาสตร์ 4</a><a href="../c22292/index.html" aria-current="page" title="คณิตศาสตร์พัฒนาศักยภาพ 4">พัฒนาศักยภาพ 4</a><a href="../c22294/index.html" title="เทคโนโลยีเพื่อการศึกษาทางคณิตศาสตร์">เทคโนโลยีคณิตศาสตร์</a><button class="theme-btn" type="button" aria-label="สลับโหมดสี">☾</button></div></nav><div class="wrap"><div class="page"><aside class="toc"><div class="toc-label">หัวข้อในบทนี้</div><ol><li><a href="#parts">ส่วนประกอบและข้อตกลงพื้นฐาน</a></li><li><a href="#chord">ทฤษฎีบทเกี่ยวกับคอร์ดและส่วนโค้ง</a></li><li><a href="#angles">ทฤษฎีบทมุมในวงกลม</a></li><li><a href="#tangent">เส้นสัมผัสและกำลังของจุด</a></li><li><a href="#centers">จุดเซนทรอยด์ วงกลมแนบใน และวงกลมแนบนอก</a></li><li><a href="#drill">แบบฝึกหัดท้ายบท</a></li></ol></aside><main><p class="eyebrow">คณิตศาสตร์พัฒนาศักยภาพ 4</p><h1>ทฤษฎีวงกลม</h1><p class="lead">ส่วนประกอบของวงกลม ทฤษฎีบทเรื่องคอร์ด ส่วนโค้ง มุมในส่วนโค้ง
+    และเส้นสัมผัส พร้อมการพิสูจน์ จุดเซนทรอยด์ และวงกลมแนบใน–แนบนอก
+    ของรูปสามเหลี่ยม</p><div class="badges"><span class="badge">ทฤษฎีบท 9 ข้อ</span><span class="badge">พิสูจน์แบบไล่ขั้น</span><span class="badge">เซนทรอยด์ · วงกลมแนบใน</span><span class="badge">ภาพลากได้ 6 ภาพ</span><span class="badge on">แบบฝึกหัด 33 ข้อ</span></div><section id="parts"><h2>ส่วนประกอบและข้อตกลงพื้นฐาน</h2><figure class="fig"><div class="fig-body"><svg viewBox="0 0 480 350" role="img" aria-labelledby="fig-circle-parts-t fig-circle-parts-d"><title id="fig-circle-parts-t">ส่วนประกอบของวงกลม</title><desc id="fig-circle-parts-d">วงกลมจุดศูนย์กลาง O แสดงรัศมี เส้นผ่านศูนย์กลาง คอร์ด ส่วนโค้ง เส้นสัมผัสที่ตั้งฉากกับรัศมีที่จุดสัมผัส และเส้นตัดที่ผ่านวงกลมสองจุด</desc><rect width="100%" height="100%" fill="var(--paper-2)"/><defs><marker id="ar" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" class="f-muted"/></marker><marker id="ar-a" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" class="f-accent"/></marker><marker id="ar-l" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" class="f-link"/></marker><marker id="ar-t" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" class="f-teal"/></marker></defs><text x="30" y="30" class="t-tag">ส่วนประกอบของวงกลม</text><circle cx="230" cy="160" r="110" class="s-ink"/><line x1="340" y1="160" x2="120" y2="160" class="s-link"/><text x="276" y="152" text-anchor="middle" class="t-mono t-link">เส้นผ่านศูนย์กลาง</text><line x1="230" y1="160" x2="178.36" y2="62.88" class="s-teal"/><text x="186.18" y="107.44" text-anchor="end" class="t-mono t-teal">รัศมี r</text><line x1="130.31" y1="206.49" x2="329.69" y2="206.49" class="s-accent thick"/><text x="230" y="226.49" text-anchor="middle" class="t-mono t-accent">คอร์ด AB</text><path d="M 318.43 80.37 A 119 119 0 0 0 174.13 54.93" class="s-violet thick"/><text x="253.62" y="26.07" text-anchor="middle" class="t-mono t-violet">ส่วนโค้ง CD</text><line x1="325" y1="270" x2="135" y2="270" class="s-accent dash"/><text x="300" y="288" text-anchor="middle" class="t-mono t-accent">เส้นสัมผัส</text><path d="M 230 259 L 219 259 L 219 270" class="s-muted"/><line x1="75.15" y1="99.79" x2="392.95" y2="127.59" class="s-muted dash-fine"/><text x="402.95" y="121.59" class="t-mono">เส้นตัด</text><circle cx="130.31" cy="206.49" r="4" class="f-ink"/><text x="116.31" y="210.49" text-anchor="middle" class="t-name">A</text><circle cx="329.69" cy="206.49" r="4" class="f-ink"/><text x="343.69" y="210.49" text-anchor="middle" class="t-name">B</text><circle cx="178.36" cy="62.88" r="4" class="f-ink"/><text x="172.36" y="50.88" text-anchor="middle" class="t-name">C</text><circle cx="311.75" cy="86.4" r="4" class="f-ink"/><text x="321.75" y="78.4" text-anchor="middle" class="t-name">D</text><circle cx="230" cy="160" r="4" class="f-ink"/><text x="226" y="178" text-anchor="middle" class="t-name">O</text><circle cx="230" cy="270" r="4" class="f-ink"/><text x="230" y="292" text-anchor="middle" class="t-name">T</text><line x1="24" y1="306" x2="456" y2="306" class="s-rule"/><text x="24" y="324" class="t-tag">LEGEND</text><line x1="88" y1="320" x2="108" y2="320" class="s-teal"/><text x="114" y="324" class="t-mono">รัศมี</text><line x1="178" y1="320" x2="198" y2="320" class="s-link"/><text x="204" y="324" class="t-mono">เส้นผ่านศูนย์กลาง</text><line x1="316.8" y1="320" x2="336.8" y2="320" class="s-accent thick"/><text x="342.8" y="324" class="t-mono">คอร์ด</text><line x1="406.8" y1="320" x2="426.8" y2="320" class="s-violet thick"/><text x="432.8" y="324" class="t-mono">ส่วนโค้ง</text></svg></div><figcaption><b>เส้นสัมผัส</b> แตะวงกลมที่จุดเดียวและตั้งฉากกับรัศมี ณ จุดสัมผัสเสมอ ขณะที่ <b>เส้นตัด</b> ผ่านวงกลมสองจุด ข้อเท็จจริงเรื่องเส้นสัมผัสตั้งฉากกับรัศมีเป็นจุดเริ่มต้นของ ทฤษฎีบทเส้นสัมผัสทุกข้อ</figcaption></figure><table class="tbl"><thead><tr><th>คำศัพท์</th><th>ความหมาย</th></tr></thead><tbody><tr><td>รัศมี (radius)</td><td>ส่วนของเส้นตรงจากจุดศูนย์กลางไปยังจุดบนวงกลม</td></tr><tr><td>เส้นผ่านศูนย์กลาง (diameter)</td><td>คอร์ดที่ผ่านจุดศูนย์กลาง ยาว \(2r\) และเป็นคอร์ดที่ยาวที่สุด</td></tr><tr><td>คอร์ด (chord)</td><td>ส่วนของเส้นตรงที่เชื่อมจุดสองจุดบนวงกลม</td></tr><tr><td>ส่วนโค้ง (arc)</td><td>ส่วนของเส้นรอบวง — คอร์ดหนึ่งเส้นแบ่งวงกลมเป็น ส่วนโค้งเล็ก (minor) และส่วนโค้งใหญ่ (major)</td></tr><tr><td>เส้นสัมผัส (tangent)</td><td>เส้นตรงที่พบวงกลมเพียงจุดเดียว</td></tr><tr><td>เส้นตัด (secant)</td><td>เส้นตรงที่พบวงกลมสองจุด</td></tr><tr><td>มุมที่จุดศูนย์กลาง</td><td>มุมที่มีจุดยอดที่จุดศูนย์กลาง</td></tr><tr><td>มุมในส่วนโค้ง (inscribed angle)</td><td>มุมที่มีจุดยอดอยู่บนวงกลมและแขนทั้งสองเป็นคอร์ด</td></tr></tbody></table><div class="box thm"><span class="box-label">สองข้อเท็จจริงที่ใช้เป็นจุดเริ่มต้นเสมอ</span>
+             <ol>
+             <li><b>รัศมีทุกเส้นของวงกลมเดียวกันยาวเท่ากัน</b> —
+             ข้อนี้ทำให้สามเหลี่ยมที่มีจุดยอดสองจุดบนวงกลมและจุดยอดที่สาม
+             ที่จุดศูนย์กลาง เป็นสามเหลี่ยม <b>หน้าจั่ว</b> ทุกครั้ง
+             นี่คือเครื่องมือหลักในการพิสูจน์แทบทุกข้อในบทนี้</li>
+             <li><b>เส้นสัมผัสตั้งฉากกับรัศมีที่จุดสัมผัส</b> —
+             ถ้าเห็นเส้นสัมผัส ให้ลากรัศมีไปจุดสัมผัสทันที</li>
+             </ol></div></section><section id="chord"><h2>ทฤษฎีบทเกี่ยวกับคอร์ดและส่วนโค้ง</h2><div class="box thm"><span class="box-label">ทฤษฎีบทคอร์ด</span>
+             <ol>
+             <li>เส้นที่ลากจากจุดศูนย์กลาง <b>ตั้งฉาก</b> กับคอร์ด
+             ย่อม <b>แบ่งครึ่ง</b> คอร์ดนั้น (และบทกลับก็จริง)</li>
+             <li>คอร์ดที่ยาวเท่ากันย่อมอยู่ห่างจากจุดศูนย์กลางเท่ากัน (และบทกลับ)</li>
+             <li>คอร์ดที่ยาวเท่ากันย่อมรองรับส่วนโค้งที่เท่ากัน (และบทกลับ)</li>
+             <li>ความยาวครึ่งคอร์ด \(\ell\), ระยะจากจุดศูนย์กลาง \(d\)
+             และรัศมี \(r\) สัมพันธ์กันด้วย
+             \[\ell^{2}+d^{2}=r^{2}\]</li>
+             </ol></div><figure class="fig" data-viz="chordperp" data-ox="190" data-oy="156" data-r="104" data-d0="46.0"><div class="fig-body"><svg viewBox="0 0 420 300" role="img" aria-labelledby="fig-chordperp-t fig-chordperp-d"><title id="fig-chordperp-t">เส้นตั้งฉากจากจุดศูนย์กลางแบ่งครึ่งคอร์ด</title><desc id="fig-chordperp-d">วงกลมรัศมี r มีคอร์ด AB และเส้นจากจุดศูนย์กลาง O ตั้งฉากกับคอร์ดที่จุด M ทำให้ AM เท่ากับ MB และความยาวครึ่งคอร์ดเท่ากับรากที่สองของ r กำลังสองลบ d กำลังสอง</desc><rect width="100%" height="100%" fill="var(--paper-2)"/><text x="30" y="32" class="t-tag">เส้นจากจุดศูนย์กลางตั้งฉากกับคอร์ด</text><circle cx="190" cy="156" r="104" class="s-ink" data-id="circle"/><line x1="96.73" y1="110" x2="283.27" y2="110" class="s-accent thick" data-id="chord"/><line x1="190" y1="156" x2="190" y2="110" class="s-link" data-id="perp"/><line x1="190" y1="156" x2="96.73" y2="110" class="s-muted dash-fine" data-id="ra"/><line x1="190" y1="156" x2="283.27" y2="110" class="s-muted dash-fine" data-id="rb"/><path d="M 202 110 L 202 122 L 190 122" class="s-link" data-id="rightmark"/><circle cx="96.73" cy="110" r="4.2" class="f-accent" data-id="ptA"/><text x="82.73" y="114" text-anchor="middle" class="t-name" data-id="labA">A</text><circle cx="283.27" cy="110" r="4.2" class="f-accent" data-id="ptB"/><text x="297.27" y="114" text-anchor="middle" class="t-name" data-id="labB">B</text><circle cx="190" cy="110" r="4.2" class="f-link" data-id="ptM"/><text x="190" y="100" text-anchor="middle" class="t-name" data-id="labM">M</text><circle cx="190" cy="156" r="4.2" class="f-ink" data-id="ptO"/><text x="186" y="174" text-anchor="middle" class="t-name" data-id="labO">O</text><circle cx="190" cy="110" r="14" class="handle-halo" data-id="halo"/><circle cx="190" cy="110" r="7" class="handle" data-id="handle"/><text x="143.36" y="101" text-anchor="middle" class="t-mono t-accent" data-id="t-half1">9.33</text><text x="236.64" y="101" text-anchor="middle" class="t-mono t-accent" data-id="t-half2">9.33</text><text x="202" y="137" class="t-mono t-link" data-id="t-d">d = 4.60</text><text x="30" y="254" class="t-val" data-id="eq">AM = MB = √(r² − d²) = √(10.4² − 4.60²) = 9.33</text><text x="30" y="278" class="t-mono" data-id="note2">ยิ่งคอร์ดอยู่ไกลจุดศูนย์กลาง ยิ่งสั้นลง</text></svg></div><div class="fig-ctrl"><span class="fig-readout" data-readout>d กับความยาวคอร์ดสัมพันธ์กันแบบพีทาโกรัส</span></div><figcaption>ลากจุด M เข้าออกจากจุดศูนย์กลาง: ระยะ \(d\) กับความยาวคอร์ด สัมพันธ์กันด้วย \(\left(\tfrac{AB}{2}\right)^2 + d^2 = r^2\) ซึ่งก็คือทฤษฎีบทพีทาโกรัสในสามเหลี่ยม \(OMB\)</figcaption></figure><div class="ex"><div class="ex-head"><span class="ex-tag">ตัวอย่าง 1</span><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">คอร์ด</span></div><div class="ex-body">
+             วงกลมรัศมี \(13\) ซม. มีคอร์ดยาว \(24\) ซม.
+             จงหาระยะจากจุดศูนย์กลางถึงคอร์ดนั้น</div><div class="ex-sol"><p class="sol-label">แนวคิดและวิธีทำ</p><ol class="steps"><li>เส้นตั้งฉากจากจุดศูนย์กลางแบ่งครึ่งคอร์ด จึงได้ครึ่งคอร์ด \(=12\) ซม.</li><li>ใช้ความสัมพันธ์ \(\ell^{2}+d^{2}=r^{2}\)</li><li>\(12^{2}+d^{2}=13^{2}\Rightarrow 144+d^{2}=169\)</li><li>\(d^{2}=25\Rightarrow d=5\) ซม.</li></ol><p class="ans">\(5\) ซม.</p></div></div><div class="ex"><div class="ex-head"><span class="ex-tag">ตัวอย่าง 2</span><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">คอร์ดสองเส้น</span></div><div class="ex-body">
+             วงกลมหนึ่งมีคอร์ดสองเส้นขนานกัน ยาว \(16\) ซม. และ \(30\) ซม.
+             ถ้ารัศมีเป็น \(17\) ซม. จงหาระยะระหว่างคอร์ดทั้งสอง
+             <br>(พิจารณาทั้งสองกรณี)</div><div class="ex-sol"><p class="sol-label">แนวคิดและวิธีทำ</p><ol class="steps"><li>คอร์ดยาว \(16\): ครึ่งคอร์ด \(=8\) จึง
+                 \(d_1=\sqrt{17^{2}-8^{2}}=\sqrt{289-64}=\sqrt{225}=15\) ซม.</li><li>คอร์ดยาว \(30\): ครึ่งคอร์ด \(=15\) จึง
+                 \(d_2=\sqrt{289-225}=\sqrt{64}=8\) ซม.</li><li><b>กรณีที่ 1</b> คอร์ดทั้งสองอยู่คนละข้างของจุดศูนย์กลาง
+                 ระยะ \(=d_1+d_2=15+8=23\) ซม.</li><li><b>กรณีที่ 2</b> คอร์ดทั้งสองอยู่ข้างเดียวกัน
+                 ระยะ \(=d_1-d_2=15-8=7\) ซม.</li><li><b>บทเรียน</b>: โจทย์คอร์ดขนานต้องตอบสองกรณีเสมอ
+                 เว้นแต่โจทย์ระบุไว้</li></ol><p class="ans">\(23\) ซม. หรือ \(7\) ซม.</p></div></div></section><section id="angles"><h2>ทฤษฎีบทมุมในวงกลม</h2><div class="box thm"><span class="box-label">ทฤษฎีบทมุมในส่วนโค้ง (inscribed angle theorem)</span>
+             <p>มุมที่จุดศูนย์กลางมีขนาดเป็น <b>สองเท่า</b> ของมุมในส่วนโค้ง
+             ที่รองรับส่วนโค้งเดียวกัน</p>
+             \[\angle AOB = 2\,\angle APB\]
+             <p>ผลที่ตามมาสามข้อซึ่งใช้บ่อยกว่าตัวทฤษฎีบทเอง</p>
+             <ol>
+             <li><b>มุมในส่วนโค้งเดียวกันเท่ากัน</b> — จุด \(P\) เลื่อนไปที่ใด
+             บนส่วนโค้งเดิม \(\angle APB\) ก็ไม่เปลี่ยน</li>
+             <li><b>มุมในครึ่งวงกลมเป็นมุมฉาก</b> — ถ้า \(AB\)
+             เป็นเส้นผ่านศูนย์กลาง แล้ว \(\angle APB=90^\circ\)
+             (เพราะ \(\angle AOB=180^\circ\))</li>
+             <li><b>มุมตรงข้ามของสี่เหลี่ยมแนบในวงกลมรวมกันได้ \(180^\circ\)</b></li>
+             </ol></div><figure class="fig" data-viz="inscribed" data-ox="220" data-oy="150" data-r="96" data-aa="212.0" data-ab="328.0" data-p0="80.0"><div class="fig-body"><svg viewBox="0 0 440 336" role="img" aria-labelledby="fig-inscribed-t fig-inscribed-d"><title id="fig-inscribed-t">มุมในส่วนโค้งของวงกลม</title><desc id="fig-inscribed-d">วงกลมมีจุดศูนย์กลาง O และคอร์ด AB จุด P อยู่บนส่วนโค้งใหญ่ มุม APB มีขนาดครึ่งหนึ่งของมุม AOB และคงที่เมื่อเลื่อน P ไปตามส่วนโค้งเดิม</desc><rect width="100%" height="100%" fill="var(--paper-2)"/><text x="30" y="32" class="t-tag">มุมที่จุดศูนย์กลาง vs มุมในส่วนโค้ง</text><circle cx="220" cy="150" r="96" class="s-ink" data-id="circle"/><path d="M 301.41 200.87 A 96 96 0 1 0 138.59 200.87" class="s-accent thick" data-id="arcAB"/><line x1="138.59" y1="200.87" x2="301.41" y2="200.87" class="s-muted dash" data-id="chord"/><line x1="220" y1="150" x2="138.59" y2="200.87" class="s-link" data-id="oa"/><line x1="220" y1="150" x2="301.41" y2="200.87" class="s-link" data-id="ob"/><line x1="236.67" y1="55.46" x2="138.59" y2="200.87" class="s-teal" data-id="pa"/><line x1="236.67" y1="55.46" x2="301.41" y2="200.87" class="s-teal" data-id="pb"/><path d="M 219.89 80.33 A 30 30 0 0 0 248.87 82.86" class="s-teal" data-id="mP"/><path d="M 191.17 168.02 A 34 34 0 0 0 248.83 168.02" class="s-link" data-id="mO"/><circle cx="138.59" cy="200.87" r="4" class="f-ink" data-id="ptA"/><text x="124.59" y="204.87" text-anchor="middle" class="t-name" data-id="labA">A</text><circle cx="301.41" cy="200.87" r="4" class="f-ink" data-id="ptB"/><text x="315.41" y="204.87" text-anchor="middle" class="t-name" data-id="labB">B</text><circle cx="220" cy="150" r="4" class="f-ink" data-id="ptO"/><text x="214" y="140" text-anchor="middle" class="t-name" data-id="labO">O</text><text x="236.67" y="41.46" text-anchor="middle" class="t-name t-teal" data-id="labP">P</text><circle cx="236.67" cy="55.46" r="14" class="handle-halo" data-id="halo"/><circle cx="236.67" cy="55.46" r="7" class="handle" data-id="handle"/><text x="232.49" y="107.28" text-anchor="middle" class="t-mono t-teal" data-id="tP">58°</text><text x="220" y="206" text-anchor="middle" class="t-mono t-link" data-id="tO">244°</text><text x="30" y="276" class="t-val" data-id="eq">มุมที่จุดศูนย์กลาง 244° = 2 × มุมในส่วนโค้ง 58°</text><line x1="24" y1="308" x2="416" y2="308" class="s-rule"/><text x="24" y="326" class="t-tag">LEGEND</text><line x1="88" y1="322" x2="108" y2="322" class="s-link"/><text x="114" y="326" class="t-mono">มุมที่จุดศูนย์กลาง</text><line x1="233.2" y1="322" x2="253.2" y2="322" class="s-teal"/><text x="259.2" y="326" class="t-mono">มุมในส่วนโค้ง</text><line x1="346.4" y1="322" x2="366.4" y2="322" class="s-accent thick"/><text x="372.4" y="326" class="t-mono">ส่วนโค้ง AB</text></svg></div><div class="fig-ctrl"><span class="fig-readout" data-readout>ลาก P แล้วมุมยังเท่าเดิม</span></div><figcaption>ลากจุด P ไปตามส่วนโค้ง — ขนาดของ \(\angle APB\) ไม่เปลี่ยน และเท่ากับครึ่งหนึ่งของ \(\angle AOB\) เสมอ</figcaption></figure><figure class="fig" data-viz="proof" id="proof-inscribed"><div class="fig-body"><svg viewBox="0 0 480 340" role="img" aria-labelledby="proof-inscribed-t proof-inscribed-d"><title id="proof-inscribed-t">การพิสูจน์ทฤษฎีบทมุมในส่วนโค้ง</title><desc id="proof-inscribed-d">วงกลมจุดศูนย์กลาง O มีคอร์ด AB จุด P บนส่วนโค้งใหญ่ ลากเส้นผ่านศูนย์กลางจาก P ผ่าน O ไปพบวงกลมที่ Q ทำให้เกิดสามเหลี่ยมหน้าจั่วสองรูปที่ให้ข้อสรุปว่ามุม AOB เป็นสองเท่าของมุม APB</desc><rect width="100%" height="100%" fill="var(--paper-2)"/><defs><marker id="ar" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" class="f-muted"/></marker><marker id="ar-a" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" class="f-accent"/></marker><marker id="ar-l" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" class="f-link"/></marker><marker id="ar-t" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" class="f-teal"/></marker></defs><text x="30" y="30" class="t-tag">พิสูจน์: มุมที่จุดศูนย์กลาง = 2 × มุมในส่วนโค้ง</text><circle cx="230" cy="165" r="112" class="s-ink"/><g data-step="1"><line x1="239.76" y1="53.43" x2="124.75" y2="203.31" class="s-teal"/><line x1="239.76" y1="53.43" x2="335.25" y2="203.31" class="s-teal"/><path d="M 222.72 75.64 A 28 28 0 0 0 254.81 77.04" class="s-teal"/></g><g data-step="2"><line x1="230" y1="165" x2="124.75" y2="203.31" class="s-link"/><line x1="230" y1="165" x2="335.25" y2="203.31" class="s-link"/><path d="M 199.93 175.94 A 32 32 0 0 0 260.07 175.94" class="s-link"/></g><g data-step="3"><line x1="239.76" y1="53.43" x2="220.24" y2="276.57" class="s-accent dash"/><circle cx="220.24" cy="276.57" r="4" class="f-accent"/><text x="220.24" y="296.57" text-anchor="middle" class="t-name t-accent">Q</text></g><g data-step="4"><line x1="179.43" y1="189.79" x2="175.33" y2="178.51" class="s-violet"/><line x1="228.9" y1="108.69" x2="240.86" y2="109.74" class="s-violet"/><line x1="282.45" y1="178.77" x2="279.03" y2="188.17" class="s-violet"/><line x1="286.21" y1="180.14" x2="282.79" y2="189.54" class="s-violet"/></g><circle cx="124.75" cy="203.31" r="4.2" class="f-ink"/><text x="110.75" y="207.31" text-anchor="middle" class="t-name">A</text><circle cx="335.25" cy="203.31" r="4.2" class="f-ink"/><text x="349.25" y="207.31" text-anchor="middle" class="t-name">B</text><circle cx="239.76" cy="53.43" r="4.2" class="f-ink"/><text x="239.76" y="39.43" text-anchor="middle" class="t-name">P</text><circle cx="230" cy="165" r="4.2" class="f-ink"/><text x="216" y="171" text-anchor="middle" class="t-name">O</text></svg><table class="tbl"><thead><tr><th>ข้อความ</th><th>เหตุผล</th></tr></thead><tbody><tr data-prow="1"><td>\(\angle APB\) เป็นมุมในส่วนโค้งที่รองรับคอร์ด \(AB\)</td><td>นิยาม</td></tr><tr data-prow="2"><td>\(\angle AOB\) เป็นมุมที่จุดศูนย์กลางที่รองรับคอร์ดเดียวกัน</td><td>นิยาม</td></tr><tr data-prow="3"><td>ลาก \(PO\) ต่อออกไปพบวงกลมที่ \(Q\)</td><td>สร้างเส้นช่วย — เส้นผ่านศูนย์กลาง</td></tr><tr data-prow="4"><td>\(OA=OP=OB=r\)</td><td>รัศมีของวงกลมเดียวกันยาวเท่ากัน</td></tr><tr data-prow="5"><td>\(\triangle OAP\) และ \(\triangle OBP\) เป็นสามเหลี่ยมหน้าจั่ว</td><td>มีด้านประกอบมุมยอดยาวเท่ากัน (ข้อ 4)</td></tr><tr data-prow="6"><td>\(\angle AOQ=2\angle APO\) และ \(\angle BOQ=2\angle BPO\)</td><td>ทฤษฎีบทมุมภายนอกของสามเหลี่ยมหน้าจั่ว</td></tr><tr data-prow="7"><td>\(\angle AOB=\angle AOQ+\angle BOQ=2(\angle APO+\angle BPO)=2\angle APB\)</td><td>บวกกัน และ \(Q\) อยู่ภายในมุม \(\angle AOB\)</td></tr></tbody></table></div><div class="fig-ctrl"><button type="button" data-act="reset" aria-pressed="false">เริ่มต้น</button><button type="button" data-act="prev" aria-pressed="false">ย้อน</button><button type="button" data-act="next" aria-pressed="false">ขั้นต่อไป</button><button type="button" data-act="all" aria-pressed="false">แสดงทั้งหมด</button><span class="fig-readout" data-readout>ขั้นที่ 7 / 7</span></div><figcaption>เส้นช่วยสำคัญคือ <b>เส้นผ่านศูนย์กลาง \(PQ\)</b> ซึ่งแยกมุมออกเป็นสองส่วน ที่จัดการได้ด้วยสามเหลี่ยมหน้าจั่ว — กดไล่ขั้นเพื่อดูว่าแต่ละขั้นเพิ่มอะไรเข้ามา</figcaption></figure><figure class="fig" data-viz="cyclicquad" data-ox="210" data-oy="152" data-r="98" data-a1="142.0" data-a2="222.0" data-a3="314.0" data-a4="48.0"><div class="fig-body"><svg viewBox="0 0 440 300" role="img" aria-labelledby="fig-cyclicquad-t fig-cyclicquad-d"><title id="fig-cyclicquad-t">สี่เหลี่ยมแนบในวงกลม</title><desc id="fig-cyclicquad-d">รูปสี่เหลี่ยม ABCD มีจุดยอดทั้งสี่อยู่บนวงกลมเดียวกัน มุมตรงข้ามคู่ A กับ C และคู่ B กับ D แต่ละคู่รวมกันได้หนึ่งร้อยแปดสิบองศา</desc><rect width="100%" height="100%" fill="var(--paper-2)"/><text x="30" y="32" class="t-tag">สี่เหลี่ยมที่มีจุดยอดทั้งสี่อยู่บนวงกลม</text><circle cx="210" cy="152" r="98" class="s-ink" data-id="circle"/><polygon points="132.77,91.67 137.17,217.57 278.08,222.5 275.57,79.17" class="f-at" data-id="quad"/><polygon points="132.77,91.67 137.17,217.57 278.08,222.5 275.57,79.17" class="s-ink"/><circle cx="132.77" cy="91.67" r="4.2" class="f-ink" data-id="ptA"/><text x="118.59" y="85.58" text-anchor="middle" class="t-name" data-id="labA">A</text><circle cx="137.17" cy="217.57" r="4.2" class="f-ink" data-id="ptB"/><text x="123.8" y="234.62" text-anchor="middle" class="t-name" data-id="labB">B</text><circle cx="278.08" cy="222.5" r="4.2" class="f-ink" data-id="ptC"/><text x="290.58" y="240.44" text-anchor="middle" class="t-name" data-id="labC">C</text><circle cx="275.57" cy="79.17" r="4.2" class="f-ink" data-id="ptD"/><text x="287.62" y="70.8" text-anchor="middle" class="t-name" data-id="labD">D</text><path d="M 133.68 117.65 A 26 26 0 0 0 158.68 89.4" class="s-accent" data-id="m0"/><text x="164.23" y="123.5" text-anchor="middle" class="t-mono t-accent" data-id="t0">93°</text><path d="M 163.16 218.48 A 26 26 0 0 0 136.26 191.59" class="s-link" data-id="m1"/><text x="166.87" y="191.88" text-anchor="middle" class="t-mono t-link" data-id="t1">94°</text><path d="M 277.62 196.5 A 26 26 0 0 0 252.09 221.59" class="s-accent" data-id="m2"/><text x="248.64" y="196.54" text-anchor="middle" class="t-mono t-accent" data-id="t2">87°</text><path d="M 249.67 81.44 A 26 26 0 0 0 276.03 105.17" class="s-link" data-id="m3"/><text x="247.47" y="114.38" text-anchor="middle" class="t-mono t-link" data-id="t3">86°</text><circle cx="275.57" cy="79.17" r="14" class="handle-halo" data-id="halo"/><circle cx="275.57" cy="79.17" r="7" class="handle" data-id="handle"/><text x="30" y="258" class="t-val t-accent" data-id="sum1">Â + Ĉ = 180°</text><text x="200" y="258" class="t-val t-link" data-id="sum2">B̂ + D̂ = 180°</text><text x="30" y="282" class="t-mono">มุมตรงข้ามของสี่เหลี่ยมแนบในวงกลมรวมกันได้ 180°</text></svg></div><div class="fig-ctrl"><span class="fig-readout" data-readout>มุมตรงข้ามรวมกันได้ 180°</span></div><figcaption>ลากจุด D ไปตามวงกลม — ผลรวมของมุมตรงข้ามยังเป็น \(180^\circ\) เสมอ ตามมาจากทฤษฎีบทมุมในส่วนโค้ง</figcaption></figure><div class="box thm"><span class="box-label">มุมระหว่างเส้นสัมผัสกับคอร์ด (tangent–chord)</span>
+             <p>มุมระหว่างเส้นสัมผัสกับคอร์ดที่ลากจากจุดสัมผัส
+             มีขนาดเท่ากับมุมในส่วนโค้งสลับ (alternate segment)</p>
+             <p>มองอีกแบบ: เป็นกรณีขีดสุดของทฤษฎีบทมุมในส่วนโค้ง
+             เมื่อจุดบนวงกลมสองจุดเลื่อนมาชนกันจนคอร์ดกลายเป็นเส้นสัมผัส</p></div><figure class="fig" data-viz="tangentchord" data-ox="210" data-oy="160" data-r="98" data-at="268.0" data-b0="20.0"><div class="fig-body"><svg viewBox="0 0 440 300" role="img" aria-labelledby="fig-tangentchord-t fig-tangentchord-d"><title id="fig-tangentchord-t">มุมระหว่างเส้นสัมผัสกับคอร์ด</title><desc id="fig-tangentchord-d">เส้นสัมผัสวงกลมที่จุด T กับคอร์ด TB ทำมุมกัน ขนาดของมุมนั้นเท่ากับมุม ในส่วนโค้งสลับที่จุด P ซึ่งอยู่บนส่วนโค้งอีกข้างของคอร์ด</desc><rect width="100%" height="100%" fill="var(--paper-2)"/><text x="30" y="32" class="t-tag">มุมระหว่างเส้นสัมผัสกับคอร์ด</text><circle cx="210" cy="160" r="98" class="s-ink" data-id="circle"/><line x1="336.5" y1="262.48" x2="76.66" y2="253.4" class="s-accent thick" data-id="tangent"/><line x1="206.58" y1="257.94" x2="302.09" y2="126.48" class="s-link" data-id="chord"/><line x1="289.28" y1="217.6" x2="206.58" y2="257.94" class="s-teal" data-id="pt1"/><line x1="289.28" y1="217.6" x2="302.09" y2="126.48" class="s-teal" data-id="pt2"/><path d="M 221.86 236.91 A 26 26 0 0 0 180.6 257.03" class="s-accent" data-id="mTan"/><path d="M 293.18 189.88 A 28 28 0 0 0 264.12 229.88" class="s-teal" data-id="mP"/><circle cx="206.58" cy="257.94" r="4.2" class="f-accent" data-id="ptT"/><text x="206.58" y="279.94" text-anchor="middle" class="t-name" data-id="labT">T</text><circle cx="302.09" cy="126.48" r="4.2" class="f-link" data-id="ptB"/><text x="316.09" y="120.48" text-anchor="middle" class="t-name" data-id="labB">B</text><circle cx="289.28" cy="217.6" r="4.2" class="f-teal" data-id="ptP"/><text x="275.28" y="221.6" text-anchor="middle" class="t-name" data-id="labP">P</text><circle cx="210" cy="160" r="4.2" class="f-ink" data-id="ptO"/><text x="206" y="150" text-anchor="middle" class="t-name" data-id="labO">O</text><circle cx="302.09" cy="126.48" r="14" class="handle-halo" data-id="halo"/><circle cx="302.09" cy="126.48" r="7" class="handle" data-id="handle"/><text x="188.17" y="224.19" text-anchor="middle" class="t-mono t-accent" data-id="tTan">124°</text><text x="252.07" y="194.56" text-anchor="middle" class="t-mono t-teal" data-id="tP">124°</text><text x="30" y="276" class="t-val" data-id="eq">มุมระหว่างเส้นสัมผัสกับคอร์ด 124° = มุมในส่วนโค้งสลับ 124°</text></svg></div><div class="fig-ctrl"><span class="fig-readout" data-readout>tangent–chord = มุมในส่วนโค้งสลับ</span></div><figcaption>ลากจุด B เพื่อเปลี่ยนคอร์ด — มุมระหว่างเส้นสัมผัสกับคอร์ด เท่ากับมุมในส่วนโค้งสลับเสมอ (tangent–chord angle)</figcaption></figure><div class="ex"><div class="ex-head"><span class="ex-tag">ตัวอย่าง 3</span><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">มุมในวงกลม</span></div><div class="ex-body">
+             \(AB\) เป็นเส้นผ่านศูนย์กลางของวงกลม จุด \(C\) อยู่บนวงกลม
+             โดย \(\angle BAC=34^\circ\)
+             <br>(ก) จงหา \(\angle ACB\) และ \(\angle ABC\)
+             <br>(ข) ถ้าเส้นสัมผัสที่ \(C\) พบส่วนต่อของ \(AB\) ที่จุด \(T\)
+             จงหา \(\angle CTA\)</div><div class="ex-sol"><p class="sol-label">แนวคิดและวิธีทำ</p><ol class="steps"><li>(ก) \(AB\) เป็นเส้นผ่านศูนย์กลาง ดังนั้น \(\angle ACB=90^\circ\)
+                 (มุมในครึ่งวงกลม)</li><li>\(\angle ABC=180^\circ-90^\circ-34^\circ=56^\circ\)</li><li>(ข) ลากรัศมี \(OC\) เส้นสัมผัสที่ \(C\) ตั้งฉากกับ \(OC\)
+                 จึง \(\angle OCT=90^\circ\)</li><li>\(\triangle OAC\) หน้าจั่ว (\(OA=OC=r\)) จึง
+                 \(\angle OCA=\angle OAC=34^\circ\)</li><li>\(\angle AOC=180^\circ-2(34^\circ)=112^\circ\)</li><li>\(\angle COT=180^\circ-112^\circ=68^\circ\)
+                 (มุมประชิดเส้นตรงบนเส้น \(AB\) ที่ต่อออกไป)</li><li>ใน \(\triangle OCT\): \(\angle CTA=180^\circ-90^\circ-68^\circ
+                 =22^\circ\)</li></ol><p class="ans">(ก) \(\angle ACB=90^\circ,\ \angle ABC=56^\circ\)&nbsp;&nbsp;(ข) \(\angle CTA=22^\circ\)</p></div></div><div class="ex"><div class="ex-head"><span class="ex-tag">ตัวอย่าง 4</span><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">สี่เหลี่ยมแนบใน</span></div><div class="ex-body">
+             สี่เหลี่ยม \(ABCD\) แนบในวงกลม ต่อ \(AB\) ออกไปถึงจุด \(E\)
+             ถ้า \(\angle ADC=118^\circ\)
+             <br>(ก) จงหา \(\angle ABC\)
+             <br>(ข) จงหา \(\angle CBE\) และอธิบายความสัมพันธ์กับ \(\angle ADC\)</div><div class="ex-sol"><p class="sol-label">แนวคิดและวิธีทำ</p><ol class="steps"><li>(ก) มุมตรงข้ามของสี่เหลี่ยมแนบในวงกลมรวมกันได้ \(180^\circ\)</li><li>\(\angle ABC=180^\circ-118^\circ=62^\circ\)</li><li>(ข) \(\angle CBE\) เป็นมุมประชิดเส้นตรงของ \(\angle ABC\)</li><li>\(\angle CBE=180^\circ-62^\circ=118^\circ\)</li><li>สังเกตว่า \(\angle CBE=\angle ADC\) พอดี</li><li><b>ทฤษฎีบทที่ได้</b>: มุมภายนอกของสี่เหลี่ยมแนบในวงกลม
+                 เท่ากับมุมภายในที่อยู่ตรงข้าม — ใช้ลัดได้เลยในโจทย์</li></ol><p class="ans">(ก) \(62^\circ\)&nbsp;&nbsp;(ข) \(118^\circ\) = มุมภายในตรงข้าม</p></div></div></section><section id="tangent"><h2>เส้นสัมผัสและกำลังของจุด</h2><div class="box thm"><span class="box-label">ทฤษฎีบทเส้นสัมผัส</span>
+             <ol>
+             <li>เส้นสัมผัสตั้งฉากกับรัศมีที่จุดสัมผัส</li>
+             <li><b>เส้นสัมผัสสองเส้นจากจุดภายนอกจุดเดียวกันยาวเท่ากัน</b>
+             คือ \(PA=PB\) และ \(PO\) แบ่งครึ่ง \(\angle APB\)</li>
+             <li><b>กำลังของจุด</b> ถ้าจากจุด \(P\) ภายนอกวงกลมลากเส้นสัมผัสยาว
+             \(t\) และลากเส้นตัดที่พบวงกลมที่ \(X,Y\) แล้ว
+             \[t^{2}=PX\cdot PY\]</li>
+             <li>ถ้าคอร์ดสองเส้นตัดกันภายในวงกลมที่ \(P\) แล้ว
+             \[PA\cdot PB = PC\cdot PD\]</li>
+             </ol></div><div class="ex"><div class="ex-head"><span class="ex-tag">ตัวอย่าง 5</span><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">เส้นสัมผัสจากจุดภายนอก</span></div><div class="ex-body">
+             จุด \(P\) อยู่ห่างจากจุดศูนย์กลางวงกลม \(O\) เป็นระยะ \(13\) ซม.
+             วงกลมมีรัศมี \(5\) ซม.
+             <br>(ก) เส้นสัมผัสจาก \(P\) ยาวเท่าไร
+             <br>(ข) ถ้าเส้นตัดจาก \(P\) ผ่านจุดศูนย์กลาง จงหา \(PX\) และ \(PY\)
+             แล้วตรวจทฤษฎีบทกำลังของจุด</div><div class="ex-sol"><p class="sol-label">แนวคิดและวิธีทำ</p><ol class="steps"><li>(ก) ลากรัศมีไปจุดสัมผัส \(T\) จะได้ \(\angle OTP=90^\circ\)</li><li>\(PT=\sqrt{OP^{2}-OT^{2}}=\sqrt{13^{2}-5^{2}}
+                 =\sqrt{169-25}=\sqrt{144}=12\) ซม.</li><li>(ข) เส้นตัดผ่านจุดศูนย์กลางพบวงกลมที่จุดใกล้ \(X\) และไกล \(Y\)</li><li>\(PX=OP-r=13-5=8\) ซม. และ \(PY=OP+r=13+5=18\) ซม.</li><li>ตรวจ: \(PX\cdot PY=8\times18=144=12^{2}=PT^{2}\) ✓</li></ol><p class="ans">(ก) \(12\) ซม.&nbsp;&nbsp;(ข) \(PX=8,\ PY=18\) และ \(8\times18=144\)</p></div></div></section><section id="centers"><h2>จุดเซนทรอยด์ วงกลมแนบใน และวงกลมแนบนอก</h2><div class="box thm"><span class="box-label">จุดสำคัญสี่จุดของรูปสามเหลี่ยม</span>
+             <table class="tbl"><thead><tr><th>จุด</th><th>เกิดจาก</th>
+             <th>สมบัติเด่น</th></tr></thead><tbody>
+             <tr><td>เซนทรอยด์ \(G\)</td><td>เส้นมัธยฐานสามเส้น</td>
+             <td>แบ่งเส้นมัธยฐาน \(2:1\) · แบ่งพื้นที่เป็นสามส่วนเท่ากัน</td></tr>
+             <tr><td>จุดศูนย์กลางวงกลมแนบใน \(I\)</td><td>เส้นแบ่งครึ่งมุมภายในสามเส้น</td>
+             <td>ห่างจากด้านทั้งสามเท่ากัน · \(r=\dfrac{\text{พื้นที่}}{s}\)</td></tr>
+             <tr><td>จุดศูนย์กลางวงกลมล้อมรอบ \(O\)</td>
+             <td>เส้นแบ่งครึ่งตั้งฉากของด้านสามเส้น</td>
+             <td>ห่างจากจุดยอดทั้งสามเท่ากัน</td></tr>
+             <tr><td>จุดออร์โทเซนเตอร์ \(H\)</td><td>เส้นสูงสามเส้น</td>
+             <td>\(O,G,H\) อยู่บนเส้นตรงเดียวกัน (เส้นออยเลอร์) และ \(OG:GH=1:2\)</td></tr>
+             </tbody></table></div><figure class="fig" data-viz="centroid" data-ax="196" data-ay="58" data-bx="76" data-by="216" data-cx="328" data-cy="216"><div class="fig-body"><svg viewBox="0 0 440 300" role="img" aria-labelledby="fig-centroid-t fig-centroid-d"><title id="fig-centroid-t">จุดเซนทรอยด์ของรูปสามเหลี่ยม</title><desc id="fig-centroid-d">รูปสามเหลี่ยม ABC มีเส้นมัธยฐานสามเส้นตัดกันที่จุด G ซึ่งแบ่งแต่ละเส้นมัธยฐานในอัตราส่วนสองต่อหนึ่งจากจุดยอด และแบ่งรูปสามเหลี่ยมเป็นสามส่วนที่มีพื้นที่เท่ากัน</desc><rect width="100%" height="100%" fill="var(--paper-2)"/><text x="30" y="32" class="t-tag">เส้นมัธยฐานสามเส้นพบกันที่จุดเดียว</text><polygon points="196,58 76,216 200,163.33" class="f-at"/><polygon points="76,216 328,216 200,163.33" class="f-lt"/><polygon points="328,216 196,58 200,163.33" class="f-tt"/><polygon points="196,58 76,216 328,216" class="s-ink" data-id="tri"/><line x1="196" y1="58" x2="202" y2="216" class="s-accent" data-id="ma"/><line x1="76" y1="216" x2="262" y2="137" class="s-link" data-id="mb"/><line x1="328" y1="216" x2="136" y2="137" class="s-teal" data-id="mc"/><g data-id="tick"><line x1="139" y1="210" x2="139" y2="222" class="s-muted"/><line x1="265" y1="210" x2="265" y2="222" class="s-muted"/></g><g data-id="tick"><line x1="232.32" y1="92.12" x2="223.11" y2="99.81" class="s-muted"/><line x1="234.89" y1="95.19" x2="225.68" y2="102.88" class="s-muted"/><line x1="298.32" y1="171.12" x2="289.11" y2="178.81" class="s-muted"/><line x1="300.89" y1="174.19" x2="291.68" y2="181.88" class="s-muted"/></g><g data-id="tick"><line x1="173.2" y1="97.94" x2="163.64" y2="90.69" class="s-muted"/><line x1="170.78" y1="101.13" x2="161.22" y2="93.87" class="s-muted"/><line x1="168.36" y1="104.31" x2="158.8" y2="97.06" class="s-muted"/><line x1="113.2" y1="176.94" x2="103.64" y2="169.69" class="s-muted"/><line x1="110.78" y1="180.13" x2="101.22" y2="172.87" class="s-muted"/><line x1="108.36" y1="183.31" x2="98.8" y2="176.06" class="s-muted"/></g><circle cx="196" cy="58" r="4.2" class="f-ink" data-id="ptA"/><text x="196" y="46" text-anchor="middle" class="t-name" data-id="labA">A</text><circle cx="76" cy="216" r="4.2" class="f-ink" data-id="ptB"/><text x="62" y="232" text-anchor="middle" class="t-name" data-id="labB">B</text><circle cx="328" cy="216" r="4.2" class="f-ink" data-id="ptC"/><text x="342" y="232" text-anchor="middle" class="t-name" data-id="labC">C</text><circle cx="202" cy="216" r="3.4" class="f-muted" data-id="ptMa"/><circle cx="262" cy="137" r="3.4" class="f-muted" data-id="ptMb"/><circle cx="136" cy="137" r="3.4" class="f-muted" data-id="ptMc"/><text x="218" y="220" class="t-mono" data-id="labMa">Mₐ</text><circle cx="200" cy="163.33" r="5.5" class="f-accent" data-id="ptG"/><text x="214" y="167.33" class="t-name t-accent" data-id="labG">G</text><circle cx="196" cy="58" r="14" class="handle-halo" data-id="halo"/><circle cx="196" cy="58" r="7" class="handle" data-id="handle"/><text x="30" y="256" class="t-val t-accent" data-id="ratio">AG : GM = 10.54 : 5.27 = 2.00 : 1</text><text x="30" y="280" class="t-mono" data-id="areas">พื้นที่สามส่วนย่อย = 66.4, 66.4, 66.4 (เท่ากัน)</text></svg></div><div class="fig-ctrl"><span class="fig-readout" data-readout>AG : GMₐ = 2 : 1</span></div><figcaption>ลากจุด A ไปที่ไหนก็ได้ — เส้นมัธยฐานยังพบกันที่จุดเดียว และอัตราส่วน \(AG:GM_a = 2:1\) ไม่เปลี่ยน</figcaption></figure><div class="box thm"><span class="box-label">สูตรวงกลมแนบในและแนบนอก</span>
+             <p>ให้ \(a,b,c\) เป็นความยาวด้าน \(s=\dfrac{a+b+c}{2}\)
+             และ \(K\) เป็นพื้นที่</p>
+             \[r=\frac{K}{s},\qquad r_a=\frac{K}{s-a},\qquad
+             \frac{1}{r}=\frac{1}{r_a}+\frac{1}{r_b}+\frac{1}{r_c}\]
+             <p>โดย \(r_a\) คือรัศมีวงกลมแนบนอกที่อยู่ตรงข้ามจุดยอด \(A\)</p>
+             <p>สำหรับ <b>สามเหลี่ยมมุมฉาก</b> ที่มีด้านประกอบมุมฉาก \(a,b\)
+             และด้านตรงข้ามมุมฉาก \(c\) มีสูตรลัดที่สวยงาม</p>
+             \[r=\frac{a+b-c}{2}\]</div><figure class="fig" data-viz="incircle" data-ax="180" data-ay="56" data-bx="72" data-by="214" data-cx="318" data-cy="214"><div class="fig-body"><svg viewBox="0 0 440 320" role="img" aria-labelledby="fig-incircle-t fig-incircle-d"><title id="fig-incircle-t">วงกลมแนบในและวงกลมแนบนอกของรูปสามเหลี่ยม</title><desc id="fig-incircle-d">รูปสามเหลี่ยม ABC มีวงกลมแนบในจุดศูนย์กลาง I สัมผัสด้านทั้งสามจากภายใน โดย I คือจุดตัดของเส้นแบ่งครึ่งมุม และมีวงกลมแนบนอกตรงข้ามจุด A ที่เลือกแสดงได้</desc><rect width="100%" height="100%" fill="var(--paper-2)"/><text x="30" y="32" class="t-tag">วงกลมแนบในสัมผัสด้านทั้งสาม</text><polygon points="180,56 72,214 318,214" class="f-it"/><circle cx="204.2" cy="464.49" r="250.49" class="s-violet dash" data-id="exc" opacity="0"/><circle cx="185.8" cy="153.94" r="60.06" class="s-accent thick" data-id="inc"/><polygon points="180,56 72,214 318,214" class="s-ink" data-id="tri"/><line x1="180" y1="56" x2="185.8" y2="153.94" class="s-link dash-fine" data-id="bi1"/><line x1="72" y1="214" x2="185.8" y2="153.94" class="s-link dash-fine" data-id="bi2"/><line x1="318" y1="214" x2="185.8" y2="153.94" class="s-link dash-fine" data-id="bi3"/><circle cx="185.8" cy="214" r="3.4" class="f-accent" data-id="tA"/><circle cx="231.04" cy="114.43" r="3.4" class="f-accent" data-id="tB"/><circle cx="136.22" cy="120.05" r="3.4" class="f-accent" data-id="tC"/><circle cx="180" cy="56" r="4.2" class="f-ink" data-id="ptA"/><text x="180" y="44" text-anchor="middle" class="t-name" data-id="labA">A</text><circle cx="72" cy="214" r="4.2" class="f-ink" data-id="ptB"/><text x="58" y="230" text-anchor="middle" class="t-name" data-id="labB">B</text><circle cx="318" cy="214" r="4.2" class="f-ink" data-id="ptC"/><text x="332" y="230" text-anchor="middle" class="t-name" data-id="labC">C</text><circle cx="185.8" cy="153.94" r="5" class="f-accent" data-id="ptI"/><text x="185.8" y="169.94" text-anchor="middle" class="t-name t-accent" data-id="labI">I</text><circle cx="204.2" cy="464.49" r="5" class="f-violet" data-id="ptIa" opacity="0"/><text x="204.2" y="482.49" text-anchor="middle" class="t-name t-violet" data-id="labIa" opacity="0">Iₐ</text><circle cx="180" cy="56" r="14" class="handle-halo" data-id="halo"/><circle cx="180" cy="56" r="7" class="handle" data-id="handle"/><text x="30" y="268" class="t-val t-accent" data-id="f-r">r = พื้นที่ / s = 194.34 / 32.36 = 6.01</text><text x="30" y="292" class="t-mono" data-id="f-ra">rₐ = พื้นที่ / (s − a) = 25.05</text></svg></div><div class="fig-ctrl"><button type="button" data-act="excircle" aria-pressed="false">แสดงวงกลมแนบนอก</button><span class="fig-readout" data-readout>r = 6.01</span></div><figcaption>จุดศูนย์กลางวงกลมแนบในคือจุดตัดของ <b>เส้นแบ่งครึ่งมุม</b> ทั้งสาม และ \(r=\dfrac{\text{พื้นที่}}{s}\) โดย \(s\) คือครึ่งหนึ่งของความยาวรอบรูป</figcaption></figure><div class="ex"><div class="ex-head"><span class="ex-tag">ตัวอย่าง 6</span><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">วงกลมแนบใน</span></div><div class="ex-body">
+             รูปสามเหลี่ยมมุมฉากมีด้านประกอบมุมฉากยาว \(9\) ซม. และ \(12\) ซม.
+             <br>(ก) จงหารัศมีวงกลมแนบใน
+             <br>(ข) จงหารัศมีวงกลมล้อมรอบ
+             <br>(ค) จงหารัศมีวงกลมแนบนอกที่อยู่ตรงข้ามมุมฉาก</div><div class="ex-sol"><p class="sol-label">แนวคิดและวิธีทำ</p><ol class="steps"><li>ด้านตรงข้ามมุมฉาก \(c=\sqrt{9^{2}+12^{2}}=\sqrt{225}=15\) ซม.</li><li>พื้นที่ \(K=\tfrac12(9)(12)=54\) ตร.ซม. และ
+                 \(s=\dfrac{9+12+15}{2}=18\) ซม.</li><li>(ก) \(r=\dfrac Ks=\dfrac{54}{18}=3\) ซม.
+                 <br>ตรวจด้วยสูตรลัด: \(\dfrac{9+12-15}{2}=3\) ✓</li><li>(ข) สามเหลี่ยมมุมฉากมีด้านตรงข้ามมุมฉากเป็นเส้นผ่านศูนย์กลาง
+                 ของวงกลมล้อมรอบ (มุมในครึ่งวงกลม)</li><li>\(R=\dfrac{c}{2}=\dfrac{15}{2}=7.5\) ซม.</li><li>(ค) วงกลมแนบนอกตรงข้ามมุมฉาก คือตรงข้ามจุดยอดที่มีด้านตรงข้าม
+                 เป็น \(c=15\)</li><li>\(r_c=\dfrac{K}{s-c}=\dfrac{54}{18-15}=\dfrac{54}{3}=18\) ซม.</li></ol><p class="ans">(ก) \(r=3\)&nbsp;&nbsp;(ข) \(R=7.5\)&nbsp;&nbsp;(ค) \(r_c=18\) ซม.</p></div></div><div class="ex"><div class="ex-head"><span class="ex-tag">ตัวอย่าง 7</span><span class="ex-lvl apply">ประยุกต์</span><span class="ex-lvl">ประยุกต์</span></div><div class="ex-body">
+             สวนพฤกษศาสตร์รูปสามเหลี่ยมมีด้านยาว \(13,\ 14,\ 15\) เมตร
+             จะขุดบ่อน้ำวงกลมที่ใหญ่ที่สุดที่วางในสวนได้พอดี (แนบในรูปสามเหลี่ยม)
+             <br>(ก) บ่อน้ำมีรัศมีเท่าไร
+             <br>(ข) บ่อน้ำมีพื้นที่กี่ตารางเมตร คิดเป็นกี่เปอร์เซ็นต์ของสวน
+             <br>(ค) ถ้าจะวางทางเดินวงกลมล้อมรอบสวนพอดี รัศมีเท่าไร
+             <br>ใช้สูตรเฮรอน \(K=\sqrt{s(s-a)(s-b)(s-c)}\) และ
+             \(R=\dfrac{abc}{4K}\)</div><div class="ex-sol"><p class="sol-label">แนวคิดและวิธีทำ</p><ol class="steps"><li>\(s=\dfrac{13+14+15}{2}=21\) ม.</li><li>\(K=\sqrt{21(21-13)(21-14)(21-15)}=\sqrt{21\cdot8\cdot7\cdot6}
+                 =\sqrt{7056}=84\) ตร.ม.</li><li>(ก) \(r=\dfrac Ks=\dfrac{84}{21}=4\) ม.</li><li>(ข) พื้นที่บ่อ \(=\pi r^{2}=16\pi\approx50.27\) ตร.ม.</li><li>\(\dfrac{50.27}{84}\times100\approx59.8\%\) ของพื้นที่สวน</li><li>(ค) \(R=\dfrac{abc}{4K}=\dfrac{13\cdot14\cdot15}{4(84)}
+                 =\dfrac{2730}{336}=8.125\) ม.</li></ol><p class="ans">(ก) \(r=4\) ม.&nbsp;&nbsp;(ข) \(16\pi\approx50.3\) ตร.ม. (\(\approx59.8\%\))&nbsp;&nbsp;(ค) \(R=8.125\) ม.</p></div></div></section><section id="drill" class="drill"><div class="drill-head"><h3>แบบฝึกหัดท้ายบท</h3><span class="drill-stat">แสดง 33 / 33 ข้อ</span></div><p>โจทย์เรียงจากปานกลางไปยาก และปิดท้ายด้วยโจทย์ประยุกต์ ลองทำด้วยตัวเองให้ครบก่อนเปิดเฉลย</p><div class="drill-filter"><button class="btn" type="button" data-filter="all" aria-pressed="true">ทั้งหมด (33)</button><button class="btn" type="button" data-filter="med" aria-pressed="false">ปานกลาง (11)</button><button class="btn" type="button" data-filter="hard" aria-pressed="false">ยาก (14)</button><button class="btn" type="button" data-filter="apply" aria-pressed="false">ประยุกต์ (8)</button><button class="btn" type="button" data-sol-all="show">เปิดเฉลยทั้งหมด</button><button class="btn" type="button" data-sol-all="hide">ปิดเฉลยทั้งหมด</button></div><div class="q" data-lvl="med"><div class="qn">1.</div><div class="qbody">วงกลมรัศมี \(10\) ซม. มีคอร์ดอยู่ห่างจาก
+         จุดศูนย์กลาง \(6\) ซม. จงหาความยาวคอร์ด</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">คอร์ด</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u2-circle-s1">ดูเฉลย</button></div><div class="qsol" id="u2-circle-s1" hidden>ครึ่งคอร์ด \(=\sqrt{10^{2}-6^{2}}=\sqrt{64}=8\) ซม.
+             <br>คอร์ดยาว \(=16\) ซม.</div></div><div class="q" data-lvl="med"><div class="qn">2.</div><div class="qbody">วงกลมหนึ่งมีคอร์ดยาว \(30\) ซม.
+         อยู่ห่างจากจุดศูนย์กลาง \(8\) ซม. จงหารัศมี</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">คอร์ด</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u2-circle-s2">ดูเฉลย</button></div><div class="qsol" id="u2-circle-s2" hidden>\(r=\sqrt{15^{2}+8^{2}}=\sqrt{225+64}=\sqrt{289}=17\) ซม.</div></div><div class="q" data-lvl="med"><div class="qn">3.</div><div class="qbody">มุมที่จุดศูนย์กลางรองรับส่วนโค้ง
+         \(AB\) มีขนาด \(146^\circ\) จงหามุมในส่วนโค้งใหญ่ที่รองรับ \(AB\)</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">มุมในส่วนโค้ง</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u2-circle-s3">ดูเฉลย</button></div><div class="qsol" id="u2-circle-s3" hidden>มุมในส่วนโค้ง \(=\tfrac12(146^\circ)=73^\circ\)</div></div><div class="q" data-lvl="med"><div class="qn">4.</div><div class="qbody">\(AB\) เป็นเส้นผ่านศูนย์กลาง
+         และ \(C\) อยู่บนวงกลม ถ้า \(\angle ABC=29^\circ\) จงหา \(\angle BAC\)</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">ครึ่งวงกลม</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u2-circle-s4">ดูเฉลย</button></div><div class="qsol" id="u2-circle-s4" hidden>\(\angle ACB=90^\circ\) (มุมในครึ่งวงกลม)
+             <br>\(\angle BAC=180^\circ-90^\circ-29^\circ=61^\circ\)</div></div><div class="q" data-lvl="med"><div class="qn">5.</div><div class="qbody">สี่เหลี่ยม \(ABCD\) แนบในวงกลม
+         มี \(\angle A=(2x+15)^\circ\) และ \(\angle C=(3x-10)^\circ\)
+         จงหา \(x\) และมุมทั้งสอง</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">สี่เหลี่ยมแนบใน</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u2-circle-s5">ดูเฉลย</button></div><div class="qsol" id="u2-circle-s5" hidden>มุมตรงข้ามรวมกันได้ \(180^\circ\):
+             \(2x+15+3x-10=180\Rightarrow 5x=175\Rightarrow x=35\)
+             <br>\(\angle A=85^\circ\) และ \(\angle C=95^\circ\)</div></div><div class="q" data-lvl="med"><div class="qn">6.</div><div class="qbody">จุด \(P\) อยู่ห่างจากจุดศูนย์กลาง
+         \(25\) ซม. วงกลมรัศมี \(7\) ซม. จงหาความยาวเส้นสัมผัสจาก \(P\)</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">เส้นสัมผัส</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u2-circle-s6">ดูเฉลย</button></div><div class="qsol" id="u2-circle-s6" hidden>\(PT=\sqrt{25^{2}-7^{2}}=\sqrt{625-49}=\sqrt{576}=24\) ซม.</div></div><div class="q" data-lvl="med"><div class="qn">7.</div><div class="qbody">เส้นสัมผัสสองเส้นจากจุด \(P\)
+         พบวงกลมที่ \(A\) และ \(B\) ถ้า \(\angle APB=48^\circ\) จงหา \(\angle AOB\)
+         เมื่อ \(O\) เป็นจุดศูนย์กลาง</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">เส้นสัมผัส</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u2-circle-s7">ดูเฉลย</button></div><div class="qsol" id="u2-circle-s7" hidden>\(OAPB\) มี \(\angle OAP=\angle OBP=90^\circ\) (รัศมี ⟂ เส้นสัมผัส)
+             <br>ผลรวมมุมในรูปสี่เหลี่ยม \(=360^\circ\)
+             <br>\(\angle AOB=360^\circ-90^\circ-90^\circ-48^\circ=132^\circ\)</div></div><div class="q" data-lvl="med"><div class="qn">8.</div><div class="qbody">คอร์ด \(AB\) และ \(CD\) ตัดกันภายใน
+         วงกลมที่ \(P\) ถ้า \(PA=6\), \(PB=8\) และ \(PC=4\) จงหา \(PD\)</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">กำลังของจุด</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u2-circle-s8">ดูเฉลย</button></div><div class="qsol" id="u2-circle-s8" hidden>\(PA\cdot PB=PC\cdot PD\)
+             <br>\(6\times8=4\times PD\Rightarrow PD=12\)</div></div><div class="q" data-lvl="med"><div class="qn">9.</div><div class="qbody">สามเหลี่ยมมุมฉากมีด้านประกอบมุมฉาก
+         \(6\) และ \(8\) ซม. จงหารัศมีวงกลมแนบในและวงกลมล้อมรอบ</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">วงกลมแนบใน</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u2-circle-s9">ดูเฉลย</button></div><div class="qsol" id="u2-circle-s9" hidden>ด้านตรงข้ามมุมฉาก \(=10\) ซม.
+             <br>\(r=\dfrac{6+8-10}{2}=2\) ซม.
+             <br>\(R=\dfrac{10}{2}=5\) ซม.</div></div><div class="q" data-lvl="med"><div class="qn">10.</div><div class="qbody">เส้นมัธยฐานของรูปสามเหลี่ยมยาว
+         \(15,\ 18,\ 21\) ซม. จงหาระยะจากเซนทรอยด์ถึงจุดยอดทั้งสาม</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">เซนทรอยด์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u2-circle-s10">ดูเฉลย</button></div><div class="qsol" id="u2-circle-s10" hidden>เซนทรอยด์อยู่ที่ \(\tfrac23\) ของเส้นมัธยฐานจากจุดยอด
+             <br>\(\tfrac23(15)=10\), \(\tfrac23(18)=12\), \(\tfrac23(21)=14\) ซม.</div></div><div class="q" data-lvl="hard"><div class="qn">11.</div><div class="qbody">วงกลมรัศมี \(25\) ซม. มีคอร์ดขนานกัน
+         สองเส้นยาว \(14\) ซม. และ \(40\) ซม. จงหาระยะระหว่างคอร์ดทั้งสอง
+         ทั้งสองกรณี</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">คอร์ด</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u2-circle-s11">ดูเฉลย</button></div><div class="qsol" id="u2-circle-s11" hidden>\(d_1=\sqrt{25^{2}-7^{2}}=\sqrt{625-49}=\sqrt{576}=24\) ซม.
+             <br>\(d_2=\sqrt{625-400}=\sqrt{225}=15\) ซม.
+             <br>คนละข้าง: \(24+15=39\) ซม.
+             <br>ข้างเดียวกัน: \(24-15=9\) ซม.</div></div><div class="q" data-lvl="hard"><div class="qn">12.</div><div class="qbody">สี่เหลี่ยม \(ABCD\) แนบในวงกลม
+         เส้นทแยงมุม \(AC\) และ \(BD\) ตัดกันที่ \(P\)
+         <br>ถ้า \(\angle BAC=38^\circ\) และ \(\angle ACD=27^\circ\) จงหา \(\angle APB\)</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">มุมในวงกลม</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u2-circle-s12">ดูเฉลย</button></div><div class="qsol" id="u2-circle-s12" hidden>\(\angle BAC\) และ \(\angle BDC\) เป็นมุมในส่วนโค้งเดียวกัน
+             (รองรับส่วนโค้ง \(BC\)) จึง \(\angle BDC=38^\circ\)
+             <br>ใน \(\triangle PDC\): \(\angle DPC=180^\circ-38^\circ-27^\circ
+             =115^\circ\)
+             <br>\(\angle APB\) เป็นมุมตรงข้ามของ \(\angle DPC\) จึง
+             \(\angle APB=115^\circ\)</div></div><div class="q" data-lvl="hard"><div class="qn">13.</div><div class="qbody">วงกลมสองวงรัศมี \(8\) ซม. และ
+         \(3\) ซม. สัมผัสภายนอกกัน จงหาความยาวของเส้นสัมผัสร่วมภายนอก
+         (ส่วนที่อยู่ระหว่างจุดสัมผัสสองจุด)</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">เส้นสัมผัส</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u2-circle-s13">ดูเฉลย</button></div><div class="qsol" id="u2-circle-s13" hidden>ระยะระหว่างจุดศูนย์กลาง \(=8+3=11\) ซม.
+             <br>ลากเส้นจากจุดศูนย์กลางเล็กขนานกับเส้นสัมผัสร่วม
+             ได้สามเหลี่ยมมุมฉากที่มีด้านตรงข้ามมุมฉาก \(11\)
+             และด้านประกอบมุมฉากหนึ่งด้าน \(=8-3=5\)
+             <br>ความยาวเส้นสัมผัสร่วม \(=\sqrt{11^{2}-5^{2}}=\sqrt{121-25}
+             =\sqrt{96}=4\sqrt6\approx9.80\) ซม.
+             <br>(สูตรทั่วไป: \(\sqrt{d^{2}-(r_1-r_2)^{2}}\))</div></div><div class="q" data-lvl="hard"><div class="qn">14.</div><div class="qbody">วงกลมแนบในรูปสามเหลี่ยม \(ABC\)
+         สัมผัสด้าน \(BC,CA,AB\) ที่ \(X,Y,Z\)
+         <br>ถ้า \(a=BC=14\), \(b=CA=13\), \(c=AB=15\) จงหา \(AZ\), \(BX\), \(CY\)</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">เส้นสัมผัส</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u2-circle-s14">ดูเฉลย</button></div><div class="qsol" id="u2-circle-s14" hidden>เส้นสัมผัสจากจุดเดียวกันยาวเท่ากัน จึงให้
+             \(AZ=AY=x\), \(BZ=BX=y\), \(CX=CY=z\)
+             <br>\(x+y=c=15\), \(y+z=a=14\), \(z+x=b=13\)
+             <br>บวกทั้งสาม: \(2(x+y+z)=42\Rightarrow x+y+z=21=s\)
+             <br>\(x=s-a=21-14=7\)
+             <br>\(y=s-b=21-13=8\)
+             <br>\(z=s-c=21-15=6\)
+             <br>ดังนั้น \(AZ=7\), \(BX=8\), \(CY=6\)</div></div><div class="q" data-lvl="hard"><div class="qn">15.</div><div class="qbody">จากจุด \(P\) ภายนอกวงกลม
+         ลากเส้นตัดพบวงกลมที่ \(A\) และ \(B\) โดย \(PA=4\) และ \(AB=5\)
+         <br>(ก) จงหาความยาวเส้นสัมผัสจาก \(P\)
+         <br>(ข) ถ้าลากเส้นตัดอีกเส้นพบวงกลมที่ \(C,D\) โดย \(PC=3\) จงหา \(PD\)</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">กำลังของจุด</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u2-circle-s15">ดูเฉลย</button></div><div class="qsol" id="u2-circle-s15" hidden>(ก) \(PB=PA+AB=4+5=9\)
+             <br>\(t^{2}=PA\cdot PB=4\times9=36\Rightarrow t=6\)
+             <br>(ข) \(PC\cdot PD=36\Rightarrow 3\times PD=36\Rightarrow PD=12\)</div></div><div class="q" data-lvl="hard"><div class="qn">16.</div><div class="qbody">จงพิสูจน์ว่าเส้นสัมผัสสองเส้นที่ลากจาก
+         จุดภายนอกจุดเดียวกันยาวเท่ากัน</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">พิสูจน์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u2-circle-s16">ดูเฉลย</button></div><div class="qsol" id="u2-circle-s16" hidden>ให้เส้นสัมผัสจาก \(P\) แตะวงกลมศูนย์กลาง \(O\) ที่ \(A\) และ \(B\)
+             <br>พิจารณา \(\triangle OAP\) และ \(\triangle OBP\)
+             <br>\(\angle OAP=\angle OBP=90^\circ\) (เส้นสัมผัส ⟂ รัศมี)
+             <br>\(OA=OB=r\) (รัศมีของวงกลมเดียวกัน)
+             <br>\(OP=OP\) (ด้านตรงข้ามมุมฉากร่วม)
+             <br>จึงได้ \(\triangle OAP\equiv\triangle OBP\) (<b>ฉ.ด.ด.</b>)
+             <br>ส่วนสมนัย: \(PA=PB\) และ \(\angle APO=\angle BPO\)
+             (จึงได้ด้วยว่า \(PO\) แบ่งครึ่ง \(\angle APB\)) ∎</div></div><div class="q" data-lvl="hard"><div class="qn">17.</div><div class="qbody">จงพิสูจน์ว่ามุมตรงข้ามของสี่เหลี่ยม
+         แนบในวงกลมรวมกันได้ \(180^\circ\)</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">พิสูจน์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u2-circle-s17">ดูเฉลย</button></div><div class="qsol" id="u2-circle-s17" hidden>ให้ \(ABCD\) แนบในวงกลมศูนย์กลาง \(O\)
+             <br>\(\angle A\) เป็นมุมในส่วนโค้งที่รองรับส่วนโค้ง \(BCD\)
+             จึง \(\angle A=\tfrac12\,\text{arc}(BCD)\)
+             <br>\(\angle C\) เป็นมุมในส่วนโค้งที่รองรับส่วนโค้ง \(DAB\)
+             จึง \(\angle C=\tfrac12\,\text{arc}(DAB)\)
+             <br>ส่วนโค้งสองส่วนนี้รวมกันเป็นเส้นรอบวงทั้งวง \(=360^\circ\)
+             <br>\(\angle A+\angle C=\tfrac12(360^\circ)=180^\circ\) ∎
+             <br>ทำนองเดียวกันกับ \(\angle B+\angle D\)</div></div><div class="q" data-lvl="hard"><div class="qn">18.</div><div class="qbody">จงพิสูจน์ว่าถ้าคอร์ดสองเส้นตัดกันภายใน
+         วงกลมที่ \(P\) แล้ว \(PA\cdot PB=PC\cdot PD\)</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">พิสูจน์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u2-circle-s18">ดูเฉลย</button></div><div class="qsol" id="u2-circle-s18" hidden>ให้คอร์ด \(AB\) และ \(CD\) ตัดกันที่ \(P\)
+             <br>พิจารณา \(\triangle PAC\) และ \(\triangle PDB\)
+             <br>\(\angle APC=\angle DPB\) (มุมตรงข้าม)
+             <br>\(\angle CAP=\angle BDP\) (มุมในส่วนโค้งเดียวกัน รองรับส่วนโค้ง \(BC\))
+             <br>จึงได้ \(\triangle PAC\sim\triangle PDB\) (ม.ม.)
+             <br>อัตราส่วนด้านที่สมนัย: \(\dfrac{PA}{PD}=\dfrac{PC}{PB}\)
+             <br>คูณไขว้: \(PA\cdot PB=PC\cdot PD\) ∎</div></div><div class="q" data-lvl="hard"><div class="qn">19.</div><div class="qbody">เส้นสัมผัสที่จุด \(A\) ของวงกลม
+         ทำมุมกับคอร์ด \(AB\) เป็น \(64^\circ\) จุด \(C\) อยู่บนส่วนโค้งใหญ่
+         <br>(ก) จงหา \(\angle ACB\)
+         <br>(ข) จงหามุมที่จุดศูนย์กลางที่รองรับคอร์ด \(AB\)
+         <br>(ค) ถ้า \(D\) อยู่บนส่วนโค้งเล็ก จงหา \(\angle ADB\)</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">tangent–chord</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u2-circle-s19">ดูเฉลย</button></div><div class="qsol" id="u2-circle-s19" hidden>(ก) มุมระหว่างเส้นสัมผัสกับคอร์ด = มุมในส่วนโค้งสลับ
+             <br>\(\angle ACB=64^\circ\)
+             <br>(ข) \(\angle AOB=2(64^\circ)=128^\circ\)
+             <br>(ค) \(ACBD\) เป็นสี่เหลี่ยมแนบในวงกลม มุมตรงข้ามรวม \(180^\circ\)
+             <br>\(\angle ADB=180^\circ-64^\circ=116^\circ\)</div></div><div class="q" data-lvl="hard"><div class="qn">20.</div><div class="qbody">รูปสามเหลี่ยมมีด้านยาว
+         \(9,\ 10,\ 17\) ซม. จงหารัศมีวงกลมแนบใน และรัศมีวงกลมแนบนอก
+         ที่อยู่ตรงข้ามด้านที่ยาวที่สุด</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">วงกลมแนบใน</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u2-circle-s20">ดูเฉลย</button></div><div class="qsol" id="u2-circle-s20" hidden>\(s=\dfrac{9+10+17}{2}=18\) ซม.
+             <br>เฮรอน: \(K=\sqrt{18(18-9)(18-10)(18-17)}=\sqrt{18\cdot9\cdot8\cdot1}
+             =\sqrt{1296}=36\) ตร.ซม.
+             <br>\(r=\dfrac{36}{18}=2\) ซม.
+             <br>\(r_c=\dfrac{K}{s-c}=\dfrac{36}{18-17}=36\) ซม.</div></div><div class="q" data-lvl="hard"><div class="qn">21.</div><div class="qbody">รูปสามเหลี่ยม \(ABC\) มีจุดยอด
+         \(A(0,6)\), \(B(-4,-2)\), \(C(7,-1)\)
+         <br>(ก) จงหาเซนทรอยด์
+         <br>(ข) จงหาความยาวเส้นมัธยฐานจาก \(A\)
+         <br>(ค) จงตรวจว่าเซนทรอยด์แบ่งเส้นมัธยฐานนั้นในอัตราส่วน \(2:1\)</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">เซนทรอยด์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u2-circle-s21">ดูเฉลย</button></div><div class="qsol" id="u2-circle-s21" hidden>(ก) \(G=\left(\dfrac{0-4+7}{3},\dfrac{6-2-1}{3}\right)=(1,1)\)
+             <br>(ข) จุดกึ่งกลาง \(BC=\left(\dfrac{-4+7}{2},\dfrac{-2-1}{2}\right)
+             =(1.5,-1.5)\)
+             <br>\(AM=\sqrt{1.5^{2}+7.5^{2}}=\sqrt{2.25+56.25}=\sqrt{58.5}
+             \approx7.65\)
+             <br>(ค) \(AG=\sqrt{1^{2}+5^{2}}=\sqrt{26}\approx5.10\)
+             <br>\(GM=\sqrt{0.5^{2}+2.5^{2}}=\sqrt{6.5}\approx2.55\)
+             <br>\(\dfrac{AG}{GM}=\dfrac{\sqrt{26}}{\sqrt{6.5}}=\sqrt4=2\) ✓</div></div><div class="q" data-lvl="hard"><div class="qn">22.</div><div class="qbody">วงกลมหนึ่งมีคอร์ด \(AB\) และ \(CD\)
+         ตัดกันที่ \(P\) ภายในวงกลม ถ้าส่วนโค้ง \(AC=70^\circ\) และ
+         ส่วนโค้ง \(BD=50^\circ\) จงหา \(\angle APC\)</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">มุมในวงกลม</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u2-circle-s22">ดูเฉลย</button></div><div class="qsol" id="u2-circle-s22" hidden>มุมที่เกิดจากคอร์ดสองเส้นตัดกันภายในวงกลมมีขนาดเท่ากับ
+             <b>ครึ่งหนึ่งของผลบวกของส่วนโค้งที่รองรับ</b>
+             <br>\(\angle APC=\tfrac12(\text{arc }AC+\text{arc }BD)
+             =\tfrac12(70^\circ+50^\circ)=60^\circ\)
+             <br><b>เหตุผล</b>: \(\angle APC\) เป็นมุมภายนอกของ \(\triangle PBC\)
+             จึงเท่ากับ \(\angle PBC+\angle PCB=\tfrac12\text{arc }AC
+             +\tfrac12\text{arc }BD\)</div></div><div class="q" data-lvl="apply"><div class="qn">23.</div><div class="qbody">ท่อน้ำทรงกระบอกวางนอน
+         เส้นผ่านศูนย์กลางภายใน \(100\) ซม. มีน้ำอยู่ลึก \(20\) ซม.
+         <br>(ก) ผิวน้ำกว้างเท่าไร
+         <br>(ข) ถ้าเติมน้ำจนลึก \(50\) ซม. ผิวน้ำกว้างเท่าไร
+         <br>(ค) ผิวน้ำกว้างที่สุดเมื่อน้ำลึกเท่าไร</div><div class="qmeta"><span class="ex-lvl apply">ประยุกต์</span><span class="ex-lvl">ประยุกต์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u2-circle-s23">ดูเฉลย</button></div><div class="qsol" id="u2-circle-s23" hidden>รัศมี \(r=50\) ซม. ผิวน้ำเป็นคอร์ด
+             <br>(ก) น้ำลึก \(20\) ซม. ผิวน้ำอยู่ห่างจากจุดศูนย์กลาง
+             \(d=50-20=30\) ซม.
+             <br>ครึ่งคอร์ด \(=\sqrt{50^{2}-30^{2}}=\sqrt{1600}=40\)
+             <br>ผิวน้ำกว้าง \(=80\) ซม.
+             <br>(ข) น้ำลึก \(50\) ซม. → \(d=0\) ผิวน้ำผ่านจุดศูนย์กลาง
+             <br>กว้าง \(=2r=100\) ซม.
+             <br>(ค) กว้างที่สุดเมื่อ \(d=0\) คือ <b>ลึก \(50\) ซม.</b>
+             (ครึ่งท่อพอดี) ได้ \(100\) ซม.</div></div><div class="q" data-lvl="apply"><div class="qn">24.</div><div class="qbody">สะพานโค้งมีหน้าตัดเป็นส่วนโค้งของวงกลม
+         ช่วงกว้าง (คอร์ด) \(24\) ม. และสูงที่กลางสะพาน \(4\) ม.
+         <br>(ก) จงหารัศมีของวงกลมที่สะพานโค้งนี้เป็นส่วนหนึ่ง
+         <br>(ข) ที่ระยะ \(8\) ม. จากกลางสะพาน ความสูงเป็นเท่าไร</div><div class="qmeta"><span class="ex-lvl apply">ประยุกต์</span><span class="ex-lvl">ประยุกต์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u2-circle-s24">ดูเฉลย</button></div><div class="qsol" id="u2-circle-s24" hidden>(ก) ให้รัศมี \(r\) จุดศูนย์กลางอยู่ต่ำกว่ายอดโค้ง \(r-4\)
+             <br>ครึ่งคอร์ด \(=12\) ม. ใช้ \(\ell^{2}+d^{2}=r^{2}\) กับ \(d=r-4\):
+             <br>\(12^{2}+(r-4)^{2}=r^{2}\)
+             <br>\(144+r^{2}-8r+16=r^{2}\Rightarrow 160=8r\Rightarrow r=20\) ม.
+             <br>(ข) ที่ระยะ \(8\) ม. จากกลาง ความสูงจากฐาน
+             \(=\sqrt{r^{2}-8^{2}}-(r-4)\)
+             <br>\(=\sqrt{400-64}-16=\sqrt{336}-16\approx18.33-16=2.33\) ม.</div></div><div class="q" data-lvl="apply"><div class="qn">25.</div><div class="qbody">ล้อรถจักรยานรัศมี \(35\) ซม.
+         มีซี่ล้อ \(36\) ซี่เรียงห่างเท่ากัน
+         <br>(ก) มุมที่จุดศูนย์กลางระหว่างซี่ล้อสองซี่ที่อยู่ติดกันเป็นเท่าไร
+         <br>(ข) ระยะตรง (คอร์ด) ระหว่างปลายซี่ล้อสองซี่ที่ติดกันเป็นเท่าไร
+         <br>(ค) ส่วนโค้งระหว่างปลายซี่ล้อสองซี่ยาวเท่าไร (ใช้ \(\pi\approx3.1416\))</div><div class="qmeta"><span class="ex-lvl apply">ประยุกต์</span><span class="ex-lvl">ประยุกต์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u2-circle-s25">ดูเฉลย</button></div><div class="qsol" id="u2-circle-s25" hidden>(ก) \(\dfrac{360^\circ}{36}=10^\circ\)
+             <br>(ข) คอร์ด \(=2r\sin\left(\tfrac{10^\circ}{2}\right)
+             =2(35)\sin5^\circ\approx70(0.0872)=6.10\) ซม.
+             <br>(ค) ส่วนโค้ง \(=\dfrac{10}{360}\times2\pi(35)
+             =\dfrac{2\pi(35)}{36}\approx\dfrac{219.9}{36}=6.11\) ซม.
+             <br>สังเกตว่าคอร์ดกับส่วนโค้งใกล้กันมากเมื่อมุมเล็ก</div></div><div class="q" data-lvl="apply"><div class="qn">26.</div><div class="qbody">สนามกีฬาวงกลมรัศมี \(60\) ม.
+         มีประตูสองบานที่ \(A\) และ \(B\) ซึ่งอยู่ห่างกันตามแนวเส้นตรง \(96\) ม.
+         <br>(ก) มุมที่จุดศูนย์กลางรองรับ \(AB\) เป็นเท่าไร (ปัดเป็นองศา)
+         <br>(ข) ผู้ชมที่ยืนอยู่บนขอบสนามฝั่งไกลมองเห็นประตูสองบานทำมุมเท่าไร
+         <br>(ค) ผู้ชมที่ยืนบนขอบสนามฝั่งใกล้ (ส่วนโค้งเล็ก) มองเห็นทำมุมเท่าไร</div><div class="qmeta"><span class="ex-lvl apply">ประยุกต์</span><span class="ex-lvl">ประยุกต์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u2-circle-s26">ดูเฉลย</button></div><div class="qsol" id="u2-circle-s26" hidden>(ก) ครึ่งคอร์ด \(=48\) ม.
+             <br>\(\sin\left(\tfrac{\theta}{2}\right)=\dfrac{48}{60}=0.8\)
+             <br>\(\tfrac{\theta}{2}=53.13^\circ\Rightarrow\theta\approx106^\circ\)
+             <br>(ข) มุมในส่วนโค้งใหญ่ \(=\tfrac12(106^\circ)=53^\circ\)
+             <br>(ค) ผู้ชมอยู่บนส่วนโค้งเล็ก มุมนั้นตรงข้ามกับ (ข)
+             ในสี่เหลี่ยมแนบในวงกลม
+             <br>\(=180^\circ-53^\circ=127^\circ\)</div></div><div class="q" data-lvl="apply"><div class="qn">27.</div><div class="qbody">เครื่องเจียรกลมรัศมี \(15\) ซม.
+         ต้องมีแผ่นกันสะเก็ดเป็นเส้นตรงสัมผัสขอบล้อ โดยยึดที่จุด \(P\)
+         ซึ่งห่างจากจุดศูนย์กลางล้อ \(39\) ซม.
+         <br>(ก) แผ่นกันสะเก็ดจากจุดยึดถึงจุดสัมผัสยาวเท่าไร
+         <br>(ข) ถ้ายึดแผ่นสองแผ่นสัมผัสล้อคนละข้าง มุมระหว่างแผ่นทั้งสองเท่าไร
+         (ปัดเป็นองศา)</div><div class="qmeta"><span class="ex-lvl apply">ประยุกต์</span><span class="ex-lvl">ประยุกต์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u2-circle-s27">ดูเฉลย</button></div><div class="qsol" id="u2-circle-s27" hidden>(ก) \(PT=\sqrt{39^{2}-15^{2}}=\sqrt{1521-225}=\sqrt{1296}=36\) ซม.
+             <br>(ข) ใน \(\triangle OTP\) มุมฉากที่ \(T\)
+             <br>\(\sin(\angle OPT)=\dfrac{15}{39}=0.3846
+             \Rightarrow\angle OPT\approx22.6^\circ\)
+             <br>\(PO\) แบ่งครึ่งมุมระหว่างแผ่นทั้งสอง
+             <br>มุมระหว่างแผ่น \(=2(22.6^\circ)\approx45^\circ\)</div></div><div class="q" data-lvl="apply"><div class="qn">28.</div><div class="qbody">สวนหย่อมรูปสามเหลี่ยมมีด้านยาว
+         \(20,\ 21,\ 29\) เมตร
+         <br>(ก) จงตรวจว่าเป็นสามเหลี่ยมมุมฉากหรือไม่
+         <br>(ข) จะวางน้ำพุวงกลมแนบในพอดี รัศมีเท่าไร
+         <br>(ค) จะล้อมรั้ววงกลมรอบสวนพอดี ต้องใช้รั้วยาวเท่าไร
+         (ใช้ \(\pi\approx3.14\))</div><div class="qmeta"><span class="ex-lvl apply">ประยุกต์</span><span class="ex-lvl">ประยุกต์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u2-circle-s28">ดูเฉลย</button></div><div class="qsol" id="u2-circle-s28" hidden>(ก) \(20^{2}+21^{2}=400+441=841=29^{2}\) ✓
+             <b>เป็นสามเหลี่ยมมุมฉาก</b>
+             <br>(ข) \(r=\dfrac{20+21-29}{2}=\dfrac{12}{2}=6\) ม.
+             <br>(ค) \(R=\dfrac{29}{2}=14.5\) ม. (ด้านตรงข้ามมุมฉากเป็นเส้นผ่านศูนย์กลาง)
+             <br>เส้นรอบวง \(=2\pi R=2(3.14)(14.5)=91.06\) ม.</div></div><div class="q" data-lvl="apply"><div class="qn">29.</div><div class="qbody">นาฬิกาเรือนหนึ่งมีหน้าปัดรัศมี
+         \(12\) ซม. เข็มสั้นยาว \(6\) ซม. เข็มยาว \(10\) ซม.
+         <br>(ก) เวลา 4:00 มุมระหว่างเข็มทั้งสองเป็นเท่าไร
+         <br>(ข) ระยะตรงระหว่างปลายเข็มทั้งสองเวลา 4:00 เป็นเท่าไร
+         (ใช้กฎของโคไซน์ \(c^{2}=a^{2}+b^{2}-2ab\cos C\))
+         <br>(ค) เวลา 3:00 ปลายเข็มทั้งสองกับจุดศูนย์กลางเกิดสามเหลี่ยมอะไร</div><div class="qmeta"><span class="ex-lvl apply">ประยุกต์</span><span class="ex-lvl">ประยุกต์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u2-circle-s29">ดูเฉลย</button></div><div class="qsol" id="u2-circle-s29" hidden>(ก) ชั่วโมงละ \(30^\circ\) เวลา 4:00 เข็มสั้นอยู่ที่เลข 4
+             เข็มยาวที่เลข 12
+             <br>มุม \(=4\times30^\circ=120^\circ\)
+             <br>(ข) \(c^{2}=6^{2}+10^{2}-2(6)(10)\cos120^\circ\)
+             <br>\(=36+100-120(-0.5)=136+60=196\)
+             <br>\(c=14\) ซม.
+             <br>(ค) เวลา 3:00 มุม \(=90^\circ\) จึงเป็น
+             <b>สามเหลี่ยมมุมฉาก</b> ด้านประกอบมุมฉาก \(6\) และ \(10\)
+             <br>ระยะปลายเข็ม \(=\sqrt{36+100}=\sqrt{136}\approx11.66\) ซม.</div></div><div class="q" data-lvl="med"><div class="qn">30.</div><div class="qbody">วงกลมรัศมี \(14\) ซม. มีส่วนโค้งที่รองรับ
+         มุมที่จุดศูนย์กลาง \(90^\circ\) จงหาความยาวส่วนโค้งและพื้นที่ของเซกเตอร์
+         (ใช้ \(\pi=\tfrac{22}{7}\))</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">ส่วนโค้ง</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u2-circle-s30">ดูเฉลย</button></div><div class="qsol" id="u2-circle-s30" hidden>ส่วนโค้ง \(=\dfrac{90}{360}\times2\pi r
+             =\dfrac14\times2\cdot\tfrac{22}{7}\cdot14=22\) ซม.
+             <br>พื้นที่เซกเตอร์ \(=\dfrac14\pi r^{2}
+             =\dfrac14\cdot\tfrac{22}{7}\cdot196=154\) ตร.ซม.</div></div><div class="q" data-lvl="hard"><div class="qn">31.</div><div class="qbody">วงกลมสองวงรัศมี \(9\) ซม. และ
+         \(4\) ซม. มีจุดศูนย์กลางห่างกัน \(13\) ซม.
+         <br>(ก) วงกลมทั้งสองอยู่ในลักษณะใด
+         <br>(ข) จงหาความยาวเส้นสัมผัสร่วมภายนอก
+         <br>(ค) มีเส้นสัมผัสร่วมทั้งหมดกี่เส้น</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">เส้นสัมผัส</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u2-circle-s31">ดูเฉลย</button></div><div class="qsol" id="u2-circle-s31" hidden>(ก) \(r_1+r_2=9+4=13\) เท่ากับระยะระหว่างจุดศูนย์กลางพอดี
+             <br>จึง <b>สัมผัสภายนอกกัน</b> ที่จุดเดียว
+             <br>(ข) \(\sqrt{13^{2}-(9-4)^{2}}=\sqrt{169-25}=\sqrt{144}=12\) ซม.
+             <br>(ค) วงกลมที่สัมผัสภายนอกกันมีเส้นสัมผัสร่วม <b>3 เส้น</b>
+             — ภายนอก 2 เส้น และเส้นที่ผ่านจุดสัมผัส 1 เส้น</div></div><div class="q" data-lvl="hard"><div class="qn">32.</div><div class="qbody">จากจุด \(P\) ภายนอกวงกลม
+         ลากเส้นตัดสองเส้น เส้นแรกพบวงกลมที่ \(A,B\) และเส้นที่สองพบที่ \(C,D\)
+         (\(A,C\) ใกล้ \(P\))
+         <br>ถ้าส่วนโค้ง \(BD=84^\circ\) และส่วนโค้ง \(AC=28^\circ\) จงหา \(\angle P\)</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">มุมในวงกลม</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u2-circle-s32">ดูเฉลย</button></div><div class="qsol" id="u2-circle-s32" hidden>มุมที่จุดภายนอกวงกลมมีขนาดเท่ากับ <b>ครึ่งหนึ่งของผลต่าง</b>
+             ของส่วนโค้งที่รองรับ
+             <br>\(\angle P=\tfrac12(84^\circ-28^\circ)=\tfrac12(56^\circ)=28^\circ\)
+             <br><b>เหตุผล</b>: \(\angle DBP\) (มุมภายนอกของ \(\triangle PBD\)
+             ที่ \(B\)) \(=\tfrac12\text{arc }AC+\angle P\) และ
+             \(\angle BDC=\tfrac12\text{arc }BD\) ... จัดรูปได้ผลลัพธ์ข้างต้น</div></div><div class="q" data-lvl="apply"><div class="qn">33.</div><div class="qbody">จานดาวเทียมรูปวงกลมเส้นผ่านศูนย์กลาง
+         \(90\) ซม. ติดตั้งโดยมีขายึดสามขาสัมผัสขอบจานที่จุดที่แบ่งขอบเป็นสามส่วนเท่ากัน
+         <br>(ก) มุมที่จุดศูนย์กลางระหว่างขาสองขาที่ติดกันเป็นเท่าไร
+         <br>(ข) ระยะตรงระหว่างจุดยึดสองจุดที่ติดกันเป็นเท่าไร
+         (ใช้ \(\sqrt3\approx1.732\))
+         <br>(ค) สามเหลี่ยมที่เกิดจากจุดยึดสามจุดมีพื้นที่เท่าไร</div><div class="qmeta"><span class="ex-lvl apply">ประยุกต์</span><span class="ex-lvl">ประยุกต์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u2-circle-s33">ดูเฉลย</button></div><div class="qsol" id="u2-circle-s33" hidden>รัศมี \(r=45\) ซม.
+             <br>(ก) \(\dfrac{360^\circ}{3}=120^\circ\)
+             <br>(ข) คอร์ด \(=2r\sin60^\circ=2(45)\left(\tfrac{\sqrt3}{2}\right)
+             =45\sqrt3\approx77.9\) ซม.
+             <br>(ค) เป็นสามเหลี่ยมด้านเท่าด้านยาว \(45\sqrt3\)
+             <br>พื้นที่ \(=\dfrac{\sqrt3}{4}(45\sqrt3)^{2}
+             =\dfrac{\sqrt3}{4}(6075)\approx2630.3\) ตร.ซม.</div></div></section><div class="pager"><a class="pl" href="u1-geometry.html">เรขาคณิต</a><span></span></div></main></div></div><footer class="site"><div class="wrap">คณิตศาสตร์ ม.2 · สื่อการเรียนรู้แบบอินเทอร์แอกทีฟ</div></footer>
+<script src="../assets/js/site.js"></script>
+<script src="../assets/js/viz.js"></script>
+</body>
+</html>

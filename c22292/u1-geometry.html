@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="th" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>เรขาคณิต · คณิตศาสตร์พัฒนาศักยภาพ 4</title>
+<meta name="description" content="สัจพจน์และทฤษฎีบทในเรขาคณิตแบบยุคลิด เทคนิคการพิสูจน์ทางเรขาคณิต
+    ทฤษฎีบทของเมเนลอสและเซวา และการใช้อัตราส่วนของพื้นที่เป็นเครื่องมือ
+    แก้ปัญหาท">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Serif+Thai:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/site.css">
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+         processEscapes: true },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] },
+  chtml: { mtextInheritFont: true, scale: 1.0 },
+  startup: { typeset: true }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+
+</head>
+<body>
+<nav class="nav"><a class="nav-brand" href="../index.html">คณิต<span>ศาสตร์</span> ม.2</a><div class="nav-links"><a href="../index.html">หน้าแรก</a><a href="../c22122/index.html" title="คณิตศาสตร์ 4">คณิตศาสตร์ 4</a><a href="../c22292/index.html" aria-current="page" title="คณิตศาสตร์พัฒนาศักยภาพ 4">พัฒนาศักยภาพ 4</a><a href="../c22294/index.html" title="เทคโนโลยีเพื่อการศึกษาทางคณิตศาสตร์">เทคโนโลยีคณิตศาสตร์</a><button class="theme-btn" type="button" aria-label="สลับโหมดสี">☾</button></div></nav><div class="wrap"><div class="page"><aside class="toc"><div class="toc-label">หัวข้อในบทนี้</div><ol><li><a href="#axioms">สัจพจน์และโครงสร้างของเรขาคณิตแบบยุคลิด</a></li><li><a href="#menelaus">ทฤษฎีบทของเมเนลอส</a></li><li><a href="#arearatio">อัตราส่วนของพื้นที่</a></li><li><a href="#drill">แบบฝึกหัดท้ายบท</a></li></ol></aside><main><p class="eyebrow">คณิตศาสตร์พัฒนาศักยภาพ 4</p><h1>เรขาคณิต</h1><p class="lead">สัจพจน์และทฤษฎีบทในเรขาคณิตแบบยุคลิด เทคนิคการพิสูจน์ทางเรขาคณิต
+    ทฤษฎีบทของเมเนลอสและเซวา และการใช้อัตราส่วนของพื้นที่เป็นเครื่องมือ
+    แก้ปัญหาที่การคำนวณตรง ๆ ทำได้ยาก</p><div class="badges"><span class="badge">สัจพจน์ยุคลิด</span><span class="badge">เมเนลอส · เซวา</span><span class="badge">อัตราส่วนพื้นที่</span><span class="badge">ภาพลากได้</span><span class="badge on">แบบฝึกหัด 31 ข้อ</span></div><section id="axioms"><h2>สัจพจน์และโครงสร้างของเรขาคณิตแบบยุคลิด</h2><p>เรขาคณิตแบบยุคลิดสร้างขึ้นจากข้อความที่รับไว้โดยไม่พิสูจน์
+             เรียกว่า <b>สัจพจน์</b> แล้วอนุมานข้อความอื่นทั้งหมดออกมาเป็น
+             <b>ทฤษฎีบท</b> โครงสร้างแบบนี้ทำให้ทุกข้อสรุปสืบย้อนกลับไปถึง
+             สัจพจน์ได้ตลอดสาย</p><div class="box def"><span class="box-label">สัจพจน์ห้าข้อของยุคลิด</span>
+             <ol>
+             <li>ลากส่วนของเส้นตรงเชื่อมจุดสองจุดใด ๆ ได้หนึ่งเส้น</li>
+             <li>ต่อส่วนของเส้นตรงออกไปเป็นเส้นตรงได้ไม่สิ้นสุด</li>
+             <li>เขียนวงกลมได้หนึ่งวงเมื่อกำหนดจุดศูนย์กลางและรัศมี</li>
+             <li>มุมฉากทุกมุมเท่ากัน</li>
+             <li><b>สัจพจน์เส้นขนาน</b> — ผ่านจุดที่ไม่อยู่บนเส้นตรงที่กำหนด
+             มีเส้นตรงที่ขนานกับเส้นนั้นได้ <b>เพียงเส้นเดียว</b></li>
+             </ol></div><div class="box note"><span class="box-label">เหตุใดสัจพจน์ข้อที่ห้าจึงสำคัญ</span>
+             <p>สัจพจน์สี่ข้อแรกดูชัดเจนในตัว แต่ข้อที่ห้าไม่ชัดเช่นนั้น
+             นักคณิตศาสตร์พยายามพิสูจน์มันจากสี่ข้อแรกกว่าสองพันปีแต่ไม่สำเร็จ</p>
+             <p>ภายหลังพบว่าเปลี่ยนข้อที่ห้าแล้วยังได้ระบบที่สอดคล้องกันในตัว
+             เรียกว่า <b>เรขาคณิตนอกระบบยุคลิด</b> ซึ่งในระบบนั้นมุมภายใน
+             รูปสามเหลี่ยม <i>ไม่</i> รวมกันได้ \(180^\circ\)</p>
+             <p>บทเรียนที่ได้: ทฤษฎีบททุกข้อในบทนี้เป็นจริง <b>เพราะ</b>
+             เรายอมรับสัจพจน์ข้อที่ห้า ไม่ใช่เพราะมัน "ต้องเป็นอย่างนั้น"</p></div><h3>เทคนิคการพิสูจน์ที่ใช้บ่อย</h3><table class="tbl"><thead><tr><th>เทคนิค</th><th>ใช้เมื่อ</th><th>วิธีลงมือ</th></tr></thead><tbody><tr><td>พิสูจน์ตรง</td><td>เส้นทางจากข้อกำหนดไปข้อสรุปชัดเจน</td><td>ไล่จากข้อกำหนด ใช้นิยามและทฤษฎีบททีละขั้น</td></tr><tr><td>พิสูจน์โดยข้อขัดแย้ง</td><td>ข้อสรุปเป็นข้อความปฏิเสธ หรือพิสูจน์ตรงยาก</td><td>สมมติว่าข้อสรุป <b>เท็จ</b> แล้วหาข้อขัดแย้ง</td></tr><tr><td>สร้างเส้นช่วย</td><td>ข้อมูลที่มีไม่เชื่อมกันในรูปเดิม</td><td>ลากเส้นขนาน เส้นตั้งฉาก หรือต่อด้านออกไป</td></tr><tr><td>พิสูจน์โดยความเท่ากันทุกประการ</td><td>ต้องแสดงว่าส่วนใดเท่ากับส่วนใด</td><td>หาสามเหลี่ยมคู่ที่เข้าเงื่อนไข แล้วใช้ส่วนสมนัย</td></tr><tr><td>ใช้อัตราส่วนพื้นที่</td><td>โจทย์เกี่ยวกับการแบ่งด้านหรือจุดบนด้าน</td><td>เทียบพื้นที่ที่มีฐานหรือสูงร่วมกัน</td></tr></tbody></table><div class="box trick"><span class="box-label">เส้นช่วยที่ควรนึกถึงเป็นอย่างแรก</span>
+             <ul>
+             <li>มีเส้นขนาน → ลากเส้นตัดเพิ่ม หรือลากเส้นขนานผ่านจุดที่สนใจ</li>
+             <li>มีจุดกึ่งกลาง → ลากเส้นกึ่งกลาง หรือต่อเส้นมัธยฐานเป็นสองเท่า</li>
+             <li>มีสามเหลี่ยมหน้าจั่ว → ลากเส้นจากมุมยอดลงฐาน</li>
+             <li>มีอัตราส่วนบนด้าน → นึกถึงเมเนลอส เซวา หรืออัตราส่วนพื้นที่</li>
+             <li>มีวงกลม → ลากรัศมีไปจุดสัมผัส หรือลากคอร์ดเพิ่ม</li>
+             </ul></div></section><section id="menelaus"><h2>ทฤษฎีบทของเมเนลอส</h2><div class="box thm"><span class="box-label">ทฤษฎีบทของเมเนลอส</span>
+             <p>ให้เส้นตรงเส้นหนึ่งตัดด้าน (หรือส่วนต่อของด้าน) ของรูปสามเหลี่ยม
+             \(ABC\) ที่จุด \(F\) บน \(AB\), \(D\) บน \(BC\) และ \(E\) บน \(CA\) แล้ว</p>
+             \[\frac{AF}{FB}\cdot\frac{BD}{DC}\cdot\frac{CE}{EA}=1\]
+             <p>วิธีจำลำดับ: เดินวนรอบรูปสามเหลี่ยม \(A\to B\to C\to A\)
+             และใส่จุดตัดคั่นกลางแต่ละด้าน</p>
+             <p><b>ข้อสำคัญ</b> — เส้นตัดจะพบ "ด้าน" สองด้านและ
+             "ส่วนต่อของด้าน" อีกหนึ่งด้านเสมอ (หรือพบส่วนต่อทั้งสามด้าน)
+             เป็นไปไม่ได้ที่จะพบด้านทั้งสามภายในรูป</p></div><figure class="fig" data-viz="menelaus" data-ax="110" data-ay="214" data-bx="330" data-by="214" data-cx="236" data-cy="70" data-s0="0.34"><div class="fig-body"><svg viewBox="0 0 500 300" role="img" aria-labelledby="fig-menelaus-t fig-menelaus-d"><title id="fig-menelaus-t">ทฤษฎีบทของเมเนลอส</title><desc id="fig-menelaus-d">รูปสามเหลี่ยม ABC ถูกตัดด้วยเส้นตรงหนึ่งเส้นที่พบด้าน AB ที่จุด F ด้าน CA ที่จุด E และส่วนต่อของด้าน BC ที่จุด D ผลคูณของอัตราส่วนสามอัตราส่วนบนด้านทั้งสามมีค่าเท่ากับหนึ่ง</desc><rect width="100%" height="100%" fill="var(--paper-2)"/><text x="30" y="32" class="t-tag">เส้นตัดหนึ่งเส้นกับด้านทั้งสามของสามเหลี่ยม</text><polygon points="110,214 330,214 236,70" class="f-it" data-id="tri"/><polygon points="110,214 330,214 236,70" class="s-ink"/><line x1="330" y1="214" x2="192.63" y2="3.55" class="s-ink dash-fine"/><line x1="182.57" y1="273.96" x2="194.86" y2="-56.4" class="s-accent" data-id="trans"/><circle cx="110" cy="214" r="4" class="f-ink"/><text x="96" y="222" text-anchor="middle" class="t-name" data-id="labA">A</text><circle cx="330" cy="214" r="4" class="f-ink"/><text x="338" y="232" text-anchor="middle" class="t-name" data-id="labB">B</text><circle cx="236" cy="70" r="4" class="f-ink"/><text x="236" y="58" text-anchor="middle" class="t-name" data-id="labC">C</text><circle cx="192.63" cy="3.55" r="4.2" class="f-accent" data-id="ptD"/><text x="204.63" y="5.55" text-anchor="middle" class="t-name t-accent" data-id="labD">D</text><circle cx="188.12" cy="124.72" r="4.2" class="f-accent" data-id="ptE"/><text x="202.12" y="124.72" text-anchor="middle" class="t-name t-accent" data-id="labE">E</text><circle cx="184.8" cy="214" r="4.2" class="f-accent" data-id="ptF"/><text x="184.8" y="234" text-anchor="middle" class="t-name t-accent" data-id="labF">F</text><circle cx="184.8" cy="214" r="14" class="handle-halo" data-id="halo"/><circle cx="184.8" cy="214" r="7" class="handle" data-id="handle"/><text x="184.8" y="252" text-anchor="middle" class="hint">ลาก F</text><text x="30" y="252" class="t-mono" data-id="r1">AF/FB = 0.515</text><text x="170" y="252" class="t-mono" data-id="r2">BD/DC = 3.167</text><text x="310" y="252" class="t-mono" data-id="r3">CE/EA = 0.613</text><text x="30" y="280" class="t-val t-accent" data-id="prod">ผลคูณ = 1.000</text></svg></div><div class="fig-ctrl"><span class="fig-readout" data-readout>(AF/FB)(BD/DC)(CE/EA) = 1.000 ≈ 1</span></div><figcaption>ลากจุด F ไปตามด้าน AB แล้วสังเกตว่า <b>ผลคูณของอัตราส่วนทั้งสาม</b> ยังเท่ากับ 1 เสมอ — นี่คือสาระของทฤษฎีบทเมเนลอส (ค่าที่คลาดจาก 1 เล็กน้อยมาจากการปัดเศษตำแหน่งพิกเซล)</figcaption></figure><div class="box thm"><span class="box-label">ทฤษฎีบทของเซวา (คู่แฝดของเมเนลอส)</span>
+             <p>เส้นเซวา \(AD,BE,CF\) ของรูปสามเหลี่ยม \(ABC\)
+             พบกันที่จุดเดียว <b>ถ้าและเพียงถ้า</b></p>
+             \[\frac{BD}{DC}\cdot\frac{CE}{EA}\cdot\frac{AF}{FB}=1\]
+             <p>สองทฤษฎีบทนี้ให้สมการหน้าตาเดียวกัน แต่สถานการณ์ต่างกัน
+             จำไว้ว่า <b>เมเนลอส = เส้นตรงหนึ่งเส้นตัดสามด้าน</b>
+             ส่วน <b>เซวา = สามเส้นพบกันที่จุดเดียว</b></p></div><figure class="fig" data-viz="proof" id="proof-ceva"><div class="fig-body"><svg viewBox="0 0 460 300" role="img" aria-labelledby="proof-ceva-t proof-ceva-d"><title id="proof-ceva-t">ทฤษฎีบทเซวา</title><desc id="proof-ceva-d">รูปสามเหลี่ยม ABC มีเส้นเซวาสามเส้นลากจากจุดยอดแต่ละจุดไปยังด้านตรงข้าม และพบกันที่จุด P เดียว ผลคูณของอัตราส่วนสามอัตราส่วนบนด้านทั้งสามเท่ากับหนึ่ง</desc><rect width="100%" height="100%" fill="var(--paper-2)"/><defs><marker id="ar" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" class="f-muted"/></marker><marker id="ar-a" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" class="f-accent"/></marker><marker id="ar-l" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" class="f-link"/></marker><marker id="ar-t" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" class="f-teal"/></marker></defs><text x="30" y="32" class="t-tag">เส้นเซวาสามเส้นที่พบกันที่จุดเดียว</text><polygon points="230,58 80,228 390,228" class="f-it"/><polygon points="230,58 80,228 390,228" class="s-ink"/><g data-step="1"><line x1="230" y1="58" x2="248.68" y2="228" class="s-accent"/><circle cx="248.68" cy="228" r="4" class="f-accent"/><text x="248.68" y="248" text-anchor="middle" class="t-name t-accent">D</text></g><g data-step="2"><line x1="80" y1="228" x2="322.11" y2="155.86" class="s-link"/><circle cx="322.11" cy="155.86" r="4" class="f-link"/><text x="338.11" y="155.86" text-anchor="middle" class="t-name t-link">E</text></g><g data-step="3"><line x1="390" y1="228" x2="150.21" y2="148.43" class="s-teal"/><circle cx="150.21" cy="148.43" r="4" class="f-teal"/><text x="134.21" y="148.43" text-anchor="middle" class="t-name t-teal">F</text></g><g data-step="4"><circle cx="243.33" cy="179.33" r="12" class="s-accent dash"/><circle cx="243.33" cy="179.33" r="5" class="f-accent"/><text x="259.33" y="183.33" text-anchor="middle" class="t-name t-accent">P</text></g><circle cx="230" cy="58" r="4.2" class="f-ink"/><text x="230" y="46" text-anchor="middle" class="t-name">A</text><circle cx="80" cy="228" r="4.2" class="f-ink"/><text x="64" y="244" text-anchor="middle" class="t-name">B</text><circle cx="390" cy="228" r="4.2" class="f-ink"/><text x="406" y="244" text-anchor="middle" class="t-name">C</text><g data-step="5"><text x="30" y="268" class="t-val t-accent">BD/DC · CE/EA · AF/FB = 1.19 · 0.74 · 1.14 = 1.00</text></g></svg><table class="tbl"><thead><tr><th>ข้อความ</th><th>เหตุผล</th></tr></thead><tbody><tr data-prow="1"><td>ลาก \(AD\) โดย \(D\) อยู่บน \(BC\)</td><td>เส้นเซวาจากจุดยอด \(A\)</td></tr><tr data-prow="2"><td>ลาก \(BE\) โดย \(E\) อยู่บน \(CA\)</td><td>เส้นเซวาจากจุดยอด \(B\)</td></tr><tr data-prow="3"><td>ลาก \(CF\) โดย \(F\) อยู่บน \(AB\)</td><td>เส้นเซวาจากจุดยอด \(C\)</td></tr><tr data-prow="4"><td>เส้นทั้งสามพบกันที่จุด \(P\)</td><td>กำหนดให้ (concurrent)</td></tr><tr data-prow="5"><td>\(\dfrac{BD}{DC}\cdot\dfrac{CE}{EA}\cdot\dfrac{AF}{FB}=1\)</td><td>ทฤษฎีบทเซวา</td></tr></tbody></table></div><div class="fig-ctrl"><button type="button" data-act="reset" aria-pressed="false">เริ่มต้น</button><button type="button" data-act="prev" aria-pressed="false">ย้อน</button><button type="button" data-act="next" aria-pressed="false">ขั้นต่อไป</button><button type="button" data-act="all" aria-pressed="false">แสดงทั้งหมด</button><span class="fig-readout" data-readout>ขั้นที่ 5 / 5</span></div><figcaption><b>เทียบกับเมเนลอส</b> — เซวาว่าด้วยเส้นสามเส้นที่ <i>พบกันที่จุดเดียว</i> ส่วนเมเนลอสว่าด้วยเส้นตรง <i>เส้นเดียว</i> ที่ตัดด้านทั้งสาม ทั้งสองให้ผลคูณของอัตราส่วนเท่ากับ 1 แต่เมเนลอสมีจุดตัดหนึ่งจุดอยู่บนส่วนต่อของด้าน</figcaption></figure><div class="ex"><div class="ex-head"><span class="ex-tag">ตัวอย่าง 1</span><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">เมเนลอส</span></div><div class="ex-body">
+             รูปสามเหลี่ยม \(ABC\) มีจุด \(F\) บน \(AB\) โดย \(AF:FB=2:3\)
+             และจุด \(E\) บน \(AC\) โดย \(AE:EC=3:1\)
+             <br>เส้น \(FE\) ต่อออกไปพบส่วนต่อของ \(BC\) ที่จุด \(D\)
+             จงหา \(BD:DC\)</div><div class="ex-sol"><p class="sol-label">แนวคิดและวิธีทำ</p><ol class="steps"><li>ใช้เมเนลอสกับสามเหลี่ยม \(ABC\) และเส้นตัด \(F\!-\!E\!-\!D\)
+                 \[\frac{AF}{FB}\cdot\frac{BD}{DC}\cdot\frac{CE}{EA}=1\]</li><li>แทน \(\dfrac{AF}{FB}=\dfrac23\) และ
+                 \(\dfrac{CE}{EA}=\dfrac13\) (กลับจาก \(AE:EC=3:1\))</li><li>\(\dfrac23\cdot\dfrac{BD}{DC}\cdot\dfrac13=1\)</li><li>\(\dfrac{BD}{DC}=\dfrac{9}{2}\)</li><li>ค่ามากกว่า 1 มาก แสดงว่า \(D\) อยู่บน <b>ส่วนต่อ</b> ของ \(BC\)
+                 เลยจุด \(C\) ออกไป ซึ่งสอดคล้องกับรูป</li></ol><p class="ans">\(BD:DC=9:2\)</p></div></div><div class="ex"><div class="ex-head"><span class="ex-tag">ตัวอย่าง 2</span><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">เซวา</span></div><div class="ex-body">
+             รูปสามเหลี่ยม \(ABC\) มีเส้นเซวา \(AD,BE,CF\) พบกันที่จุดเดียว
+             ถ้า \(BD:DC=3:4\) และ \(CE:EA=2:5\) จงหา \(AF:FB\)</div><div class="ex-sol"><p class="sol-label">แนวคิดและวิธีทำ</p><ol class="steps"><li>ทฤษฎีบทเซวา
+                 \[\frac{BD}{DC}\cdot\frac{CE}{EA}\cdot\frac{AF}{FB}=1\]</li><li>\(\dfrac34\cdot\dfrac25\cdot\dfrac{AF}{FB}=1\)</li><li>\(\dfrac{6}{20}\cdot\dfrac{AF}{FB}=1\)</li><li>\(\dfrac{AF}{FB}=\dfrac{20}{6}=\dfrac{10}{3}\)</li></ol><p class="ans">\(AF:FB=10:3\)</p></div></div></section><section id="arearatio"><h2>อัตราส่วนของพื้นที่</h2><p>อัตราส่วนพื้นที่เป็นเครื่องมือที่ทรงพลังมาก เพราะมันเปลี่ยนโจทย์
+             เรื่องความยาวให้เป็นโจทย์เรื่องพื้นที่ซึ่งบวกลบกันได้ตรง ๆ
+             หลักพื้นฐานมีเพียงสองข้อ</p><div class="box thm"><span class="box-label">สองหลักที่ใช้ตลอด</span>
+             <p><b>หลักที่ 1 — สูงร่วมกัน</b> ถ้าสามเหลี่ยมสองรูปมีความสูงเท่ากัน
+             อัตราส่วนพื้นที่เท่ากับอัตราส่วนฐาน</p>
+             \[\frac{[ABD]}{[ADC]}=\frac{BD}{DC}\]
+             <p><b>หลักที่ 2 — มุมร่วมกัน</b> ถ้าสามเหลี่ยมสองรูปมีมุมร่วมหนึ่งมุม</p>
+             \[\frac{[APQ]}{[ABC]}=\frac{AP\cdot AQ}{AB\cdot AC}\]
+             <p>เมื่อ \(P\) อยู่บน \(AB\) และ \(Q\) อยู่บน \(AC\)</p></div><figure class="fig" data-viz="arearatio" data-ax="180" data-ay="62" data-bx="70" data-by="214" data-cx="330" data-cy="214"><div class="fig-body"><svg viewBox="0 0 440 300" role="img" aria-labelledby="fig-arearatio-t fig-arearatio-d"><title id="fig-arearatio-t">อัตราส่วนของพื้นที่สามเหลี่ยมที่สูงเท่ากัน</title><desc id="fig-arearatio-d">รูปสามเหลี่ยม ABC มีจุด D บนด้าน BC ทำให้เกิดสามเหลี่ยมสองรูปที่ใช้ความสูง จากจุด A เส้นเดียวกัน อัตราส่วนพื้นที่จึงเท่ากับอัตราส่วนความยาวฐาน</desc><rect width="100%" height="100%" fill="var(--paper-2)"/><text x="30" y="32" class="t-tag">ฐานต่างกัน สูงเท่ากัน</text><polygon points="180,62 70,214 179.2,214" class="f-lt" data-id="abd"/><polygon points="180,62 179.2,214 330,214" class="f-at" data-id="adc"/><polygon points="180,62 70,214 330,214" class="s-ink"/><line x1="180" y1="62" x2="179.2" y2="214" class="s-ink" data-id="cev"/><line x1="180" y1="62" x2="180" y2="214" class="s-teal dash" data-id="alt"/><path d="M 180 204 L 190 204 L 190 214" class="s-teal"/><circle cx="180" cy="62" r="4" class="f-ink"/><text x="180" y="50" text-anchor="middle" class="t-name" data-id="labA">A</text><circle cx="70" cy="214" r="4" class="f-ink"/><text x="56" y="232" text-anchor="middle" class="t-name" data-id="labB">B</text><circle cx="330" cy="214" r="4" class="f-ink"/><text x="344" y="232" text-anchor="middle" class="t-name" data-id="labC">C</text><text x="176" y="234" text-anchor="middle" class="t-name t-teal" data-id="labH">H</text><circle cx="179.2" cy="214" r="4.2" class="f-accent"/><text x="179.2" y="236" text-anchor="middle" class="t-name t-accent" data-id="labD">D</text><circle cx="179.2" cy="214" r="14" class="handle-halo" data-id="halo"/><circle cx="179.2" cy="214" r="7" class="handle" data-id="handle"/><text x="30" y="252" class="t-mono" data-id="ratio-len">BD : DC = 10.92 : 15.08  = 0.724</text><text x="30" y="278" class="t-val t-accent" data-id="ratio-area">[ABD] : [ADC] = 82.99 : 114.61  = 0.724</text></svg></div><div class="fig-ctrl"><span class="fig-readout" data-readout>อัตราส่วนพื้นที่ = อัตราส่วนฐาน</span></div><figcaption>สามเหลี่ยม ABD และ ADC ใช้ความสูง \(AH\) เส้นเดียวกัน ดังนั้น \(\dfrac{[ABD]}{[ADC]}=\dfrac{BD}{DC}\) — ลากจุด D เพื่อยืนยัน</figcaption></figure><div class="ex"><div class="ex-head"><span class="ex-tag">ตัวอย่าง 3</span><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">อัตราส่วนพื้นที่</span></div><div class="ex-body">
+             รูปสามเหลี่ยม \(ABC\) มีพื้นที่ \(84\) ตารางหน่วย
+             จุด \(P\) อยู่บน \(AB\) โดย \(AP:PB=2:1\)
+             และจุด \(Q\) อยู่บน \(AC\) โดย \(AQ:QC=3:4\)
+             <br>จงหาพื้นที่ของรูปสามเหลี่ยม \(APQ\) และพื้นที่ของรูปสี่เหลี่ยม \(PBCQ\)</div><div class="ex-sol"><p class="sol-label">แนวคิดและวิธีทำ</p><ol class="steps"><li>\(\triangle APQ\) และ \(\triangle ABC\) มีมุม \(A\) ร่วมกัน
+                 จึงใช้หลักที่ 2</li><li>\(\dfrac{AP}{AB}=\dfrac{2}{3}\) และ \(\dfrac{AQ}{AC}=\dfrac{3}{7}\)</li><li>\(\dfrac{[APQ]}{[ABC]}=\dfrac{2}{3}\cdot\dfrac{3}{7}=\dfrac{2}{7}\)</li><li>\([APQ]=\dfrac27\times84=24\) ตารางหน่วย</li><li>\([PBCQ]=84-24=60\) ตารางหน่วย</li></ol><p class="ans">\([APQ]=24\) · \([PBCQ]=60\) ตารางหน่วย</p></div></div><div class="ex"><div class="ex-head"><span class="ex-tag">ตัวอย่าง 4</span><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">อัตราส่วนพื้นที่</span></div><div class="ex-body">
+             รูปสามเหลี่ยม \(ABC\) มีจุด \(D\) บน \(BC\) โดย \(BD:DC=1:2\)
+             และจุด \(E\) บน \(AD\) โดย \(AE:ED=3:1\)
+             <br>ถ้า \([ABC]=60\) จงหา \([BEC]\)</div><div class="ex-sol"><p class="sol-label">แนวคิดและวิธีทำ</p><ol class="steps"><li>\(\triangle BEC\) และ \(\triangle BAC\) มีฐาน \(BC\) ร่วมกัน</li><li>อัตราส่วนพื้นที่จึงเท่ากับอัตราส่วนความสูงจาก \(E\) และจาก \(A\)
+                 ลงไปยัง \(BC\)</li><li>\(E\) อยู่บน \(AD\) โดย \(AE:ED=3:1\) ดังนั้น
+                 \(ED:AD=1:4\)</li><li>ความสูงแปรตามระยะตามแนว \(AD\) เป็นเชิงเส้น และ \(D\) อยู่บน \(BC\)
+                 (ความสูงเป็นศูนย์) ดังนั้นความสูงจาก \(E\) เป็น \(\tfrac14\)
+                 ของความสูงจาก \(A\)</li><li>\([BEC]=\tfrac14\times60=15\)</li></ol><p class="ans">\([BEC]=15\) ตารางหน่วย</p></div></div><div class="ex"><div class="ex-head"><span class="ex-tag">ตัวอย่าง 5</span><span class="ex-lvl apply">ประยุกต์</span><span class="ex-lvl">ประยุกต์</span></div><div class="ex-body">
+             ที่ดินรูปสามเหลี่ยม \(ABC\) พื้นที่ \(1\,260\) ตารางวา
+             จะแบ่งให้ลูกสามคนโดยลากเส้นจากจุดยอดทั้งสามไปพบกันที่จุด \(G\)
+             ซึ่งเป็นจุดเซนทรอยด์
+             <br>(ก) แต่ละคนได้ที่ดินกี่ตารางวา
+             <br>(ข) ถ้าเปลี่ยนเป็นลากเส้นไปพบกันที่จุด \(P\) ซึ่งทำให้
+             \([ABP]:[BCP]:[CAP]=2:3:4\) แต่ละคนได้เท่าไร
+             <br>(ค) ในกรณี (ข) เส้นเซวาจาก \(A\) ตัด \(BC\) ที่ \(D\)
+             โดย \(BD:DC\) เท่าไร</div><div class="ex-sol"><p class="sol-label">แนวคิดและวิธีทำ</p><ol class="steps"><li>(ก) จุดเซนทรอยด์แบ่งรูปสามเหลี่ยมเป็นสามส่วนที่มีพื้นที่เท่ากัน</li><li>แต่ละคนได้ \(\dfrac{1260}{3}=420\) ตารางวา</li><li>(ข) ส่วนทั้งสามรวม \(2+3+4=9\) ส่วน ส่วนละ
+                 \(\dfrac{1260}{9}=140\) ตารางวา</li><li>ได้ \(280,\ 420,\ 560\) ตารางวา ตามลำดับ</li><li>(ค) \(\triangle ABD\) และ \(\triangle ADC\) มีสูงจาก \(A\) ร่วมกัน
+                 และ \(\triangle PBD,\triangle PDC\) มีสูงจาก \(P\) ร่วมกัน</li><li>ลบกัน: \(\dfrac{BD}{DC}=\dfrac{[ABD]-[PBD]}{[ADC]-[PDC]}
+                 =\dfrac{[ABP]}{[CAP]}=\dfrac{2}{4}=\dfrac12\)</li></ol><p class="ans">(ก) \(420\) ตารางวาเท่ากัน&nbsp;&nbsp;(ข) \(280,420,560\)&nbsp;&nbsp;(ค) \(BD:DC=1:2\)</p></div></div></section><section id="drill" class="drill"><div class="drill-head"><h3>แบบฝึกหัดท้ายบท</h3><span class="drill-stat">แสดง 31 / 31 ข้อ</span></div><p>โจทย์เรียงจากปานกลางไปยาก และปิดท้ายด้วยโจทย์ประยุกต์ ลองทำด้วยตัวเองให้ครบก่อนเปิดเฉลย</p><div class="drill-filter"><button class="btn" type="button" data-filter="all" aria-pressed="true">ทั้งหมด (31)</button><button class="btn" type="button" data-filter="med" aria-pressed="false">ปานกลาง (10)</button><button class="btn" type="button" data-filter="hard" aria-pressed="false">ยาก (14)</button><button class="btn" type="button" data-filter="apply" aria-pressed="false">ประยุกต์ (7)</button><button class="btn" type="button" data-sol-all="show">เปิดเฉลยทั้งหมด</button><button class="btn" type="button" data-sol-all="hide">ปิดเฉลยทั้งหมด</button></div><div class="q" data-lvl="med"><div class="qn">1.</div><div class="qbody">รูปสามเหลี่ยม \(ABC\) มีเส้นตัด
+         พบ \(AB\) ที่ \(F\), \(CA\) ที่ \(E\) และส่วนต่อของ \(BC\) ที่ \(D\)
+         ถ้า \(AF:FB=1:2\) และ \(CE:EA=3:1\) จงหา \(BD:DC\)</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">เมเนลอส</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u1-geometry-s1">ดูเฉลย</button></div><div class="qsol" id="u1-geometry-s1" hidden>เมเนลอส: \(\dfrac{AF}{FB}\cdot\dfrac{BD}{DC}\cdot\dfrac{CE}{EA}=1\)
+             <br>\(\dfrac12\cdot\dfrac{BD}{DC}\cdot\dfrac31=1\)
+             <br>\(\dfrac{BD}{DC}=\dfrac{2}{3}\)</div></div><div class="q" data-lvl="med"><div class="qn">2.</div><div class="qbody">เส้นเซวาสามเส้นของ \(\triangle ABC\)
+         พบกันที่จุดเดียว ถ้า \(BD:DC=2:1\) และ \(AF:FB=1:3\) จงหา \(CE:EA\)</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">เซวา</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u1-geometry-s2">ดูเฉลย</button></div><div class="qsol" id="u1-geometry-s2" hidden>เซวา: \(\dfrac{BD}{DC}\cdot\dfrac{CE}{EA}\cdot\dfrac{AF}{FB}=1\)
+             <br>\(\dfrac21\cdot\dfrac{CE}{EA}\cdot\dfrac13=1\)
+             <br>\(\dfrac{CE}{EA}=\dfrac{3}{2}\)</div></div><div class="q" data-lvl="med"><div class="qn">3.</div><div class="qbody">\([ABC]=72\) จุด \(D\) อยู่บน \(BC\)
+         โดย \(BD:DC=5:3\) จงหา \([ABD]\) และ \([ADC]\)</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">พื้นที่</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u1-geometry-s3">ดูเฉลย</button></div><div class="qsol" id="u1-geometry-s3" hidden>สูงร่วมกัน จึงแบ่งตามฐาน: รวม \(8\) ส่วน ส่วนละ \(9\)
+             <br>\([ABD]=5(9)=45\) และ \([ADC]=3(9)=27\)</div></div><div class="q" data-lvl="med"><div class="qn">4.</div><div class="qbody">\([ABC]=120\) จุด \(P\) บน \(AB\)
+         โดย \(AP:PB=1:3\) และจุด \(Q\) บน \(AC\) โดย \(AQ:QC=2:3\)
+         จงหา \([APQ]\)</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">พื้นที่</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u1-geometry-s4">ดูเฉลย</button></div><div class="qsol" id="u1-geometry-s4" hidden>มุม \(A\) ร่วมกัน:
+             \(\dfrac{[APQ]}{[ABC]}=\dfrac{AP}{AB}\cdot\dfrac{AQ}{AC}
+             =\dfrac14\cdot\dfrac25=\dfrac1{10}\)
+             <br>\([APQ]=12\)</div></div><div class="q" data-lvl="med"><div class="qn">5.</div><div class="qbody">จุด \(G\) เป็นเซนทรอยด์ของ
+         \(\triangle ABC\) และ \(AG=12\) ซม. จงหาความยาวของเส้นมัธยฐานจาก \(A\)</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">เซนทรอยด์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u1-geometry-s5">ดูเฉลย</button></div><div class="qsol" id="u1-geometry-s5" hidden>เซนทรอยด์แบ่งเส้นมัธยฐานในอัตราส่วน \(2:1\) จากจุดยอด
+             <br>\(AG:GM=2:1\) ดังนั้น \(GM=6\) และเส้นมัธยฐาน \(AM=18\) ซม.</div></div><div class="q" data-lvl="med"><div class="qn">6.</div><div class="qbody">\([ABC]=96\) และ \(G\) เป็นเซนทรอยด์
+         จงหา \([ABG]\), \([BCG]\), \([CAG]\)</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">เซนทรอยด์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u1-geometry-s6">ดูเฉลย</button></div><div class="qsol" id="u1-geometry-s6" hidden>เซนทรอยด์แบ่งรูปเป็นสามส่วนพื้นที่เท่ากัน
+             <br>แต่ละส่วน \(=\dfrac{96}{3}=32\)</div></div><div class="q" data-lvl="med"><div class="qn">7.</div><div class="qbody">ข้อความใดเป็นสัจพจน์ ข้อความใดเป็นทฤษฎีบท
+         <br>(ก) ผ่านจุดที่ไม่อยู่บนเส้นตรงหนึ่ง ลากเส้นขนานได้เพียงเส้นเดียว
+         <br>(ข) มุมภายในของรูปสามเหลี่ยมรวมกันได้ \(180^\circ\)
+         <br>(ค) มุมฉากทุกมุมเท่ากัน</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">สัจพจน์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u1-geometry-s7">ดูเฉลย</button></div><div class="qsol" id="u1-geometry-s7" hidden>(ก) <b>สัจพจน์</b> (ข้อที่ห้าของยุคลิด)
+             <br>(ข) <b>ทฤษฎีบท</b> — พิสูจน์ได้จากสัจพจน์เส้นขนาน
+             <br>(ค) <b>สัจพจน์</b> (ข้อที่สี่)</div></div><div class="q" data-lvl="med"><div class="qn">8.</div><div class="qbody">รูปสามเหลี่ยม \(ABC\) มีจุด \(M,N\)
+         เป็นจุดกึ่งกลางของ \(AB,AC\) จงหาอัตราส่วน \([AMN]:[ABC]\)</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">เส้นกึ่งกลาง</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u1-geometry-s8">ดูเฉลย</button></div><div class="qsol" id="u1-geometry-s8" hidden>มุม \(A\) ร่วมกัน: \(\dfrac{[AMN]}{[ABC]}
+             =\dfrac{AM}{AB}\cdot\dfrac{AN}{AC}=\dfrac12\cdot\dfrac12=\dfrac14\)
+             <br>ดังนั้น \([AMN]:[ABC]=1:4\)</div></div><div class="q" data-lvl="hard"><div class="qn">9.</div><div class="qbody">รูปสามเหลี่ยม \(ABC\)
+         มีจุด \(D\) เป็นจุดกึ่งกลางของ \(BC\) และจุด \(E\) บน \(AC\)
+         โดย \(AE:EC=2:3\)
+         <br>เส้น \(DE\) ต่อออกไปพบส่วนต่อของ \(AB\) ที่จุด \(F\) จงหา \(AF:FB\)</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">เมเนลอส</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u1-geometry-s9">ดูเฉลย</button></div><div class="qsol" id="u1-geometry-s9" hidden>ใช้เมเนลอสกับ \(\triangle ABC\) และเส้นตัด \(F\!-\!E\!-\!D\):
+             <br>\(\dfrac{AF}{FB}\cdot\dfrac{BD}{DC}\cdot\dfrac{CE}{EA}=1\)
+             <br>\(\dfrac{BD}{DC}=1\) (จุดกึ่งกลาง) และ \(\dfrac{CE}{EA}=\dfrac32\)
+             <br>\(\dfrac{AF}{FB}\cdot1\cdot\dfrac32=1\Rightarrow
+             \dfrac{AF}{FB}=\dfrac23\)
+             <br>ดังนั้น \(AF:FB=2:3\)</div></div><div class="q" data-lvl="hard"><div class="qn">10.</div><div class="qbody">ในรูปสามเหลี่ยม \(ABC\) จุด \(M\)
+         เป็นจุดกึ่งกลางของ \(AB\) และจุด \(N\) บน \(BC\) โดย \(BN:NC=1:3\)
+         <br>เส้น \(AN\) ตัด \(CM\) ที่จุด \(P\) จงหา \(AP:PN\) และ \(CP:PM\)</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">เมเนลอส</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u1-geometry-s10">ดูเฉลย</button></div><div class="qsol" id="u1-geometry-s10" hidden><b>หา \(AP:PN\)</b> — ใช้เมเนลอสกับ \(\triangle ABN\)
+             และเส้นตัด \(M\!-\!P\!-\!C\) (\(C\) อยู่บนส่วนต่อของ \(BN\)):
+             <br>\(\dfrac{AM}{MB}\cdot\dfrac{BC}{CN}\cdot\dfrac{NP}{PA}=1\)
+             <br>\(\dfrac{AM}{MB}=1\); \(BN:NC=1:3\) ให้ \(BC=4\) ส่วน, \(CN=3\) ส่วน
+             จึง \(\dfrac{BC}{CN}=\dfrac43\)
+             <br>\(1\cdot\dfrac43\cdot\dfrac{NP}{PA}=1\Rightarrow
+             \dfrac{NP}{PA}=\dfrac34\)
+             <br>ดังนั้น \(AP:PN=4:3\)
+             <br><b>หา \(CP:PM\)</b> — ใช้เมเนลอสกับ \(\triangle BMC\)
+             และเส้นตัด \(A\!-\!P\!-\!N\):
+             <br>\(\dfrac{BA}{AM}\cdot\dfrac{MP}{PC}\cdot\dfrac{CN}{NB}=1\)
+             <br>\(\dfrac{BA}{AM}=2\) และ \(\dfrac{CN}{NB}=3\)
+             <br>\(2\cdot\dfrac{MP}{PC}\cdot3=1\Rightarrow\dfrac{MP}{PC}=\dfrac16\)
+             <br>ดังนั้น \(CP:PM=6:1\)</div></div><div class="q" data-lvl="hard"><div class="qn">11.</div><div class="qbody">รูปสามเหลี่ยม \(ABC\) มีเส้นเซวา
+         \(AD,BE,CF\) พบกันที่จุด \(P\) ถ้า \(BD=DC\) และ \(AE:EC=1:2\)
+         จงหา \(AF:FB\) และ \([ABP]:[BCP]:[CAP]\)</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">เซวา</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u1-geometry-s11">ดูเฉลย</button></div><div class="qsol" id="u1-geometry-s11" hidden><b>หา \(AF:FB\)</b> เซวา:
+             \(\dfrac{BD}{DC}\cdot\dfrac{CE}{EA}\cdot\dfrac{AF}{FB}=1\)
+             <br>\(1\cdot\dfrac21\cdot\dfrac{AF}{FB}=1\Rightarrow
+             \dfrac{AF}{FB}=\dfrac12\)
+             <br><b>หาอัตราส่วนพื้นที่</b> ใช้ข้อเท็จจริงว่า
+             \(\dfrac{BD}{DC}=\dfrac{[ABP]}{[CAP]}\),
+             \(\dfrac{CE}{EA}=\dfrac{[BCP]}{[ABP]}\),
+             \(\dfrac{AF}{FB}=\dfrac{[CAP]}{[BCP]}\)
+             <br>ให้ \([ABP]=x,[BCP]=y,[CAP]=z\)
+             <br>\(\dfrac xz=1\) และ \(\dfrac yx=2\)
+             <br>ได้ \(x=z\) และ \(y=2x\) จึงได้ \(x:y:z=1:2:1\)
+             <br>ตรวจ: \(\dfrac zy=\dfrac12=\dfrac{AF}{FB}\) ✓</div></div><div class="q" data-lvl="hard"><div class="qn">12.</div><div class="qbody">รูปสามเหลี่ยม \(ABC\) มีจุด \(D,E,F\)
+         บน \(BC,CA,AB\) โดย \(BD:DC=CE:EA=AF:FB=1:2\)
+         <br>จงหา \([DEF]:[ABC]\)</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">พื้นที่</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u1-geometry-s12">ดูเฉลย</button></div><div class="qsol" id="u1-geometry-s12" hidden>ตัดมุมออกสามมุม แต่ละมุมมีสองด้านในอัตราส่วน
+             \(\dfrac13\) และ \(\dfrac23\)
+             <br>\(\dfrac{[AFE]}{[ABC]}=\dfrac{AF}{AB}\cdot\dfrac{AE}{AC}
+             =\dfrac13\cdot\dfrac23=\dfrac29\)
+             <br>โดยสมมาตร \([BDF]\) และ \([CED]\) ก็เป็น \(\dfrac29\) เช่นกัน
+             <br>\(\dfrac{[DEF]}{[ABC]}=1-3\left(\dfrac29\right)
+             =1-\dfrac69=\dfrac13\)
+             <br>ดังนั้น \([DEF]:[ABC]=1:3\)</div></div><div class="q" data-lvl="hard"><div class="qn">13.</div><div class="qbody">รูปสามเหลี่ยม \(ABC\) มีจุด \(D\) บน \(BC\)
+         โดย \(BD:DC=2:3\) และจุด \(E\) เป็นจุดกึ่งกลางของ \(AD\)
+         <br>เส้น \(BE\) ต่อออกไปตัด \(AC\) ที่ \(F\) จงหา \(AF:FC\)</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">พื้นที่</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u1-geometry-s13">ดูเฉลย</button></div><div class="qsol" id="u1-geometry-s13" hidden>ใช้เมเนลอสกับ \(\triangle ADC\) และเส้นตัด \(B\!-\!E\!-\!F\)
+             (\(B\) อยู่บนส่วนต่อของ \(CD\)):
+             <br>\(\dfrac{AE}{ED}\cdot\dfrac{DB}{BC}\cdot\dfrac{CF}{FA}=1\)
+             <br>\(\dfrac{AE}{ED}=1\) (จุดกึ่งกลาง)
+             <br>\(BD:DC=2:3\) ให้ \(DB=2,BC=5\) จึง \(\dfrac{DB}{BC}=\dfrac25\)
+             <br>\(1\cdot\dfrac25\cdot\dfrac{CF}{FA}=1\Rightarrow
+             \dfrac{CF}{FA}=\dfrac52\)
+             <br>ดังนั้น \(AF:FC=2:5\)</div></div><div class="q" data-lvl="hard"><div class="qn">14.</div><div class="qbody">จงพิสูจน์ว่าเส้นมัธยฐานสามเส้นของ
+         รูปสามเหลี่ยมพบกันที่จุดเดียว โดยใช้ทฤษฎีบทเซวา</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">พิสูจน์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u1-geometry-s14">ดูเฉลย</button></div><div class="qsol" id="u1-geometry-s14" hidden>ให้ \(D,E,F\) เป็นจุดกึ่งกลางของ \(BC,CA,AB\)
+             <br>เส้นมัธยฐานคือ \(AD,BE,CF\)
+             <br>\(\dfrac{BD}{DC}=1\) (\(D\) เป็นจุดกึ่งกลาง)
+             <br>\(\dfrac{CE}{EA}=1\) และ \(\dfrac{AF}{FB}=1\)
+             <br>ผลคูณ \(=1\cdot1\cdot1=1\)
+             <br>ตามบทกลับของทฤษฎีบทเซวา เส้นทั้งสามจึงพบกันที่จุดเดียว ∎</div></div><div class="q" data-lvl="hard"><div class="qn">15.</div><div class="qbody">จงพิสูจน์ว่าเส้นแบ่งครึ่งมุมภายในสามเส้น
+         ของรูปสามเหลี่ยมพบกันที่จุดเดียว
+         <br>(ใช้ทฤษฎีบทเส้นแบ่งครึ่งมุม: \(\dfrac{BD}{DC}=\dfrac{AB}{AC}\))</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">พิสูจน์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u1-geometry-s15">ดูเฉลย</button></div><div class="qsol" id="u1-geometry-s15" hidden>ให้ด้าน \(a=BC,b=CA,c=AB\)
+             <br>เส้นแบ่งครึ่งมุม \(A\) ตัด \(BC\) ที่ \(D\):
+             \(\dfrac{BD}{DC}=\dfrac{c}{b}\)
+             <br>เส้นแบ่งครึ่งมุม \(B\) ตัด \(CA\) ที่ \(E\):
+             \(\dfrac{CE}{EA}=\dfrac{a}{c}\)
+             <br>เส้นแบ่งครึ่งมุม \(C\) ตัด \(AB\) ที่ \(F\):
+             \(\dfrac{AF}{FB}=\dfrac{b}{a}\)
+             <br>ผลคูณ \(=\dfrac cb\cdot\dfrac ac\cdot\dfrac ba
+             =\dfrac{abc}{abc}=1\)
+             <br>ตามบทกลับของเซวา เส้นทั้งสามพบกันที่จุดเดียว (จุดนั้นคือ
+             จุดศูนย์กลางวงกลมแนบใน) ∎</div></div><div class="q" data-lvl="hard"><div class="qn">16.</div><div class="qbody">รูปสามเหลี่ยม \(ABC\)
+         มี \(AB=12\), \(AC=8\) และ \(BC=15\) เส้นแบ่งครึ่งมุม \(A\)
+         ตัด \(BC\) ที่ \(D\) จงหา \(BD\) และ \(DC\)</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">เส้นแบ่งครึ่งมุม</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u1-geometry-s16">ดูเฉลย</button></div><div class="qsol" id="u1-geometry-s16" hidden>ทฤษฎีบทเส้นแบ่งครึ่งมุม: \(\dfrac{BD}{DC}=\dfrac{AB}{AC}
+             =\dfrac{12}{8}=\dfrac32\)
+             <br>\(BD+DC=15\) แบ่งเป็น \(3+2=5\) ส่วน ส่วนละ \(3\)
+             <br>\(BD=9\) และ \(DC=6\)</div></div><div class="q" data-lvl="hard"><div class="qn">17.</div><div class="qbody">รูปสี่เหลี่ยม \(ABCD\) มีเส้นทแยงมุม
+         ตัดกันที่ \(O\) ถ้า \([AOB]=12\), \([BOC]=18\) และ \([COD]=27\)
+         จงหา \([AOD]\)</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">พื้นที่</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u1-geometry-s17">ดูเฉลย</button></div><div class="qsol" id="u1-geometry-s17" hidden>\(\triangle AOB\) และ \(\triangle BOC\) มีสูงจาก \(B\) ร่วมกัน
+             จึง \(\dfrac{[AOB]}{[BOC]}=\dfrac{AO}{OC}=\dfrac{12}{18}=\dfrac23\)
+             <br>\(\triangle AOD\) และ \(\triangle COD\) มีสูงจาก \(D\) ร่วมกัน
+             จึง \(\dfrac{[AOD]}{[COD]}=\dfrac{AO}{OC}=\dfrac23\)
+             <br>\([AOD]=\dfrac23(27)=18\)
+             <br><b>ข้อสังเกต</b>: \([AOB]\cdot[COD]=[BOC]\cdot[AOD]\) เสมอ
+             (\(12\times27=18\times18=324\) ✓)</div></div><div class="q" data-lvl="hard"><div class="qn">18.</div><div class="qbody">รูปสามเหลี่ยม \(ABC\) มีจุด \(P\)
+         บน \(AB\) โดย \(AP:PB=3:2\) และจุด \(Q\) บน \(BC\) โดย \(BQ:QC=1:4\)
+         <br>เส้น \(PQ\) ต่อออกไปพบส่วนต่อของ \(CA\) ที่ \(R\) จงหา \(CR:RA\)</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">เมเนลอส</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u1-geometry-s18">ดูเฉลย</button></div><div class="qsol" id="u1-geometry-s18" hidden>เมเนลอสกับ \(\triangle ABC\) เส้นตัด \(P\!-\!Q\!-\!R\):
+             <br>\(\dfrac{AP}{PB}\cdot\dfrac{BQ}{QC}\cdot\dfrac{CR}{RA}=1\)
+             <br>\(\dfrac32\cdot\dfrac14\cdot\dfrac{CR}{RA}=1\)
+             <br>\(\dfrac{3}{8}\cdot\dfrac{CR}{RA}=1\Rightarrow
+             \dfrac{CR}{RA}=\dfrac83\)
+             <br>ดังนั้น \(CR:RA=8:3\)</div></div><div class="q" data-lvl="hard"><div class="qn">19.</div><div class="qbody">จงพิสูจน์หลักที่ 2 ของอัตราส่วนพื้นที่:
+         ถ้า \(P\) อยู่บน \(AB\) และ \(Q\) อยู่บน \(AC\) แล้ว
+         \(\dfrac{[APQ]}{[ABC]}=\dfrac{AP\cdot AQ}{AB\cdot AC}\)</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">พิสูจน์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u1-geometry-s19">ดูเฉลย</button></div><div class="qsol" id="u1-geometry-s19" hidden>ใช้สูตรพื้นที่ \(=\tfrac12\times\) ผลคูณสองด้าน
+             \(\times\sin\) ของมุมระหว่างด้าน
+             <br>\([APQ]=\tfrac12\cdot AP\cdot AQ\cdot\sin A\)
+             <br>\([ABC]=\tfrac12\cdot AB\cdot AC\cdot\sin A\)
+             <br>มุม \(A\) เป็นมุมเดียวกันทั้งสองรูป \(\sin A\) จึงตัดกัน
+             <br>\(\dfrac{[APQ]}{[ABC]}=\dfrac{AP\cdot AQ}{AB\cdot AC}\) ∎
+             <br><b>ทางเลือกไม่ใช้ตรีโกณ</b>: ใช้หลักที่ 1 สองครั้ง —
+             \(\dfrac{[APQ]}{[ABQ]}=\dfrac{AP}{AB}\) (สูงจาก \(Q\) ร่วมกัน) และ
+             \(\dfrac{[ABQ]}{[ABC]}=\dfrac{AQ}{AC}\) (สูงจาก \(B\) ร่วมกัน)
+             แล้วคูณกัน</div></div><div class="q" data-lvl="apply"><div class="qn">20.</div><div class="qbody">ที่ดินรูปสามเหลี่ยม \(ABC\)
+         พื้นที่ \(2\,400\) ตารางเมตร เจ้าของขายส่วน \(APQ\) โดย \(P\) อยู่บน \(AB\)
+         ที่ระยะ \(\tfrac13\) ของ \(AB\) จาก \(A\) และ \(Q\) อยู่บน \(AC\)
+         ที่ระยะ \(\tfrac34\) ของ \(AC\) จาก \(A\)
+         <br>(ก) ขายไปกี่ตารางเมตร
+         <br>(ข) ถ้าราคาตารางเมตรละ \(4\,500\) บาท ได้เงินเท่าไร
+         <br>(ค) ที่ดินเหลือกี่ตารางเมตร</div><div class="qmeta"><span class="ex-lvl apply">ประยุกต์</span><span class="ex-lvl">ประยุกต์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u1-geometry-s20">ดูเฉลย</button></div><div class="qsol" id="u1-geometry-s20" hidden>(ก) \(\dfrac{[APQ]}{[ABC]}=\dfrac13\cdot\dfrac34=\dfrac14\)
+             <br>\([APQ]=\dfrac14(2400)=600\) ตร.ม.
+             <br>(ข) \(600\times4500=2\,700\,000\) บาท
+             <br>(ค) \(2400-600=1800\) ตร.ม.</div></div><div class="q" data-lvl="apply"><div class="qn">21.</div><div class="qbody">โครงถักสะพานรูปสามเหลี่ยม \(ABC\)
+         มีเหล็กค้ำสามท่อนลากจากจุดยอดทั้งสามไปพบกันที่จุดเดียว
+         <br>วิศวกรกำหนดให้ท่อนจาก \(A\) พบ \(BC\) ที่ \(D\) โดย \(BD:DC=1:2\)
+         และท่อนจาก \(B\) พบ \(CA\) ที่ \(E\) โดย \(CE:EA=3:1\)
+         <br>(ก) ท่อนจาก \(C\) ต้องพบ \(AB\) ที่จุดใด (อัตราส่วน \(AF:FB\))
+         <br>(ข) ถ้า \(AB=4.8\) ม. จุด \(F\) อยู่ห่างจาก \(A\) เท่าไร</div><div class="qmeta"><span class="ex-lvl apply">ประยุกต์</span><span class="ex-lvl">ประยุกต์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u1-geometry-s21">ดูเฉลย</button></div><div class="qsol" id="u1-geometry-s21" hidden>(ก) เซวา: \(\dfrac12\cdot\dfrac31\cdot\dfrac{AF}{FB}=1\)
+             <br>\(\dfrac32\cdot\dfrac{AF}{FB}=1\Rightarrow\dfrac{AF}{FB}=\dfrac23\)
+             <br>ดังนั้น \(AF:FB=2:3\)
+             <br>(ข) \(AF=\dfrac{2}{5}(4.8)=1.92\) ม.</div></div><div class="q" data-lvl="apply"><div class="qn">22.</div><div class="qbody">แปลงผักรูปสามเหลี่ยม \(ABC\)
+         จะแบ่งเป็นสามแปลงย่อยโดยลากเส้นจากจุดยอดไปพบกันที่จุด \(P\)
+         ให้พื้นที่สามแปลงเป็นอัตราส่วน \(3:4:5\)
+         <br>(ก) เส้นจาก \(A\) ตัด \(BC\) ที่ \(D\) โดย \(BD:DC\) เท่าไร
+         (ให้ \([ABP]=3k,[BCP]=4k,[CAP]=5k\))
+         <br>(ข) ถ้าพื้นที่ทั้งแปลง \(144\) ตร.ม. แต่ละแปลงกี่ตารางเมตร</div><div class="qmeta"><span class="ex-lvl apply">ประยุกต์</span><span class="ex-lvl">ประยุกต์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u1-geometry-s22">ดูเฉลย</button></div><div class="qsol" id="u1-geometry-s22" hidden>(ก) \(\dfrac{BD}{DC}=\dfrac{[ABP]}{[CAP]}=\dfrac{3k}{5k}
+             =\dfrac35\)
+             <br>ดังนั้น \(BD:DC=3:5\)
+             <br>(ข) รวม \(3+4+5=12\) ส่วน ส่วนละ \(\dfrac{144}{12}=12\) ตร.ม.
+             <br>ได้ \(36,\ 48,\ 60\) ตร.ม.</div></div><div class="q" data-lvl="apply"><div class="qn">23.</div><div class="qbody">ช่างต้องการหาจุดสมดุล (จุดศูนย์ถ่วง)
+         ของแผ่นสามเหลี่ยมโลหะที่มีความหนาสม่ำเสมอ
+         <br>(ก) จุดสมดุลอยู่ที่ใด
+         <br>(ข) ถ้าเส้นมัธยฐานจากจุดยอดหนึ่งยาว \(27\) ซม. จุดสมดุลอยู่ห่าง
+         จากจุดยอดนั้นเท่าไร
+         <br>(ค) จงอธิบายว่าเหตุใดจุดนี้จึงสมดุล โดยใช้อัตราส่วนพื้นที่</div><div class="qmeta"><span class="ex-lvl apply">ประยุกต์</span><span class="ex-lvl">ประยุกต์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u1-geometry-s23">ดูเฉลย</button></div><div class="qsol" id="u1-geometry-s23" hidden>(ก) ที่ <b>จุดเซนทรอยด์</b> คือจุดตัดของเส้นมัธยฐานสามเส้น
+             <br>(ข) \(\dfrac23(27)=18\) ซม.
+             <br>(ค) เส้นมัธยฐานแบ่งรูปสามเหลี่ยมเป็นสองส่วนพื้นที่เท่ากัน
+             (ฐานเท่ากัน สูงร่วมกัน)
+             <br>มวลสองข้างจึงเท่ากัน ทำให้สมดุลรอบเส้นมัธยฐานทุกเส้น
+             <br>จุดที่สมดุลรอบทั้งสามเส้นพร้อมกันคือจุดตัดของเส้นทั้งสาม
+             <br>ยิ่งกว่านั้น เซนทรอยด์ยังแบ่งรูปเป็นสามส่วนพื้นที่เท่ากัน</div></div><div class="q" data-lvl="apply"><div class="qn">24.</div><div class="qbody">สวนพฤกษศาสตร์รูปสามเหลี่ยม \(ABC\)
+         วางทางเดินตรงหนึ่งเส้นที่ตัดผ่าน \(AB\) ที่จุด \(F\) และ \(AC\) ที่จุด \(E\)
+         โดยต้องการให้ทางเดินแบ่งพื้นที่สวนเป็นสองส่วนเท่ากัน
+         <br>ถ้า \(AF:FB=1:1\) แล้ว \(AE:EC\) ต้องเป็นเท่าไร</div><div class="qmeta"><span class="ex-lvl apply">ประยุกต์</span><span class="ex-lvl">ประยุกต์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u1-geometry-s24">ดูเฉลย</button></div><div class="qsol" id="u1-geometry-s24" hidden>ต้องการ \([AFE]=\dfrac12[ABC]\)
+             <br>มุม \(A\) ร่วมกัน:
+             \(\dfrac{[AFE]}{[ABC]}=\dfrac{AF}{AB}\cdot\dfrac{AE}{AC}
+             =\dfrac12\cdot\dfrac{AE}{AC}\)
+             <br>ตั้งให้เท่ากับ \(\dfrac12\): \(\dfrac12\cdot\dfrac{AE}{AC}
+             =\dfrac12\Rightarrow\dfrac{AE}{AC}=1\)
+             <br>นั่นคือ \(E\) ต้องอยู่ที่จุด \(C\) พอดี
+             <br><b>ข้อสรุป</b>: ถ้า \(F\) เป็นจุดกึ่งกลางของ \(AB\)
+             ทางเดินที่แบ่งพื้นที่ครึ่งหนึ่งคือ <b>เส้นมัธยฐาน \(CF\)</b> นั่นเอง
+             ไม่มีจุด \(E\) อื่นบน \(AC\) ที่ทำได้</div></div><div class="q" data-lvl="apply"><div class="qn">25.</div><div class="qbody">ธงสามเหลี่ยมผืนหนึ่งพื้นที่ \(1\,800\)
+         ตร.ซม. จะปักลายโดยเชื่อมจุดที่แบ่งด้านทั้งสามในอัตราส่วน \(1:3\)
+         (วัดตามทิศเดียวกันรอบรูป) ได้รูปสามเหลี่ยมใน
+         <br>(ก) สามเหลี่ยมในมีพื้นที่เท่าไร
+         <br>(ข) พื้นที่ส่วนที่เหลือ (สามมุม) เท่าไร</div><div class="qmeta"><span class="ex-lvl apply">ประยุกต์</span><span class="ex-lvl">ประยุกต์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u1-geometry-s25">ดูเฉลย</button></div><div class="qsol" id="u1-geometry-s25" hidden>ให้ \(BD:DC=CE:EA=AF:FB=1:3\)
+             <br>มุมแต่ละมุมถูกตัดด้วยอัตราส่วน \(\dfrac14\) และ \(\dfrac34\):
+             <br>\(\dfrac{[AFE]}{[ABC]}=\dfrac{AF}{AB}\cdot\dfrac{AE}{AC}
+             =\dfrac14\cdot\dfrac34=\dfrac3{16}\)
+             <br>สามมุมรวม \(=3\left(\dfrac3{16}\right)=\dfrac9{16}\)
+             <br>(ก) \(\dfrac{[DEF]}{[ABC]}=1-\dfrac9{16}=\dfrac7{16}\)
+             <br>\([DEF]=\dfrac7{16}(1800)=787.5\) ตร.ซม.
+             <br>(ข) \(1800-787.5=1012.5\) ตร.ซม.</div></div><div class="q" data-lvl="med"><div class="qn">26.</div><div class="qbody">รูปสามเหลี่ยม \(ABC\)
+         มี \(AB=9\), \(AC=6\) เส้นแบ่งครึ่งมุม \(A\) ตัด \(BC\) ที่ \(D\)
+         ถ้า \(DC=4\) จงหา \(BD\) และ \(BC\)</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">เส้นแบ่งครึ่งมุม</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u1-geometry-s26">ดูเฉลย</button></div><div class="qsol" id="u1-geometry-s26" hidden>\(\dfrac{BD}{DC}=\dfrac{AB}{AC}=\dfrac96=\dfrac32\)
+             <br>\(BD=\dfrac32(4)=6\) และ \(BC=6+4=10\)</div></div><div class="q" data-lvl="med"><div class="qn">27.</div><div class="qbody">\([ABC]=100\) จุด \(M\) เป็นจุดกึ่งกลาง
+         ของ \(BC\) และจุด \(N\) เป็นจุดกึ่งกลางของ \(AM\) จงหา \([ABN]\)</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">พื้นที่</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u1-geometry-s27">ดูเฉลย</button></div><div class="qsol" id="u1-geometry-s27" hidden>\([ABM]=\tfrac12[ABC]=50\) (เส้นมัธยฐานแบ่งครึ่งพื้นที่)
+             <br>\(N\) เป็นจุดกึ่งกลางของ \(AM\) ซึ่งเป็นฐานของ \(\triangle ABM\)
+             เมื่อมองจาก \(B\)
+             <br>\([ABN]=\tfrac12[ABM]=25\)</div></div><div class="q" data-lvl="hard"><div class="qn">28.</div><div class="qbody">รูปสามเหลี่ยม \(ABC\) มีจุด \(G\)
+         เป็นเซนทรอยด์ เส้นที่ผ่าน \(G\) ตัด \(AB\) ที่ \(P\) และ \(AC\) ที่ \(Q\)
+         <br>จงพิสูจน์ว่า \(\dfrac{AB}{AP}+\dfrac{AC}{AQ}=3\)</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">เมเนลอส</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u1-geometry-s28">ดูเฉลย</button></div><div class="qsol" id="u1-geometry-s28" hidden>ให้ \(M\) เป็นจุดกึ่งกลางของ \(BC\) และ \(AG:GM=2:1\)
+             <br>ใช้เมเนลอสกับ \(\triangle ABM\) และเส้นตัด \(P\!-\!G\!-\!\) (จุดบน \(BM\)
+             หรือส่วนต่อ) — แต่วิธีที่สะอาดกว่าคือใช้อัตราส่วนพื้นที่
+             <br>ให้ \(\dfrac{AP}{AB}=p\) และ \(\dfrac{AQ}{AC}=q\)
+             <br>\(G\) อยู่บน \(PQ\) และ \(G\) มีพิกัดบารีเซนทริก
+             \(\left(\tfrac13,\tfrac13,\tfrac13\right)\) เทียบ \(A,B,C\)
+             <br>เขียน \(G=\alpha P+(1-\alpha)Q\) โดย \(P=A+p(B-A)\),
+             \(Q=A+q(C-A)\)
+             <br>สัมประสิทธิ์ของ \(B\): \(\alpha p=\tfrac13\)
+             <br>สัมประสิทธิ์ของ \(C\): \((1-\alpha)q=\tfrac13\)
+             <br>ได้ \(\alpha=\dfrac1{3p}\) และ \(1-\alpha=\dfrac1{3q}\)
+             <br>บวกกัน: \(\dfrac1{3p}+\dfrac1{3q}=1\) จึงได้
+             \(\dfrac1p+\dfrac1q=3\)
+             <br>นั่นคือ \(\dfrac{AB}{AP}+\dfrac{AC}{AQ}=3\) ∎</div></div><div class="q" data-lvl="hard"><div class="qn">29.</div><div class="qbody">รูปสามเหลี่ยม \(ABC\) มีจุด \(D\)
+         เป็นจุดกึ่งกลางของ \(BC\) และ \(E\) เป็นจุดกึ่งกลางของ \(AC\)
+         <br>เส้น \(AD\) ตัด \(BE\) ที่ \(G\) จงหา \([BGD]:[ABC]\)</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">พื้นที่</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u1-geometry-s29">ดูเฉลย</button></div><div class="qsol" id="u1-geometry-s29" hidden>\(AD\) และ \(BE\) เป็นเส้นมัธยฐาน จึงตัดกันที่เซนทรอยด์ \(G\)
+             <br>\([ABD]=\tfrac12[ABC]\) (เส้นมัธยฐาน \(AD\))
+             <br>ใน \(\triangle ABD\) จุด \(G\) อยู่บน \(AD\) โดย \(AG:GD=2:1\)
+             จึง \(GD:AD=1:3\)
+             <br>\([BGD]=\tfrac13[ABD]=\tfrac13\cdot\tfrac12[ABC]=\tfrac16[ABC]\)
+             <br>ดังนั้น \([BGD]:[ABC]=1:6\)</div></div><div class="q" data-lvl="hard"><div class="qn">30.</div><div class="qbody">จงพิสูจน์ว่าเซนทรอยด์แบ่งเส้นมัธยฐาน
+         ในอัตราส่วน \(2:1\) จากจุดยอด โดยใช้ทฤษฎีบทเส้นกึ่งกลาง</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">พิสูจน์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u1-geometry-s30">ดูเฉลย</button></div><div class="qsol" id="u1-geometry-s30" hidden>ให้ \(D,E\) เป็นจุดกึ่งกลางของ \(BC,AC\) และ \(AD\) ตัด \(BE\)
+             ที่ \(G\)
+             <br>ทฤษฎีบทเส้นกึ่งกลางใน \(\triangle ABC\): \(DE\parallel AB\)
+             และ \(DE=\tfrac12 AB\)
+             <br>\(DE\parallel AB\) ทำให้มุมแย้ง: \(\angle GAB=\angle GDE\)
+             และ \(\angle GBA=\angle GED\)
+             <br>จึงได้ \(\triangle GAB\) คล้ายกับ \(\triangle GDE\) (ม.ม.)
+             <br>อัตราส่วนความคล้าย \(=\dfrac{AB}{DE}=2\)
+             <br>ดังนั้น \(\dfrac{AG}{GD}=\dfrac{BG}{GE}=2\) นั่นคือ \(2:1\) ∎</div></div><div class="q" data-lvl="apply"><div class="qn">31.</div><div class="qbody">โดรนสามลำบินอยู่ที่ตำแหน่ง \(A,B,C\)
+         ระบบควบคุมสั่งให้ทั้งสามบินมารวมที่ "จุดสมดุล" ซึ่งก็คือเซนทรอยด์
+         <br>ถ้า \(A(2,8)\), \(B(-4,2)\), \(C(8,-1)\) (หน่วยกิโลเมตร)
+         <br>(ก) จุดนัดพบอยู่ที่พิกัดใด
+         <br>(ข) โดรนลำใดบินไกลที่สุด
+         <br>(ค) เส้นมัธยฐานจาก \(A\) ยาวเท่าไร</div><div class="qmeta"><span class="ex-lvl apply">ประยุกต์</span><span class="ex-lvl">ประยุกต์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u1-geometry-s31">ดูเฉลย</button></div><div class="qsol" id="u1-geometry-s31" hidden>(ก) เซนทรอยด์ \(=\left(\dfrac{2-4+8}{3},\dfrac{8+2-1}{3}\right)
+             =\left(2,3\right)\)
+             <br>(ข) \(GA=\sqrt{0^{2}+5^{2}}=5\) กม.
+             <br>\(GB=\sqrt{6^{2}+1^{2}}=\sqrt{37}\approx6.08\) กม.
+             <br>\(GC=\sqrt{6^{2}+4^{2}}=\sqrt{52}\approx7.21\) กม.
+             <br>โดรน \(C\) บินไกลที่สุด
+             <br>(ค) จุดกึ่งกลาง \(BC=\left(\dfrac{-4+8}{2},\dfrac{2-1}{2}\right)
+             =(2,0.5)\)
+             <br>เส้นมัธยฐานจาก \(A(2,8)\): \(\sqrt{0^{2}+7.5^{2}}=7.5\) กม.
+             <br>ตรวจ: \(GA=\tfrac23(7.5)=5\) ✓</div></div></section><div class="pager"><span></span><a class="pr" href="u2-circle.html">ทฤษฎีวงกลม</a></div></main></div></div><footer class="site"><div class="wrap">คณิตศาสตร์ ม.2 · สื่อการเรียนรู้แบบอินเทอร์แอกทีฟ</div></footer>
+<script src="../assets/js/site.js"></script>
+<script src="../assets/js/viz.js"></script>
+</body>
+</html>

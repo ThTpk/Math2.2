@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="th" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>การแปลงทางเรขาคณิต · เทคโนโลยีเพื่อการศึกษาทางคณิตศาสตร์</title>
+<meta name="description" content="การสะท้อน การหมุน และการเลื่อนขนานด้วยเครื่องมือในโปรแกรม
+    การประกอบการแปลงหลายชั้นให้ได้ลายซ้ำ และการออกแบบเทเซเลชัน
+    ที่ปูเต็มระนาบได้จริง">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Serif+Thai:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/site.css">
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+         processEscapes: true },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] },
+  chtml: { mtextInheritFont: true, scale: 1.0 },
+  startup: { typeset: true }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+
+</head>
+<body>
+<nav class="nav"><a class="nav-brand" href="../index.html">คณิต<span>ศาสตร์</span> ม.2</a><div class="nav-links"><a href="../index.html">หน้าแรก</a><a href="../c22122/index.html" title="คณิตศาสตร์ 4">คณิตศาสตร์ 4</a><a href="../c22292/index.html" title="คณิตศาสตร์พัฒนาศักยภาพ 4">พัฒนาศักยภาพ 4</a><a href="../c22294/index.html" aria-current="page" title="เทคโนโลยีเพื่อการศึกษาทางคณิตศาสตร์">เทคโนโลยีคณิตศาสตร์</a><button class="theme-btn" type="button" aria-label="สลับโหมดสี">☾</button></div></nav><div class="wrap"><div class="page"><aside class="toc"><div class="toc-label">หัวข้อในบทนี้</div><ol><li><a href="#tools">เครื่องมือการแปลงในโปรแกรม</a></li><li><a href="#compose">การประกอบการแปลง</a></li><li><a href="#tessel">เทเซเลชัน</a></li><li><a href="#drill">แบบฝึกหัดท้ายบท</a></li></ol></aside><main><p class="eyebrow">เทคโนโลยีเพื่อการศึกษาทางคณิตศาสตร์</p><h1>การแปลงทางเรขาคณิต</h1><p class="lead">การสะท้อน การหมุน และการเลื่อนขนานด้วยเครื่องมือในโปรแกรม
+    การประกอบการแปลงหลายชั้นให้ได้ลายซ้ำ และการออกแบบเทเซเลชัน
+    ที่ปูเต็มระนาบได้จริง</p><div class="badges"><span class="badge">สะท้อน · หมุน · เลื่อน</span><span class="badge">ประกอบการแปลง</span><span class="badge">เทเซเลชัน</span><span class="badge">ภาพเคลื่อนไหว</span><span class="badge on">แบบฝึกหัด 31 ข้อ</span></div><section id="tools"><h2>เครื่องมือการแปลงในโปรแกรม</h2><p>โปรแกรมเรขาคณิตพลวัตมีเครื่องมือการแปลงที่สร้าง
+             <b>วัตถุตาม</b> (dependent object) ขึ้นมา ภาพที่ได้จะขยับตาม
+             ต้นแบบและตามวัตถุอ้างอิง (เส้นสะท้อน จุดหมุน เวกเตอร์) เองโดยอัตโนมัติ</p><table class="tbl"><thead><tr><th>เครื่องมือ</th><th>ต้องเลือก</th><th>สิ่งที่เปลี่ยนได้ภายหลัง</th></tr></thead><tbody><tr><td>สะท้อนรอบเส้น</td><td>วัตถุ แล้วเส้นสะท้อน</td><td>ลากเส้นสะท้อน → ภาพขยับตามทันที</td></tr><tr><td>สะท้อนรอบจุด</td><td>วัตถุ แล้วจุด</td><td>เทียบเท่าการหมุน \(180^\circ\) รอบจุดนั้น</td></tr><tr><td>หมุนรอบจุด</td><td>วัตถุ จุดหมุน แล้วใส่ขนาดมุม</td><td>ใส่มุมเป็นตัวเลขหรือ <b>ตัวเลื่อน (slider)</b> เพื่อทำภาพเคลื่อนไหว</td></tr><tr><td>เลื่อนขนานด้วยเวกเตอร์</td><td>วัตถุ แล้วเวกเตอร์</td><td>ลากปลายเวกเตอร์ → ภาพเลื่อนตาม</td></tr><tr><td>ย่อ–ขยายจากจุด</td><td>วัตถุ จุด แล้วอัตราส่วน</td><td><b>ไม่</b> รักษาระยะ — รูปคล้ายแต่ไม่เท่ากันทุกประการ</td></tr></tbody></table><figure class="fig" data-viz="transform" data-ox="300" data-oy="190" data-unit="26"><div class="fig-body"><svg viewBox="0 0 600 356" role="img" aria-labelledby="fig-transform-t fig-transform-d"><title id="fig-transform-t">การแปลงทางเรขาคณิตสามแบบ</title><desc id="fig-transform-d">ระนาบพิกัดแสดงรูปสามเหลี่ยมต้นแบบและภาพที่ได้จากการเลื่อนขนาน การสะท้อน หรือการหมุน พร้อมกฎการจับคู่พิกัดและเส้นหรือจุดอ้างอิงของการแปลงนั้น</desc><rect width="100%" height="100%" fill="var(--paper-2)"/><defs><marker id="ar" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" class="f-muted"/></marker><marker id="ar-a" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" class="f-accent"/></marker><marker id="ar-l" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" class="f-link"/></marker><marker id="ar-t" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" class="f-teal"/></marker></defs><line x1="40" y1="60" x2="40" y2="294" class="s-rule"/><line x1="66" y1="60" x2="66" y2="294" class="s-rule"/><line x1="92" y1="60" x2="92" y2="294" class="s-rule"/><line x1="118" y1="60" x2="118" y2="294" class="s-rule"/><line x1="144" y1="60" x2="144" y2="294" class="s-rule"/><line x1="170" y1="60" x2="170" y2="294" class="s-rule"/><line x1="196" y1="60" x2="196" y2="294" class="s-rule"/><line x1="222" y1="60" x2="222" y2="294" class="s-rule"/><line x1="248" y1="60" x2="248" y2="294" class="s-rule"/><line x1="274" y1="60" x2="274" y2="294" class="s-rule"/><line x1="300" y1="60" x2="300" y2="294" class="s-rule"/><line x1="326" y1="60" x2="326" y2="294" class="s-rule"/><line x1="352" y1="60" x2="352" y2="294" class="s-rule"/><line x1="378" y1="60" x2="378" y2="294" class="s-rule"/><line x1="404" y1="60" x2="404" y2="294" class="s-rule"/><line x1="430" y1="60" x2="430" y2="294" class="s-rule"/><line x1="456" y1="60" x2="456" y2="294" class="s-rule"/><line x1="482" y1="60" x2="482" y2="294" class="s-rule"/><line x1="508" y1="60" x2="508" y2="294" class="s-rule"/><line x1="534" y1="60" x2="534" y2="294" class="s-rule"/><line x1="560" y1="60" x2="560" y2="294" class="s-rule"/><line x1="40" y1="60" x2="560" y2="60" class="s-rule"/><line x1="40" y1="86" x2="560" y2="86" class="s-rule"/><line x1="40" y1="112" x2="560" y2="112" class="s-rule"/><line x1="40" y1="138" x2="560" y2="138" class="s-rule"/><line x1="40" y1="164" x2="560" y2="164" class="s-rule"/><line x1="40" y1="190" x2="560" y2="190" class="s-rule"/><line x1="40" y1="216" x2="560" y2="216" class="s-rule"/><line x1="40" y1="242" x2="560" y2="242" class="s-rule"/><line x1="40" y1="268" x2="560" y2="268" class="s-rule"/><line x1="40" y1="294" x2="560" y2="294" class="s-rule"/><line x1="32" y1="190" x2="566" y2="190" class="s-soft" marker-end="url(#ar)"/><line x1="300" y1="302" x2="300" y2="54" class="s-soft" marker-end="url(#ar)"/><text x="568" y="194" class="t-mono">x</text><text x="290" y="56" text-anchor="middle" class="t-mono">y</text><line x1="40" y1="187" x2="40" y2="193" class="s-soft"/><line x1="66" y1="187" x2="66" y2="193" class="s-soft"/><line x1="92" y1="187" x2="92" y2="193" class="s-soft"/><line x1="118" y1="187" x2="118" y2="193" class="s-soft"/><line x1="144" y1="187" x2="144" y2="193" class="s-soft"/><line x1="170" y1="187" x2="170" y2="193" class="s-soft"/><line x1="196" y1="187" x2="196" y2="193" class="s-soft"/><line x1="222" y1="187" x2="222" y2="193" class="s-soft"/><line x1="248" y1="187" x2="248" y2="193" class="s-soft"/><line x1="274" y1="187" x2="274" y2="193" class="s-soft"/><line x1="326" y1="187" x2="326" y2="193" class="s-soft"/><line x1="352" y1="187" x2="352" y2="193" class="s-soft"/><line x1="378" y1="187" x2="378" y2="193" class="s-soft"/><line x1="404" y1="187" x2="404" y2="193" class="s-soft"/><line x1="430" y1="187" x2="430" y2="193" class="s-soft"/><line x1="456" y1="187" x2="456" y2="193" class="s-soft"/><line x1="482" y1="187" x2="482" y2="193" class="s-soft"/><line x1="508" y1="187" x2="508" y2="193" class="s-soft"/><line x1="534" y1="187" x2="534" y2="193" class="s-soft"/><line x1="560" y1="187" x2="560" y2="193" class="s-soft"/><line x1="297" y1="294" x2="303" y2="294" class="s-soft"/><line x1="297" y1="268" x2="303" y2="268" class="s-soft"/><line x1="297" y1="242" x2="303" y2="242" class="s-soft"/><line x1="297" y1="216" x2="303" y2="216" class="s-soft"/><line x1="297" y1="164" x2="303" y2="164" class="s-soft"/><line x1="297" y1="138" x2="303" y2="138" class="s-soft"/><line x1="297" y1="112" x2="303" y2="112" class="s-soft"/><line x1="297" y1="86" x2="303" y2="86" class="s-soft"/><line x1="300" y1="60" x2="300" y2="294" class="s-violet dash" data-id="mirror" opacity="0"/><circle cx="300" cy="190" r="5" class="f-violet" data-id="centre" opacity="0"/><line x1="300" y1="190" x2="430" y2="268" class="s-violet" marker-end="url(#ar)" data-id="vector"/><polygon points="326,164 404,164 352,112" class="f-lt" data-id="pre"/><polygon points="326,164 404,164 352,112" class="s-link"/><polygon points="456,242 534,242 482,190" class="f-at" data-id="img"/><path d="M 326 164 L 456 242" class="s-soft dash-fine" data-id="trA" opacity="0.9"/><path d="M 404 164 L 534 242" class="s-soft dash-fine" data-id="trB" opacity="0.9"/><path d="M 352 112 L 482 190" class="s-soft dash-fine" data-id="trC" opacity="0.9"/><circle cx="326" cy="164" r="4" class="f-link" data-id="ptA"/><text x="314" y="156" text-anchor="middle" class="t-name t-link" data-id="labA">A</text><circle cx="456" cy="242" r="4" class="f-accent" data-id="iptA"/><text x="468" y="234" text-anchor="middle" class="t-name t-accent" data-id="ilabA">A′</text><circle cx="404" cy="164" r="4" class="f-link" data-id="ptB"/><text x="392" y="156" text-anchor="middle" class="t-name t-link" data-id="labB">B</text><circle cx="534" cy="242" r="4" class="f-accent" data-id="iptB"/><text x="546" y="234" text-anchor="middle" class="t-name t-accent" data-id="ilabB">B′</text><circle cx="352" cy="112" r="4" class="f-link" data-id="ptC"/><text x="340" y="104" text-anchor="middle" class="t-name t-link" data-id="labC">C</text><circle cx="482" cy="190" r="4" class="f-accent" data-id="iptC"/><text x="494" y="182" text-anchor="middle" class="t-name t-accent" data-id="ilabC">C′</text><text x="30" y="282" class="t-val t-accent" data-id="rule">(x, y) → (x + 5, y − 3)</text><text x="30" y="304" class="t-mono" data-id="map">A(1,1) → A′(6,−2)   B(4,1) → B′(9,−2)   C(2,3) → C′(7,0)</text><line x1="24" y1="328" x2="576" y2="328" class="s-rule"/><text x="24" y="346" class="t-tag">LEGEND</text><line x1="88" y1="342" x2="108" y2="342" class="s-link"/><text x="114" y="346" class="t-mono">รูปต้นแบบ</text><line x1="178" y1="342" x2="198" y2="342" class="s-accent"/><text x="204" y="346" class="t-mono">ภาพที่ได้</text><line x1="268" y1="342" x2="288" y2="342" class="s-violet dash"/><text x="294" y="346" class="t-mono">เส้น/จุดอ้างอิง</text></svg></div><div class="fig-ctrl"><button type="button" data-act="translate" data-group="mode" aria-pressed="true">เลื่อนขนาน</button><button type="button" data-act="reflect" data-group="mode" aria-pressed="false">สะท้อน</button><button type="button" data-act="rotate" data-group="mode" aria-pressed="false">หมุน 90°</button><button type="button" data-act="play" aria-pressed="false">เล่นภาพเคลื่อนไหว</button><button type="button" data-act="reset" aria-pressed="false">เริ่มใหม่</button><span class="fig-readout" data-readout>(x, y) → (x + 5, y − 3) · พื้นที่คงเดิม</span></div><figcaption>การแปลงทั้งสามแบบนี้เป็น <b>การแปลงที่รักษาระยะ</b> (isometry) รูปที่ได้จึงเท่ากันทุกประการกับรูปต้นแบบ — ความยาวด้าน ขนาดมุม และพื้นที่ไม่เปลี่ยน เปลี่ยนแค่ตำแหน่งหรือทิศทาง</figcaption></figure><div class="box thm"><span class="box-label">สิ่งที่การแปลงแต่ละแบบรักษาไว้</span>
+             <table class="tbl"><thead><tr><th>การแปลง</th><th>ความยาว</th>
+             <th>มุม</th><th>พื้นที่</th><th>ทิศการเรียง</th></tr></thead><tbody>
+             <tr><td>เลื่อนขนาน</td><td>✓</td><td>✓</td><td>✓</td><td>✓ คงเดิม</td></tr>
+             <tr><td>หมุน</td><td>✓</td><td>✓</td><td>✓</td><td>✓ คงเดิม</td></tr>
+             <tr><td>สะท้อน</td><td>✓</td><td>✓</td><td>✓</td>
+             <td><b>✗ กลับด้าน</b></td></tr>
+             <tr><td>ย่อ–ขยายอัตราส่วน \(k\)</td><td>\(\times|k|\)</td><td>✓</td>
+             <td>\(\times k^{2}\)</td><td>คงเดิมถ้า \(k>0\)</td></tr>
+             </tbody></table>
+             <p>สามแบบแรกเรียกรวมว่า <b>การแปลงที่รักษาระยะ</b> (isometry)
+             และให้รูปที่เท่ากันทุกประการกับต้นแบบ</p></div></section><section id="compose"><h2>การประกอบการแปลง</h2><div class="box thm"><span class="box-label">กฎการประกอบที่ควรจำ</span>
+             <ol>
+             <li><b>สะท้อนรอบเส้นขนานสองเส้น</b> ที่ห่างกัน \(d\)
+             = <b>เลื่อนขนาน</b> ระยะ \(2d\) ในแนวตั้งฉากกับเส้นทั้งสอง</li>
+             <li><b>สะท้อนรอบเส้นสองเส้นที่ตัดกัน</b> เป็นมุม \(\theta\)
+             = <b>หมุน</b> รอบจุดตัดเป็นมุม \(2\theta\)</li>
+             <li><b>หมุนสองครั้ง</b> รอบจุดเดียวกันด้วยมุม \(\alpha,\beta\)
+             = หมุนมุม \(\alpha+\beta\)</li>
+             <li><b>หมุนรอบจุดต่างกัน</b> ด้วยมุม \(\alpha,\beta\)
+             = หมุนมุม \(\alpha+\beta\) รอบจุดใหม่
+             (หรือเลื่อนขนาน ถ้า \(\alpha+\beta\) เป็นตัวคูณของ \(360^\circ\))</li>
+             <li><b>สะท้อนจำนวนคู่</b> → รักษาทิศการเรียง;
+             <b>จำนวนคี่</b> → กลับทิศการเรียง</li>
+             </ol></div><div class="ex"><div class="ex-head"><span class="ex-tag">ตัวอย่าง 1</span><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">ประกอบการแปลง</span></div><div class="ex-body">
+             ใน GeoGebra สะท้อนรูปสามเหลี่ยมรอบเส้น \(x=1\) ได้รูปที่สอง
+             แล้วสะท้อนรูปที่สองรอบเส้น \(x=5\) ได้รูปที่สาม
+             <br>(ก) รูปที่สามเกิดจากรูปแรกด้วยการแปลงอะไร
+             <br>(ข) ถ้าจุด \(A(3,4)\) อยู่ในรูปแรก \(A''\) อยู่ที่ใด
+             <br>(ค) ทิศการเรียงจุดยอดของรูปที่สามเทียบกับรูปแรกเป็นอย่างไร</div><div class="ex-sol"><p class="sol-label">แนวคิดและวิธีทำ</p><ol class="steps"><li>(ก) สะท้อนรอบเส้นขนานสองเส้นที่ห่างกัน \(d=5-1=4\)
+                 → เลื่อนขนานระยะ \(2d=8\)</li><li>ทิศทาง: จากเส้นแรกไปเส้นที่สอง คือทาง \(+x\)
+                 ดังนั้นเวกเตอร์ \(=\langle8,0\rangle\)</li><li>(ข) สะท้อนรอบ \(x=1\): \((x,y)\to(2-x,y)\) ได้ \(A'(-1,4)\)</li><li>สะท้อนรอบ \(x=5\): \((x,y)\to(10-x,y)\) ได้ \(A''(11,4)\)</li><li>ตรวจ: \(A''=A+\langle8,0\rangle=(3+8,4)=(11,4)\) ✓</li><li>(ค) สะท้อนสองครั้ง (จำนวนคู่) → <b>ทิศการเรียงคงเดิม</b></li></ol><p class="ans">(ก) เลื่อนขนาน \(\langle8,0\rangle\)&nbsp;(ข) \(A''(11,4)\)&nbsp;(ค) คงเดิม</p></div></div><div class="ex"><div class="ex-head"><span class="ex-tag">ตัวอย่าง 2</span><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">สไลเดอร์</span></div><div class="ex-body">
+             สร้างรูปสามเหลี่ยมใน GeoGebra แล้วหมุนด้วยมุมที่ผูกกับตัวเลื่อน
+             \(\alpha\) ที่เลื่อนได้ \(0^\circ\) ถึง \(360^\circ\)
+             <br>(ก) เมื่อ \(\alpha=0^\circ\) ภาพอยู่ที่ใด
+             <br>(ข) ภาพจะทับต้นแบบพอดีเมื่อ \(\alpha\) เท่าใด ถ้าต้นแบบเป็น
+             รูปสามเหลี่ยมด้านเท่า
+             <br>(ค) ถ้าต้นแบบเป็นรูปสามเหลี่ยมด้านไม่เท่า ภาพทับต้นแบบ
+             เมื่อ \(\alpha\) เท่าใด</div><div class="ex-sol"><p class="sol-label">แนวคิดและวิธีทำ</p><ol class="steps"><li>(ก) \(\alpha=0^\circ\) คือหมุนศูนย์องศา ภาพ <b>ทับต้นแบบพอดี</b></li><li>(ข) สามเหลี่ยมด้านเท่ามีสมมาตรแบบหมุนอันดับ 3
+                 เมื่อจุดหมุนอยู่ที่จุดศูนย์กลางของรูป</li><li>ภาพทับต้นแบบเมื่อ \(\alpha=0^\circ,120^\circ,240^\circ,360^\circ\)</li><li><b>ข้อสำคัญ</b>: ถ้าจุดหมุนไม่ได้อยู่ที่จุดศูนย์กลางรูป
+                 ภาพจะทับต้นแบบเฉพาะ \(\alpha=0^\circ\) และ \(360^\circ\) เท่านั้น</li><li>(ค) สามเหลี่ยมด้านไม่เท่ามีสมมาตรแบบหมุนอันดับ 1
+                 จึงทับเฉพาะ \(\alpha=0^\circ\) และ \(360^\circ\)</li></ol><p class="ans">(ข) \(0^\circ,120^\circ,240^\circ,360^\circ\) (เมื่อหมุนรอบจุดศูนย์กลาง)&nbsp;&nbsp;(ค) \(0^\circ\) และ \(360^\circ\)</p></div></div></section><section id="tessel"><h2>เทเซเลชัน</h2><figure class="fig" data-viz="tessel"><div class="fig-body"><svg viewBox="0 0 600 260" role="img" aria-labelledby="fig-tessel-t fig-tessel-d"><title id="fig-tessel-t">เทเซเลชันของรูปสามเหลี่ยม</title><desc id="fig-tessel-d">รูปสามเหลี่ยมรูปเดียวถูกเลื่อนขนานและหมุนครึ่งรอบซ้ำ ๆ จนปูเต็มระนาบ โดยไม่มีช่องว่างและไม่ทับกัน</desc><rect width="100%" height="100%" fill="var(--paper-2)"/><text x="30" y="32" class="t-tag">เทเซเลชันจากรูปสามเหลี่ยมเดียว</text><g data-id="tile" data-tx="28" data-ty="10" data-rot="0" data-ox="126" data-oy="101" opacity="1"><polygon points="90,132 162,132 126,70" class="f-at"/><polygon points="90,132 162,132 126,70" class="s-ink thin"/></g><g data-id="tile" data-tx="28" data-ty="10" data-rot="22" data-ox="126" data-oy="101" opacity="1"><polygon points="126,70 198,70 162,132" class="f-tt"/><polygon points="126,70 198,70 162,132" class="s-ink thin"/></g><g data-id="tile" data-tx="14" data-ty="10" data-rot="0" data-ox="198" data-oy="101" opacity="1"><polygon points="162,132 234,132 198,70" class="f-at"/><polygon points="162,132 234,132 198,70" class="s-ink thin"/></g><g data-id="tile" data-tx="14" data-ty="10" data-rot="22" data-ox="198" data-oy="101" opacity="1"><polygon points="198,70 270,70 234,132" class="f-tt"/><polygon points="198,70 270,70 234,132" class="s-ink thin"/></g><g data-id="tile" data-tx="0" data-ty="10" data-rot="0" data-ox="270" data-oy="101" opacity="1"><polygon points="234,132 306,132 270,70" class="f-at"/><polygon points="234,132 306,132 270,70" class="s-ink thin"/></g><g data-id="tile" data-tx="0" data-ty="10" data-rot="22" data-ox="270" data-oy="101" opacity="1"><polygon points="270,70 342,70 306,132" class="f-tt"/><polygon points="270,70 342,70 306,132" class="s-ink thin"/></g><g data-id="tile" data-tx="-14" data-ty="10" data-rot="0" data-ox="342" data-oy="101" opacity="1"><polygon points="306,132 378,132 342,70" class="f-at"/><polygon points="306,132 378,132 342,70" class="s-ink thin"/></g><g data-id="tile" data-tx="-14" data-ty="10" data-rot="22" data-ox="342" data-oy="101" opacity="1"><polygon points="342,70 414,70 378,132" class="f-tt"/><polygon points="342,70 414,70 378,132" class="s-ink thin"/></g><g data-id="tile" data-tx="-28" data-ty="10" data-rot="0" data-ox="414" data-oy="101" opacity="1"><polygon points="378,132 450,132 414,70" class="f-at"/><polygon points="378,132 450,132 414,70" class="s-ink thin"/></g><g data-id="tile" data-tx="-28" data-ty="10" data-rot="22" data-ox="414" data-oy="101" opacity="1"><polygon points="414,70 486,70 450,132" class="f-tt"/><polygon points="414,70 486,70 450,132" class="s-ink thin"/></g><g data-id="tile" data-tx="-42" data-ty="10" data-rot="0" data-ox="486" data-oy="101" opacity="1"><polygon points="450,132 522,132 486,70" class="f-at"/><polygon points="450,132 522,132 486,70" class="s-ink thin"/></g><g data-id="tile" data-tx="28" data-ty="0" data-rot="0" data-ox="162" data-oy="163" opacity="1"><polygon points="126,194 198,194 162,132" class="f-at"/><polygon points="126,194 198,194 162,132" class="s-ink thin"/></g><g data-id="tile" data-tx="28" data-ty="0" data-rot="22" data-ox="162" data-oy="163" opacity="1"><polygon points="162,132 234,132 198,194" class="f-tt"/><polygon points="162,132 234,132 198,194" class="s-ink thin"/></g><g data-id="tile" data-tx="14" data-ty="0" data-rot="0" data-ox="234" data-oy="163" opacity="1"><polygon points="198,194 270,194 234,132" class="f-at"/><polygon points="198,194 270,194 234,132" class="s-ink thin"/></g><g data-id="tile" data-tx="14" data-ty="0" data-rot="22" data-ox="234" data-oy="163" opacity="1"><polygon points="234,132 306,132 270,194" class="f-tt"/><polygon points="234,132 306,132 270,194" class="s-ink thin"/></g><g data-id="tile" data-tx="0" data-ty="0" data-rot="0" data-ox="306" data-oy="163" opacity="1"><polygon points="270,194 342,194 306,132" class="f-at"/><polygon points="270,194 342,194 306,132" class="s-ink thin"/></g><g data-id="tile" data-tx="0" data-ty="0" data-rot="22" data-ox="306" data-oy="163" opacity="1"><polygon points="306,132 378,132 342,194" class="f-tt"/><polygon points="306,132 378,132 342,194" class="s-ink thin"/></g><g data-id="tile" data-tx="-14" data-ty="0" data-rot="0" data-ox="378" data-oy="163" opacity="1"><polygon points="342,194 414,194 378,132" class="f-at"/><polygon points="342,194 414,194 378,132" class="s-ink thin"/></g><g data-id="tile" data-tx="-14" data-ty="0" data-rot="22" data-ox="378" data-oy="163" opacity="1"><polygon points="378,132 450,132 414,194" class="f-tt"/><polygon points="378,132 450,132 414,194" class="s-ink thin"/></g><g data-id="tile" data-tx="-28" data-ty="0" data-rot="0" data-ox="450" data-oy="163" opacity="1"><polygon points="414,194 486,194 450,132" class="f-at"/><polygon points="414,194 486,194 450,132" class="s-ink thin"/></g><g data-id="tile" data-tx="-28" data-ty="0" data-rot="22" data-ox="450" data-oy="163" opacity="1"><polygon points="450,132 522,132 486,194" class="f-tt"/><polygon points="450,132 522,132 486,194" class="s-ink thin"/></g><g data-id="tile" data-tx="28" data-ty="-10" data-rot="0" data-ox="126" data-oy="225" opacity="1"><polygon points="90,256 162,256 126,194" class="f-at"/><polygon points="90,256 162,256 126,194" class="s-ink thin"/></g><g data-id="tile" data-tx="28" data-ty="-10" data-rot="22" data-ox="126" data-oy="225" opacity="1"><polygon points="126,194 198,194 162,256" class="f-tt"/><polygon points="126,194 198,194 162,256" class="s-ink thin"/></g><g data-id="tile" data-tx="14" data-ty="-10" data-rot="0" data-ox="198" data-oy="225" opacity="1"><polygon points="162,256 234,256 198,194" class="f-at"/><polygon points="162,256 234,256 198,194" class="s-ink thin"/></g><g data-id="tile" data-tx="14" data-ty="-10" data-rot="22" data-ox="198" data-oy="225" opacity="1"><polygon points="198,194 270,194 234,256" class="f-tt"/><polygon points="198,194 270,194 234,256" class="s-ink thin"/></g><g data-id="tile" data-tx="0" data-ty="-10" data-rot="0" data-ox="270" data-oy="225" opacity="1"><polygon points="234,256 306,256 270,194" class="f-at"/><polygon points="234,256 306,256 270,194" class="s-ink thin"/></g><g data-id="tile" data-tx="0" data-ty="-10" data-rot="22" data-ox="270" data-oy="225" opacity="1"><polygon points="270,194 342,194 306,256" class="f-tt"/><polygon points="270,194 342,194 306,256" class="s-ink thin"/></g><g data-id="tile" data-tx="-14" data-ty="-10" data-rot="0" data-ox="342" data-oy="225" opacity="1"><polygon points="306,256 378,256 342,194" class="f-at"/><polygon points="306,256 378,256 342,194" class="s-ink thin"/></g><g data-id="tile" data-tx="-14" data-ty="-10" data-rot="22" data-ox="342" data-oy="225" opacity="1"><polygon points="342,194 414,194 378,256" class="f-tt"/><polygon points="342,194 414,194 378,256" class="s-ink thin"/></g><g data-id="tile" data-tx="-28" data-ty="-10" data-rot="0" data-ox="414" data-oy="225" opacity="1"><polygon points="378,256 450,256 414,194" class="f-at"/><polygon points="378,256 450,256 414,194" class="s-ink thin"/></g><g data-id="tile" data-tx="-28" data-ty="-10" data-rot="22" data-ox="414" data-oy="225" opacity="1"><polygon points="414,194 486,194 450,256" class="f-tt"/><polygon points="414,194 486,194 450,256" class="s-ink thin"/></g><g data-id="tile" data-tx="-42" data-ty="-10" data-rot="0" data-ox="486" data-oy="225" opacity="1"><polygon points="450,256 522,256 486,194" class="f-at"/><polygon points="450,256 522,256 486,194" class="s-ink thin"/></g><text x="30" y="236" class="t-mono">มุมที่มาชุมนุมรอบจุดเดียวรวมกันได้ 360° จึงไม่มีช่องว่าง</text></svg></div><div class="fig-ctrl"><button type="button" data-act="play" aria-pressed="false">เล่นการปู</button><button type="button" data-act="reset" aria-pressed="false">เริ่มใหม่</button><span class="fig-readout" data-readout>ปูเต็มระนาบ — ไม่มีช่องว่างและไม่ทับกัน</span></div><figcaption>สามเหลี่ยมทุกรูปปูระนาบได้ เพราะสำเนาที่หมุน \(180^\circ\) ประกบกันเป็นรูปสี่เหลี่ยมด้านขนาน ซึ่งเลื่อนขนานไปปูต่อได้ไม่สิ้นสุด</figcaption></figure><div class="box thm"><span class="box-label">เงื่อนไขการปูระนาบ</span>
+             <p>รูปหลายเหลี่ยมปูระนาบได้เมื่อมุมที่มาชุมนุมรอบจุดหนึ่ง
+             รวมกันได้ \(360^\circ\) พอดี โดยไม่มีช่องว่างและไม่ทับกัน</p>
+             <p><b>ปูได้แน่นอน</b></p>
+             <ul>
+             <li>รูปสามเหลี่ยม <b>ทุกรูป</b> — สำเนาที่หมุน \(180^\circ\)
+             ประกบกันเป็นสี่เหลี่ยมด้านขนาน</li>
+             <li>รูปสี่เหลี่ยม <b>ทุกรูป</b> (แม้เว้า) — หมุน \(180^\circ\)
+             รอบจุดกึ่งกลางของแต่ละด้าน มุมทั้งสี่มาชุมนุมรอบจุดเดียว
+             รวมได้ \(360^\circ\) พอดี</li>
+             </ul>
+             <p><b>รูปหลายเหลี่ยมด้านเท่ามุมเท่าที่ปูได้ลำพัง</b>
+             — มีเพียงสามชนิด: สามเหลี่ยมด้านเท่า (\(60^\circ\times6\)),
+             สี่เหลี่ยมจัตุรัส (\(90^\circ\times4\)),
+             หกเหลี่ยม (\(120^\circ\times3\))</p></div><div class="ex"><div class="ex-head"><span class="ex-tag">ตัวอย่าง 3</span><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">เทเซเลชันผสม</span></div><div class="ex-body">
+             จงหาทุกวิธีที่รูปสามเหลี่ยมด้านเท่า (\(60^\circ\)) และ
+             รูปสี่เหลี่ยมจัตุรัส (\(90^\circ\)) มาชุมนุมรอบจุดเดียวได้พอดี
+             <br>แล้วบอกว่าแบบใดปูเต็มระนาบได้จริง</div><div class="ex-sol"><p class="sol-label">แนวคิดและวิธีทำ</p><ol class="steps"><li>ให้สามเหลี่ยม \(t\) รูป และจัตุรัส \(q\) รูป
+                 \[60t+90q=360\]</li><li>หารด้วย 30: \(2t+3q=12\)</li><li>\(q=0\Rightarrow t=6\) (สามเหลี่ยมล้วน)</li><li>\(q=2\Rightarrow t=3\) ✓ (ผสม)</li><li>\(q=4\Rightarrow t=0\) (จัตุรัสล้วน)</li><li>\(q=1\) หรือ \(q=3\) ให้ \(t\) ไม่เป็นจำนวนเต็ม — ตกไป</li><li>แบบผสม \(3\) สามเหลี่ยม \(+\ 2\) จัตุรัส ปูเต็มระนาบได้จริง
+                 และมีสองลายต่างกันตามลำดับการวางรอบจุด (3.3.3.4.4
+                 กับ 3.3.4.3.4)</li></ol><p class="ans">\((t,q)=(6,0),(3,2),(0,4)\) — แบบผสมคือ 3 สามเหลี่ยม + 2 จัตุรัส</p></div></div><div class="ex"><div class="ex-head"><span class="ex-tag">ตัวอย่าง 4</span><span class="ex-lvl apply">ประยุกต์</span><span class="ex-lvl">ออกแบบลาย</span></div><div class="ex-body">
+             ออกแบบลายเทเซเลชันจากรูปสี่เหลี่ยมจัตุรัสด้าน \(10\) ซม.
+             โดยตัดส่วนหนึ่งออกจากด้านหนึ่งแล้วนำไปต่อที่ด้านตรงข้าม
+             (เทคนิค "ตัด–เลื่อน")
+             <br>(ก) พื้นที่ของรูปใหม่เท่าไร
+             <br>(ข) รูปใหม่ปูระนาบได้หรือไม่ เพราะเหตุใด
+             <br>(ค) ถ้าตัด–เลื่อนทั้งสองคู่ด้าน รูปใหม่ยังปูได้หรือไม่</div><div class="ex-sol"><p class="sol-label">แนวคิดและวิธีทำ</p><ol class="steps"><li>(ก) การตัดส่วนหนึ่งออกแล้วนำไปต่อที่อื่น <b>ไม่เปลี่ยนพื้นที่</b></li><li>พื้นที่ \(=10\times10=100\) ตร.ซม. เท่าเดิม</li><li>(ข) <b>ปูได้</b> — เพราะส่วนที่หายไปจากด้านหนึ่ง
+                 ถูกเติมด้วยส่วนที่งอกออกมาจากด้านตรงข้ามของเพื่อนบ้าน</li><li>รูปใหม่ยังเลื่อนขนานด้วยเวกเตอร์เดิม (\(10\) ซม.
+                 ในสองแนว) ไปปูต่อได้พอดี</li><li>(ค) <b>ยังปูได้</b> — หลักเดียวกันใช้กับทั้งสองแนว</li><li>นี่คือเทคนิคที่ศิลปิน M.C. Escher ใช้สร้างลายสัตว์
+                 ที่ปูเต็มระนาบ — รูปดูซับซ้อนแต่โครงยังเป็นตารางจัตุรัส</li></ol><p class="ans">(ก) \(100\) ตร.ซม. (ไม่เปลี่ยน)&nbsp;(ข) ปูได้ เพราะส่วนที่ตัดกับส่วนที่ต่อเติมกันพอดี&nbsp;(ค) ปูได้</p></div></div></section><section id="drill" class="drill"><div class="drill-head"><h3>แบบฝึกหัดท้ายบท</h3><span class="drill-stat">แสดง 31 / 31 ข้อ</span></div><p>โจทย์เรียงจากปานกลางไปยาก และปิดท้ายด้วยโจทย์ประยุกต์ ลองทำด้วยตัวเองให้ครบก่อนเปิดเฉลย</p><div class="drill-filter"><button class="btn" type="button" data-filter="all" aria-pressed="true">ทั้งหมด (31)</button><button class="btn" type="button" data-filter="med" aria-pressed="false">ปานกลาง (13)</button><button class="btn" type="button" data-filter="hard" aria-pressed="false">ยาก (11)</button><button class="btn" type="button" data-filter="apply" aria-pressed="false">ประยุกต์ (7)</button><button class="btn" type="button" data-sol-all="show">เปิดเฉลยทั้งหมด</button><button class="btn" type="button" data-sol-all="hide">ปิดเฉลยทั้งหมด</button></div><div class="q" data-lvl="med"><div class="qn">1.</div><div class="qbody">จงหาภาพของ \(A(5,-2)\) เมื่อสะท้อนรอบ
+         (ก) แกน \(x\)  (ข) แกน \(y\)  (ค) เส้น \(y=x\)  (ง) เส้น \(y=-x\)</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">สะท้อน</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u4-transform-s1">ดูเฉลย</button></div><div class="qsol" id="u4-transform-s1" hidden>(ก) \((5,2)\)  (ข) \((-5,-2)\)  (ค) \((-2,5)\)  (ง) \((2,-5)\)</div></div><div class="q" data-lvl="med"><div class="qn">2.</div><div class="qbody">จงหาภาพของ \(B(-3,4)\) เมื่อหมุนรอบจุดกำเนิด
+         (ก) \(90^\circ\) ทวนเข็ม  (ข) \(180^\circ\)  (ค) \(270^\circ\) ทวนเข็ม</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">หมุน</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u4-transform-s2">ดูเฉลย</button></div><div class="qsol" id="u4-transform-s2" hidden>(ก) \((x,y)\to(-y,x)\): \((-4,-3)\)
+             <br>(ข) \((3,-4)\)
+             <br>(ค) \((x,y)\to(y,-x)\): \((4,3)\)</div></div><div class="q" data-lvl="med"><div class="qn">3.</div><div class="qbody">การเลื่อนขนานส่ง \(P(2,7)\) ไปเป็น
+         \(P'(-3,2)\) จงหาเวกเตอร์ และภาพของ \(Q(0,0)\)</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">เลื่อนขนาน</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u4-transform-s3">ดูเฉลย</button></div><div class="qsol" id="u4-transform-s3" hidden>เวกเตอร์ \(=\langle-5,-5\rangle\)
+             <br>\(Q'=(-5,-5)\)</div></div><div class="q" data-lvl="med"><div class="qn">4.</div><div class="qbody">จงหาภาพของ \(C(6,1)\)
+         เมื่อสะท้อนรอบจุด \(M(2,-3)\)</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">สะท้อนรอบจุด</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u4-transform-s4">ดูเฉลย</button></div><div class="qsol" id="u4-transform-s4" hidden>สะท้อนรอบจุด = หมุน \(180^\circ\): \(C'=2M-C\)
+             <br>\(=(4-6,\,-6-1)=(-2,-7)\)</div></div><div class="q" data-lvl="med"><div class="qn">5.</div><div class="qbody">รูปสี่เหลี่ยมจัตุรัสมีเส้นสมมาตรกี่เส้น
+         และมีสมมาตรแบบหมุนอันดับเท่าไร</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">สมมาตร</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u4-transform-s5">ดูเฉลย</button></div><div class="qsol" id="u4-transform-s5" hidden>เส้นสมมาตร \(4\) เส้น (ผ่านกลางด้าน 2 เส้น และเส้นทแยงมุม 2 เส้น)
+             <br>สมมาตรแบบหมุนอันดับ \(4\) (มุมเล็กสุด \(90^\circ\))</div></div><div class="q" data-lvl="med"><div class="qn">6.</div><div class="qbody">รูปห้าเหลี่ยมด้านเท่ามุมเท่าปูระนาบ
+         ลำพังตัวเองได้หรือไม่ จงให้เหตุผลด้วยการคำนวณ</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">เทเซเลชัน</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u4-transform-s6">ดูเฉลย</button></div><div class="qsol" id="u4-transform-s6" hidden>มุมภายใน \(=\dfrac{(5-2)180^\circ}{5}=108^\circ\)
+             <br>\(\dfrac{360}{108}=3.33\ldots\) ไม่เป็นจำนวนเต็ม
+             <br>จึง <b>ปูไม่ได้</b></div></div><div class="q" data-lvl="med"><div class="qn">7.</div><div class="qbody">การแปลงใดเปลี่ยนทิศการเรียงจุดยอด
+         จากทวนเข็มเป็นตามเข็ม</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">การแปลง</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u4-transform-s7">ดูเฉลย</button></div><div class="qsol" id="u4-transform-s7" hidden><b>การสะท้อน</b> (จำนวนครั้งเป็นเลขคี่)
+             <br>การเลื่อนขนานและการหมุนไม่เปลี่ยนทิศการเรียง</div></div><div class="q" data-lvl="med"><div class="qn">8.</div><div class="qbody">รูปสามเหลี่ยมพื้นที่ \(18\) ตารางหน่วย
+         ถูกสะท้อนแล้วหมุน จงหาพื้นที่ของรูปที่ได้</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">พื้นที่</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u4-transform-s8">ดูเฉลย</button></div><div class="qsol" id="u4-transform-s8" hidden>ทั้งสองการแปลงรักษาพื้นที่ จึงได้ \(18\) ตารางหน่วยเท่าเดิม</div></div><div class="q" data-lvl="med"><div class="qn">9.</div><div class="qbody">รูปสามเหลี่ยมพื้นที่ \(20\) ตร.ซม.
+         ถูกขยายจากจุดกำเนิดด้วยอัตราส่วน \(3\) จงหาพื้นที่ของภาพ</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">ย่อ–ขยาย</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u4-transform-s9">ดูเฉลย</button></div><div class="qsol" id="u4-transform-s9" hidden>พื้นที่แปรตาม \(k^{2}=9\)
+             <br>พื้นที่ภาพ \(=20\times9=180\) ตร.ซม.</div></div><div class="q" data-lvl="med"><div class="qn">10.</div><div class="qbody">การหมุน \(90^\circ\) รอบจุด \((3,5)\)
+         มีจุดที่ไม่ขยับกี่จุด และอยู่ที่ใด</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">จุดตรึง</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u4-transform-s10">ดูเฉลย</button></div><div class="qsol" id="u4-transform-s10" hidden><b>หนึ่งจุด</b> คือจุดหมุน \((3,5)\) เอง</div></div><div class="q" data-lvl="hard"><div class="qn">11.</div><div class="qbody">จงหาภาพของ \(P(7,2)\)
+         เมื่อหมุน \(90^\circ\) ทวนเข็มรอบจุด \(C(3,-1)\)</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">หมุนรอบจุดอื่น</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u4-transform-s11">ดูเฉลย</button></div><div class="qsol" id="u4-transform-s11" hidden>ย้ายจุดหมุนไปจุดกำเนิด: \(P-C=(4,3)\)
+             <br>หมุน \(90^\circ\) ทวนเข็ม: \((-3,4)\)
+             <br>ย้ายกลับ: \((-3+3,\,4-1)=(0,3)\)
+             <br>ตรวจ: \(CP=\sqrt{16+9}=5\) และ \(CP'=\sqrt{9+16}=5\) ✓</div></div><div class="q" data-lvl="hard"><div class="qn">12.</div><div class="qbody">จงหาภาพของ \(Q(2,7)\)
+         เมื่อสะท้อนรอบเส้น \(y=x+3\)</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">สะท้อนรอบเส้นเอียง</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u4-transform-s12">ดูเฉลย</button></div><div class="qsol" id="u4-transform-s12" hidden>เลื่อนลง 3 ให้เส้นเป็น \(y=x\): \(Q\to(2,4)\)
+             <br>สะท้อนรอบ \(y=x\): \((4,2)\)
+             <br>เลื่อนขึ้น 3: \((4,5)\)
+             <br>ตรวจ: จุดกึ่งกลาง \((3,6)\) และ \(6=3+3\) ✓ อยู่บนเส้น</div></div><div class="q" data-lvl="hard"><div class="qn">13.</div><div class="qbody">จงแสดงว่าการสะท้อนรอบเส้น \(y=2\)
+         แล้วสะท้อนรอบเส้น \(y=-1\) เทียบเท่าการเลื่อนขนาน
+         และหาเวกเตอร์</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">ประกอบ</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u4-transform-s13">ดูเฉลย</button></div><div class="qsol" id="u4-transform-s13" hidden>สะท้อนรอบ \(y=2\): \((x,y)\to(x,4-y)\)
+             <br>สะท้อนรอบ \(y=-1\): \((x,y)\to(x,-2-y)\)
+             <br>ประกอบ: \((x,y)\to(x,\,-2-(4-y))=(x,\,y-6)\)
+             <br>เวกเตอร์ \(=\langle0,-6\rangle\)
+             <br>ตรวจกฎ: ห่างกัน \(d=|2-(-1)|=3\) จึงเลื่อน \(2d=6\)
+             ในทิศจากเส้นแรกไปเส้นที่สอง (ลง) ✓</div></div><div class="q" data-lvl="hard"><div class="qn">14.</div><div class="qbody">จงหาการแปลงเพียงชั้นเดียวที่เทียบเท่ากับ
+         "สะท้อนรอบแกน \(x\) แล้วสะท้อนรอบเส้น \(y=x\)"
+         (ทดสอบด้วยจุด \((1,0)\) และ \((0,1)\))</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">ประกอบ</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u4-transform-s14">ดูเฉลย</button></div><div class="qsol" id="u4-transform-s14" hidden>\((1,0)\): สะท้อนแกน \(x\) ได้ \((1,0)\) → สะท้อน \(y=x\)
+             ได้ \((0,1)\)
+             <br>\((0,1)\): สะท้อนแกน \(x\) ได้ \((0,-1)\) → สะท้อน \(y=x\)
+             ได้ \((-1,0)\)
+             <br>กฎที่ได้: \((1,0)\to(0,1)\) และ \((0,1)\to(-1,0)\)
+             <br>นี่คือ \((x,y)\to(-y,x)\) = <b>หมุน \(90^\circ\) ทวนเข็ม
+             รอบจุดกำเนิด</b>
+             <br>ตรวจกฎ: สองเส้นตัดกันที่จุดกำเนิดเป็นมุม \(45^\circ\)
+             จึงหมุน \(2(45^\circ)=90^\circ\) ✓</div></div><div class="q" data-lvl="hard"><div class="qn">15.</div><div class="qbody">หมุน \(180^\circ\) รอบ \((0,0)\)
+         แล้วหมุน \(180^\circ\) รอบ \((3,2)\) จงหาการแปลงเทียบเท่า</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">หมุนสองจุด</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u4-transform-s15">ดูเฉลย</button></div><div class="qsol" id="u4-transform-s15" hidden>ให้จุดเริ่ม \((x,y)\)
+             <br>หมุน \(180^\circ\) รอบจุดกำเนิด: \((-x,-y)\)
+             <br>หมุน \(180^\circ\) รอบ \((3,2)\): \((6-(-x),\,4-(-y))
+             =(x+6,\,y+4)\)
+             <br>ได้ <b>การเลื่อนขนาน</b> ด้วย \(\langle6,4\rangle\)
+             <br>ตรวจกฎ: มุมรวม \(=360^\circ\) ซึ่งเป็นตัวคูณของ \(360^\circ\)
+             จึงได้การเลื่อนขนาน ✓
+             <br>เวกเตอร์ \(=2\times\overrightarrow{O_1O_2}=2(3,2)=(6,4)\) ✓</div></div><div class="q" data-lvl="hard"><div class="qn">16.</div><div class="qbody">รูปสามเหลี่ยม \(ABC\) ที่
+         \(A(1,1),B(5,1),C(1,4)\) ถูกสะท้อนไปเป็น \(A'(1,7),B'(5,7),C'(1,4)\)
+         จงหาสมการเส้นสะท้อน</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">หาเส้นสะท้อน</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u4-transform-s16">ดูเฉลย</button></div><div class="qsol" id="u4-transform-s16" hidden>\(C\) ไม่ขยับ (\(C=C'\)) จึงอยู่บนเส้นสะท้อน
+             <br>\(A(1,1)\to A'(1,7)\): จุดกึ่งกลาง \((1,4)\)
+             <br>\(AA'\) เป็นเส้นตั้ง จึงเส้นสะท้อนเป็นเส้นนอน ผ่าน \((1,4)\)
+             <br>สมการ: \(y=4\)
+             <br>ตรวจ \(B(5,1)\to(5,7)\) ✓ และ \(C(1,4)\) อยู่บนเส้น ✓</div></div><div class="q" data-lvl="hard"><div class="qn">17.</div><div class="qbody">จงหาทุกวิธีที่รูปสามเหลี่ยมด้านเท่า
+         และรูปหกเหลี่ยมด้านเท่ามุมเท่าชุมนุมรอบจุดเดียวได้พอดี</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">เทเซเลชัน</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u4-transform-s17">ดูเฉลย</button></div><div class="qsol" id="u4-transform-s17" hidden>\(60t+120h=360\Rightarrow t+2h=6\)
+             <br>\(h=0\Rightarrow t=6\) (สามเหลี่ยมล้วน)
+             <br>\(h=1\Rightarrow t=4\) ✓
+             <br>\(h=2\Rightarrow t=2\) ✓
+             <br>\(h=3\Rightarrow t=0\) (หกเหลี่ยมล้วน)
+             <br>แบบผสมมีสองแบบ: \((4,1)\) และ \((2,2)\)</div></div><div class="q" data-lvl="hard"><div class="qn">18.</div><div class="qbody">จงพิสูจน์ว่ารูปสี่เหลี่ยม <b>ทุกรูป</b>
+         (รวมรูปเว้า) ปูระนาบได้</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">เทเซเลชัน</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u4-transform-s18">ดูเฉลย</button></div><div class="qsol" id="u4-transform-s18" hidden>ให้ \(ABCD\) เป็นสี่เหลี่ยมใด ๆ มุมภายในรวม \(=360^\circ\)
+             <br>หมุน \(ABCD\) เป็นมุม \(180^\circ\) รอบ <b>จุดกึ่งกลางของด้าน \(AB\)</b>
+             ได้สำเนาที่ติดกับ \(AB\) พอดี
+             <br>ทำแบบเดียวกันกับด้านอื่น ๆ
+             <br>ที่จุดยอดแต่ละจุดของลาย จะมีมุมของสี่เหลี่ยมมาชุมนุมครบทั้งสี่มุม
+             (\(\angle A,\angle B,\angle C,\angle D\)) แต่ละมุมหนึ่งครั้ง
+             <br>รวมได้ \(360^\circ\) พอดี → ไม่มีช่องว่างและไม่ทับกัน ∎</div></div><div class="q" data-lvl="hard"><div class="qn">19.</div><div class="qbody">ลายเทเซเลชันหนึ่งสร้างจากรูปสามเหลี่ยม
+         ด้านเท่า
+         <br>(ก) ลายนี้มีสมมาตรแบบใดบ้าง
+         <br>(ข) จุดใดในลายที่เป็นศูนย์กลางของสมมาตรแบบหมุนอันดับ 6
+         <br>(ค) จุดใดเป็นศูนย์กลางของสมมาตรแบบหมุนอันดับ 3</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">สมมาตร</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u4-transform-s19">ดูเฉลย</button></div><div class="qsol" id="u4-transform-s19" hidden>(ก) มีทั้ง <b>การเลื่อนขนาน</b> (สองแนวอิสระ),
+             <b>การสะท้อน</b> (ตามแนวด้านและแนวเส้นสูง),
+             และ <b>การหมุน</b>
+             <br>(ข) <b>จุดยอดของสามเหลี่ยม</b> — มีสามเหลี่ยม 6 รูปมาชุมนุม
+             (\(6\times60^\circ=360^\circ\)) จึงหมุนได้ทีละ \(60^\circ\)
+             <br>(ค) <b>จุดศูนย์กลางของสามเหลี่ยมแต่ละรูป</b> — หมุน \(120^\circ\)
+             แล้วรูปทับตัวเอง
+             <br>(จุดกึ่งกลางของด้านเป็นศูนย์กลางสมมาตรแบบหมุนอันดับ 2)</div></div><div class="q" data-lvl="apply"><div class="qn">20.</div><div class="qbody">ลายผ้าพิมพ์สร้างจากลวดลายต้นแบบ
+         กว้าง \(12\) ซม. สูง \(8\) ซม. ทำซ้ำด้วยการเลื่อนขนาน
+         \(\langle12,0\rangle\) และ \(\langle6,8\rangle\) (ลายเหลื่อมแบบอิฐ)
+         <br>(ก) ผ้ากว้าง \(144\) ซม. วางลายได้กี่ลายในแถวหนึ่ง
+         <br>(ข) แถวที่สองเหลื่อมไปทางขวาเท่าไร
+         <br>(ค) ลายจะกลับมาตรงกับแถวแรกทุก ๆ กี่แถว</div><div class="qmeta"><span class="ex-lvl apply">ประยุกต์</span><span class="ex-lvl">ประยุกต์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u4-transform-s20">ดูเฉลย</button></div><div class="qsol" id="u4-transform-s20" hidden>(ก) \(\dfrac{144}{12}=12\) ลาย
+             <br>(ข) เหลื่อม \(6\) ซม. (ครึ่งหนึ่งของความกว้างลาย)
+             <br>(ค) เหลื่อมสะสม \(6,12,18,\dots\) ตรงกับแถวแรกเมื่อเหลื่อม
+             เป็นตัวคูณของ \(12\)
+             <br>\(6k\equiv0\pmod{12}\Rightarrow k=2\)
+             <br>ดังนั้นตรงกันทุก <b>2 แถว</b></div></div><div class="q" data-lvl="apply"><div class="qn">21.</div><div class="qbody">โลโก้บริษัทสร้างจากรูปสามเหลี่ยม
+         หนึ่งรูปที่หมุนรอบจุดศูนย์กลางให้ครบวง ต้องการสมมาตรแบบหมุนอันดับ 8
+         <br>(ก) หมุนทีละกี่องศา
+         <br>(ข) ถ้าเพิ่มการสะท้อนเข้าไปด้วย โลโก้มีเส้นสมมาตรกี่เส้น
+         <br>(ค) จำนวนการแปลงทั้งหมดที่ทำให้โลโก้ทับตัวเองได้มีเท่าไร</div><div class="qmeta"><span class="ex-lvl apply">ประยุกต์</span><span class="ex-lvl">ประยุกต์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u4-transform-s21">ดูเฉลย</button></div><div class="qsol" id="u4-transform-s21" hidden>(ก) \(\dfrac{360^\circ}{8}=45^\circ\)
+             <br>(ข) ถ้ารูปต้นแบบมีเส้นสมมาตรตามแนวรัศมี จะได้ <b>8 เส้น</b>
+             <br>(ค) การหมุน \(8\) แบบ (\(0^\circ,45^\circ,\dots,315^\circ\))
+             + การสะท้อน \(8\) แบบ = <b>16 การแปลง</b>
+             <br>(นี่คือกลุ่มสมมาตรของรูป 8 เหลี่ยมด้านเท่ามุมเท่า)</div></div><div class="q" data-lvl="apply"><div class="qn">22.</div><div class="qbody">สถาปนิกออกแบบกระจกตกแต่งโดยติด
+         กระจกสองบานทำมุมกัน \(72^\circ\)
+         <br>(ก) วัตถุที่วางระหว่างกระจกจะเห็นรวมกี่ภาพ (รวมวัตถุจริง)
+         <br>(ข) ถ้าต้องการให้เห็น \(12\) ภาพ กระจกต้องทำมุมกันเท่าไร
+         <br>(ค) ทำไมมุม \(100^\circ\) จึงให้ภาพไม่สวย</div><div class="qmeta"><span class="ex-lvl apply">ประยุกต์</span><span class="ex-lvl">ประยุกต์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u4-transform-s22">ดูเฉลย</button></div><div class="qsol" id="u4-transform-s22" hidden>(ก) \(\dfrac{360^\circ}{72^\circ}=5\) ภาพ
+             <br>(ข) \(\dfrac{360^\circ}{12}=30^\circ\)
+             <br>(ค) \(\dfrac{360}{100}=3.6\) ไม่เป็นจำนวนเต็ม
+             <br>ภาพสุดท้ายจะไม่บรรจบกับวัตถุจริงพอดี ทำให้เห็นภาพซ้อนที่ขาด
+             หรือเหลื่อมกัน — ลายจึงไม่สมมาตร</div></div><div class="q" data-lvl="apply"><div class="qn">23.</div><div class="qbody">นักเรียนทำงาน GSP สร้างลายเทเซเลชัน
+         จากรูปสี่เหลี่ยมจัตุรัสด้าน \(6\) ซม. ด้วยเทคนิคตัด–เลื่อน
+         โดยตัดส่วนที่มีพื้นที่ \(4\) ตร.ซม. จากด้านซ้ายไปต่อด้านขวา
+         <br>(ก) รูปใหม่มีพื้นที่เท่าไร
+         <br>(ข) เส้นรอบรูปเปลี่ยนไปอย่างไร
+         <br>(ค) ปูพื้น \(1.2\times1.8\) ม. ใช้รูปใหม่กี่ชิ้น</div><div class="qmeta"><span class="ex-lvl apply">ประยุกต์</span><span class="ex-lvl">ประยุกต์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u4-transform-s23">ดูเฉลย</button></div><div class="qsol" id="u4-transform-s23" hidden>(ก) \(36\) ตร.ซม. <b>เท่าเดิม</b> — การตัดและเลื่อน
+             ไม่เปลี่ยนพื้นที่
+             <br>(ข) เส้นรอบรูป <b>ยาวขึ้น</b> เพราะขอบที่เคยตรงกลายเป็นขอบหยัก
+             (ความยาวของรอยตัดถูกนับสองครั้ง — ด้านหนึ่งเว้า อีกด้านนูน)
+             <br>(ค) พื้นที่พื้น \(=120\times180=21\,600\) ตร.ซม.
+             <br>\(\dfrac{21\,600}{36}=600\) ชิ้น
+             <br>(ใช้พื้นที่คำนวณได้เพราะลายปูเต็มไม่มีช่องว่าง)</div></div><div class="q" data-lvl="apply"><div class="qn">24.</div><div class="qbody">สายพานลำเลียงมีถาดติดเป็นระยะ
+         ทุก \(45\) ซม. และสายพานวิ่งเป็นวงรอบความยาว \(12\) เมตร
+         <br>(ก) มีถาดทั้งหมดกี่ใบ
+         <br>(ข) เมื่อสายพานเคลื่อนไป \(45\) ซม. การแปลงที่เกิดขึ้นกับลายถาด
+         คืออะไร
+         <br>(ค) สายพานต้องเคลื่อนไปเท่าไรลายจึงกลับเหมือนเดิม</div><div class="qmeta"><span class="ex-lvl apply">ประยุกต์</span><span class="ex-lvl">ประยุกต์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u4-transform-s24">ดูเฉลย</button></div><div class="qsol" id="u4-transform-s24" hidden>(ก) \(\dfrac{1200}{45}=26.67\) — ไม่ลงตัว
+             <br>ต้องปรับระยะหรือความยาวสายพาน; ถ้าใช้ \(26\) ใบ
+             ระยะจริงคือ \(\dfrac{1200}{26}\approx46.2\) ซม.
+             <br>(ข) <b>การเลื่อนขนาน</b> ที่ส่งถาดแต่ละใบไปตำแหน่งของถาดใบถัดไป
+             — ลายทับตัวเองพอดี
+             <br>(ค) เคลื่อนไป \(45\) ซม. (หนึ่งช่วงถาด) ลายกลับเหมือนเดิมแล้ว
+             <br>นี่คือ <b>สมมาตรการเลื่อนขนาน</b> ของลายที่ซ้ำเป็นคาบ</div></div><div class="q" data-lvl="apply"><div class="qn">25.</div><div class="qbody">ลายกระเบื้องหกเหลี่ยมด้านเท่ามุมเท่า
+         ด้านยาว \(10\) ซม. ปูพื้นห้อง
+         <br>(ก) กระเบื้องแต่ละแผ่นมีพื้นที่เท่าไร (ใช้ \(\sqrt3\approx1.732\))
+         <br>(ข) ห้องขนาด \(3\times4\) ม. ต้องใช้กี่แผ่น (ไม่คิดการตัดขอบ)
+         <br>(ค) รอบจุดชุมนุมแต่ละจุดมีกระเบื้องกี่แผ่น</div><div class="qmeta"><span class="ex-lvl apply">ประยุกต์</span><span class="ex-lvl">ประยุกต์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u4-transform-s25">ดูเฉลย</button></div><div class="qsol" id="u4-transform-s25" hidden>(ก) \(K=\dfrac{3\sqrt3}{2}a^{2}=\dfrac{3(1.732)}{2}(100)
+             =259.8\) ตร.ซม.
+             <br>(ข) พื้นที่ห้อง \(=300\times400=120\,000\) ตร.ซม.
+             <br>\(\dfrac{120\,000}{259.8}\approx462\) แผ่น
+             <br>(ค) มุมภายในหกเหลี่ยม \(=120^\circ\) และ
+             \(\dfrac{360}{120}=3\) → <b>3 แผ่น</b></div></div><div class="q" data-lvl="med"><div class="qn">26.</div><div class="qbody">จงหาภาพของ \(P(-4,6)\) เมื่อสะท้อนรอบ
+         เส้น \(x=-1\)</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">สะท้อน</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u4-transform-s26">ดูเฉลย</button></div><div class="qsol" id="u4-transform-s26" hidden>สะท้อนรอบ \(x=a\): \((x,y)\to(2a-x,\,y)\)
+             <br>\(P'=(2(-1)-(-4),\,6)=(2,6)\)</div></div><div class="q" data-lvl="med"><div class="qn">27.</div><div class="qbody">รูปสามเหลี่ยมถูกหมุน \(60^\circ\) รอบจุดหนึ่ง
+         ซ้ำ ๆ ต้องหมุนกี่ครั้งจึงกลับตำแหน่งเดิม</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">หมุน</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u4-transform-s27">ดูเฉลย</button></div><div class="qsol" id="u4-transform-s27" hidden>\(\dfrac{360^\circ}{60^\circ}=6\) ครั้ง</div></div><div class="q" data-lvl="med"><div class="qn">28.</div><div class="qbody">จุด \(A(1,2)\) เลื่อนด้วยเวกเตอร์
+         \(\langle3,-4\rangle\) สองครั้งติดกัน จงหาพิกัดสุดท้ายและระยะทางรวม</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">เลื่อนขนาน</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u4-transform-s28">ดูเฉลย</button></div><div class="qsol" id="u4-transform-s28" hidden>เลื่อนสองครั้ง = เลื่อนด้วย \(\langle6,-8\rangle\)
+             <br>\(A''=(7,-6)\)
+             <br>ระยะต่อครั้ง \(=\sqrt{9+16}=5\) → รวม \(10\) หน่วย</div></div><div class="q" data-lvl="hard"><div class="qn">29.</div><div class="qbody">จงหาการแปลงเทียบเท่าของ
+         "หมุน \(90^\circ\) ทวนเข็มรอบจุดกำเนิด แล้วสะท้อนรอบแกน \(x\)"
+         (ทดสอบด้วย \((1,0)\) และ \((0,1)\))</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">ประกอบ</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u4-transform-s29">ดูเฉลย</button></div><div class="qsol" id="u4-transform-s29" hidden>\((1,0)\): หมุนได้ \((0,1)\) → สะท้อนแกน \(x\) ได้ \((0,-1)\)
+             <br>\((0,1)\): หมุนได้ \((-1,0)\) → สะท้อนแกน \(x\) ได้ \((-1,0)\)
+             <br>กฎที่ได้: \((x,y)\to(-y,-x)\)
+             <br>นี่คือ <b>การสะท้อนรอบเส้น \(y=-x\)</b>
+             <br>(หมุน 1 ครั้ง + สะท้อน 1 ครั้ง = จำนวนสะท้อนคี่
+             → กลับทิศการเรียง → ต้องเป็นการสะท้อน)</div></div><div class="q" data-lvl="hard"><div class="qn">30.</div><div class="qbody">รูป \(n\) เหลี่ยมด้านเท่ามุมเท่า
+         มีการแปลงที่ทำให้รูปทับตัวเองได้ทั้งหมดกี่แบบ จงอธิบาย</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">สมมาตร</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u4-transform-s30">ดูเฉลย</button></div><div class="qsol" id="u4-transform-s30" hidden><b>การหมุน</b> \(n\) แบบ: หมุน \(0,\dfrac{360}{n},
+             \dfrac{2(360)}{n},\dots\) องศา
+             <br><b>การสะท้อน</b> \(n\) แบบ: รอบเส้นสมมาตร \(n\) เส้น
+             <br>รวม \(2n\) แบบ
+             <br>(เรียกว่ากลุ่มไดฮีดรัล \(D_n\) — เช่น จัตุรัสมี \(8\) แบบ,
+             หกเหลี่ยมมี \(12\) แบบ)</div></div><div class="q" data-lvl="apply"><div class="qn">31.</div><div class="qbody">ลายปูกระเบื้องในวัดใช้รูปสามเหลี่ยม
+         ด้านเท่าด้าน \(20\) ซม. สลับสองสี โดยสีสลับกันทุกแผ่นที่ติดกัน
+         <br>(ก) ลายนี้ใช้การแปลงใดสร้างจากแผ่นเดียว
+         <br>(ข) พื้นที่ \(2\times3\) ม. ใช้กี่แผ่น (ใช้ \(\sqrt3\approx1.732\))
+         <br>(ค) แผ่นแต่ละสีอย่างละกี่แผ่น</div><div class="qmeta"><span class="ex-lvl apply">ประยุกต์</span><span class="ex-lvl">ประยุกต์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u4-transform-s31">ดูเฉลย</button></div><div class="qsol" id="u4-transform-s31" hidden>(ก) <b>หมุน \(180^\circ\)</b> รอบจุดกึ่งกลางด้าน
+             (ทำให้สามเหลี่ยมหงายสลับคว่ำ) ร่วมกับ <b>การเลื่อนขนาน</b>
+             <br>(ข) พื้นที่แผ่นละ \(\dfrac{\sqrt3}{4}(400)=173.2\) ตร.ซม.
+             <br>พื้นที่พื้น \(=200\times300=60\,000\) ตร.ซม.
+             <br>\(\dfrac{60\,000}{173.2}\approx346\) แผ่น
+             <br>(ค) สีสลับกันเท่า ๆ กัน → ประมาณ \(173\) แผ่นต่อสี</div></div></section><div class="pager"><a class="pl" href="u3-explore.html">การสำรวจเรขาคณิตเบื้องต้น</a><a class="pr" href="u5-statistics.html">สถิติ</a></div></main></div></div><footer class="site"><div class="wrap">คณิตศาสตร์ ม.2 · สื่อการเรียนรู้แบบอินเทอร์แอกทีฟ</div></footer>
+<script src="../assets/js/site.js"></script>
+<script src="../assets/js/viz.js"></script>
+</body>
+</html>

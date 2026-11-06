@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="th" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>สถิติ · เทคโนโลยีเพื่อการศึกษาทางคณิตศาสตร์</title>
+<meta name="description" content="ค่ากลางสามแบบและการเลือกใช้ให้ถูกสถานการณ์ การวัดการกระจาย
+    การนำเสนอข้อมูลด้วยแผนภาพ และการอ่านกราฟอย่างมีวิจารณญาณ">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Serif+Thai:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/site.css">
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+         processEscapes: true },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] },
+  chtml: { mtextInheritFont: true, scale: 1.0 },
+  startup: { typeset: true }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+
+</head>
+<body>
+<nav class="nav"><a class="nav-brand" href="../index.html">คณิต<span>ศาสตร์</span> ม.2</a><div class="nav-links"><a href="../index.html">หน้าแรก</a><a href="../c22122/index.html" title="คณิตศาสตร์ 4">คณิตศาสตร์ 4</a><a href="../c22292/index.html" title="คณิตศาสตร์พัฒนาศักยภาพ 4">พัฒนาศักยภาพ 4</a><a href="../c22294/index.html" aria-current="page" title="เทคโนโลยีเพื่อการศึกษาทางคณิตศาสตร์">เทคโนโลยีคณิตศาสตร์</a><button class="theme-btn" type="button" aria-label="สลับโหมดสี">☾</button></div></nav><div class="wrap"><div class="page"><aside class="toc"><div class="toc-label">หัวข้อในบทนี้</div><ol><li><a href="#center">ค่ากลางของข้อมูล</a></li><li><a href="#spread">การวัดการกระจาย</a></li><li><a href="#present">การนำเสนอข้อมูลและการอ่านกราฟ</a></li><li><a href="#drill">แบบฝึกหัดท้ายบท</a></li></ol></aside><main><p class="eyebrow">เทคโนโลยีเพื่อการศึกษาทางคณิตศาสตร์</p><h1>สถิติ</h1><p class="lead">ค่ากลางสามแบบและการเลือกใช้ให้ถูกสถานการณ์ การวัดการกระจาย
+    การนำเสนอข้อมูลด้วยแผนภาพ และการอ่านกราฟอย่างมีวิจารณญาณ</p><div class="badges"><span class="badge">ค่ากลาง 3 แบบ</span><span class="badge">ควอร์ไทล์ · ส่วนเบี่ยงเบน</span><span class="badge">แผนภาพกล่อง</span><span class="badge">กราฟหลอกตา</span><span class="badge on">แบบฝึกหัด 31 ข้อ</span></div><section id="center"><h2>ค่ากลางของข้อมูล</h2><div class="box def"><span class="box-label">ค่ากลางสามแบบ</span>
+             <p><b>ค่าเฉลี่ยเลขคณิต</b> (mean)</p>
+             \[\bar{x}=\frac{x_1+x_2+\cdots+x_n}{n}=\frac{\sum x_i}{n}\]
+             <p><b>มัธยฐาน</b> (median) — ค่าที่อยู่ตรงกลางเมื่อเรียงข้อมูลแล้ว</p>
+             <ul>
+             <li>\(n\) เป็นจำนวนคี่ → ค่าตัวที่ \(\dfrac{n+1}{2}\)</li>
+             <li>\(n\) เป็นจำนวนคู่ → ค่าเฉลี่ยของตัวที่ \(\dfrac n2\)
+             และ \(\dfrac n2+1\)</li>
+             </ul>
+             <p><b>ฐานนิยม</b> (mode) — ค่าที่ปรากฏบ่อยที่สุด
+             (อาจมีหลายค่า หรือไม่มีเลย)</p></div><figure class="fig" data-viz="statviz" data-x0="60" data-x1="540" data-base="200" data-values="12,15,15,18,20,21,24,24,27,33"><div class="fig-body"><svg viewBox="0 0 600 260" role="img" aria-labelledby="fig-statviz-t fig-statviz-d"><title id="fig-statviz-t">ค่ากลางและการกระจายของข้อมูล</title><desc id="fig-statviz-d">เส้นจำนวนแสดงข้อมูลเป็นจุดเรียงตามค่า พร้อมเส้นกำกับค่าเฉลี่ยเลขคณิต มัธยฐาน ควอร์ไทล์ที่หนึ่งและสาม และแถบแสดงช่วงหนึ่งส่วนเบี่ยงเบนมาตรฐาน</desc><rect width="100%" height="100%" fill="var(--paper-2)"/><text x="30" y="32" class="t-tag">ค่ากลางและการกระจายของข้อมูลชุดเดียวกัน</text><line x1="50" y1="200" x2="550" y2="200" class="s-soft"/><line x1="60" y1="195" x2="60" y2="205" class="s-soft"/><text x="60" y="222" text-anchor="middle" class="t-mono">12</text><line x1="156" y1="195" x2="156" y2="205" class="s-soft"/><text x="156" y="222" text-anchor="middle" class="t-mono">16.2</text><line x1="252" y1="195" x2="252" y2="205" class="s-soft"/><text x="252" y="222" text-anchor="middle" class="t-mono">20.4</text><line x1="348" y1="195" x2="348" y2="205" class="s-soft"/><text x="348" y="222" text-anchor="middle" class="t-mono">24.6</text><line x1="444" y1="195" x2="444" y2="205" class="s-soft"/><text x="444" y="222" text-anchor="middle" class="t-mono">28.8</text><line x1="540" y1="195" x2="540" y2="205" class="s-soft"/><text x="540" y="222" text-anchor="middle" class="t-mono">33</text><rect x="145.71" y="170" width="188.57" height="60" class="f-lt" data-id="box" opacity="0"/><rect x="126.11" y="178" width="274.63" height="44" class="f-tt" data-id="sdband" opacity="0"/><circle cx="60" cy="200" r="5" class="f-ink" data-id="pt" opacity="0.75"/><circle cx="128.57" cy="200" r="5" class="f-ink" data-id="pt" opacity="0.75"/><circle cx="128.57" cy="200" r="5" class="f-ink" data-id="pt" opacity="0.75"/><circle cx="197.14" cy="200" r="5" class="f-ink" data-id="pt" opacity="0.75"/><circle cx="242.86" cy="200" r="5" class="f-ink" data-id="pt" opacity="0.75"/><circle cx="265.71" cy="200" r="5" class="f-ink" data-id="pt" opacity="0.75"/><circle cx="334.29" cy="200" r="5" class="f-ink" data-id="pt" opacity="0.75"/><circle cx="334.29" cy="200" r="5" class="f-ink" data-id="pt" opacity="0.75"/><circle cx="402.86" cy="200" r="5" class="f-ink" data-id="pt" opacity="0.75"/><circle cx="540" cy="200" r="5" class="f-ink" data-id="pt" opacity="0.75"/><line x1="263.43" y1="152" x2="263.43" y2="216" class="s-accent" data-id="m-mean" opacity="1"/><text x="263.43" y="146" text-anchor="middle" class="t-mono t-accent" data-id="l-mean" opacity="1">x̄</text><line x1="254.29" y1="152" x2="254.29" y2="216" class="s-link" data-id="m-median" opacity="0.12"/><text x="254.29" y="146" text-anchor="middle" class="t-mono t-link" data-id="l-median" opacity="0.12">มัธยฐาน</text><line x1="145.71" y1="152" x2="145.71" y2="216" class="s-muted" data-id="m-q1" opacity="0.12"/><text x="145.71" y="146" text-anchor="middle" class="t-mono t-mono" data-id="l-q1" opacity="0.12">Q1</text><line x1="334.29" y1="152" x2="334.29" y2="216" class="s-muted" data-id="m-q3" opacity="0.12"/><text x="334.29" y="146" text-anchor="middle" class="t-mono t-mono" data-id="l-q3" opacity="0.12">Q3</text><text x="30" y="240" class="t-mono" data-id="stat">x̄ = 20.90 · มัธยฐาน = 20.50 · Q1 = 15.75 · Q3 = 24.00 · s.d. = 6.01</text></svg></div><div class="fig-ctrl"><button type="button" data-act="mean" data-group="stat" aria-pressed="true">ค่าเฉลี่ย</button><button type="button" data-act="median" data-group="stat" aria-pressed="false">มัธยฐาน</button><button type="button" data-act="quart" data-group="stat" aria-pressed="false">ควอร์ไทล์</button><button type="button" data-act="sd" data-group="stat" aria-pressed="false">ส่วนเบี่ยงเบนมาตรฐาน</button><button type="button" data-act="all" data-group="stat" aria-pressed="false">ทั้งหมด</button><span class="fig-readout" data-readout>n = 10 · x̄ = 20.90 · s.d. = 6.01</span></div><figcaption>ค่าเฉลี่ยถูกค่าผิดปกติดึงได้ง่าย แต่มัธยฐานไม่ — กดสลับดูว่าค่ากลางแต่ละแบบอยู่ตำแหน่งใดในข้อมูลชุดเดียวกัน</figcaption></figure><div class="box trick"><span class="box-label">เลือกค่ากลางให้ถูกสถานการณ์</span>
+             <table class="tbl"><thead><tr><th>สถานการณ์</th>
+             <th>ควรใช้</th><th>เพราะ</th></tr></thead><tbody>
+             <tr><td>ข้อมูลกระจายสมมาตร ไม่มีค่าผิดปกติ</td><td>ค่าเฉลี่ย</td>
+             <td>ใช้ข้อมูลทุกตัว และคำนวณต่อได้</td></tr>
+             <tr><td>มีค่าผิดปกติ (เงินเดือน ราคาบ้าน)</td><td><b>มัธยฐาน</b></td>
+             <td>ค่าสุดขั้วไม่ดึง — ทนทานกว่า</td></tr>
+             <tr><td>ข้อมูลเชิงคุณภาพ (สี ยี่ห้อ ขนาดเสื้อ)</td><td><b>ฐานนิยม</b></td>
+             <td>คำนวณค่าเฉลี่ยไม่ได้</td></tr>
+             <tr><td>ต้องการ "ค่าที่ขายดีที่สุด"</td><td>ฐานนิยม</td>
+             <td>บอกว่าควรสั่งของแบบใดมาก</td></tr>
+             </tbody></table>
+             <p><b>กฎนิ้วโป้ง</b> — ถ้าค่าเฉลี่ยกับมัธยฐานต่างกันมาก
+             แสดงว่าข้อมูลเบ้หรือมีค่าผิดปกติ ให้รายงานมัธยฐานด้วย</p></div><div class="ex"><div class="ex-head"><span class="ex-tag">ตัวอย่าง 1</span><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">ค่าผิดปกติ</span></div><div class="ex-body">
+             เงินเดือน (พันบาท) ของพนักงาน 9 คนในบริษัทเล็กแห่งหนึ่ง
+             \[15,\ 16,\ 16,\ 18,\ 19,\ 20,\ 22,\ 25,\ 180\]
+             <br>(ก) จงหาค่าเฉลี่ย มัธยฐาน และฐานนิยม
+             <br>(ข) ค่าใดสะท้อน "เงินเดือนทั่วไป" ได้ดีที่สุด เพราะเหตุใด
+             <br>(ค) ถ้าตัดค่า \(180\) ออก ค่ากลางแต่ละแบบเปลี่ยนไปเท่าไร</div><div class="ex-sol"><p class="sol-label">แนวคิดและวิธีทำ</p><ol class="steps"><li>(ก) ผลรวม \(=15+16+16+18+19+20+22+25+180=331\)</li><li>\(\bar x=\dfrac{331}{9}\approx36.8\) พันบาท</li><li>\(n=9\) เป็นคี่ มัธยฐานคือตัวที่ \(\dfrac{9+1}{2}=5\)
+                 นั่นคือ \(19\) พันบาท</li><li>ฐานนิยม \(=16\) (ปรากฏสองครั้ง)</li><li>(ข) <b>มัธยฐาน \(19\)</b> — เพราะค่าเฉลี่ย \(36.8\)
+                 สูงกว่าเงินเดือนของพนักงาน <b>8 ใน 9 คน</b>
+                 ถูกค่า \(180\) (น่าจะเป็นเจ้าของ) ดึงขึ้นไป</li><li>(ค) ตัด \(180\) ออก: ผลรวม \(=151\), \(n=8\)</li><li>\(\bar x=\dfrac{151}{8}=18.875\) — <b>ลดลง \(17.9\)</b></li><li>มัธยฐาน \(=\dfrac{18+19}{2}=18.5\) — <b>ลดลงเพียง \(0.5\)</b></li><li>ฐานนิยม \(=16\) — <b>ไม่เปลี่ยน</b></li><li>นี่แสดงชัดว่ามัธยฐานและฐานนิยม <b>ทนทาน</b> ต่อค่าผิดปกติ
+                 แต่ค่าเฉลี่ยไม่ทน</li></ol><p class="ans">(ก) \(\bar x\approx36.8\), มัธยฐาน \(19\), ฐานนิยม \(16\)&nbsp;(ข) มัธยฐาน&nbsp;(ค) ค่าเฉลี่ยลด \(17.9\) มัธยฐานลด \(0.5\)</p></div></div></section><section id="spread"><h2>การวัดการกระจาย</h2><div class="box def"><span class="box-label">เครื่องมือวัดการกระจาย</span>
+             <p><b>พิสัย</b> (range) \(=\) ค่าสูงสุด \(-\) ค่าต่ำสุด
+             — ง่ายแต่ใช้แค่สองค่า จึงอ่อนไหวต่อค่าผิดปกติมาก</p>
+             <p><b>ควอร์ไทล์</b> \(Q_1,Q_2,Q_3\) แบ่งข้อมูลที่เรียงแล้วเป็นสี่ส่วน
+             โดย \(Q_2\) คือมัธยฐาน</p>
+             <p><b>พิสัยระหว่างควอร์ไทล์</b> \(\text{IQR}=Q_3-Q_1\)
+             — วัดการกระจายของข้อมูลกลาง \(50\%\) จึงทนต่อค่าผิดปกติ</p>
+             <p><b>ส่วนเบี่ยงเบนมาตรฐาน</b> (standard deviation)</p>
+             \[s=\sqrt{\frac{\sum(x_i-\bar x)^{2}}{n}}\]
+             <p>วัดว่าข้อมูลกระจายห่างจากค่าเฉลี่ยโดยทั่วไปเท่าไร</p></div><div class="box trick"><span class="box-label">เกณฑ์หาค่าผิดปกติ</span>
+             <p>ข้อมูลที่อยู่นอกช่วงนี้ถือเป็น <b>ค่าผิดปกติ</b> (outlier)</p>
+             \[\left[\,Q_1-1.5\,\text{IQR},\ \ Q_3+1.5\,\text{IQR}\,\right]\]
+             <p>นี่คือเกณฑ์ที่โปรแกรมใช้วาดจุดนอกหนวดของแผนภาพกล่อง</p></div><div class="ex"><div class="ex-head"><span class="ex-tag">ตัวอย่าง 2</span><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">ควอร์ไทล์</span></div><div class="ex-body">
+             คะแนนสอบของนักเรียน 12 คน
+             \[42,\ 48,\ 51,\ 55,\ 58,\ 60,\ 63,\ 66,\ 70,\ 72,\ 78,\ 95\]
+             <br>(ก) จงหา \(Q_1,Q_2,Q_3\) และ IQR
+             <br>(ข) จงตรวจว่ามีค่าผิดปกติหรือไม่
+             <br>(ค) จงหาส่วนเบี่ยงเบนมาตรฐาน (ทศนิยม 2 ตำแหน่ง)</div><div class="ex-sol"><p class="sol-label">แนวคิดและวิธีทำ</p><ol class="steps"><li>(ก) \(n=12\) เป็นคู่ \(Q_2=\dfrac{60+63}{2}=61.5\)</li><li>ครึ่งล่าง 6 ตัว: \(42,48,51,55,58,60\)
+                 → \(Q_1=\dfrac{51+55}{2}=53\)</li><li>ครึ่งบน 6 ตัว: \(63,66,70,72,78,95\)
+                 → \(Q_3=\dfrac{70+72}{2}=71\)</li><li>\(\text{IQR}=71-53=18\)</li><li>(ข) ขอบล่าง \(=53-1.5(18)=53-27=26\)</li><li>ขอบบน \(=71+1.5(18)=71+27=98\)</li><li>ข้อมูลทุกตัวอยู่ในช่วง \([26,98]\) รวมถึง \(95\)
+                 → <b>ไม่มีค่าผิดปกติ</b> ตามเกณฑ์นี้</li><li>(ค) ผลรวม \(=758\) จึง \(\bar x=\dfrac{758}{12}\approx63.17\)</li><li>คิดผลต่างยกกำลังสองทีละพจน์แล้วรวมกัน
+                 \[\sum(x_i-\bar x)^{2}\approx 2295.7\]</li><li>\(s=\sqrt{\dfrac{2295.7}{12}}=\sqrt{191.31}\approx13.83\)</li><li><b>สังเกต</b>: ค่า \(95\) ตัวเดียวสร้างผลต่างยกกำลังสองถึง
+                 \(31.83^{2}\approx1013\) ซึ่งเป็น \(44\%\) ของผลรวมทั้งหมด
+                 — ส่วนเบี่ยงเบนมาตรฐานอ่อนไหวต่อค่าสุดขั้วมาก</li></ol><p class="ans">(ก) \(Q_1=53,\ Q_2=61.5,\ Q_3=71\), IQR \(=18\)&nbsp;(ข) ไม่มี&nbsp;(ค) \(s\approx13.83\)</p></div></div></section><section id="present"><h2>การนำเสนอข้อมูลและการอ่านกราฟ</h2><table class="tbl"><thead><tr><th>แผนภาพ</th><th>เหมาะกับ</th><th>สิ่งที่อ่านได้</th></tr></thead><tbody><tr><td>แผนภูมิแท่ง</td><td>เทียบปริมาณระหว่างกลุ่ม</td><td>ค่ามาก–น้อย เรียงอันดับ</td></tr><tr><td>ฮิสโทแกรม</td><td>ข้อมูลต่อเนื่องที่แบ่งเป็นช่วง</td><td>รูปร่างการแจกแจง ความเบ้</td></tr><tr><td>แผนภาพกล่อง (box plot)</td><td>เทียบการกระจายหลายกลุ่ม</td><td>ค่ากลาง IQR ค่าผิดปกติ</td></tr><tr><td>แผนภาพจุด / ลำต้นและใบ</td><td>ข้อมูลจำนวนไม่มาก</td><td>ค่าทุกตัว ฐานนิยม</td></tr><tr><td>แผนภาพการกระจาย</td><td>ความสัมพันธ์ของสองตัวแปร</td><td>แนวโน้ม ความสัมพันธ์</td></tr><tr><td>กราฟเส้น</td><td>การเปลี่ยนแปลงตามเวลา</td><td>แนวโน้มขึ้น–ลง</td></tr></tbody></table><div class="box warn"><span class="box-label">กราฟที่ทำให้เข้าใจผิด</span>
+             <ul>
+             <li><b>แกนตั้งไม่เริ่มจากศูนย์</b> — ทำให้ความต่างเล็กดูใหญ่มาก</li>
+             <li><b>ช่วงแกนไม่สม่ำเสมอ</b> — บิดเบือนแนวโน้ม</li>
+             <li><b>ใช้ภาพสามมิติหรือรูปภาพแทนแท่ง</b> — ตาเราเทียบ
+             <i>พื้นที่</i> หรือ <i>ปริมาตร</i> ไม่ใช่ความสูง ความต่างจึงดูเกินจริง</li>
+             <li><b>เลือกช่วงเวลาเฉพาะ</b> — ตัดส่วนที่ขัดแย้งออก</li>
+             <li><b>สับสนความสัมพันธ์กับการเป็นเหตุเป็นผล</b> —
+             สองสิ่งขึ้นลงพร้อมกันไม่ได้แปลว่าสิ่งหนึ่งทำให้อีกสิ่งเกิด</li>
+             </ul></div><div class="ex"><div class="ex-head"><span class="ex-tag">ตัวอย่าง 3</span><span class="ex-lvl apply">ประยุกต์</span><span class="ex-lvl">อ่านกราฟ</span></div><div class="ex-body">
+             ข่าวหนึ่งเสนอแผนภูมิแท่งยอดขายสองไตรมาส โดยแกนตั้งเริ่มที่
+             \(980\) และสิ้นสุดที่ \(1\,020\) ล้านบาท แท่งแรกสูงถึง \(1\,000\)
+             แท่งที่สองสูงถึง \(1\,010\)
+             <br>(ก) ยอดขายเพิ่มขึ้นกี่เปอร์เซ็นต์จริง ๆ
+             <br>(ข) ในกราฟ แท่งที่สองดูสูงเป็นกี่เท่าของแท่งแรก
+             <br>(ค) ควรแก้กราฟอย่างไร</div><div class="ex-sol"><p class="sol-label">แนวคิดและวิธีทำ</p><ol class="steps"><li>(ก) เพิ่มขึ้น \(1010-1000=10\) ล้านบาท</li><li>\(\dfrac{10}{1000}\times100=1\%\)</li><li>(ข) ความสูงที่ตาเห็นวัดจากฐานกราฟที่ \(980\)</li><li>แท่งแรกสูง \(1000-980=20\) หน่วย</li><li>แท่งที่สองสูง \(1010-980=30\) หน่วย</li><li>\(\dfrac{30}{20}=1.5\) → ดูสูงเป็น <b>1.5 เท่า</b>
+                 ทั้งที่เพิ่มจริงเพียง \(1\%\)</li><li>(ค) ให้แกนตั้ง <b>เริ่มจาก 0</b>
+                 หรือถ้าต้องตัดแกนจริง ๆ ให้ทำเครื่องหมายตัดแกนชัดเจน
+                 และกำกับเปอร์เซ็นต์การเปลี่ยนแปลงไว้</li></ol><p class="ans">(ก) \(1\%\)&nbsp;(ข) ดูสูง \(1.5\) เท่า&nbsp;(ค) ให้แกนเริ่มจาก 0</p></div></div></section><section id="drill" class="drill"><div class="drill-head"><h3>แบบฝึกหัดท้ายบท</h3><span class="drill-stat">แสดง 31 / 31 ข้อ</span></div><p>โจทย์เรียงจากปานกลางไปยาก และปิดท้ายด้วยโจทย์ประยุกต์ ลองทำด้วยตัวเองให้ครบก่อนเปิดเฉลย</p><div class="drill-filter"><button class="btn" type="button" data-filter="all" aria-pressed="true">ทั้งหมด (31)</button><button class="btn" type="button" data-filter="med" aria-pressed="false">ปานกลาง (13)</button><button class="btn" type="button" data-filter="hard" aria-pressed="false">ยาก (11)</button><button class="btn" type="button" data-filter="apply" aria-pressed="false">ประยุกต์ (7)</button><button class="btn" type="button" data-sol-all="show">เปิดเฉลยทั้งหมด</button><button class="btn" type="button" data-sol-all="hide">ปิดเฉลยทั้งหมด</button></div><div class="q" data-lvl="med"><div class="qn">1.</div><div class="qbody">ข้อมูล \(7,\ 9,\ 4,\ 12,\ 9,\ 6,\ 9\)
+         จงหาค่าเฉลี่ย มัธยฐาน และฐานนิยม</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">ค่ากลาง</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u5-statistics-s1">ดูเฉลย</button></div><div class="qsol" id="u5-statistics-s1" hidden>เรียง: \(4,6,7,9,9,9,12\)
+             <br>\(\bar x=\dfrac{56}{7}=8\)
+             <br>มัธยฐาน \(=\) ตัวที่ 4 \(=9\)
+             <br>ฐานนิยม \(=9\) (ปรากฏ 3 ครั้ง)</div></div><div class="q" data-lvl="med"><div class="qn">2.</div><div class="qbody">ข้อมูล \(5,\ 8,\ 11,\ 14,\ 20,\ 26\)
+         จงหามัธยฐานและพิสัย</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">ค่ากลาง</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u5-statistics-s2">ดูเฉลย</button></div><div class="qsol" id="u5-statistics-s2" hidden>\(n=6\) เป็นคู่: มัธยฐาน \(=\dfrac{11+14}{2}=12.5\)
+             <br>พิสัย \(=26-5=21\)</div></div><div class="q" data-lvl="med"><div class="qn">3.</div><div class="qbody">ข้อมูล 5 จำนวนมีค่าเฉลี่ย \(14\)
+         ถ้าสี่จำนวนคือ \(10,\ 12,\ 15,\ 19\) จงหาจำนวนที่ห้า</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">ย้อนกลับ</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u5-statistics-s3">ดูเฉลย</button></div><div class="qsol" id="u5-statistics-s3" hidden>ผลรวมทั้งหมด \(=5\times14=70\)
+             <br>ผลรวมสี่จำนวน \(=56\)
+             <br>จำนวนที่ห้า \(=70-56=14\)</div></div><div class="q" data-lvl="med"><div class="qn">4.</div><div class="qbody">ข้อมูล \(3,\ 7,\ 8,\ 12,\ 15,\ 18,\ 21,\ 25\)
+         จงหา \(Q_1,Q_2,Q_3\) และ IQR</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">ควอร์ไทล์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u5-statistics-s4">ดูเฉลย</button></div><div class="qsol" id="u5-statistics-s4" hidden>\(n=8\): \(Q_2=\dfrac{12+15}{2}=13.5\)
+             <br>ครึ่งล่าง \(3,7,8,12\): \(Q_1=\dfrac{7+8}{2}=7.5\)
+             <br>ครึ่งบน \(15,18,21,25\): \(Q_3=\dfrac{18+21}{2}=19.5\)
+             <br>IQR \(=19.5-7.5=12\)</div></div><div class="q" data-lvl="med"><div class="qn">5.</div><div class="qbody">ข้อมูล \(2,\ 4,\ 4,\ 4,\ 5,\ 5,\ 7,\ 9\)
+         จงหาค่าเฉลี่ยและส่วนเบี่ยงเบนมาตรฐาน</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">ส่วนเบี่ยงเบน</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u5-statistics-s5">ดูเฉลย</button></div><div class="qsol" id="u5-statistics-s5" hidden>\(\bar x=\dfrac{40}{8}=5\)
+             <br>ผลต่างยกกำลังสอง: \(9,1,1,1,0,0,4,16\) รวม \(=32\)
+             <br>\(s=\sqrt{\dfrac{32}{8}}=\sqrt4=2\)</div></div><div class="q" data-lvl="med"><div class="qn">6.</div><div class="qbody">สถานการณ์ใดควรใช้ค่ากลางแบบใด
+         <br>(ก) ขนาดเสื้อที่ขายได้มากที่สุด
+         <br>(ข) ราคาบ้านทั่วไปในย่านหนึ่ง
+         <br>(ค) คะแนนสอบของห้องที่กระจายสมมาตร</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">เลือกค่ากลาง</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u5-statistics-s6">ดูเฉลย</button></div><div class="qsol" id="u5-statistics-s6" hidden>(ก) <b>ฐานนิยม</b> — ข้อมูลเชิงคุณภาพ และต้องการค่าที่พบบ่อยสุด
+             <br>(ข) <b>มัธยฐาน</b> — มักมีบ้านราคาสูงผิดปกติดึงค่าเฉลี่ย
+             <br>(ค) <b>ค่าเฉลี่ย</b> — ข้อมูลสมมาตร ใช้ข้อมูลทุกตัวได้เต็มที่</div></div><div class="q" data-lvl="med"><div class="qn">7.</div><div class="qbody">ถ้าบวกค่าทุกตัวในชุดข้อมูลด้วย \(5\)
+         ค่าเฉลี่ย มัธยฐาน พิสัย และส่วนเบี่ยงเบนมาตรฐาน เปลี่ยนอย่างไร</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">ผลกระทบ</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u5-statistics-s7">ดูเฉลย</button></div><div class="qsol" id="u5-statistics-s7" hidden>ค่าเฉลี่ย <b>เพิ่ม 5</b>
+             <br>มัธยฐาน <b>เพิ่ม 5</b>
+             <br>พิสัย <b>ไม่เปลี่ยน</b>
+             <br>ส่วนเบี่ยงเบนมาตรฐาน <b>ไม่เปลี่ยน</b>
+             <br>(การเลื่อนข้อมูลทั้งชุดไม่เปลี่ยนการกระจาย)</div></div><div class="q" data-lvl="med"><div class="qn">8.</div><div class="qbody">ถ้าคูณค่าทุกตัวในชุดข้อมูลด้วย \(3\)
+         ค่าเฉลี่ย พิสัย และส่วนเบี่ยงเบนมาตรฐาน เปลี่ยนอย่างไร</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">ผลกระทบ</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u5-statistics-s8">ดูเฉลย</button></div><div class="qsol" id="u5-statistics-s8" hidden>ทั้งสามค่า <b>คูณด้วย 3</b>
+             <br>(ความแปรปรวนคูณด้วย \(3^{2}=9\) แต่ส่วนเบี่ยงเบนมาตรฐาน
+             ซึ่งเป็นรากที่สอง คูณด้วย \(3\))</div></div><div class="q" data-lvl="med"><div class="qn">9.</div><div class="qbody">แผนภาพกล่องชุดหนึ่งมี
+         ค่าต่ำสุด \(12\), \(Q_1=20\), มัธยฐาน \(28\), \(Q_3=36\),
+         ค่าสูงสุด \(50\)
+         <br>จงหา IQR และพิสัย และบอกว่าข้อมูลเบ้ไปทางใด</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">อ่านกราฟ</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u5-statistics-s9">ดูเฉลย</button></div><div class="qsol" id="u5-statistics-s9" hidden>IQR \(=36-20=16\) และพิสัย \(=50-12=38\)
+             <br>ระยะจากมัธยฐานถึง \(Q_1\) \(=8\) และถึง \(Q_3\) \(=8\) — กล่องสมมาตร
+             <br>แต่หนวดล่าง \(=20-12=8\) และหนวดบน \(=50-36=14\)
+             <br>หนวดบนยาวกว่า → ข้อมูล <b>เบ้ขวา</b> (เบ้ทางค่าสูง)</div></div><div class="q" data-lvl="hard"><div class="qn">10.</div><div class="qbody">ข้อมูล
+         \(8,\ 10,\ 11,\ 12,\ 13,\ 14,\ 16,\ 45\)
+         <br>(ก) จงหา \(Q_1,Q_3\) และ IQR
+         <br>(ข) จงตรวจว่า \(45\) เป็นค่าผิดปกติหรือไม่
+         <br>(ค) ค่าเฉลี่ยกับมัธยฐานต่างกันเท่าไร</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">ค่าผิดปกติ</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u5-statistics-s10">ดูเฉลย</button></div><div class="qsol" id="u5-statistics-s10" hidden>(ก) \(n=8\): \(Q_2=\dfrac{12+13}{2}=12.5\)
+             <br>ครึ่งล่าง \(8,10,11,12\): \(Q_1=10.5\)
+             <br>ครึ่งบน \(13,14,16,45\): \(Q_3=\dfrac{14+16}{2}=15\)
+             <br>IQR \(=15-10.5=4.5\)
+             <br>(ข) ขอบบน \(=15+1.5(4.5)=15+6.75=21.75\)
+             <br>\(45>21.75\) → <b>เป็นค่าผิดปกติ</b>
+             <br>(ค) \(\bar x=\dfrac{129}{8}=16.125\) และมัธยฐาน \(=12.5\)
+             <br>ต่างกัน \(3.625\) — ค่าเฉลี่ยถูกค่า \(45\) ดึงขึ้น</div></div><div class="q" data-lvl="hard"><div class="qn">11.</div><div class="qbody">ข้อมูล 6 จำนวนมีค่าเฉลี่ย \(15\)
+         และส่วนเบี่ยงเบนมาตรฐาน \(0\) จงหาข้อมูลทั้งหกจำนวน</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">ย้อนกลับ</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u5-statistics-s11">ดูเฉลย</button></div><div class="qsol" id="u5-statistics-s11" hidden>\(s=0\) หมายความว่า \(\sum(x_i-\bar x)^{2}=0\)
+             <br>ผลบวกของกำลังสองเป็นศูนย์ได้เมื่อทุกพจน์เป็นศูนย์
+             <br>ดังนั้น \(x_i=\bar x=15\) ทุกตัว
+             <br>ข้อมูลคือ \(15,15,15,15,15,15\)</div></div><div class="q" data-lvl="hard"><div class="qn">12.</div><div class="qbody">ห้อง A มีนักเรียน \(20\) คน
+         ค่าเฉลี่ยคะแนน \(72\) ห้อง B มีนักเรียน \(30\) คน ค่าเฉลี่ย \(65\)
+         <br>จงหาค่าเฉลี่ยรวมของทั้งสองห้อง</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">รวมชุดข้อมูล</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u5-statistics-s12">ดูเฉลย</button></div><div class="qsol" id="u5-statistics-s12" hidden>ผลรวมคะแนนห้อง A \(=20\times72=1440\)
+             <br>ผลรวมคะแนนห้อง B \(=30\times65=1950\)
+             <br>ค่าเฉลี่ยรวม \(=\dfrac{1440+1950}{50}=\dfrac{3390}{50}=67.8\)
+             <br><b>ข้อสังเกต</b>: ไม่ใช่ \(\dfrac{72+65}{2}=68.5\)
+             เพราะห้องมีขนาดต่างกัน ต้องใช้ค่าเฉลี่ยถ่วงน้ำหนัก</div></div><div class="q" data-lvl="hard"><div class="qn">13.</div><div class="qbody">ข้อมูล \(x,\ 8,\ 12,\ 15,\ 20\)
+         มีมัธยฐาน \(12\) และค่าเฉลี่ย \(13\) จงหา \(x\)
+         และตรวจว่าคำตอบสอดคล้องกันหรือไม่</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">ย้อนกลับ</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u5-statistics-s13">ดูเฉลย</button></div><div class="qsol" id="u5-statistics-s13" hidden>ค่าเฉลี่ย: \(\dfrac{x+8+12+15+20}{5}=13\)
+             <br>\(x+55=65\Rightarrow x=10\)
+             <br><b>ตรวจมัธยฐาน</b>: เรียง \(8,10,12,15,20\) → ตัวกลางคือ \(12\) ✓
+             <br>สอดคล้องกัน</div></div><div class="q" data-lvl="hard"><div class="qn">14.</div><div class="qbody">ข้อมูล \(4,\ 7,\ 7,\ 10,\ 12\)
+         จงหาค่าเฉลี่ย ความแปรปรวน และส่วนเบี่ยงเบนมาตรฐาน
+         (ทศนิยม 2 ตำแหน่ง)</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">ส่วนเบี่ยงเบน</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u5-statistics-s14">ดูเฉลย</button></div><div class="qsol" id="u5-statistics-s14" hidden>\(\bar x=\dfrac{40}{5}=8\)
+             <br>ผลต่างยกกำลังสอง: \((-4)^{2},(-1)^{2},(-1)^{2},2^{2},4^{2}
+             =16,1,1,4,16\) รวม \(=38\)
+             <br>ความแปรปรวน \(=\dfrac{38}{5}=7.6\)
+             <br>\(s=\sqrt{7.6}\approx2.76\)</div></div><div class="q" data-lvl="hard"><div class="qn">15.</div><div class="qbody">นักเรียนสองคนยิงธนู 5 ครั้ง
+         ได้คะแนน
+         <br>ก้อง: \(7,\ 8,\ 8,\ 9,\ 8\)
+         <br>แก้ว: \(4,\ 10,\ 6,\ 10,\ 10\)
+         <br>(ก) ค่าเฉลี่ยของแต่ละคนเป็นเท่าไร
+         <br>(ข) ใครมีความสม่ำเสมอมากกว่า จงสนับสนุนด้วยตัวเลข
+         <br>(ค) ถ้าต้องเลือกคนเข้าแข่งที่ตัดสินด้วยคะแนนรวม ควรเลือกใคร</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">เปรียบเทียบ</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u5-statistics-s15">ดูเฉลย</button></div><div class="qsol" id="u5-statistics-s15" hidden>(ก) ก้อง: \(\dfrac{40}{5}=8\) · แก้ว: \(\dfrac{40}{5}=8\)
+             — เท่ากัน
+             <br>(ข) ก้อง: ผลต่างยกกำลังสอง \(1,0,0,1,0\) รวม \(2\)
+             → \(s=\sqrt{0.4}\approx0.63\)
+             <br>แก้ว: \(16,4,4,4,4\) รวม \(32\) → \(s=\sqrt{6.4}\approx2.53\)
+             <br><b>ก้องสม่ำเสมอกว่า</b> (ส่วนเบี่ยงเบนน้อยกว่าราว 4 เท่า)
+             <br>(ค) คะแนนรวมเท่ากัน จึงเลือกจากความเสี่ยง — <b>ก้อง</b>
+             เพราะคาดการณ์ผลได้แน่นอนกว่า
+             <br>(แต่ถ้ากติกาตัดสินด้วยคะแนนสูงสุดครั้งเดียว แก้วมีโอกาสได้ \(10\)
+             จึงอาจเลือกแก้ว)</div></div><div class="q" data-lvl="hard"><div class="qn">16.</div><div class="qbody">แผนภาพกล่องของสองห้องเรียน
+         <br>ห้อง A: ต่ำสุด \(40\), \(Q_1=55\), มัธยฐาน \(65\), \(Q_3=72\),
+         สูงสุด \(88\)
+         <br>ห้อง B: ต่ำสุด \(52\), \(Q_1=60\), มัธยฐาน \(64\), \(Q_3=68\),
+         สูงสุด \(76\)
+         <br>(ก) ห้องใดมีคะแนนกลางสูงกว่า
+         <br>(ข) ห้องใดกระจายน้อยกว่า
+         <br>(ค) นักเรียนที่ได้ \(70\) คะแนน อยู่ควอร์ไทล์ที่เท่าไรของแต่ละห้อง</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">อ่านกราฟ</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u5-statistics-s16">ดูเฉลย</button></div><div class="qsol" id="u5-statistics-s16" hidden>(ก) ห้อง A มัธยฐาน \(65>64\) — สูงกว่าเล็กน้อย
+             <br>(ข) IQR ห้อง A \(=72-55=17\); ห้อง B \(=68-60=8\)
+             <br><b>ห้อง B กระจายน้อยกว่า</b> (สม่ำเสมอกว่า)
+             <br>(ค) ห้อง A: \(70\) อยู่ระหว่าง \(Q_2=65\) และ \(Q_3=72\)
+             → <b>ควอร์ไทล์ที่ 3</b> (เปอร์เซ็นไทล์ที่ 50–75)
+             <br>ห้อง B: \(70\) อยู่เหนือ \(Q_3=68\) → <b>ควอร์ไทล์ที่ 4</b>
+             (เปอร์เซ็นไทล์ที่ 75–100)
+             <br>คะแนน \(70\) เท่ากัน แต่ "เก่ง" ในห้อง B มากกว่า</div></div><div class="q" data-lvl="hard"><div class="qn">17.</div><div class="qbody">บริษัทอ้างว่า "ยอดขายโตขึ้นถึง
+         \(3\) เท่า" โดยใช้แผนภูมิที่แทนยอดขายด้วยรูปกล่องสามมิติ
+         กล่องแรกสูง \(1\) ซม. กล่องที่สองสูง \(3\) ซม. (ขยายทุกด้านตามสัดส่วน)
+         <br>(ก) ยอดขายโตขึ้นกี่เท่าจริง ๆ (ถ้าความสูงแทนยอดขาย)
+         <br>(ข) ตาคนอ่านรู้สึกว่าโตขึ้นกี่เท่า เพราะเหตุใด
+         <br>(ค) ควรใช้แผนภาพแบบใดแทน</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">อ่านกราฟ</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u5-statistics-s17">ดูเฉลย</button></div><div class="qsol" id="u5-statistics-s17" hidden>(ก) \(3\) เท่า (ตามความสูง)
+             <br>(ข) เมื่อขยายทุกด้านเป็น \(3\) เท่า <b>ปริมาตร</b> โตเป็น
+             \(3^{3}=27\) เท่า
+             <br>ตาคนมองรูปสามมิติแล้วประเมินจากขนาดโดยรวม จึงรู้สึกว่า
+             โตมากกว่าความจริงหลายเท่า
+             <br>(ค) ใช้ <b>แผนภูมิแท่งสองมิติ</b> ที่มีความกว้างเท่ากัน
+             และแกนตั้งเริ่มจาก 0 — ความสูงจะแทนปริมาณอย่างตรงไปตรงมา</div></div><div class="q" data-lvl="apply"><div class="qn">18.</div><div class="qbody">ร้านกาแฟบันทึกจำนวนแก้วที่ขายได้
+         ต่อวันในหนึ่งสัปดาห์
+         \[86,\ 92,\ 78,\ 95,\ 120,\ 165,\ 158\]
+         <br>(ก) จงหาค่าเฉลี่ยและมัธยฐาน
+         <br>(ข) ถ้าจะสั่งเมล็ดกาแฟสำหรับวันธรรมดา (จ–ศ: ห้าค่าแรก)
+         ควรใช้ค่าใด
+         <br>(ค) ค่าสองค่าสุดท้ายคือเสาร์–อาทิตย์ จงอธิบายว่าเหตุใด
+         การใช้ค่าเฉลี่ยทั้งสัปดาห์จึงทำให้สั่งของผิด</div><div class="qmeta"><span class="ex-lvl apply">ประยุกต์</span><span class="ex-lvl">ประยุกต์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u5-statistics-s18">ดูเฉลย</button></div><div class="qsol" id="u5-statistics-s18" hidden>(ก) ผลรวม \(=794\) → \(\bar x=\dfrac{794}{7}\approx113.4\)
+             <br>เรียง: \(78,86,92,95,120,158,165\) → มัธยฐาน \(=95\)
+             <br>(ข) วันธรรมดา: \(86,92,78,95,120\) → \(\bar x=\dfrac{471}{5}=94.2\)
+             <br>ควรใช้ค่านี้ (ราว \(95\) แก้ว) ไม่ใช่ \(113.4\)
+             <br>(ค) ข้อมูลมี <b>สองกลุ่มที่ต่างกันชัด</b> (วันธรรมดา vs สุดสัปดาห์)
+             <br>ค่าเฉลี่ยรวมจะสูงเกินสำหรับวันธรรมดา (สั่งมากเกิน เสียของ)
+             และต่ำเกินสำหรับสุดสัปดาห์ (ของหมด เสียโอกาส)
+             <br>ควร <b>แยกวิเคราะห์สองกลุ่ม</b></div></div><div class="q" data-lvl="apply"><div class="qn">19.</div><div class="qbody">โรงเรียนวัดส่วนสูง (ซม.) นักเรียน ม.2
+         จำนวน 10 คน
+         \[148,\ 152,\ 155,\ 155,\ 158,\ 160,\ 162,\ 165,\ 168,\ 177\]
+         <br>(ก) จงหาค่าเฉลี่ย มัธยฐาน ฐานนิยม
+         <br>(ข) จงหา \(Q_1,Q_3\) และ IQR
+         <br>(ค) นักเรียนสูง \(177\) ซม. เป็นค่าผิดปกติหรือไม่
+         <br>(ง) ถ้าจะสั่งเสื้อ ควรใช้ค่ากลางแบบใด</div><div class="qmeta"><span class="ex-lvl apply">ประยุกต์</span><span class="ex-lvl">ประยุกต์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u5-statistics-s19">ดูเฉลย</button></div><div class="qsol" id="u5-statistics-s19" hidden>(ก) ผลรวม \(=1600\) → \(\bar x=160\) ซม.
+             <br>\(n=10\): มัธยฐาน \(=\dfrac{158+160}{2}=159\) ซม.
+             <br>ฐานนิยม \(=155\) ซม.
+             <br>(ข) ครึ่งล่าง 5 ตัว: \(148,152,155,155,158\) → \(Q_1=155\)
+             <br>ครึ่งบน 5 ตัว: \(160,162,165,168,177\) → \(Q_3=165\)
+             <br>IQR \(=10\)
+             <br>(ค) ขอบบน \(=165+1.5(10)=180\)
+             <br>\(177<180\) → <b>ไม่เป็นค่าผิดปกติ</b>
+             <br>(ง) <b>ฐานนิยมและการแจกแจง</b> — สั่งเสื้อต้องรู้ว่าแต่ละขนาด
+             ต้องการกี่ตัว ไม่ใช่ค่าเฉลี่ยค่าเดียว
+             <br>ค่าเฉลี่ย \(160\) ซม. บอกไม่ได้ว่าต้องสั่งไซซ์ S กี่ตัว</div></div><div class="q" data-lvl="apply"><div class="qn">20.</div><div class="qbody">บริษัทเปรียบเทียบเวลาส่งของ (นาที)
+         ของบริษัทขนส่งสองแห่ง
+         <br>ก: \(28,\ 30,\ 31,\ 32,\ 34\)
+         <br>ข: \(20,\ 22,\ 30,\ 40,\ 43\)
+         <br>(ก) ค่าเฉลี่ยของแต่ละแห่งเป็นเท่าไร
+         <br>(ข) จงหาส่วนเบี่ยงเบนมาตรฐานของแต่ละแห่ง
+         <br>(ค) ถ้าลูกค้าให้ความสำคัญกับ "ส่งตรงเวลา" ควรเลือกแห่งใด
+         <br>(ง) ถ้าต้องการให้ของถึงไม่เกิน \(35\) นาทีแน่นอน ควรเลือกแห่งใด</div><div class="qmeta"><span class="ex-lvl apply">ประยุกต์</span><span class="ex-lvl">ประยุกต์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u5-statistics-s20">ดูเฉลย</button></div><div class="qsol" id="u5-statistics-s20" hidden>(ก) ก: \(\dfrac{155}{5}=31\) · ข: \(\dfrac{155}{5}=31\)
+             — เท่ากัน
+             <br>(ข) ก: ผลต่างยกกำลังสอง \(9,1,0,1,9\) รวม \(20\)
+             → \(s=\sqrt4=2\)
+             <br>ข: \(121,81,1,81,144\) รวม \(428\)
+             → \(s=\sqrt{85.6}\approx9.25\)
+             <br>(ค) <b>แห่ง ก</b> — ส่วนเบี่ยงเบนน้อยกว่ามาก คาดการณ์ได้แน่นอนกว่า
+             <br>(ง) <b>แห่ง ก</b> — ค่าสูงสุดคือ \(34<35\) จึงไม่เคยเกิน
+             <br>ขณะที่แห่ง ข มีค่า \(40\) และ \(43\) ซึ่งเกินเกณฑ์</div></div><div class="q" data-lvl="apply"><div class="qn">21.</div><div class="qbody">ครูให้คะแนนสอบและพบว่า
+         ค่าเฉลี่ย \(58\) จากคะแนนเต็ม \(100\) ซึ่งต่ำกว่าเกณฑ์
+         จึงจะปรับคะแนนโดยเลือกหนึ่งวิธี
+         <br>วิธี A: บวกทุกคน \(7\) คะแนน
+         <br>วิธี B: คูณทุกคนด้วย \(1.12\)
+         <br>(ก) แต่ละวิธีให้ค่าเฉลี่ยใหม่เท่าไร
+         <br>(ข) ส่วนเบี่ยงเบนมาตรฐานเดิม \(12\) แต่ละวิธีให้เท่าไรใหม่
+         <br>(ค) วิธีใดช่วยนักเรียนที่คะแนนต่ำมากกว่า
+         <br>(ง) วิธีใดอาจทำให้คะแนนเกิน \(100\)</div><div class="qmeta"><span class="ex-lvl apply">ประยุกต์</span><span class="ex-lvl">ประยุกต์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u5-statistics-s21">ดูเฉลย</button></div><div class="qsol" id="u5-statistics-s21" hidden>(ก) A: \(58+7=65\) · B: \(58\times1.12=64.96\) — ใกล้กัน
+             <br>(ข) A: \(s=12\) <b>ไม่เปลี่ยน</b>
+             <br>B: \(s=12\times1.12=13.44\) <b>เพิ่มขึ้น</b> (ช่องว่างถ่างออก)
+             <br>(ค) <b>วิธี A</b> — นักเรียนที่ได้ \(20\) คะแนน
+             <br>A ให้ \(27\) (เพิ่ม \(7\)) แต่ B ให้ \(22.4\) (เพิ่มเพียง \(2.4\))
+             <br>(ง) <b>วิธี A</b> — นักเรียนที่ได้ \(96\) ขึ้นไปจะเกิน \(100\)
+             <br>ขณะที่ B ทำให้ \(100\) กลายเป็น \(112\) ซึ่งก็เกิน
+             <br>ทั้งสองวิธีจึงต้องกำหนดเพดานที่ \(100\)</div></div><div class="q" data-lvl="apply"><div class="qn">22.</div><div class="qbody">ใน GeoGebra นักเรียนป้อนข้อมูล
+         น้ำหนัก (กก.) \(45,\ 48,\ 50,\ 52,\ 55,\ 58,\ 90\)
+         แล้วให้โปรแกรมวาดแผนภาพกล่อง
+         <br>(ก) จงหา \(Q_1,Q_2,Q_3\) และ IQR
+         <br>(ข) โปรแกรมจะวาดจุด \(90\) ไว้นอกหนวดหรือไม่
+         <br>(ค) หนวดบนของกล่องจะสิ้นสุดที่ค่าใด
+         <br>(ง) ถ้าลบ \(90\) ออก IQR เปลี่ยนเท่าไร</div><div class="qmeta"><span class="ex-lvl apply">ประยุกต์</span><span class="ex-lvl">ประยุกต์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u5-statistics-s22">ดูเฉลย</button></div><div class="qsol" id="u5-statistics-s22" hidden>(ก) \(n=7\): \(Q_2=\) ตัวที่ 4 \(=52\)
+             <br>ครึ่งล่าง \(45,48,50\): \(Q_1=48\)
+             <br>ครึ่งบน \(55,58,90\): \(Q_3=58\)
+             <br>IQR \(=58-48=10\)
+             <br>(ข) ขอบบน \(=58+1.5(10)=73\)
+             <br>\(90>73\) → <b>วาดนอกหนวด</b> เป็นจุดค่าผิดปกติ
+             <br>(ค) หนวดบนสิ้นสุดที่ค่าข้อมูลที่ใหญ่สุดซึ่งยังไม่เกิน \(73\)
+             นั่นคือ \(58\)
+             <br>(ง) ลบ \(90\): ข้อมูล \(45,48,50,52,55,58\) (\(n=6\))
+             <br>\(Q_1=48,\ Q_3=55\) → IQR \(=7\)
+             <br>ลดลง \(3\)</div></div><div class="q" data-lvl="apply"><div class="qn">23.</div><div class="qbody">โรงเรียนสำรวจเวลาที่นักเรียนใช้
+         โทรศัพท์ต่อวัน (ชั่วโมง) ได้ค่าเฉลี่ย \(3.2\) และมัธยฐาน \(2.5\)
+         <br>(ก) ข้อมูลเบ้ไปทางใด จงอธิบาย
+         <br>(ข) คาดว่ามีค่าผิดปกติแบบใด
+         <br>(ค) ถ้าจะพาดหัวข่าว ควรใช้ค่าใดจึงยุติธรรมที่สุด
+         <br>(ง) ถ้าต้องการเสนอให้เห็นภาพรวมทั้งหมด ควรใช้แผนภาพใด</div><div class="qmeta"><span class="ex-lvl apply">ประยุกต์</span><span class="ex-lvl">ประยุกต์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u5-statistics-s23">ดูเฉลย</button></div><div class="qsol" id="u5-statistics-s23" hidden>(ก) ค่าเฉลี่ย \(>\) มัธยฐาน → <b>เบ้ขวา</b>
+             (เบ้ทางค่าสูง)
+             <br>(ข) มีนักเรียนบางคนใช้โทรศัพท์นานมากผิดปกติ (เช่น 10–12 ชม.)
+             ซึ่งดึงค่าเฉลี่ยขึ้น ขณะที่คนส่วนใหญ่ใช้ราว \(2.5\) ชม.
+             <br>(ค) <b>มัธยฐาน \(2.5\) ชั่วโมง</b> — สะท้อนนักเรียน "ทั่วไป"
+             ได้ตรงกว่า
+             <br>พาดหัวว่า "เฉลี่ย \(3.2\) ชั่วโมง" ทำให้เข้าใจผิดว่า
+             นักเรียนครึ่งหนึ่งใช้เกิน \(3.2\) ชม. ซึ่งไม่จริง
+             <br>(ง) <b>ฮิสโทแกรม</b> หรือ <b>แผนภาพกล่อง</b>
+             — เห็นทั้งค่ากลาง การกระจาย ความเบ้ และค่าผิดปกติในภาพเดียว</div></div><div class="q" data-lvl="med"><div class="qn">24.</div><div class="qbody">ข้อมูล \(14,\ 14,\ 18,\ 22,\ 25,\ 25,\ 30\)
+         จงหาค่าเฉลี่ย มัธยฐาน และฐานนิยม</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">ค่ากลาง</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u5-statistics-s24">ดูเฉลย</button></div><div class="qsol" id="u5-statistics-s24" hidden>ผลรวม \(=148\) → \(\bar x=\dfrac{148}{7}\approx21.14\)
+             <br>มัธยฐาน \(=\) ตัวที่ 4 \(=22\)
+             <br>ฐานนิยม \(=14\) และ \(25\) (<b>มีสองฐานนิยม</b>)</div></div><div class="q" data-lvl="med"><div class="qn">25.</div><div class="qbody">ข้อมูล 8 จำนวนมีค่าเฉลี่ย \(25\)
+         ถ้าเพิ่มจำนวนที่ \(9\) เข้าไปแล้วค่าเฉลี่ยกลายเป็น \(26\)
+         จงหาจำนวนที่เพิ่มเข้ามา</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">ย้อนกลับ</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u5-statistics-s25">ดูเฉลย</button></div><div class="qsol" id="u5-statistics-s25" hidden>ผลรวมเดิม \(=8\times25=200\)
+             <br>ผลรวมใหม่ \(=9\times26=234\)
+             <br>จำนวนที่เพิ่ม \(=234-200=34\)</div></div><div class="q" data-lvl="med"><div class="qn">26.</div><div class="qbody">ข้อมูลชุดหนึ่งมีพิสัย \(42\) และ
+         ค่าต่ำสุด \(13\) จงหาค่าสูงสุด</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">พิสัย</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u5-statistics-s26">ดูเฉลย</button></div><div class="qsol" id="u5-statistics-s26" hidden>ค่าสูงสุด \(=13+42=55\)</div></div><div class="q" data-lvl="med"><div class="qn">27.</div><div class="qbody">ตารางแจกแจงความถี่
+         <br>คะแนน \(5\): \(3\) คน · \(6\): \(5\) คน · \(7\): \(8\) คน ·
+         \(8\): \(4\) คน
+         <br>จงหาค่าเฉลี่ย มัธยฐาน และฐานนิยม</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">ความถี่</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u5-statistics-s27">ดูเฉลย</button></div><div class="qsol" id="u5-statistics-s27" hidden>จำนวนคนรวม \(=3+5+8+4=20\)
+             <br>ผลรวมคะแนน \(=5(3)+6(5)+7(8)+8(4)=15+30+56+32=133\)
+             <br>\(\bar x=\dfrac{133}{20}=6.65\)
+             <br>มัธยฐาน: ตัวที่ \(10\) และ \(11\) — ความถี่สะสม \(3,8,16,20\)
+             ทั้งสองตัวอยู่ในกลุ่มคะแนน \(7\) → มัธยฐาน \(=7\)
+             <br>ฐานนิยม \(=7\) (ความถี่สูงสุด \(8\))</div></div><div class="q" data-lvl="hard"><div class="qn">28.</div><div class="qbody">ข้อมูล \(a,\ b,\ 10,\ 14\)
+         มีค่าเฉลี่ย \(11\) และพิสัย \(10\) โดย \(a<b<10\)
+         จงหา \(a\) และ \(b\)</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">ย้อนกลับ</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u5-statistics-s28">ดูเฉลย</button></div><div class="qsol" id="u5-statistics-s28" hidden>พิสัย \(=14-a=10\Rightarrow a=4\)
+             <br>ค่าเฉลี่ย: \(\dfrac{4+b+10+14}{4}=11\Rightarrow
+             b+28=44\Rightarrow b=16\)
+             <br>แต่เงื่อนไข \(b<10\) ขัดแย้งกับ \(b=16\)
+             <br><b>สรุป</b>: ไม่มีคำตอบที่สอดคล้องกับเงื่อนไขทั้งหมด
+             — โจทย์ขัดแย้งในตัวเอง (ตัวอย่างของการตรวจความสมเหตุสมผล
+             ก่อนตอบ)</div></div><div class="q" data-lvl="hard"><div class="qn">29.</div><div class="qbody">กลุ่ม A มี \(12\) คน
+         ค่าเฉลี่ย \(80\) กลุ่ม B มี \(n\) คน ค่าเฉลี่ย \(60\)
+         ถ้าค่าเฉลี่ยรวมเป็น \(70\) จงหา \(n\)</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">รวมชุดข้อมูล</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u5-statistics-s29">ดูเฉลย</button></div><div class="qsol" id="u5-statistics-s29" hidden>\(\dfrac{12(80)+n(60)}{12+n}=70\)
+             <br>\(960+60n=840+70n\)
+             <br>\(120=10n\Rightarrow n=12\)
+             <br>(สมเหตุสมผล: ค่าเฉลี่ยรวม \(70\) อยู่กลางระหว่าง \(80\)
+             และ \(60\) พอดี จึงต้องมีจำนวนคนเท่ากัน)</div></div><div class="q" data-lvl="hard"><div class="qn">30.</div><div class="qbody">ข้อมูลสองชุดมีค่าเฉลี่ยเท่ากัน
+         ชุดแรก \(s=3\) ชุดที่สอง \(s=9\)
+         <br>(ก) ชุดใดกระจายมากกว่า และมากกว่ากี่เท่า
+         <br>(ข) ความแปรปรวนของแต่ละชุดเป็นเท่าไร และต่างกันกี่เท่า
+         <br>(ค) ถ้าคูณข้อมูลชุดแรกด้วย \(3\) ส่วนเบี่ยงเบนจะเท่ากับชุดที่สองหรือไม่</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">ส่วนเบี่ยงเบน</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u5-statistics-s30">ดูเฉลย</button></div><div class="qsol" id="u5-statistics-s30" hidden>(ก) ชุดที่สอง กระจายมากกว่า \(3\) เท่า
+             <br>(ข) ความแปรปรวน \(=s^{2}\): \(9\) และ \(81\) — ต่างกัน \(9\) เท่า
+             <br>(ค) <b>เท่ากัน</b> — การคูณข้อมูลด้วย \(k\) ทำให้
+             \(s\) คูณด้วย \(|k|\)
+             <br>\(3\times3=9\) ✓ (แต่ค่าเฉลี่ยจะเปลี่ยนไปด้วย)</div></div><div class="q" data-lvl="apply"><div class="qn">31.</div><div class="qbody">โรงงานตรวจน้ำหนักขนมบรรจุถุง
+         (กรัม) จาก 2 เครื่อง เครื่องละ 5 ถุง
+         <br>เครื่อง A: \(99,\ 100,\ 100,\ 101,\ 100\)
+         <br>เครื่อง B: \(95,\ 98,\ 100,\ 103,\ 104\)
+         <br>ฉลากระบุ \(100\) กรัม และกฎหมายยอมให้คลาด \(\pm3\) กรัม
+         <br>(ก) ค่าเฉลี่ยของแต่ละเครื่องเป็นเท่าไร
+         <br>(ข) เครื่องใดผ่านเกณฑ์ทุกถุง
+         <br>(ค) จงหา \(s\) ของแต่ละเครื่อง และสรุปว่าควรใช้เครื่องใด</div><div class="qmeta"><span class="ex-lvl apply">ประยุกต์</span><span class="ex-lvl">ประยุกต์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u5-statistics-s31">ดูเฉลย</button></div><div class="qsol" id="u5-statistics-s31" hidden>(ก) A: \(\dfrac{500}{5}=100\) · B: \(\dfrac{500}{5}=100\)
+             — เท่ากัน
+             <br>(ข) เกณฑ์คือ \(97\)–\(103\) กรัม
+             <br>A: \(99\)–\(101\) ทุกถุงผ่าน ✓
+             <br>B: มี \(95\) (ต่ำเกิน) และ \(104\) (สูงเกิน) → <b>ไม่ผ่าน 2 ถุง</b>
+             <br>(ค) A: ผลต่างยกกำลังสอง \(1,0,0,1,0\) รวม \(2\)
+             → \(s=\sqrt{0.4}\approx0.63\)
+             <br>B: \(25,4,0,9,16\) รวม \(54\) → \(s=\sqrt{10.8}\approx3.29\)
+             <br><b>ควรใช้เครื่อง A</b> — ค่าเฉลี่ยตรงฉลากเท่ากัน
+             แต่ความแม่นสูงกว่ามาก จึงไม่เสี่ยงผิดกฎหมาย</div></div></section><div class="pager"><a class="pl" href="u4-transform.html">การแปลงทางเรขาคณิต</a><a class="pr" href="u6-desmos.html">การใช้โปรแกรม Desmos</a></div></main></div></div><footer class="site"><div class="wrap">คณิตศาสตร์ ม.2 · สื่อการเรียนรู้แบบอินเทอร์แอกทีฟ</div></footer>
+<script src="../assets/js/site.js"></script>
+<script src="../assets/js/viz.js"></script>
+</body>
+</html>

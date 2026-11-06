@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="th" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>การสร้างรูปเรขาคณิตอย่างง่าย · เทคโนโลยีเพื่อการศึกษาทางคณิตศาสตร์</title>
+<meta name="description" content="การสร้างพื้นฐานห้าแบบด้วยวงเวียนและสันตรง พร้อมเหตุผลว่าเหตุใด
+    แต่ละวิธีจึงถูกต้อง และความต่างระหว่าง การสร้าง ที่ทนต่อการลาก
+    กับ การวาด ที่ดู">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Serif+Thai:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/site.css">
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+         processEscapes: true },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] },
+  chtml: { mtextInheritFont: true, scale: 1.0 },
+  startup: { typeset: true }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+
+</head>
+<body>
+<nav class="nav"><a class="nav-brand" href="../index.html">คณิต<span>ศาสตร์</span> ม.2</a><div class="nav-links"><a href="../index.html">หน้าแรก</a><a href="../c22122/index.html" title="คณิตศาสตร์ 4">คณิตศาสตร์ 4</a><a href="../c22292/index.html" title="คณิตศาสตร์พัฒนาศักยภาพ 4">พัฒนาศักยภาพ 4</a><a href="../c22294/index.html" aria-current="page" title="เทคโนโลยีเพื่อการศึกษาทางคณิตศาสตร์">เทคโนโลยีคณิตศาสตร์</a><button class="theme-btn" type="button" aria-label="สลับโหมดสี">☾</button></div></nav><div class="wrap"><div class="page"><aside class="toc"><div class="toc-label">หัวข้อในบทนี้</div><ol><li><a href="#concept">การสร้าง ไม่ใช่การวาด</a></li><li><a href="#five">การสร้างพื้นฐานห้าแบบ</a></li><li><a href="#constructible">มุมและรูปที่สร้างได้</a></li><li><a href="#drill">แบบฝึกหัดท้ายบท</a></li></ol></aside><main><p class="eyebrow">เทคโนโลยีเพื่อการศึกษาทางคณิตศาสตร์</p><h1>การสร้างรูปเรขาคณิตอย่างง่าย</h1><p class="lead">การสร้างพื้นฐานห้าแบบด้วยวงเวียนและสันตรง พร้อมเหตุผลว่าเหตุใด
+    แต่ละวิธีจึงถูกต้อง และความต่างระหว่าง <b>การสร้าง</b> ที่ทนต่อการลาก
+    กับ <b>การวาด</b> ที่ดูเหมือนถูกแต่พังเมื่อขยับจุด</p><div class="badges"><span class="badge">การสร้าง 5 แบบ</span><span class="badge">ไล่ขั้นการสร้างได้</span><span class="badge">ทดสอบด้วยการลาก</span><span class="badge">GeoGebra · GSP</span><span class="badge on">แบบฝึกหัด 31 ข้อ</span></div><section id="concept"><h2>การสร้าง ไม่ใช่การวาด</h2><p>ในเรขาคณิตพลวัต (GeoGebra, GSP) มีความต่างสำคัญระหว่าง
+             <b>การสร้าง</b> (construction) กับ <b>การวาด</b> (drawing)</p><table class="tbl"><thead><tr><th></th><th>การวาด</th><th>การสร้าง</th></tr></thead><tbody><tr><td>วิธีทำ</td><td>ลากจุดให้ตำแหน่งดู<i>เหมือน</i>ถูก</td><td>ใช้เครื่องมือที่บังคับความสัมพันธ์ตามนิยาม</td></tr><tr><td>เมื่อลากจุดต้นแบบ</td><td><b>พัง</b> — ความสัมพันธ์หายไป</td><td><b>คงอยู่</b> — ความสัมพันธ์ยังจริง</td></tr><tr><td>ตัวอย่าง</td><td>ลากจุดให้อยู่กลาง \(AB\) ด้วยตา</td><td>ใช้เครื่องมือ <code>จุดกึ่งกลาง</code></td></tr><tr><td>ใช้พิสูจน์ได้?</td><td>ไม่ได้</td><td>ได้ — เพราะเป็นผลจากนิยามและทฤษฎีบท</td></tr></tbody></table><div class="box trick"><span class="box-label">การทดสอบด้วยการลาก (drag test)</span>
+             <p>สร้างเสร็จแล้ว <b>ลากจุดต้นแบบทุกจุด</b> แล้วดูว่า</p>
+             <ul>
+             <li>ความสัมพันธ์ที่ต้องการ (ตั้งฉาก ขนาน เท่ากัน) ยังเป็นจริงหรือไม่</li>
+             <li>ค่าที่วัดได้ (ความยาว มุม อัตราส่วน) เปลี่ยนไปอย่างที่ควรหรือไม่</li>
+             </ul>
+             <p>ถ้าพังเมื่อลาก แสดงว่าเรา <i>วาด</i> ไม่ได้ <i>สร้าง</i>
+             — ต้องย้อนกลับไปใช้เครื่องมือให้ถูก</p></div></section><section id="five"><h2>การสร้างพื้นฐานห้าแบบ</h2><h3>1 · เส้นแบ่งครึ่งตั้งฉากของส่วนของเส้นตรง</h3><figure class="fig" data-viz="proof" id="constr-perpbis"><div class="fig-body"><svg viewBox="0 0 460 400" role="img" aria-labelledby="constr-perpbis-t constr-perpbis-d"><title id="constr-perpbis-t">การสร้างเส้นแบ่งครึ่งตั้งฉากด้วยวงเวียนและสันตรง</title><desc id="constr-perpbis-d">ส่วนของเส้นตรง AB มีวงกลมรัศมีเท่ากันสองวงที่จุดศูนย์กลาง A และ B ตัดกันที่จุด C และ D เส้นตรง CD เป็นเส้นแบ่งครึ่งตั้งฉากของ AB โดยตัด AB ที่จุดกึ่งกลาง M เป็นมุมฉาก</desc><rect width="100%" height="100%" fill="var(--paper-2)"/><defs><marker id="ar" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" class="f-muted"/></marker><marker id="ar-a" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" class="f-accent"/></marker><marker id="ar-l" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" class="f-link"/></marker><marker id="ar-t" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" class="f-teal"/></marker></defs><text x="30" y="30" class="t-tag">สร้างเส้นแบ่งครึ่งตั้งฉากของ AB</text><line x1="130" y1="190" x2="330" y2="190" class="s-ink"/><g data-step="1"><circle cx="130" cy="190" r="125" class="s-link dash-fine"/></g><g data-step="2"><circle cx="330" cy="190" r="125" class="s-teal dash-fine"/></g><g data-step="3"><circle cx="230" cy="115" r="4.5" class="f-accent"/><circle cx="230" cy="265" r="4.5" class="f-accent"/><text x="244" y="115" class="t-name t-accent">C</text><text x="244" y="265" class="t-name t-accent">D</text></g><g data-step="4"><line x1="230" y1="89" x2="230" y2="291" class="s-accent thick"/><circle cx="230" cy="190" r="4.5" class="f-accent"/><text x="244" y="180" class="t-name t-accent">M</text><path d="M 242 190 L 242 178 L 230 178" class="s-accent"/></g><g data-step="5"><line x1="175.8" y1="146.9" x2="184.2" y2="158.1" class="s-link"/><line x1="275.8" y1="158.1" x2="284.2" y2="146.9" class="s-teal"/><line x1="182" y1="221.5" x2="174.8" y2="231.1" class="s-link"/><line x1="185.2" y1="223.9" x2="178" y2="233.5" class="s-link"/><line x1="285.2" y1="231.1" x2="278" y2="221.5" class="s-teal"/><line x1="282" y1="233.5" x2="274.8" y2="223.9" class="s-teal"/></g><circle cx="130" cy="190" r="4.2" class="f-ink"/><text x="116" y="196" text-anchor="middle" class="t-name">A</text><circle cx="330" cy="190" r="4.2" class="f-ink"/><text x="344" y="196" text-anchor="middle" class="t-name">B</text><line x1="24" y1="362" x2="436" y2="362" class="s-rule"/><text x="24" y="380" class="t-tag">LEGEND</text><line x1="88" y1="376" x2="108" y2="376" class="s-link dash-fine"/><text x="114" y="380" class="t-mono">วงกลมจุดศูนย์กลาง A</text><line x1="239.6" y1="376" x2="259.6" y2="376" class="s-teal dash-fine"/><text x="265.6" y="380" class="t-mono">วงกลมจุดศูนย์กลาง B</text><line x1="391.2" y1="376" x2="411.2" y2="376" class="s-accent thick"/><text x="417.2" y="380" class="t-mono">เส้นที่สร้างได้</text></svg><table class="tbl"><thead><tr><th>ข้อความ</th><th>เหตุผล</th></tr></thead><tbody><tr data-prow="1"><td>เขียนวงกลมจุดศูนย์กลาง \(A\) รัศมี \(r\)</td><td>\(r\) ต้องมากกว่า \(\tfrac12 AB\)</td></tr><tr data-prow="2"><td>เขียนวงกลมจุดศูนย์กลาง \(B\) รัศมี \(r\) เท่าเดิม</td><td>ใช้รัศมีเท่ากันเป็นหัวใจของวิธีนี้</td></tr><tr data-prow="3"><td>วงกลมสองวงตัดกันที่ \(C\) และ \(D\)</td><td>มีจุดตัดสองจุดเพราะรัศมีมากกว่าครึ่งของ \(AB\)</td></tr><tr data-prow="4"><td>ลาก \(CD\) — ได้เส้นแบ่งครึ่งตั้งฉากของ \(AB\)</td><td>สิ่งที่ต้องการสร้าง</td></tr><tr data-prow="5"><td>\(CA=CB\) และ \(DA=DB\) (เท่ากับ \(r\) ทั้งสี่)</td><td>รัศมีของวงกลมที่มีรัศมีเท่ากัน → \(C,D\) ห่างจาก \(A,B\) เท่ากัน</td></tr></tbody></table></div><div class="fig-ctrl"><button type="button" data-act="reset" aria-pressed="false">เริ่มต้น</button><button type="button" data-act="prev" aria-pressed="false">ย้อน</button><button type="button" data-act="next" aria-pressed="false">ขั้นต่อไป</button><button type="button" data-act="all" aria-pressed="false">แสดงทั้งหมด</button><span class="fig-readout" data-readout>ขั้นที่ 5 / 5</span></div><figcaption>ใน GeoGebra คำสั่ง <code>วงกลมเมื่อกำหนดจุดศูนย์กลางและรัศมี</code> ทำขั้นที่ 1–2 ได้ตรง ๆ แต่สิ่งที่ต้องเข้าใจคือ <b>เหตุใด</b> จึงได้เส้นตั้งฉาก — เพราะ \(C\) และ \(D\) ต่างก็ห่างจาก \(A\) และ \(B\) เท่ากัน จุดเช่นนั้นย่อมอยู่บนเส้นแบ่งครึ่งตั้งฉากทุกจุด</figcaption></figure><div class="box thm"><span class="box-label">เหตุผลที่วิธีนี้ถูกต้อง</span>
+             <p>จุด \(C\) และ \(D\) อยู่ห่างจาก \(A\) และจาก \(B\) เท่ากัน
+             (เท่ากับรัศมี \(r\) ที่ใช้)</p>
+             <p>ทฤษฎีบทที่พิสูจน์แล้ว: <b>จุดที่ห่างจากปลายทั้งสองของส่วนของเส้นตรง
+             เท่ากัน ย่อมอยู่บนเส้นแบ่งครึ่งตั้งฉากของส่วนนั้น</b></p>
+             <p>เส้นสองจุด \(CD\) จึงเป็นเส้นแบ่งครึ่งตั้งฉากของ \(AB\) พอดี</p></div><h3>2 · เส้นแบ่งครึ่งมุม</h3><figure class="fig" data-viz="proof" id="constr-angbis"><div class="fig-body"><svg viewBox="0 0 460 330" role="img" aria-labelledby="constr-angbis-t constr-angbis-d"><title id="constr-angbis-t">การสร้างเส้นแบ่งครึ่งมุมด้วยวงเวียนและสันตรง</title><desc id="constr-angbis-d">มุมที่มีจุดยอด O มีส่วนโค้งตัดแขนทั้งสองที่จุด P และ Q แล้วเขียนวงกลมรัศมีเท่ากันที่ P และ Q ให้ตัดกันที่ R เส้นตรง OR แบ่งมุมนั้นออกเป็นสองมุมที่เท่ากัน</desc><rect width="100%" height="100%" fill="var(--paper-2)"/><defs><marker id="ar" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" class="f-muted"/></marker><marker id="ar-a" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" class="f-accent"/></marker><marker id="ar-l" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" class="f-link"/></marker><marker id="ar-t" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" class="f-teal"/></marker></defs><text x="30" y="30" class="t-tag">สร้างเส้นแบ่งครึ่งมุม</text><line x1="110" y1="230" x2="199.61" y2="-45.81" class="s-ink"/><line x1="110" y1="230" x2="403.44" y2="167.63" class="s-ink"/><g data-step="1"><path d="M 219.4 218.5 A 110 110 0 0 0 132.87 122.4" class="s-link dash-fine"/><circle cx="143.99" cy="125.38" r="4.5" class="f-link"/><circle cx="217.6" cy="207.13" r="4.5" class="f-link"/><text x="135.99" y="113.38" text-anchor="middle" class="t-name t-link">P</text><text x="213.6" y="227.13" text-anchor="middle" class="t-name t-link">Q</text></g><g data-step="2"><circle cx="143.99" cy="125.38" r="95" class="s-teal dash-fine"/><circle cx="217.6" cy="207.13" r="95" class="s-teal dash-fine"/></g><g data-step="3"><circle cx="238.36" cy="114.43" r="5" class="f-accent"/><text x="244.36" y="100.43" class="t-name t-accent">R</text><line x1="110" y1="230" x2="332.94" y2="29.26" class="s-accent thick"/></g><g data-step="4"><path d="M 144.18 199.22 A 46 46 0 0 0 124.21 186.25" class="s-accent"/><path d="M 164.78 218.36 A 56 56 0 0 0 151.62 192.53" class="s-accent"/></g><circle cx="110" cy="230" r="4.5" class="f-ink"/><text x="94" y="236" text-anchor="middle" class="t-name">O</text></svg><table class="tbl"><thead><tr><th>ข้อความ</th><th>เหตุผล</th></tr></thead><tbody><tr data-prow="1"><td>เขียนส่วนโค้งจุดศูนย์กลาง \(O\) ตัดแขนทั้งสองที่ \(P\) และ \(Q\)</td><td>ได้ \(OP=OQ\) เพราะเป็นรัศมีเดียวกัน</td></tr><tr data-prow="2"><td>เขียนวงกลมรัศมีเท่ากันที่ \(P\) และที่ \(Q\) ตัดกันที่ \(R\)</td><td>ได้ \(PR=QR\)</td></tr><tr data-prow="3"><td>ลาก \(OR\) — ได้เส้นแบ่งครึ่งมุม \(\angle POQ\)</td><td>สิ่งที่ต้องการสร้าง</td></tr><tr data-prow="4"><td>\(\triangle OPR\equiv\triangle OQR\) (ด.ด.ด.) จึง \(\angle POR=\angle QOR\)</td><td>\(OP=OQ\), \(PR=QR\), \(OR\) เป็นด้านร่วม</td></tr></tbody></table></div><div class="fig-ctrl"><button type="button" data-act="reset" aria-pressed="false">เริ่มต้น</button><button type="button" data-act="prev" aria-pressed="false">ย้อน</button><button type="button" data-act="next" aria-pressed="false">ขั้นต่อไป</button><button type="button" data-act="all" aria-pressed="false">แสดงทั้งหมด</button><span class="fig-readout" data-readout>ขั้นที่ 4 / 4</span></div><figcaption>วิธีนี้ใช้ได้เพราะเราสร้างสามเหลี่ยมสองรูปที่เท่ากันทุกประการด้วย <b>ด.ด.ด.</b> — ลองลากจุด \(O\) หรือเปลี่ยนขนาดมุมใน GeoGebra แล้วสังเกตว่าเส้นแบ่งครึ่งยังถูกต้องเสมอ นี่คือข้อดีของ <i>เรขาคณิตพลวัต</i>: ถ้าสร้างถูกตามนิยาม รูปจะไม่พังเมื่อลาก</figcaption></figure><h3>3–5 · การสร้างอีกสามแบบ</h3><table class="tbl"><thead><tr><th>ต้องการสร้าง</th><th>ขั้นตอน</th><th>หลักที่ใช้</th></tr></thead><tbody><tr><td>เส้นตั้งฉากกับ \(\ell\) ผ่านจุด \(P\) <b>บน</b> \(\ell\)</td><td>เขียนวงกลมจุดศูนย์กลาง \(P\) ตัด \(\ell\) ที่ \(X,Y\)
+                 แล้วสร้างเส้นแบ่งครึ่งตั้งฉากของ \(XY\)</td><td>\(P\) เป็นจุดกึ่งกลางของ \(XY\) โดยการสร้าง</td></tr><tr><td>เส้นตั้งฉากกับ \(\ell\) ผ่านจุด \(P\) <b>นอก</b> \(\ell\)</td><td>เขียนวงกลมจุดศูนย์กลาง \(P\) รัศมีมากพอให้ตัด \(\ell\)
+                 ที่ \(X,Y\) แล้วสร้างเส้นแบ่งครึ่งตั้งฉากของ \(XY\)</td><td>\(PX=PY\) จึง \(P\) อยู่บนเส้นแบ่งครึ่งตั้งฉากของ \(XY\)</td></tr><tr><td>เส้นขนานกับ \(\ell\) ผ่านจุด \(P\)</td><td>คัดลอกมุมที่ \(\ell\) ทำกับเส้นตัดเส้นหนึ่ง ไปที่ \(P\)
+                 ให้เป็นมุมแย้งเท่ากัน</td><td>มุมแย้งเท่ากัน \(\Rightarrow\) เส้นขนาน</td></tr></tbody></table><div class="box note"><span class="box-label">ข้อจำกัดคลาสสิก</span>
+             <p>ด้วยวงเวียนและสันตรงเท่านั้น มีสามปัญหาที่พิสูจน์ได้ว่า
+             <b>ทำไม่ได้</b> ไม่ว่าจะพยายามเพียงใด</p>
+             <ul>
+             <li>แบ่งมุมใด ๆ ออกเป็นสามส่วนเท่ากัน (trisection)</li>
+             <li>สร้างลูกบาศก์ที่มีปริมาตรเป็นสองเท่าของลูกบาศก์ที่กำหนด</li>
+             <li>สร้างรูปสี่เหลี่ยมจัตุรัสที่มีพื้นที่เท่ากับวงกลมที่กำหนด</li>
+             </ul>
+             <p>แต่ <b>แบ่งครึ่ง</b> มุมทำได้ และ <b>แบ่งมุม \(90^\circ\)
+             ออกเป็นสามส่วน</b> ก็ทำได้ (เพราะสร้างมุม \(30^\circ\) ได้
+             จากสามเหลี่ยมด้านเท่า) — ข้อจำกัดอยู่ที่มุม <i>ใด ๆ</i></p></div></section><section id="constructible"><h2>มุมและรูปที่สร้างได้</h2><p>จากการสร้างพื้นฐาน เราได้มุมและรูปจำนวนมากโดยไม่ต้องใช้
+             ไม้โปรทแรกเตอร์เลย</p><table class="tbl"><thead><tr><th>มุม</th><th>สร้างจาก</th></tr></thead><tbody><tr><td>\(60^\circ\)</td><td>มุมของสามเหลี่ยมด้านเท่า (วงกลมรัศมีเท่ากันสองวง)</td></tr><tr><td>\(30^\circ\)</td><td>แบ่งครึ่ง \(60^\circ\)</td></tr><tr><td>\(90^\circ\)</td><td>เส้นตั้งฉาก</td></tr><tr><td>\(45^\circ\)</td><td>แบ่งครึ่ง \(90^\circ\)</td></tr><tr><td>\(15^\circ\)</td><td>แบ่งครึ่ง \(30^\circ\)</td></tr><tr><td>\(75^\circ\)</td><td>\(90^\circ-15^\circ\) หรือ \(60^\circ+15^\circ\)</td></tr><tr><td>\(105^\circ\)</td><td>\(90^\circ+15^\circ\)</td></tr><tr><td>\(20^\circ\)</td><td><b>สร้างไม่ได้</b> (ต้องแบ่ง \(60^\circ\) เป็นสามส่วน)</td></tr></tbody></table><div class="ex"><div class="ex-head"><span class="ex-tag">ตัวอย่าง 1</span><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">วางแผนการสร้าง</span></div><div class="ex-body">
+             จงอธิบายขั้นตอนการสร้างมุมขนาด \(75^\circ\) ด้วยวงเวียนและสันตรง
+             พร้อมบอกเหตุผลของแต่ละขั้น</div><div class="ex-sol"><p class="sol-label">แนวคิดและวิธีทำ</p><ol class="steps"><li>ลากรังสี \(OA\) เป็นแขนแรก</li><li>สร้างเส้นตั้งฉากกับ \(OA\) ที่ \(O\) ได้มุม \(90^\circ\)
+                 — <i>การสร้างแบบที่ 3</i></li><li>สร้างสามเหลี่ยมด้านเท่าบน \(OA\) ได้มุม \(60^\circ\) ที่ \(O\)
+                 — <i>วงกลมรัศมีเท่ากันสองวงที่ \(O\) และบน \(OA\)</i></li><li>มุมระหว่างเส้นตั้งฉาก (\(90^\circ\)) กับแขน \(60^\circ\)
+                 มีขนาด \(30^\circ\)</li><li>แบ่งครึ่งมุม \(30^\circ\) นั้น ได้ \(15^\circ\)
+                 — <i>การสร้างแบบที่ 2</i></li><li>มุมจาก \(OA\) ถึงเส้นแบ่งครึ่งนี้ \(=60^\circ+15^\circ=75^\circ\)</li><li><b>ตรวจด้วยการลาก</b>: เลื่อนจุด \(A\) แล้ววัดมุมใน GeoGebra
+                 ต้องได้ \(75^\circ\) ทุกตำแหน่ง</li></ol><p class="ans">\(60^\circ+15^\circ=75^\circ\) โดยสร้างทุกขั้นจากการสร้างพื้นฐาน</p></div></div><div class="ex"><div class="ex-head"><span class="ex-tag">ตัวอย่าง 2</span><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">วิเคราะห์การสร้าง</span></div><div class="ex-body">
+             นักเรียนคนหนึ่งสร้าง "จุดกึ่งกลาง" ของ \(AB\) โดยลากจุด \(M\)
+             แล้วเลื่อนจนโปรแกรมแสดง \(AM=4.00\) และ \(MB=4.00\)
+             <br>จงอธิบายว่าเหตุใดนี่ไม่ใช่การสร้าง และจะเกิดอะไรขึ้นเมื่อลาก \(B\)</div><div class="ex-sol"><p class="sol-label">แนวคิดและวิธีทำ</p><ol class="steps"><li>\(M\) เป็นจุดอิสระ ตำแหน่งของมันไม่ได้ผูกกับ \(A\) หรือ \(B\)
+                 ด้วยความสัมพันธ์ใดเลย</li><li>ค่า \(4.00\) ที่เห็นเป็นเพียงค่าที่ <b>ปัดเศษ</b> แล้วตรงกัน
+                 ความจริงอาจเป็น \(3.998\) กับ \(4.003\)</li><li>เมื่อลาก \(B\) ออกไป ระยะ \(MB\) เปลี่ยน แต่ \(AM\) ไม่เปลี่ยน
+                 จึงไม่เท่ากันอีก — <b>ความสัมพันธ์พัง</b></li><li>วิธีที่ถูกคือใช้เครื่องมือ <code>จุดกึ่งกลาง</code>
+                 หรือสร้างเส้นแบ่งครึ่งตั้งฉากแล้วหาจุดตัดกับ \(AB\)</li><li>เมื่อสร้างถูก \(M\) จะเป็น <b>จุดตาม</b> (dependent object)
+                 ที่ขยับตาม \(A,B\) เองโดยอัตโนมัติ</li></ol><p class="ans">เป็นการวาด ไม่ใช่การสร้าง — ลาก \(B\) แล้วความสัมพันธ์พังทันที</p></div></div></section><section id="drill" class="drill"><div class="drill-head"><h3>แบบฝึกหัดท้ายบท</h3><span class="drill-stat">แสดง 31 / 31 ข้อ</span></div><p>โจทย์เรียงจากปานกลางไปยาก และปิดท้ายด้วยโจทย์ประยุกต์ ลองทำด้วยตัวเองให้ครบก่อนเปิดเฉลย</p><div class="drill-filter"><button class="btn" type="button" data-filter="all" aria-pressed="true">ทั้งหมด (31)</button><button class="btn" type="button" data-filter="med" aria-pressed="false">ปานกลาง (13)</button><button class="btn" type="button" data-filter="hard" aria-pressed="false">ยาก (10)</button><button class="btn" type="button" data-filter="apply" aria-pressed="false">ประยุกต์ (8)</button><button class="btn" type="button" data-sol-all="show">เปิดเฉลยทั้งหมด</button><button class="btn" type="button" data-sol-all="hide">ปิดเฉลยทั้งหมด</button></div><div class="q" data-lvl="med"><div class="qn">1.</div><div class="qbody">จงเขียนขั้นตอนการสร้างมุม \(30^\circ\)
+         ด้วยวงเวียนและสันตรง</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">การสร้าง</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u1-construction-s1">ดูเฉลย</button></div><div class="qsol" id="u1-construction-s1" hidden>1. ลากรังสี \(OA\)
+             <br>2. สร้างสามเหลี่ยมด้านเท่าบน \(OA\) ด้วยวงกลมรัศมี \(OA\)
+             ที่จุดศูนย์กลาง \(O\) และที่ \(A\) ตัดกันที่ \(C\) → \(\angle AOC=60^\circ\)
+             <br>3. แบ่งครึ่ง \(\angle AOC\) ได้ \(30^\circ\)</div></div><div class="q" data-lvl="med"><div class="qn">2.</div><div class="qbody">จงเขียนขั้นตอนการสร้างมุม \(45^\circ\)</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">การสร้าง</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u1-construction-s2">ดูเฉลย</button></div><div class="qsol" id="u1-construction-s2" hidden>1. สร้างเส้นตั้งฉากได้มุม \(90^\circ\)
+             <br>2. แบ่งครึ่งมุม \(90^\circ\) ได้ \(45^\circ\)</div></div><div class="q" data-lvl="med"><div class="qn">3.</div><div class="qbody">จงเขียนขั้นตอนการสร้างมุม \(105^\circ\)</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">การสร้าง</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u1-construction-s3">ดูเฉลย</button></div><div class="qsol" id="u1-construction-s3" hidden>\(105^\circ=90^\circ+15^\circ\)
+             <br>1. สร้าง \(90^\circ\) ด้วยเส้นตั้งฉาก
+             <br>2. สร้าง \(60^\circ\) ด้วยสามเหลี่ยมด้านเท่า → มุมส่วนต่าง \(30^\circ\)
+             <br>3. แบ่งครึ่ง \(30^\circ\) ได้ \(15^\circ\) แล้วต่อจาก \(90^\circ\)</div></div><div class="q" data-lvl="med"><div class="qn">4.</div><div class="qbody">จงอธิบายวิธีสร้างรูปสามเหลี่ยมด้านเท่า
+         เมื่อกำหนดความยาวด้าน \(AB\) และบอกเหตุผล</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">การสร้าง</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u1-construction-s4">ดูเฉลย</button></div><div class="qsol" id="u1-construction-s4" hidden>เขียนวงกลมรัศมี \(AB\) จุดศูนย์กลาง \(A\)
+             และวงกลมรัศมี \(AB\) จุดศูนย์กลาง \(B\) ตัดกันที่ \(C\)
+             <br><b>เหตุผล</b>: \(AC=AB\) (รัศมีวงที่ \(A\)) และ \(BC=AB\)
+             (รัศมีวงที่ \(B\)) จึงได้ \(AB=AC=BC\)</div></div><div class="q" data-lvl="med"><div class="qn">5.</div><div class="qbody">ในแต่ละข้อ ถ้าทำแล้วลากจุดต้นแบบ
+         ผลจะคงอยู่หรือพัง
+         <br>(ก) ใช้เครื่องมือ <code>เส้นตั้งฉาก</code>
+         <br>(ข) ลากเส้นด้วยตาให้ดูตั้งฉาก
+         <br>(ค) ใช้เครื่องมือ <code>จุดกึ่งกลาง</code></div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">drag test</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u1-construction-s5">ดูเฉลย</button></div><div class="qsol" id="u1-construction-s5" hidden>(ก) <b>คงอยู่</b> — เป็นการสร้าง
+             <br>(ข) <b>พัง</b> — เป็นการวาด
+             <br>(ค) <b>คงอยู่</b> — เป็นการสร้าง</div></div><div class="q" data-lvl="med"><div class="qn">6.</div><div class="qbody">จุดกึ่งกลางของ \(A(3,-5)\) และ
+         \(B(-7,9)\) อยู่ที่พิกัดใด</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">จุดกึ่งกลาง</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u1-construction-s6">ดูเฉลย</button></div><div class="qsol" id="u1-construction-s6" hidden>\(\left(\dfrac{3-7}{2},\dfrac{-5+9}{2}\right)=(-2,2)\)</div></div><div class="q" data-lvl="med"><div class="qn">7.</div><div class="qbody">เส้นตรงหนึ่งมีความชัน \(\tfrac34\)
+         เส้นที่ตั้งฉากกับมันมีความชันเท่าไร และผ่านจุด \((4,1)\) มีสมการอะไร</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">เส้นตั้งฉาก</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u1-construction-s7">ดูเฉลย</button></div><div class="qsol" id="u1-construction-s7" hidden>ความชันตั้งฉาก \(=-\dfrac43\)
+             <br>\(y-1=-\tfrac43(x-4)\Rightarrow y=-\tfrac43x+\tfrac{19}{3}\)
+             หรือ \(4x+3y=19\)</div></div><div class="q" data-lvl="med"><div class="qn">8.</div><div class="qbody">มุมใดต่อไปนี้สร้างได้ด้วยวงเวียนและสันตรง
+         \(22.5^\circ,\ 40^\circ,\ 7.5^\circ,\ 50^\circ\)</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">การสร้าง</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u1-construction-s8">ดูเฉลย</button></div><div class="qsol" id="u1-construction-s8" hidden><b>สร้างได้</b>: \(22.5^\circ\) (แบ่งครึ่ง \(45^\circ\))
+             และ \(7.5^\circ\) (แบ่งครึ่ง \(15^\circ\))
+             <br><b>สร้างไม่ได้</b>: \(40^\circ\) และ \(50^\circ\)
+             — ทั้งคู่ต้องแบ่งมุมเป็นสามส่วน</div></div><div class="q" data-lvl="hard"><div class="qn">9.</div><div class="qbody">จงพิสูจน์ว่าวิธีสร้างเส้นตั้งฉาก
+         จากจุด \(P\) <b>นอก</b> เส้น \(\ell\) (เขียนวงกลมจุดศูนย์กลาง \(P\)
+         ตัด \(\ell\) ที่ \(X,Y\) แล้วสร้างเส้นแบ่งครึ่งตั้งฉากของ \(XY\))
+         ให้เส้นที่ตั้งฉากกับ \(\ell\) และผ่าน \(P\) จริง</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">พิสูจน์การสร้าง</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u1-construction-s9">ดูเฉลย</button></div><div class="qsol" id="u1-construction-s9" hidden>\(X,Y\) อยู่บนวงกลมจุดศูนย์กลาง \(P\) จึง \(PX=PY\) (รัศมี)
+             <br>ทฤษฎีบท: จุดที่ห่างจากปลายทั้งสองของส่วนของเส้นตรงเท่ากัน
+             ย่อมอยู่บนเส้นแบ่งครึ่งตั้งฉากของส่วนนั้น
+             <br>ดังนั้น \(P\) อยู่บนเส้นแบ่งครึ่งตั้งฉากของ \(XY\)
+             <br>เส้นแบ่งครึ่งตั้งฉากของ \(XY\) ตั้งฉากกับ \(XY\) ตามนิยาม
+             และ \(XY\) อยู่บน \(\ell\)
+             <br>จึงได้เส้นที่ผ่าน \(P\) และตั้งฉากกับ \(\ell\) ∎</div></div><div class="q" data-lvl="hard"><div class="qn">10.</div><div class="qbody">จงพิสูจน์ว่าการสร้างเส้นขนาน
+         ด้วยวิธี "คัดลอกมุมแย้ง" ให้เส้นที่ขนานกันจริง</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">พิสูจน์การสร้าง</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u1-construction-s10">ดูเฉลย</button></div><div class="qsol" id="u1-construction-s10" hidden>ให้ \(\ell\) เป็นเส้นเดิมและ \(P\) เป็นจุดนอกเส้น
+             <br>ลากเส้นตัด \(t\) ผ่าน \(P\) ตัด \(\ell\) ที่ \(Q\)
+             เกิดมุม \(\alpha\) ที่ \(Q\)
+             <br>คัดลอกมุมขนาด \(\alpha\) ไปสร้างที่ \(P\) โดยให้อยู่ในตำแหน่ง
+             มุมแย้งกับมุมเดิม (คนละข้างของ \(t\) และภายใน)
+             <br>การคัดลอกมุมใช้การสร้างสามเหลี่ยม ด.ด.ด. จึงได้มุมเท่ากันแน่นอน
+             <br>ทฤษฎีบท: <b>ถ้ามุมแย้งเท่ากัน แล้วเส้นทั้งสองขนานกัน</b>
+             <br>ดังนั้นเส้นใหม่ผ่าน \(P\) และขนานกับ \(\ell\) ∎</div></div><div class="q" data-lvl="hard"><div class="qn">11.</div><div class="qbody">จงออกแบบขั้นตอนการแบ่งส่วนของเส้นตรง
+         \(AB\) ออกเป็น \(4\) ส่วนเท่ากัน ด้วยวงเวียนและสันตรง</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">การสร้าง</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u1-construction-s11">ดูเฉลย</button></div><div class="qsol" id="u1-construction-s11" hidden>1. สร้างเส้นแบ่งครึ่งตั้งฉากของ \(AB\) ได้จุดกึ่งกลาง \(M\)
+             <br>2. สร้างเส้นแบ่งครึ่งตั้งฉากของ \(AM\) ได้จุด \(M_1\)
+             <br>3. สร้างเส้นแบ่งครึ่งตั้งฉากของ \(MB\) ได้จุด \(M_2\)
+             <br>ได้จุดแบ่ง \(M_1,M,M_2\) ซึ่งแบ่ง \(AB\) เป็น 4 ส่วนเท่ากัน
+             <br><b>ข้อสังเกต</b>: วิธีนี้ใช้ได้กับการแบ่งเป็น \(2^{n}\) ส่วนเท่านั้น
+             การแบ่งเป็น 3 หรือ 5 ส่วนต้องใช้วิธีอื่น (ทฤษฎีบทสัดส่วนของเส้นขนาน)</div></div><div class="q" data-lvl="hard"><div class="qn">12.</div><div class="qbody">จงออกแบบขั้นตอนการแบ่ง \(AB\)
+         ออกเป็น \(3\) ส่วนเท่ากัน โดยใช้ทฤษฎีบทสัดส่วนของเส้นขนาน</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">การสร้าง</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u1-construction-s12">ดูเฉลย</button></div><div class="qsol" id="u1-construction-s12" hidden>1. ลากรังสี \(AX\) ทำมุมใด ๆ กับ \(AB\)
+             <br>2. ใช้วงเวียนกางคงที่ กำหนดจุด \(P_1,P_2,P_3\) บน \(AX\)
+             ให้ \(AP_1=P_1P_2=P_2P_3\)
+             <br>3. ลาก \(P_3B\)
+             <br>4. สร้างเส้นผ่าน \(P_1\) และ \(P_2\) ขนานกับ \(P_3B\)
+             ให้ตัด \(AB\) ที่ \(Q_1,Q_2\)
+             <br><b>เหตุผล</b>: เส้นขนานตัดเส้นตัดสองเส้นให้ได้ส่วนที่เป็นสัดส่วนกัน
+             เมื่อ \(AP_1:P_1P_2:P_2P_3=1:1:1\) จึง \(AQ_1:Q_1Q_2:Q_2B=1:1:1\)
+             <br>วิธีนี้แบ่งเป็น \(n\) ส่วนใดก็ได้</div></div><div class="q" data-lvl="hard"><div class="qn">13.</div><div class="qbody">ใน GeoGebra นักเรียนสร้างวงกลมผ่านจุด
+         \(A,B,C\) โดยลากวงกลมแล้วเลื่อนจนขอบดูเหมือนผ่านทั้งสามจุด
+         <br>(ก) จงอธิบายว่าทำไมวิธีนี้ไม่น่าเชื่อถือ
+         <br>(ข) วิธีสร้างที่ถูกต้องคืออะไร และอาศัยทฤษฎีบทใด</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">วิเคราะห์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u1-construction-s13">ดูเฉลย</button></div><div class="qsol" id="u1-construction-s13" hidden>(ก) วงกลมที่ลากเองมีจุดศูนย์กลางและรัศมีเป็นค่าอิสระ
+             ไม่ผูกกับ \(A,B,C\) — ลากจุดใดจุดหนึ่งแล้วขอบวงกลมไม่ตามไป
+             <br>(ข) <b>วิธีที่ถูก</b>: สร้างเส้นแบ่งครึ่งตั้งฉากของ \(AB\)
+             และของ \(BC\) ให้ตัดกันที่ \(O\) แล้วเขียนวงกลมจุดศูนย์กลาง \(O\)
+             รัศมี \(OA\)
+             <br><b>ทฤษฎีบทที่ใช้</b>: จุดบนเส้นแบ่งครึ่งตั้งฉากของ \(AB\)
+             ห่างจาก \(A,B\) เท่ากัน
+             <br>\(O\) อยู่บนเส้นแบ่งครึ่งตั้งฉากทั้งสองเส้น จึง \(OA=OB\)
+             และ \(OB=OC\) ดังนั้น \(OA=OB=OC\) — วงกลมผ่านทั้งสามจุดแน่นอน</div></div><div class="q" data-lvl="hard"><div class="qn">14.</div><div class="qbody">จงอธิบายวิธีสร้างรูปสี่เหลี่ยมจัตุรัส
+         เมื่อกำหนดความยาวเส้นทแยงมุม \(d\)</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">การสร้าง</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u1-construction-s14">ดูเฉลย</button></div><div class="qsol" id="u1-construction-s14" hidden>1. ลากส่วนของเส้นตรง \(AC\) ยาว \(d\) (นี่คือเส้นทแยงมุมเส้นแรก)
+             <br>2. สร้างเส้นแบ่งครึ่งตั้งฉากของ \(AC\) ตัด \(AC\) ที่ \(O\)
+             <br>3. บนเส้นตั้งฉากนั้น กำหนด \(B\) และ \(D\) ให้ \(OB=OD=OA\)
+             (ใช้วงเวียนกางเท่า \(OA\) จากจุด \(O\))
+             <br>4. ลาก \(ABCD\)
+             <br><b>เหตุผล</b>: เส้นทแยงมุมทั้งสองยาวเท่ากัน (\(=d\))
+             แบ่งครึ่งกัน และตั้งฉากกัน ซึ่งเป็นเงื่อนไขครบของสี่เหลี่ยมจัตุรัส
+             <br>ด้านจัตุรัสยาว \(\dfrac{d}{\sqrt2}\)</div></div><div class="q" data-lvl="hard"><div class="qn">15.</div><div class="qbody">รูปสามเหลี่ยม \(ABC\) ที่ \(AB=7\),
+         \(BC=5\), \(CA=9\) สร้างได้หรือไม่ ถ้าได้จงอธิบายขั้นตอน
+         ถ้าไม่ได้จงบอกเหตุผล</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">การสร้าง</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u1-construction-s15">ดูเฉลย</button></div><div class="qsol" id="u1-construction-s15" hidden>ตรวจอสมการสามเหลี่ยม: \(5+7=12>9\) ✓,
+             \(5+9=14>7\) ✓, \(7+9=16>5\) ✓ → <b>สร้างได้</b>
+             <br>1. ลาก \(CA\) ยาว \(9\)
+             <br>2. เขียนวงกลมจุดศูนย์กลาง \(A\) รัศมี \(7\)
+             <br>3. เขียนวงกลมจุดศูนย์กลาง \(C\) รัศมี \(5\)
+             <br>4. จุดตัดของวงกลมสองวงคือ \(B\) (มีสองจุด ได้รูปที่สะท้อนกัน
+             ซึ่งเท่ากันทุกประการ)
+             <br>นี่คือการสร้างตามเงื่อนไข <b>ด.ด.ด.</b></div></div><div class="q" data-lvl="apply"><div class="qn">16.</div><div class="qbody">ช่างไม้ต้องหาจุดกึ่งกลางของแผ่นไม้
+         ยาว \(183\) ซม. โดยมีแต่เชือกและดินสอ (ไม่มีไม้บรรทัดยาวพอ)
+         <br>(ก) จงอธิบายวิธีทำโดยใช้หลักการสร้างเส้นแบ่งครึ่งตั้งฉาก
+         <br>(ข) เหตุใดวิธีนี้จึงแม่นกว่าการวัดครึ่งหนึ่งของ \(183\) ซม.</div><div class="qmeta"><span class="ex-lvl apply">ประยุกต์</span><span class="ex-lvl">ประยุกต์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u1-construction-s16">ดูเฉลย</button></div><div class="qsol" id="u1-construction-s16" hidden>(ก) ใช้เชือกยาวกว่าครึ่งแผ่น (เช่น \(110\) ซม.) เป็นวงเวียน
+             <br>ตรึงปลายที่มุมซ้าย ขีดส่วนโค้งทั้งบนและล่างแผ่น
+             <br>ย้ายไปตรึงที่มุมขวา ขีดส่วนโค้งด้วยเชือกยาวเท่าเดิม
+             <br>ลากเส้นเชื่อมจุดตัดบนกับจุดตัดล่าง → ได้จุดกึ่งกลางที่แผ่นไม้
+             <br>(ข) ไม่ต้องคำนวณ \(183\div2=91.5\) และไม่ต้องวัดระยะยาว
+             ซึ่งสะสมความคลาดเคลื่อน
+             <br>ความแม่นขึ้นกับการตรึงเชือกให้ยาวเท่าเดิมทั้งสองครั้งเท่านั้น</div></div><div class="q" data-lvl="apply"><div class="qn">17.</div><div class="qbody">สนามเด็กเล่นต้องการวางเสาไฟให้อยู่ห่าง
+         จากประตูสองบาน (\(A\) และ \(B\)) เท่ากัน และห่างจากกำแพง \(\ell\)
+         เป็นระยะ \(8\) เมตร
+         <br>(ก) เซตของจุดที่ห่างจาก \(A,B\) เท่ากันคืออะไร
+         <br>(ข) เซตของจุดที่ห่างจาก \(\ell\) เป็น \(8\) ม. คืออะไร
+         <br>(ค) ตำแหน่งเสาไฟมีกี่จุดที่เป็นไปได้</div><div class="qmeta"><span class="ex-lvl apply">ประยุกต์</span><span class="ex-lvl">ประยุกต์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u1-construction-s17">ดูเฉลย</button></div><div class="qsol" id="u1-construction-s17" hidden>(ก) <b>เส้นแบ่งครึ่งตั้งฉากของ \(AB\)</b>
+             <br>(ข) <b>เส้นตรงสองเส้นที่ขนานกับ \(\ell\)</b> อยู่คนละข้าง
+             ห่างออกไปข้างละ \(8\) ม.
+             <br>(ค) จุดตัดของเส้นแบ่งครึ่งตั้งฉากกับเส้นขนานสองเส้น
+             <br>ถ้าเส้นแบ่งครึ่งตั้งฉาก <b>ไม่</b> ขนานกับ \(\ell\): ได้ <b>2 จุด</b>
+             <br>ถ้าขนานกับ \(\ell\): ได้ \(0\) จุด (หรืออนันต์ถ้าบังเอิญทับกันพอดี)
+             <br>ในทางปฏิบัติเลือกจุดที่อยู่ในสนาม จึงมักได้ <b>1 จุด</b></div></div><div class="q" data-lvl="apply"><div class="qn">18.</div><div class="qbody">ร้านกาแฟสามสาขาตั้งอยู่ที่ \(A,B,C\)
+         ซึ่งไม่อยู่บนเส้นตรงเดียวกัน บริษัทต้องการสร้างคลังสินค้าที่ห่างจาก
+         ทั้งสามสาขาเท่ากัน
+         <br>(ก) ต้องสร้างคลังที่จุดใด
+         <br>(ข) จงเขียนขั้นตอนการหาจุดนั้นใน GeoGebra
+         <br>(ค) ถ้า \(A(0,0)\), \(B(8,0)\), \(C(0,6)\) คลังอยู่ที่พิกัดใด
+         และห่างจากแต่ละสาขาเท่าไร</div><div class="qmeta"><span class="ex-lvl apply">ประยุกต์</span><span class="ex-lvl">ประยุกต์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u1-construction-s18">ดูเฉลย</button></div><div class="qsol" id="u1-construction-s18" hidden>(ก) ที่ <b>จุดศูนย์กลางวงกลมล้อมรอบ</b> \(\triangle ABC\)
+             <br>(ข) สร้างเส้นแบ่งครึ่งตั้งฉากของ \(AB\) และของ \(AC\)
+             แล้วหาจุดตัด
+             <br>(ค) \(\triangle ABC\) มีมุมฉากที่ \(A\) ดังนั้นจุดศูนย์กลาง
+             วงกลมล้อมรอบคือจุดกึ่งกลางของ \(BC\)
+             <br>\(=\left(\dfrac{8+0}{2},\dfrac{0+6}{2}\right)=(4,3)\)
+             <br>ระยะ \(=\sqrt{4^{2}+3^{2}}=5\) หน่วย (เท่ากันทั้งสามสาขา)</div></div><div class="q" data-lvl="apply"><div class="qn">19.</div><div class="qbody">ออกแบบลายปูกระเบื้องรูปแปดเหลี่ยม
+         ด้านเท่ามุมเท่า โดยเริ่มจากสี่เหลี่ยมจัตุรัสด้านยาว \(a\)
+         แล้วตัดมุมทั้งสี่ออก
+         <br>(ก) ต้องตัดจากมุมเป็นระยะเท่าไร (ตอบในรูป \(a\))
+         <br>(ข) ด้านของแปดเหลี่ยมยาวเท่าไร
+         <br>(ค) จงอธิบายว่าขั้นตอนนี้สร้างได้ด้วยวงเวียนและสันตรงหรือไม่</div><div class="qmeta"><span class="ex-lvl apply">ประยุกต์</span><span class="ex-lvl">ประยุกต์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u1-construction-s19">ดูเฉลย</button></div><div class="qsol" id="u1-construction-s19" hidden>(ก) ให้ตัดจากมุมเป็นระยะ \(x\) ทั้งสองด้าน
+             <br>ด้านที่เหลือบนขอบจัตุรัส \(=a-2x\)
+             <br>ด้านที่เกิดจากรอยตัด (ด้านตรงข้ามมุมฉาก) \(=x\sqrt2\)
+             <br>แปดเหลี่ยมด้านเท่า: \(a-2x=x\sqrt2\)
+             <br>\(a=x(2+\sqrt2)\Rightarrow x=\dfrac{a}{2+\sqrt2}
+             =\dfrac{a(2-\sqrt2)}{2}\approx0.293a\)
+             <br>(ข) ด้าน \(=x\sqrt2=\dfrac{a\sqrt2(2-\sqrt2)}{2}
+             =a(\sqrt2-1)\approx0.414a\)
+             <br>(ค) <b>สร้างได้</b> — \(\sqrt2\) สร้างได้จากเส้นทแยงมุมของ
+             จัตุรัส และการแบ่งครึ่งกับการถ่ายระยะด้วยวงเวียนทำได้ทั้งหมด</div></div><div class="q" data-lvl="apply"><div class="qn">20.</div><div class="qbody">ครูให้การบ้าน GeoGebra ว่า
+         "สร้างรูปสามเหลี่ยมหน้าจั่วที่ลากจุดยอดแล้วยังเป็นหน้าจั่วเสมอ"
+         <br>(ก) จงเขียนขั้นตอนการสร้าง
+         <br>(ข) ถ้านักเรียนลากจุด \(B\) และ \(C\) อิสระแล้วลาก \(A\)
+         ให้ \(AB=AC\) ด้วยตา จะเกิดอะไรขึ้น
+         <br>(ค) จงบอกวิธีตรวจว่าการสร้างถูกต้อง</div><div class="qmeta"><span class="ex-lvl apply">ประยุกต์</span><span class="ex-lvl">ประยุกต์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u1-construction-s20">ดูเฉลย</button></div><div class="qsol" id="u1-construction-s20" hidden>(ก) 1. ลาก \(BC\)
+             <br>2. สร้างเส้นแบ่งครึ่งตั้งฉากของ \(BC\)
+             <br>3. วางจุด \(A\) <b>บนเส้นนั้น</b> (ใช้เครื่องมือ "จุดบนวัตถุ")
+             <br>4. ลาก \(AB\) และ \(AC\) → \(AB=AC\) เสมอ
+             <br>(ข) \(A\) เป็นจุดอิสระ ลาก \(B\) หรือ \(C\) แล้ว \(AB\neq AC\) ทันที
+             — รูปพัง
+             <br>(ค) แสดงค่าวัด \(AB\) และ \(AC\) บนหน้าจอ แล้ว <b>ลากจุดทุกจุด</b>
+             ถ้าค่าทั้งสองเท่ากันตลอดการลาก แสดงว่าสร้างถูก
+             <br>หรือดูใน Algebra View ว่า \(A\) เป็น "จุดบนวัตถุ" จริงหรือไม่</div></div><div class="q" data-lvl="apply"><div class="qn">21.</div><div class="qbody">ช่างปูกระเบื้องต้องตรวจว่ามุมห้อง
+         เป็นมุมฉากจริงหรือไม่ โดยใช้สายวัดอย่างเดียว (วิธี 3–4–5)
+         <br>(ก) จงอธิบายวิธีทำ
+         <br>(ข) ถ้าวัดได้ \(3\) ม. และ \(4\) ม. แต่ระยะทแยงได้ \(5.08\) ม.
+         มุมนั้นเป็นมุมแหลมหรือมุมป้าน
+         <br>(ค) ถ้าใช้ \(6\)–\(8\) ม. แทน จะได้ความแม่นยำต่างไปอย่างไร</div><div class="qmeta"><span class="ex-lvl apply">ประยุกต์</span><span class="ex-lvl">ประยุกต์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u1-construction-s21">ดูเฉลย</button></div><div class="qsol" id="u1-construction-s21" hidden>(ก) วัดจากมุมออกไปตามผนังหนึ่ง \(3\) ม. ทำเครื่องหมาย
+             และตามผนังอีกด้าน \(4\) ม. ทำเครื่องหมาย
+             <br>วัดระยะทแยงระหว่างเครื่องหมายทั้งสอง ถ้าได้ \(5\) ม. พอดี
+             แสดงว่าเป็นมุมฉาก (พีทาโกรัส \(3^{2}+4^{2}=5^{2}\))
+             <br>(ข) ทแยง \(5.08>5\) แสดงว่ามุมกางกว่ามุมฉาก → <b>มุมป้าน</b>
+             <br>(ค) ใช้ \(6\)–\(8\)–\(10\) ความคลาดเคลื่อนเชิงมุมเท่ากัน
+             จะทำให้ระยะทแยงคลาดมากขึ้นเป็นสองเท่า จึง <b>สังเกตเห็นง่ายกว่า</b>
+             — วัดด้วยสามเหลี่ยมใหญ่ย่อมแม่นกว่า</div></div><div class="q" data-lvl="med"><div class="qn">22.</div><div class="qbody">จงเขียนขั้นตอนการสร้างมุม \(15^\circ\)</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">การสร้าง</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u1-construction-s22">ดูเฉลย</button></div><div class="qsol" id="u1-construction-s22" hidden>สร้าง \(60^\circ\) → แบ่งครึ่งได้ \(30^\circ\) → แบ่งครึ่งอีกครั้ง
+             ได้ \(15^\circ\)</div></div><div class="q" data-lvl="med"><div class="qn">23.</div><div class="qbody">จงเขียนขั้นตอนการสร้างมุม \(135^\circ\)</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">การสร้าง</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u1-construction-s23">ดูเฉลย</button></div><div class="qsol" id="u1-construction-s23" hidden>\(135^\circ=90^\circ+45^\circ\)
+             <br>สร้างเส้นตั้งฉากได้ \(90^\circ\) แล้วแบ่งครึ่งมุมฉากอีกมุมหนึ่ง
+             (ส่วนที่เหลือ \(90^\circ\)) ได้ \(45^\circ\) ต่อกัน
+             <br>หรือแบ่งครึ่งมุมประชิดเส้นตรง \(270^\circ\)... วิธีที่ง่ายที่สุดคือ
+             สร้าง \(45^\circ\) แล้วหามุมประชิดเส้นตรง \(180^\circ-45^\circ=135^\circ\)</div></div><div class="q" data-lvl="med"><div class="qn">24.</div><div class="qbody">เส้นตรง \(y=2x-3\) และจุด \(P(1,5)\)
+         จงหาสมการของเส้นที่ผ่าน \(P\) และขนานกับเส้นนั้น</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">เส้นขนาน</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u1-construction-s24">ดูเฉลย</button></div><div class="qsol" id="u1-construction-s24" hidden>เส้นขนานมีความชันเท่ากัน \(=2\)
+             <br>\(y-5=2(x-1)\Rightarrow y=2x+3\)</div></div><div class="q" data-lvl="med"><div class="qn">25.</div><div class="qbody">จงหาสมการเส้นแบ่งครึ่งตั้งฉาก
+         ของส่วนของเส้นตรงที่เชื่อม \(A(-2,1)\) และ \(B(6,7)\)</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">เส้นแบ่งครึ่งตั้งฉาก</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u1-construction-s25">ดูเฉลย</button></div><div class="qsol" id="u1-construction-s25" hidden>จุดกึ่งกลาง \(=(2,4)\)
+             <br>ความชัน \(AB=\dfrac{7-1}{6+2}=\dfrac68=\dfrac34\)
+             <br>ความชันตั้งฉาก \(=-\dfrac43\)
+             <br>\(y-4=-\tfrac43(x-2)\Rightarrow 4x+3y=20\)</div></div><div class="q" data-lvl="med"><div class="qn">26.</div><div class="qbody">ใน GeoGebra วัตถุใดเป็น "จุดอิสระ"
+         และวัตถุใดเป็น "จุดตาม"
+         <br>(ก) จุดที่คลิกวางบนพื้นที่ว่าง
+         <br>(ข) จุดตัดของเส้นสองเส้น
+         <br>(ค) จุดกึ่งกลางของส่วนของเส้นตรง
+         <br>(ง) จุดที่วางบนเส้นตรง</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">drag test</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u1-construction-s26">ดูเฉลย</button></div><div class="qsol" id="u1-construction-s26" hidden>(ก) <b>จุดอิสระ</b> — ลากไปไหนก็ได้
+             <br>(ข) <b>จุดตาม</b> — ตำแหน่งถูกกำหนดโดยเส้นทั้งสอง
+             <br>(ค) <b>จุดตาม</b>
+             <br>(ง) <b>กึ่งอิสระ</b> — ลากได้แต่เลื่อนได้เฉพาะตามเส้นนั้น</div></div><div class="q" data-lvl="hard"><div class="qn">27.</div><div class="qbody">จงอธิบายวิธีสร้างส่วนของเส้นตรงยาว
+         \(\sqrt2\) หน่วย และ \(\sqrt5\) หน่วย เมื่อกำหนดหน่วยความยาว \(1\)</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">การสร้าง</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u1-construction-s27">ดูเฉลย</button></div><div class="qsol" id="u1-construction-s27" hidden><b>\(\sqrt2\)</b>: สร้างสี่เหลี่ยมจัตุรัสด้านยาว \(1\)
+             เส้นทแยงมุมยาว \(\sqrt{1^{2}+1^{2}}=\sqrt2\)
+             <br><b>\(\sqrt5\)</b>: สร้างสามเหลี่ยมมุมฉากที่มีด้านประกอบมุมฉาก
+             \(1\) และ \(2\) (ถ่ายระยะ \(1\) สองครั้งด้วยวงเวียน)
+             <br>ด้านตรงข้ามมุมฉากยาว \(\sqrt{1+4}=\sqrt5\)
+             <br><b>ทั่วไป</b>: \(\sqrt n\) สร้างได้ทุกค่าด้วยการต่อสามเหลี่ยมมุมฉาก
+             เป็น "ก้นหอยของธีโอโดรัส"</b></div></div><div class="q" data-lvl="hard"><div class="qn">28.</div><div class="qbody">จงอธิบายว่าเหตุใดการสร้างเส้นแบ่งครึ่ง
+         ตั้งฉากจึงต้องใช้รัศมีมากกว่า \(\tfrac12 AB\) และจะเกิดอะไรขึ้นถ้า
+         รัศมีเท่ากับ \(\tfrac12 AB\) พอดี หรือน้อยกว่า</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">วิเคราะห์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u1-construction-s28">ดูเฉลย</button></div><div class="qsol" id="u1-construction-s28" hidden>วงกลมสองวงรัศมี \(r\) ที่จุดศูนย์กลางห่างกัน \(AB\)
+             จะตัดกันเมื่อ \(2r>AB\) นั่นคือ \(r>\tfrac12 AB\)
+             <br><b>ถ้า \(r=\tfrac12 AB\)</b>: วงกลมสัมผัสกันที่จุดเดียว
+             (จุดกึ่งกลาง \(AB\)) — ได้จุดเดียว ลากเส้นไม่ได้
+             <br><b>ถ้า \(r<\tfrac12 AB\)</b>: วงกลมไม่ตัดกันเลย — สร้างไม่ได้
+             <br>ในทางปฏิบัติควรเลือก \(r\) ใกล้ \(AB\) เพราะจุดตัดจะชัดและ
+             ลดความคลาดเคลื่อน</div></div><div class="q" data-lvl="hard"><div class="qn">29.</div><div class="qbody">จงออกแบบวิธีสร้างรูปหกเหลี่ยม
+         ด้านเท่ามุมเท่าที่แนบในวงกลมรัศมี \(r\) โดยใช้วงเวียนกางคงที่</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">การสร้าง</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u1-construction-s29">ดูเฉลย</button></div><div class="qsol" id="u1-construction-s29" hidden>1. เขียนวงกลมรัศมี \(r\) จุดศูนย์กลาง \(O\)
+             <br>2. เลือกจุด \(P_1\) บนวงกลม
+             <br>3. ใช้วงเวียน <b>กางเท่า \(r\) เดิม</b> วางที่ \(P_1\)
+             ตัดวงกลมได้ \(P_2\)
+             <br>4. ทำซ้ำจาก \(P_2\) ได้ \(P_3\) ... จนครบ \(P_6\)
+             แล้วกลับมาที่ \(P_1\) พอดี
+             <br><b>เหตุผล</b>: \(OP_1=OP_2=P_1P_2=r\) จึงเป็นสามเหลี่ยมด้านเท่า
+             มุมที่จุดศูนย์กลาง \(=60^\circ\)
+             <br>\(6\times60^\circ=360^\circ\) จึงปิดวงพอดี —
+             นี่คือเหตุที่ "ด้านของหกเหลี่ยมแนบในวงกลมยาวเท่ารัศมี\"</div></div><div class="q" data-lvl="apply"><div class="qn">30.</div><div class="qbody">สวนวงกลมรัศมี \(10\) ม.
+         จะปลูกต้นไม้ \(6\) ต้นบนขอบสวนให้ห่างกันเท่ากัน
+         <br>(ก) จงอธิบายวิธีกำหนดตำแหน่งด้วยเชือกเพียงเส้นเดียว
+         <br>(ข) ต้นไม้สองต้นที่ติดกันห่างกันเท่าไร
+         <br>(ค) ต้นไม้ที่อยู่ตรงข้ามกันห่างกันเท่าไร</div><div class="qmeta"><span class="ex-lvl apply">ประยุกต์</span><span class="ex-lvl">ประยุกต์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u1-construction-s30">ดูเฉลย</button></div><div class="qsol" id="u1-construction-s30" hidden>(ก) ใช้เชือกยาว \(10\) ม. (เท่ารัศมี) เป็นวงเวียน
+             <br>ปักหลักจุดแรกบนขอบ แล้วใช้เชือกวัดจากจุดนั้นไปตามขอบ
+             ได้จุดถัดไป ทำซ้ำ 6 ครั้งจะกลับมาที่จุดเริ่มพอดี
+             <br>(ข) ด้านของหกเหลี่ยมแนบในวงกลม \(=r=10\) ม.
+             <br>(ค) ต้นไม้ตรงข้ามอยู่ปลายเส้นผ่านศูนย์กลาง \(=2r=20\) ม.</div></div><div class="q" data-lvl="apply"><div class="qn">31.</div><div class="qbody">นักเรียนทำโครงงาน GeoGebra
+         สร้างรูปสี่เหลี่ยมด้านขนานที่ลากจุดแล้วยังเป็นด้านขนานเสมอ
+         <br>(ก) จงเขียนขั้นตอนการสร้าง (ใช้เครื่องมือเส้นขนาน)
+         <br>(ข) จงเขียนขั้นตอนอีกวิธีหนึ่ง (ใช้จุดกึ่งกลาง)
+         <br>(ค) วิธีใดทนต่อการลากดีกว่า เพราะเหตุใด</div><div class="qmeta"><span class="ex-lvl apply">ประยุกต์</span><span class="ex-lvl">ประยุกต์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u1-construction-s31">ดูเฉลย</button></div><div class="qsol" id="u1-construction-s31" hidden>(ก) 1. ลาก \(AB\) และ \(AD\) อิสระ
+             <br>2. สร้างเส้นผ่าน \(B\) ขนานกับ \(AD\)
+             <br>3. สร้างเส้นผ่าน \(D\) ขนานกับ \(AB\)
+             <br>4. จุดตัดคือ \(C\)
+             <br>(ข) 1. ลาก \(AB\) และ \(AD\) อิสระ
+             <br>2. หาจุดกึ่งกลาง \(M\) ของ \(BD\)
+             <br>3. สร้าง \(C\) เป็นภาพของ \(A\) จากการหมุน \(180^\circ\) รอบ \(M\)
+             <br>(ค) <b>ทั้งสองวิธีทนการลากเท่ากัน</b> เพราะ \(C\) เป็นจุดตาม
+             ทั้งคู่
+             <br>แต่วิธี (ข) ตรงกับนิยาม "เส้นทแยงมุมแบ่งครึ่งกัน" จึงอธิบาย
+             สมบัตินั้นได้ชัดกว่า และไม่มีปัญหาเมื่อ \(AB\) กับ \(AD\)
+             เกือบขนานกัน (ซึ่งวิธี (ก) จะหาจุดตัดได้ไม่แม่น)</div></div></section><div class="pager"><span></span><a class="pr" href="u2-shapes-area.html">รูปเรขาคณิต มุม และพื้นที่</a></div></main></div></div><footer class="site"><div class="wrap">คณิตศาสตร์ ม.2 · สื่อการเรียนรู้แบบอินเทอร์แอกทีฟ</div></footer>
+<script src="../assets/js/site.js"></script>
+<script src="../assets/js/viz.js"></script>
+</body>
+</html>

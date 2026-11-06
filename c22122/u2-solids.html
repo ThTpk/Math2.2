@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="th" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>พื้นที่ผิวและปริมาตร · คณิตศาสตร์ 4</title>
+<meta name="description" content="พื้นที่ผิวและปริมาตรของปริซึมและทรงกระบอก โดยเริ่มจากการคลี่รูปทรง
+    ให้เห็นว่าสูตรแต่ละสูตรมาจากไหน แล้วต่อยอดไปถึงรูปทรงประกอบ
+    รูปทรงที่เจาะรู">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Serif+Thai:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/site.css">
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+         processEscapes: true },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] },
+  chtml: { mtextInheritFont: true, scale: 1.0 },
+  startup: { typeset: true }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+</head>
+<body>
+<nav class="nav"><a class="nav-brand" href="../index.html">คณิต<span>ศาสตร์</span> ม.2</a><div class="nav-links"><a href="../index.html">หน้าแรก</a><a href="../c22122/index.html" aria-current="page" title="คณิตศาสตร์ 4">คณิตศาสตร์ 4</a><a href="../c22292/index.html" title="คณิตศาสตร์พัฒนาศักยภาพ 4">พัฒนาศักยภาพ 4</a><a href="../c22294/index.html" title="เทคโนโลยีเพื่อการศึกษาทางคณิตศาสตร์">เทคโนโลยีคณิตศาสตร์</a><button class="theme-btn" type="button" aria-label="สลับโหมดสี">☾</button></div></nav><div class="wrap"><div class="page"><aside class="toc"><div class="toc-label">หัวข้อในบทนี้</div><ol><li><a href="#prism">ปริซึม: พื้นที่ผิว</a></li><li><a href="#cylinder">ทรงกระบอก</a></li><li><a href="#composite">รูปทรงประกอบและรูปทรงที่ถูกเจาะ</a></li><li><a href="#drill">แบบฝึกหัดท้ายบท</a></li></ol></aside><main><p class="eyebrow">คณิตศาสตร์ 4</p><h1>พื้นที่ผิวและปริมาตร</h1><p class="lead">พื้นที่ผิวและปริมาตรของปริซึมและทรงกระบอก โดยเริ่มจากการคลี่รูปทรง
+    ให้เห็นว่าสูตรแต่ละสูตรมาจากไหน แล้วต่อยอดไปถึงรูปทรงประกอบ
+    รูปทรงที่เจาะรู และโจทย์ในชีวิตจริง</p><div class="badges"><span class="badge">คลี่รูปแบบเคลื่อนไหว</span><span class="badge">โมเดล 3 มิติหมุนได้</span><span class="badge">รูปทรงประกอบ</span><span class="badge">โจทย์ประยุกต์</span><span class="badge on">แบบฝึกหัด 32 ข้อ</span></div><section id="prism"><h2>ปริซึม: พื้นที่ผิว</h2><p><b>ปริซึม</b> คือรูปทรงสามมิติที่มีหน้าตัดสองหน้าเป็นรูปหลายเหลี่ยม
+             ที่เท่ากันทุกประการและขนานกัน เรียกหน้าทั้งสองนี้ว่า <b>ฐาน</b>
+             ส่วนหน้าที่เหลือเป็นรูปสี่เหลี่ยมมุมฉากทั้งหมด เรียกว่า <b>หน้าข้าง</b></p><p>วิธีที่ตรงที่สุดในการเข้าใจพื้นที่ผิวคือ <b>คลี่</b> รูปทรงออกบนระนาบ
+             เพราะพื้นที่ผิวก็คือพื้นที่ของรูปคลี่นั่นเอง</p><figure class="fig" data-viz="prismnet" data-w="120" data-h="70" data-len="170" data-cx="300" data-cy="150"><div class="fig-body"><svg viewBox="0 0 600 346" role="img" aria-labelledby="fig-prismnet-t fig-prismnet-d"><title id="fig-prismnet-t">การคลี่ปริซึมสี่เหลี่ยมมุมฉาก</title><desc id="fig-prismnet-d">ปริซึมสี่เหลี่ยมมุมฉากคลี่ออกเป็นรูปคลี่ที่มีหน้าข้างสี่หน้าเรียงต่อกัน และหน้าฐานสองหน้าอยู่บนและล่าง แสดงว่าพื้นที่ผิวข้างคือความยาวรอบรูปฐานคูณความสูง</desc><rect width="100%" height="100%" fill="var(--paper-2)"/><text x="30" y="32" class="t-tag">คลี่ปริซึมสี่เหลี่ยม → รูปคลี่ 6 หน้า</text><polygon points="289.4,61 459.4,61 459.4,131 289.4,131" class="f-at" data-id="back" opacity="0"/><polygon points="289.4,61 459.4,61 459.4,131 289.4,131" class="s-ink thin" pointer-events="none"/><polygon points="289.4,61 459.4,61 385,115 215,115" class="f-tt" data-id="top" opacity="1"/><polygon points="289.4,61 459.4,61 385,115 215,115" class="s-ink thin" pointer-events="none"/><polygon points="215,185 385,185 459.4,131 289.4,131" class="f-tt" data-id="bottom" opacity="1"/><polygon points="215,185 385,185 459.4,131 289.4,131" class="s-ink thin" pointer-events="none"/><polygon points="289.4,61 215,115 215,185 289.4,131" class="f-at" data-id="left" opacity="1"/><polygon points="289.4,61 215,115 215,185 289.4,131" class="s-ink thin" pointer-events="none"/><polygon points="385,115 459.4,61 459.4,131 385,185" class="f-at" data-id="right" opacity="1"/><polygon points="385,115 459.4,61 459.4,131 385,185" class="s-ink thin" pointer-events="none"/><polygon points="215,115 385,115 385,185 215,185" class="f-at" data-id="front" opacity="1"/><polygon points="215,115 385,115 385,185 215,185" class="s-ink thin" pointer-events="none"/><text x="374.4" y="100" text-anchor="middle" class="t-mono" data-id="back-lab" opacity="0">หลัง</text><text x="337.2" y="92" text-anchor="middle" class="t-mono" data-id="top-lab" opacity="0">บน</text><text x="337.2" y="162" text-anchor="middle" class="t-mono" data-id="bottom-lab" opacity="0">ล่าง</text><text x="252.2" y="127" text-anchor="middle" class="t-mono" data-id="left-lab" opacity="0">ข้างซ้าย</text><text x="422.2" y="127" text-anchor="middle" class="t-mono" data-id="right-lab" opacity="0">ข้างขวา</text><text x="300" y="154" text-anchor="middle" class="t-mono" data-id="front-lab" opacity="0">หน้า</text><text x="30" y="268" class="t-mono" data-id="f-lat">ข้างรวม = ความยาวรอบรูปฐาน × สูง = 29.0 × 7.0</text><text x="30" y="292" class="t-val" data-id="f-tot">พื้นที่ผิวทั้งหมด = 44.9 ตร.หน่วย</text><line x1="24" y1="304" x2="576" y2="304" class="s-rule"/><text x="24" y="322" class="t-tag">LEGEND</text><line x1="88" y1="318" x2="108" y2="318" class="s-ink thin"/><text x="114" y="322" class="t-mono">หน้าข้าง</text><line x1="178" y1="318" x2="198" y2="318" class="s-teal"/><text x="204" y="322" class="t-mono">หน้าฐาน</text></svg></div><div class="fig-ctrl"><button type="button" data-act="open" aria-pressed="false">คลี่ออก</button><button type="button" data-act="close" aria-pressed="true">พับกลับ</button><label for="r-t">ระดับการคลี่</label><input type="range" id="r-t" data-input="t" min="0" max="1" step="0.01" value="0"><span class="fig-readout" data-readout>รูปทรงปิด</span></div><figcaption>การคลี่ทำให้เห็นว่า <b>พื้นที่ผิวข้าง</b> ของปริซึมเป็นสี่เหลี่ยมผืนผ้า ที่มีด้านหนึ่งเท่ากับความยาวรอบรูปฐาน และอีกด้านเท่ากับความสูง</figcaption></figure><div class="box thm"><span class="box-label">สูตรพื้นที่ผิวของปริซึม</span>
+             \[\text{พื้นที่ผิวข้าง}=p\,h,\qquad
+             \text{พื้นที่ผิวทั้งหมด}=p\,h+2B\]
+             <p>โดย \(p\) คือความยาวรอบรูปฐาน, \(h\) คือความสูง (ระยะระหว่างฐานสองหน้า)
+             และ \(B\) คือพื้นที่ฐานหนึ่งหน้า</p>
+             <p>เหตุผล: เมื่อคลี่ออก หน้าข้างทุกหน้าเรียงต่อกันเป็นสี่เหลี่ยมผืนผ้าผืนเดียว
+             ที่มีด้านหนึ่งยาว \(p\) และอีกด้านยาว \(h\)</p></div><div class="box thm"><span class="box-label">สูตรปริมาตรของปริซึม</span>
+             \[V = B\,h\]
+             <p>เหตุผล: หน้าตัดขนานกับฐานทุกระดับมีรูปร่างและขนาดเท่ากันหมด
+             ปริซึมจึงเหมือนการวางฐานซ้อนขึ้นไปสูง \(h\)</p></div><figure class="fig" data-viz3d="prism" data-shape="rect"><div class="fig-body"><svg viewBox="0 0 600 300" role="img" aria-labelledby="fig-3d-prism-rect-t fig-3d-prism-rect-d" data-fallback="1"><title id="fig-3d-prism-rect-t">ปริซึมสี่เหลี่ยมมุมฉาก</title><desc id="fig-3d-prism-rect-d">ภาพฉายของปริซึมสี่เหลี่ยมมุมฉาก แสดงหน้าฐานสองหน้าและหน้าข้างสี่หน้า พร้อมกำกับความยาวฐานและความสูง</desc><rect width="100%" height="100%" fill="var(--paper-2)"/><text x="30" y="32" class="t-tag">ภาพสามมิติ (ลากเพื่อหมุน)</text><polygon points="190,200 340,200 382,166.4 232,166.4" class="f-tt"/><polygon points="190,200 340,200 340,90 190,90" class="f-at"/><polygon points="340,200 382,166.4 382,56.4 340,90" class="f-at"/><polygon points="190,90 340,90 382,56.4 232,56.4" class="f-tt"/><polygon points="190,200 340,200 382,166.4 232,166.4" class="s-ink thin"/><polygon points="190,90 340,90 382,56.4 232,56.4" class="s-ink thin"/><line x1="190" y1="200" x2="190" y2="90" class="s-ink thin"/><line x1="340" y1="200" x2="340" y2="90" class="s-ink thin"/><line x1="382" y1="166.4" x2="382" y2="56.4" class="s-ink thin"/><line x1="232" y1="166.4" x2="232" y2="56.4" class="s-ink thin"/><text x="265" y="218" text-anchor="middle" class="t-mono">ด้านฐาน</text><text x="176" y="149" text-anchor="end" class="t-mono">สูง</text></svg><canvas class="viz3d" data-3d="1" hidden></canvas></div><div class="fig-ctrl"><label for="r-a">ฐาน a</label><input type="range" id="r-a" data-input="a" min="2" max="8" step="0.5" value="5"><label for="r-b">ฐาน b</label><input type="range" id="r-b" data-input="b" min="1" max="6" step="0.5" value="3"><label for="r-h">สูง h</label><input type="range" id="r-h" data-input="h" min="1" max="8" step="0.5" value="4"><button type="button" data-act="solid" data-group="mode" aria-pressed="true">ทึบ</button><button type="button" data-act="xray" data-group="mode" aria-pressed="false">โปร่ง</button><button type="button" data-act="wire" data-group="mode" aria-pressed="false">โครงลวด</button><button type="button" data-act="slice" data-group="mode" aria-pressed="false">ผ่าครึ่ง</button><label for="r-slice">ระนาบตัด</label><input type="range" id="r-slice" data-input="slice" min="-4" max="4" step="0.1" value="0"><button type="button" data-act="spin" aria-pressed="true">หมุนอัตโนมัติ</button><span class="fig-readout" data-readout></span></div><figcaption>ลากเพื่อหมุน ปรับสไลเดอร์เพื่อดูว่าพื้นที่ผิวและปริมาตรเปลี่ยนตามมิติอย่างไร โหมด <b>ผ่าครึ่ง</b> ช่วยให้เห็นหน้าตัดที่คงรูปทุกระดับ — เหตุผลที่ปริมาตร = พื้นที่ฐาน × สูง<p class="mono" data-out="f-shape"></p><p class="mono" data-out="f-lat"></p><p class="mono" data-out="f-tot"></p><p class="mono" data-out="f-vol"></p></figcaption></figure><div class="ex"><div class="ex-head"><span class="ex-tag">ตัวอย่าง 1</span><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">ปริซึมสามเหลี่ยม</span></div><div class="ex-body">
+             ปริซึมตรงสูง \(12\) ซม. มีฐานเป็นรูปสามเหลี่ยมมุมฉากที่มีด้านประกอบมุมฉาก
+             ยาว \(6\) ซม. และ \(8\) ซม. จงหาพื้นที่ผิวทั้งหมดและปริมาตร</div><div class="ex-sol"><p class="sol-label">แนวคิดและวิธีทำ</p><ol class="steps"><li>ด้านตรงข้ามมุมฉากยาว \(\sqrt{6^{2}+8^{2}}=\sqrt{100}=10\) ซม.</li><li>พื้นที่ฐาน \(B=\tfrac12(6)(8)=24\) ตร.ซม.</li><li>ความยาวรอบรูปฐาน \(p=6+8+10=24\) ซม.</li><li>พื้นที่ผิวข้าง \(=ph=24\times12=288\) ตร.ซม.</li><li>พื้นที่ผิวทั้งหมด \(=288+2(24)=336\) ตร.ซม.</li><li>ปริมาตร \(=Bh=24\times12=288\) ลบ.ซม.</li></ol><p class="ans">พื้นที่ผิว \(336\) ตร.ซม. · ปริมาตร \(288\) ลบ.ซม.</p></div></div></section><section id="cylinder"><h2>ทรงกระบอก</h2><p>ทรงกระบอกคิดได้เหมือนปริซึมที่ฐานเป็นวงกลม สูตรจึงมีหน้าตาเดียวกัน
+             เพียงแทน \(B=\pi r^{2}\) และ \(p=2\pi r\)</p><figure class="fig" data-viz="cylnet" data-r="42" data-h="96" data-cx="150" data-cy="120"><div class="fig-body"><svg viewBox="0 0 600 250" role="img" aria-labelledby="fig-cylnet-t fig-cylnet-d"><title id="fig-cylnet-t">การคลี่ทรงกระบอก</title><desc id="fig-cylnet-d">ทรงกระบอกคลี่ออกโดยผิวข้างกลายเป็นสี่เหลี่ยมผืนผ้ากว้างเท่ากับเส้นรอบวงฐาน และสูงเท่ากับความสูงของทรงกระบอก ส่วนฐานทั้งสองเป็นวงกลมรัศมี r</desc><rect width="100%" height="100%" fill="var(--paper-2)"/><text x="30" y="32" class="t-tag">คลี่ทรงกระบอก → สี่เหลี่ยมผืนผ้า + วงกลมสองวง</text><rect x="108" y="72" width="84" height="96" class="f-at" data-id="lat"/><rect x="108" y="72" width="84" height="96" class="s-ink thin"/><ellipse data-id="top" cx="150" cy="72" rx="42" ry="13.44" class="f-tt"/><ellipse cx="150" cy="72" rx="42" ry="13.44" class="s-ink thin"/><ellipse data-id="bot" cx="150" cy="168" rx="42" ry="13.44" class="f-tt"/><ellipse cx="150" cy="168" rx="42" ry="13.44" class="s-ink thin dash-fine"/><text x="150" y="58" text-anchor="middle" class="t-mono" data-id="circ-lab" opacity="0">เส้นรอบวง = 2πr</text><text x="96" y="124" text-anchor="end" class="t-mono" data-id="gen-lab" opacity="1">h</text><text x="30" y="200" class="t-mono" data-id="f-lat">ผิวข้าง = 2πr·h = 25.3</text><text x="30" y="226" class="t-val" data-id="f-tot">ผิวทั้งหมด = 2πr(r + h) = 36.4</text></svg></div><div class="fig-ctrl"><button type="button" data-act="open" aria-pressed="false">คลี่ออก</button><button type="button" data-act="close" aria-pressed="true">พับกลับ</button><label for="r-t">ระดับการคลี่</label><input type="range" id="r-t" data-input="t" min="0" max="1" step="0.01" value="0"><span class="fig-readout" data-readout>ทรงกระบอก</span></div><figcaption>ผิวข้างของทรงกระบอกคลี่ได้เป็นสี่เหลี่ยมผืนผ้าขนาด \(2\pi r \times h\) — นี่คือที่มาของสูตร \(2\pi rh\)</figcaption></figure><div class="box thm"><span class="box-label">สูตรทรงกระบอก</span>
+             \[\text{ผิวข้าง}=2\pi r h,\qquad
+             \text{ผิวทั้งหมด}=2\pi r h+2\pi r^{2}=2\pi r(h+r),\qquad
+             V=\pi r^{2}h\]</div><figure class="fig" data-viz3d="cylinder" data-shape="rect"><div class="fig-body"><svg viewBox="0 0 600 300" role="img" aria-labelledby="fig-3d-cylinder-rect-t fig-3d-cylinder-rect-d" data-fallback="1"><title id="fig-3d-cylinder-rect-t">ทรงกระบอก</title><desc id="fig-3d-cylinder-rect-d">ภาพฉายของทรงกระบอก แสดงฐานวงกลมรัศมี r สองฐานและผิวข้าง พร้อมกำกับความสูง h</desc><rect width="100%" height="100%" fill="var(--paper-2)"/><text x="30" y="32" class="t-tag">ภาพสามมิติ (ลากเพื่อหมุน)</text><rect x="140" y="90" width="120" height="120" class="f-at"/><line x1="140" y1="90" x2="140" y2="210" class="s-ink thin"/><line x1="260" y1="90" x2="260" y2="210" class="s-ink thin"/><ellipse cx="200" cy="210.0" rx="60" ry="18.0" class="f-tt"/><ellipse cx="200" cy="210.0" rx="60" ry="18.0" class="s-ink thin"/><ellipse cx="200" cy="90.0" rx="60" ry="18.0" class="f-tt"/><ellipse cx="200" cy="90.0" rx="60" ry="18.0" class="s-ink thin"/><line x1="200" y1="90" x2="260" y2="90" class="s-muted dash"/><text x="230" y="82" text-anchor="middle" class="t-mono">r</text><text x="276" y="154" class="t-mono">h</text></svg><canvas class="viz3d" data-3d="1" hidden></canvas></div><div class="fig-ctrl"><label for="r-r">รัศมี r</label><input type="range" id="r-r" data-input="r" min="1" max="4" step="0.1" value="2.2"><label for="r-h">สูง h</label><input type="range" id="r-h" data-input="h" min="1" max="8" step="0.5" value="5"><button type="button" data-act="solid" data-group="mode" aria-pressed="true">ทึบ</button><button type="button" data-act="xray" data-group="mode" aria-pressed="false">โปร่ง</button><button type="button" data-act="wire" data-group="mode" aria-pressed="false">โครงลวด</button><button type="button" data-act="slice" data-group="mode" aria-pressed="false">ผ่าครึ่ง</button><label for="r-slice">ระนาบตัด</label><input type="range" id="r-slice" data-input="slice" min="-4" max="4" step="0.1" value="0"><button type="button" data-act="spin" aria-pressed="true">หมุนอัตโนมัติ</button><span class="fig-readout" data-readout></span></div><figcaption>ลากเพื่อหมุน ปรับสไลเดอร์เพื่อดูว่าพื้นที่ผิวและปริมาตรเปลี่ยนตามมิติอย่างไร โหมด <b>ผ่าครึ่ง</b> ช่วยให้เห็นหน้าตัดที่คงรูปทุกระดับ — เหตุผลที่ปริมาตร = พื้นที่ฐาน × สูง<p class="mono" data-out="f-shape"></p><p class="mono" data-out="f-lat"></p><p class="mono" data-out="f-tot"></p><p class="mono" data-out="f-vol"></p></figcaption></figure><div class="ex"><div class="ex-head"><span class="ex-tag">ตัวอย่าง 2</span><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">ทรงกระบอก</span></div><div class="ex-body">
+             กระป๋องทรงกระบอกมีเส้นผ่านศูนย์กลาง \(14\) ซม. สูง \(20\) ซม.
+             จงหาปริมาตรและพื้นที่ผิวทั้งหมด (ใช้ \(\pi=\tfrac{22}{7}\))</div><div class="ex-sol"><p class="sol-label">แนวคิดและวิธีทำ</p><ol class="steps"><li>รัศมี \(r=\tfrac{14}{2}=7\) ซม.</li><li>\(V=\pi r^{2}h=\tfrac{22}{7}(7^{2})(20)=\tfrac{22}{7}(49)(20)=22\times7\times20=3080\) ลบ.ซม.</li><li>ผิวข้าง \(=2\pi rh=2\cdot\tfrac{22}{7}\cdot7\cdot20=880\) ตร.ซม.</li><li>ผิวฐานสองหน้า \(=2\pi r^{2}=2\cdot\tfrac{22}{7}\cdot49=308\) ตร.ซม.</li><li>ผิวทั้งหมด \(=880+308=1188\) ตร.ซม.</li></ol><p class="ans">\(V=3080\) ลบ.ซม. · ผิวทั้งหมด \(1188\) ตร.ซม.</p></div></div><div class="ex"><div class="ex-head"><span class="ex-tag">ตัวอย่าง 3</span><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">เปลี่ยนมิติ</span></div><div class="ex-body">
+             ทรงกระบอกหนึ่งถูกเปลี่ยนขนาดโดย <b>เพิ่มรัศมีเป็นสองเท่า</b> และ
+             <b>ลดความสูงลงครึ่งหนึ่ง</b> ปริมาตรและพื้นที่ผิวข้างเปลี่ยนไปเป็นกี่เท่าของเดิม</div><div class="ex-sol"><p class="sol-label">แนวคิดและวิธีทำ</p><ol class="steps"><li>ให้เดิม \(r,h\) ใหม่เป็น \(2r,\tfrac{h}{2}\)</li><li>ปริมาตรใหม่ \(=\pi(2r)^{2}\left(\tfrac h2\right)
+                 =\pi\cdot4r^{2}\cdot\tfrac h2=2\pi r^{2}h\)</li><li>เทียบกับเดิม \(\pi r^{2}h\) ได้ \(2\) เท่า</li><li>ผิวข้างใหม่ \(=2\pi(2r)\left(\tfrac h2\right)=2\pi rh\)
+                 ซึ่งเท่ากับเดิมพอดี</li><li>ข้อสังเกต: รัศมีมีผลต่อปริมาตรแบบ <i>กำลังสอง</i>
+                 แต่มีผลต่อผิวข้างแบบ <i>กำลังหนึ่ง</i> จึงหักล้างกับความสูงได้พอดี</li></ol><p class="ans">ปริมาตรเป็น \(2\) เท่า · พื้นที่ผิวข้างเท่าเดิม</p></div></div></section><section id="composite"><h2>รูปทรงประกอบและรูปทรงที่ถูกเจาะ</h2><p>โจทย์ระดับยากมักให้รูปทรงที่เกิดจากการ <b>ต่อ</b> หรือ <b>เจาะ</b>
+             รูปทรงพื้นฐานเข้าด้วยกัน หลักคิดมีสองข้อ</p><div class="box trick"><span class="box-label">หลักคิดรูปทรงประกอบ</span>
+             <ol>
+             <li><b>ปริมาตรบวกลบได้ตรง ๆ</b> ปริมาตรรวม = ผลบวกของชิ้นส่วน
+             (หรือลบส่วนที่ถูกเจาะออก)</li>
+             <li><b>พื้นที่ผิวบวกลบตรง ๆ ไม่ได้</b> ต้องไล่ดูว่าหน้าไหน
+             “โดนปิด” แล้วไม่เป็นผิวนอกอีก และหน้าไหน “เกิดใหม่” จากรอยเจาะ</li>
+             </ol></div><div class="ex"><div class="ex-head"><span class="ex-tag">ตัวอย่าง 4</span><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">ท่อกลวง</span></div><div class="ex-body">
+             ท่อเหล็กทรงกระบอกกลวงยาว \(50\) ซม. มีรัศมีภายนอก \(5\) ซม.
+             และรัศมีภายใน \(4\) ซม.
+             <br>(ก) จงหาปริมาตรของเหล็กที่ใช้
+             <br>(ข) จงหาพื้นที่ผิวทั้งหมดของท่อ (รวมผิวนอก ผิวใน และวงแหวนหัวท้าย)
+             <br>ใช้ \(\pi\approx3.14\)</div><div class="ex-sol"><p class="sol-label">แนวคิดและวิธีทำ</p><ol class="steps"><li>(ก) ปริมาตรเหล็ก = ปริมาตรทรงกระบอกนอก − ปริมาตรทรงกระบอกใน
+                 \[V=\pi(5^{2})(50)-\pi(4^{2})(50)=\pi(50)(25-16)=450\pi\]</li><li>\(450\pi\approx450(3.14)=1413\) ลบ.ซม.</li><li>(ข) ผิวนอก \(=2\pi(5)(50)=500\pi\)</li><li>ผิวใน \(=2\pi(4)(50)=400\pi\)</li><li>วงแหวนหัวท้ายสองวง \(=2\left[\pi(5^{2})-\pi(4^{2})\right]
+                 =2\pi(9)=18\pi\)</li><li>รวม \(=500\pi+400\pi+18\pi=918\pi\approx918(3.14)=2882.5\) ตร.ซม.</li></ol><p class="ans">(ก) \(450\pi\approx1413\) ลบ.ซม.&nbsp;&nbsp;(ข) \(918\pi\approx2882.5\) ตร.ซม.</p></div></div><div class="ex"><div class="ex-head"><span class="ex-tag">ตัวอย่าง 5</span><span class="ex-lvl apply">ประยุกต์</span><span class="ex-lvl">ประยุกต์</span></div><div class="ex-body">
+             สระน้ำรูปปริซึมมีฐานเป็นรูปสี่เหลี่ยมคางหมู ด้านขนานยาว \(2\) ม. และ
+             \(4\) ม. สูง (ระยะระหว่างด้านขนาน) \(3\) ม. สระยาว \(10\) ม.
+             <br>(ก) สระจุน้ำได้กี่ลูกบาศก์เมตร และกี่ลิตร
+             <br>(ข) ถ้าเติมน้ำด้วยอัตรา \(250\) ลิตรต่อนาที จะใช้เวลากี่ชั่วโมง</div><div class="ex-sol"><p class="sol-label">แนวคิดและวิธีทำ</p><ol class="steps"><li>(ก) พื้นที่ฐาน (สี่เหลี่ยมคางหมู)
+                 \(B=\tfrac12(2+4)(3)=9\) ตร.ม.</li><li>ปริมาตร \(V=Bh=9\times10=90\) ลบ.ม.</li><li>\(1\) ลบ.ม. \(=1000\) ลิตร ดังนั้น \(90\) ลบ.ม. \(=90\,000\) ลิตร</li><li>(ข) เวลา \(=\dfrac{90\,000}{250}=360\) นาที \(=6\) ชั่วโมง</li></ol><p class="ans">(ก) \(90\) ลบ.ม. \(=90\,000\) ลิตร&nbsp;&nbsp;(ข) \(6\) ชั่วโมง</p></div></div><div class="box note"><span class="box-label">การเปลี่ยนหน่วย</span>
+             <p>หน่วยพื้นที่และปริมาตรเปลี่ยนไม่เท่ากับหน่วยความยาว</p>
+             \[1\ \text{ม.}=100\ \text{ซม.}\quad\Rightarrow\quad
+             1\ \text{ตร.ม.}=10^{4}\ \text{ตร.ซม.},\quad
+             1\ \text{ลบ.ม.}=10^{6}\ \text{ลบ.ซม.}\]
+             <p>และ \(1\) ลิตร \(=1000\) ลบ.ซม. \(=1\) ลบ.ดม.</p></div></section><section id="drill" class="drill"><div class="drill-head"><h3>แบบฝึกหัดท้ายบท</h3><span class="drill-stat">แสดง 32 / 32 ข้อ</span></div><p>โจทย์เรียงจากปานกลางไปยาก และปิดท้ายด้วยโจทย์ประยุกต์ ลองทำด้วยตัวเองให้ครบก่อนเปิดเฉลย</p><div class="drill-filter"><button class="btn" type="button" data-filter="all" aria-pressed="true">ทั้งหมด (32)</button><button class="btn" type="button" data-filter="med" aria-pressed="false">ปานกลาง (12)</button><button class="btn" type="button" data-filter="hard" aria-pressed="false">ยาก (12)</button><button class="btn" type="button" data-filter="apply" aria-pressed="false">ประยุกต์ (8)</button><button class="btn" type="button" data-sol-all="show">เปิดเฉลยทั้งหมด</button><button class="btn" type="button" data-sol-all="hide">ปิดเฉลยทั้งหมด</button></div><div class="q" data-lvl="med"><div class="qn">1.</div><div class="qbody">ปริซึมสี่เหลี่ยมมุมฉากมีขนาด
+         \(8\times5\times12\) ซม. จงหาพื้นที่ผิวทั้งหมดและปริมาตร</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">ปริซึม</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u2-solids-s1">ดูเฉลย</button></div><div class="qsol" id="u2-solids-s1" hidden>ผิวทั้งหมด \(=2(8\cdot5+5\cdot12+8\cdot12)=2(40+60+96)=392\) ตร.ซม.
+             <br>ปริมาตร \(=8\cdot5\cdot12=480\) ลบ.ซม.</div></div><div class="q" data-lvl="med"><div class="qn">2.</div><div class="qbody">ปริซึมตรงสูง \(15\) ซม. มีฐานเป็นรูปสามเหลี่ยม
+         ด้านเท่าที่มีด้านยาว \(10\) ซม. จงหาพื้นที่ผิวข้าง และพื้นที่ผิวทั้งหมด
+         (ใช้ \(\sqrt3\approx1.732\))</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">ปริซึม</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u2-solids-s2">ดูเฉลย</button></div><div class="qsol" id="u2-solids-s2" hidden>\(p=30\) ซม. ผิวข้าง \(=30\times15=450\) ตร.ซม.
+             <br>พื้นที่ฐาน \(=\tfrac{\sqrt3}{4}(10^{2})=25\sqrt3\approx43.3\) ตร.ซม.
+             <br>ผิวทั้งหมด \(\approx450+2(43.3)=536.6\) ตร.ซม.</div></div><div class="q" data-lvl="med"><div class="qn">3.</div><div class="qbody">ทรงกระบอกมีรัศมี \(10\) ซม. สูง \(21\) ซม.
+         จงหาปริมาตร (ใช้ \(\pi=\tfrac{22}{7}\))</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">ทรงกระบอก</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u2-solids-s3">ดูเฉลย</button></div><div class="qsol" id="u2-solids-s3" hidden>\(V=\tfrac{22}{7}(100)(21)=22\times100\times3=6600\) ลบ.ซม.</div></div><div class="q" data-lvl="med"><div class="qn">4.</div><div class="qbody">ทรงกระบอกมีพื้นที่ผิวข้าง \(132\) ตร.ซม.
+         และสูง \(6\) ซม. จงหารัศมี (ใช้ \(\pi=\tfrac{22}{7}\))</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">ทรงกระบอก</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u2-solids-s4">ดูเฉลย</button></div><div class="qsol" id="u2-solids-s4" hidden>\(2\pi rh=132\Rightarrow 2\cdot\tfrac{22}{7}\cdot r\cdot6=132\)
+             <br>\(\tfrac{264}{7}r=132\Rightarrow r=\dfrac{132\times7}{264}=3.5\) ซม.</div></div><div class="q" data-lvl="med"><div class="qn">5.</div><div class="qbody">ปริซึมสี่เหลี่ยมมุมฉากมีปริมาตร \(360\) ลบ.ซม.
+         ฐานเป็นรูปสี่เหลี่ยมจัตุรัสด้านยาว \(6\) ซม. จงหาความสูงและพื้นที่ผิวทั้งหมด</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">ย้อนกลับ</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u2-solids-s5">ดูเฉลย</button></div><div class="qsol" id="u2-solids-s5" hidden>\(36h=360\Rightarrow h=10\) ซม.
+             <br>ผิวทั้งหมด \(=2(36)+4(6\times10)=72+240=312\) ตร.ซม.</div></div><div class="q" data-lvl="med"><div class="qn">6.</div><div class="qbody">ถังทรงกระบอกมีรัศมี \(0.5\) ม. สูง \(1.4\) ม.
+         จุน้ำได้กี่ลิตร (ใช้ \(\pi=\tfrac{22}{7}\))</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">หน่วย</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u2-solids-s6">ดูเฉลย</button></div><div class="qsol" id="u2-solids-s6" hidden>\(V=\tfrac{22}{7}(0.25)(1.4)=\tfrac{22}{7}(0.35)=1.1\) ลบ.ม.
+             <br>\(=1.1\times1000=1100\) ลิตร</div></div><div class="q" data-lvl="med"><div class="qn">7.</div><div class="qbody">รูปคลี่ของทรงกระบอกหนึ่ง มีผิวข้างเป็น
+         สี่เหลี่ยมผืนผ้าขนาด \(44\times10\) ซม. จงหารัศมีและปริมาตรของทรงกระบอกนั้น
+         (ใช้ \(\pi=\tfrac{22}{7}\))</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">รูปคลี่</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u2-solids-s7">ดูเฉลย</button></div><div class="qsol" id="u2-solids-s7" hidden>ด้านยาว \(44\) คือเส้นรอบวงฐาน: \(2\pi r=44\Rightarrow r=7\) ซม.
+             <br>สูง \(h=10\) ซม. ปริมาตร \(=\tfrac{22}{7}(49)(10)=1540\) ลบ.ซม.</div></div><div class="q" data-lvl="med"><div class="qn">8.</div><div class="qbody">ปริซึมตรงมีฐานเป็นรูปสี่เหลี่ยมคางหมู
+         ด้านขนานยาว \(5\) และ \(9\) ซม. สูง \(4\) ซม. ปริซึมยาว \(12\) ซม.
+         จงหาปริมาตร</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">ปริซึม</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u2-solids-s8">ดูเฉลย</button></div><div class="qsol" id="u2-solids-s8" hidden>\(B=\tfrac12(5+9)(4)=28\) ตร.ซม. ดังนั้น \(V=28\times12=336\) ลบ.ซม.</div></div><div class="q" data-lvl="med"><div class="qn">9.</div><div class="qbody">ทรงกระบอก A มีรัศมี \(3\) ซม. สูง \(8\) ซม.
+         ทรงกระบอก B มีรัศมี \(4\) ซม. สูง \(6\) ซม. อันไหนจุได้มากกว่าและมากกว่ากี่เท่า</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">เปรียบเทียบ</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u2-solids-s9">ดูเฉลย</button></div><div class="qsol" id="u2-solids-s9" hidden>\(V_A=\pi(9)(8)=72\pi\) และ \(V_B=\pi(16)(6)=96\pi\)
+             <br>B มากกว่า โดย \(\dfrac{96}{72}=\dfrac43\approx1.33\) เท่า</div></div><div class="q" data-lvl="med"><div class="qn">10.</div><div class="qbody">กล่องไม้ทรงสี่เหลี่ยมมุมฉากขนาด
+         \(30\times20\times15\) ซม. ไม่มีฝาปิดด้านบน จะทาสีทั้งด้านนอก
+         ต้องทาสีกี่ตารางเซนติเมตร</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">ทาสี</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u2-solids-s10">ดูเฉลย</button></div><div class="qsol" id="u2-solids-s10" hidden>ไม่มีฝาบน จึงมีฐานล่าง 1 หน้า + ข้าง 4 หน้า
+             <br>\(=30(20)+2(30\times15)+2(20\times15)=600+900+600=2100\) ตร.ซม.</div></div><div class="q" data-lvl="hard"><div class="qn">11.</div><div class="qbody">รูปทรงหนึ่งเกิดจากปริซึมสี่เหลี่ยมมุมฉาก
+         ขนาด \(10\times10\times4\) ซม. วางทับด้วยปริซึมสี่เหลี่ยมมุมฉากขนาด
+         \(6\times6\times5\) ซม. ให้ฐานบนของก้อนล่างรองรับก้อนบนตรงกลางพอดี
+         <br>จงหาปริมาตรรวมและพื้นที่ผิวทั้งหมดของรูปทรงที่ได้</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">รูปทรงประกอบ</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u2-solids-s11">ดูเฉลย</button></div><div class="qsol" id="u2-solids-s11" hidden><b>ปริมาตร</b> \(=10(10)(4)+6(6)(5)=400+180=580\) ลบ.ซม.
+             <br><b>พื้นที่ผิว</b> นับทีละส่วน
+             <br>ก้อนล่าง: ฐานล่าง \(100\) + ข้างสี่หน้า \(4(10\times4)=160\)
+             + ฐานบนที่ยังเปิดอยู่ \(100-36=64\)
+             <br>ก้อนบน: ข้างสี่หน้า \(4(6\times5)=120\) + หน้าบน \(36\)
+             <br>รวม \(=100+160+64+120+36=480\) ตร.ซม.</div></div><div class="q" data-lvl="hard"><div class="qn">12.</div><div class="qbody">ลูกบาศก์ด้านยาว \(10\) ซม. ถูกเจาะทะลุ
+         ด้วยรูทรงกระบอกรัศมี \(2\) ซม. ตามแนวตั้งฉากกับหน้าบน
+         <br>จงหาปริมาตรที่เหลือ และพื้นที่ผิวทั้งหมดของชิ้นงาน (ใช้ \(\pi\approx3.14\))</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">เจาะรู</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u2-solids-s12">ดูเฉลย</button></div><div class="qsol" id="u2-solids-s12" hidden><b>ปริมาตร</b> \(=1000-\pi(4)(10)=1000-40\pi\approx874.4\) ลบ.ซม.
+             <br><b>พื้นที่ผิว</b>
+             <br>ข้างลูกบาศก์สี่หน้า \(=4(100)=400\)
+             <br>หน้าบนและล่างที่เหลือ \(=2(100-4\pi)=200-8\pi\)
+             <br>ผิวในของรู \(=2\pi(2)(10)=40\pi\)
+             <br>รวม \(=400+200-8\pi+40\pi=600+32\pi\approx700.5\) ตร.ซม.</div></div><div class="q" data-lvl="hard"><div class="qn">13.</div><div class="qbody">ทรงกระบอกมีปริมาตร \(1584\) ลบ.ซม.
+         และพื้นที่ผิวข้าง \(528\) ตร.ซม. จงหารัศมีและความสูง
+         (ใช้ \(\pi=\tfrac{22}{7}\))</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">ย้อนกลับ</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u2-solids-s13">ดูเฉลย</button></div><div class="qsol" id="u2-solids-s13" hidden>\(\dfrac{V}{\text{ผิวข้าง}}=\dfrac{\pi r^{2}h}{2\pi rh}=\dfrac r2\)
+             <br>ดังนั้น \(\dfrac{1584}{528}=3=\dfrac r2\Rightarrow r=6\) ซม.
+             <br>แทนใน \(2\pi rh=528\): \(2\cdot\tfrac{22}{7}\cdot6\cdot h=528
+             \Rightarrow \tfrac{264}{7}h=528\Rightarrow h=14\) ซม.</div></div><div class="q" data-lvl="hard"><div class="qn">14.</div><div class="qbody">แท่งโลหะทรงกระบอกรัศมี \(6\) ซม.
+         สูง \(10\) ซม. ถูกหลอมแล้วหล่อใหม่เป็นลวดทรงกระบอกรัศมี \(0.2\) ซม.
+         จงหาความยาวของลวด (ปริมาตรคงที่)</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">เปลี่ยนรูป</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u2-solids-s14">ดูเฉลย</button></div><div class="qsol" id="u2-solids-s14" hidden>\(\pi(36)(10)=\pi(0.04)L\Rightarrow L=\dfrac{360}{0.04}=9000\) ซม.
+             <br>คือยาว \(90\) เมตร</div></div><div class="q" data-lvl="hard"><div class="qn">15.</div><div class="qbody">ปริซึมสองรูปคล้ายกัน โดยด้านที่สมนัยกันมี
+         อัตราส่วน \(2:3\) จงหาอัตราส่วนของพื้นที่ผิวและอัตราส่วนของปริมาตร</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">อัตราส่วน</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u2-solids-s15">ดูเฉลย</button></div><div class="qsol" id="u2-solids-s15" hidden>ความยาวเป็น \(k=\tfrac23\) พื้นที่แปรตาม \(k^{2}\) และปริมาตรแปรตาม \(k^{3}\)
+             <br>พื้นที่ผิว \(=4:9\) และปริมาตร \(=8:27\)</div></div><div class="q" data-lvl="hard"><div class="qn">16.</div><div class="qbody">ปริซึมตรงมีฐานเป็นรูปหกเหลี่ยมด้านเท่ามุมเท่า
+         ด้านยาว \(4\) ซม. และสูง \(9\) ซม.
+         จงหาพื้นที่ผิวทั้งหมด (ใช้ \(\sqrt3\approx1.732\))</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">หน้าตัด</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u2-solids-s16">ดูเฉลย</button></div><div class="qsol" id="u2-solids-s16" hidden>พื้นที่ฐาน \(=\tfrac{3\sqrt3}{2}(4^{2})=24\sqrt3\approx41.57\) ตร.ซม.
+             <br>\(p=6(4)=24\) ซม. ผิวข้าง \(=24\times9=216\) ตร.ซม.
+             <br>ผิวทั้งหมด \(\approx216+2(41.57)=299.1\) ตร.ซม.</div></div><div class="q" data-lvl="hard"><div class="qn">17.</div><div class="qbody">ปริซึมสี่เหลี่ยมมุมฉากมีฐานเป็นรูปสี่เหลี่ยมจัตุรัส
+         ด้านยาว \(x\) ซม. และสูง \(h\) ซม. ถ้าพื้นที่ผิวทั้งหมดเท่ากับ \(150\) ตร.ซม.
+         จงเขียนปริมาตรเป็นฟังก์ชันของ \(x\)</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">ตัวแปร</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u2-solids-s17">ดูเฉลย</button></div><div class="qsol" id="u2-solids-s17" hidden>ผิวทั้งหมด \(2x^{2}+4xh=150\Rightarrow h=\dfrac{150-2x^{2}}{4x}\)
+             <br>ปริมาตร \(V=x^{2}h=x^{2}\cdot\dfrac{150-2x^{2}}{4x}
+             =\dfrac{x(150-2x^{2})}{4}=\dfrac{75x}{2}-\dfrac{x^{3}}{2}\)</div></div><div class="q" data-lvl="hard"><div class="qn">18.</div><div class="qbody">ตู้ปลารูปปริซึมสี่เหลี่ยมมุมฉากฐาน
+         \(60\times40\) ซม. สูง \(50\) ซม. มีน้ำอยู่สูง \(30\) ซม.
+         <br>ถ้าหย่อนก้อนหินปริมาตร \(4800\) ลบ.ซม. ลงไปจนจมมิด
+         ระดับน้ำสูงขึ้นกี่เซนติเมตร</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">น้ำเอียง</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u2-solids-s18">ดูเฉลย</button></div><div class="qsol" id="u2-solids-s18" hidden>น้ำที่ถูกแทนที่ = ปริมาตรหิน \(=4800\) ลบ.ซม.
+             <br>พื้นที่ฐาน \(=60\times40=2400\) ตร.ซม.
+             <br>ระดับสูงขึ้น \(=\dfrac{4800}{2400}=2\) ซม. (ระดับใหม่ \(32\) ซม. ยังไม่ล้น)</div></div><div class="q" data-lvl="hard"><div class="qn">19.</div><div class="qbody">ท่อระบายน้ำทำจากปริซึมสี่เหลี่ยมมุมฉากตัน
+         ขนาด \(40\times30\times100\) ซม. ถูกเจาะช่องทรงกระบอกรัศมี \(10\) ซม.
+         ทะลุตามความยาว \(100\) ซม.
+         จงหาปริมาตรคอนกรีตที่ใช้ (ใช้ \(\pi\approx3.14\))</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">รูปทรงประกอบ</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u2-solids-s19">ดูเฉลย</button></div><div class="qsol" id="u2-solids-s19" hidden>\(V=40(30)(100)-\pi(10^{2})(100)=120\,000-10\,000\pi\)
+             <br>\(\approx120\,000-31\,400=88\,600\) ลบ.ซม. \(=0.0886\) ลบ.ม.</div></div><div class="q" data-lvl="hard"><div class="qn">20.</div><div class="qbody">กล่องทรงสี่เหลี่ยมมุมฉากฐานจัตุรัส
+         ไม่มีฝาบน ต้องจุของได้ \(500\) ลบ.ซม.
+         ถ้าฐานยาว \(10\) ซม. จงหาพื้นที่วัสดุที่ใช้
+         และเทียบกับกรณีฐานยาว \(5\) ซม. ว่าแบบใดใช้วัสดุน้อยกว่า</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">ประหยัดวัสดุ</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u2-solids-s20">ดูเฉลย</button></div><div class="qsol" id="u2-solids-s20" hidden><b>ฐาน 10 ซม.</b>: \(h=\dfrac{500}{100}=5\) ซม.
+             วัสดุ \(=100+4(10\times5)=100+200=300\) ตร.ซม.
+             <br><b>ฐาน 5 ซม.</b>: \(h=\dfrac{500}{25}=20\) ซม.
+             วัสดุ \(=25+4(5\times20)=25+400=425\) ตร.ซม.
+             <br>ฐาน \(10\) ซม. ใช้วัสดุน้อยกว่า \(125\) ตร.ซม.</div></div><div class="q" data-lvl="hard"><div class="qn">21.</div><div class="qbody">รูปสี่เหลี่ยมผืนผ้าขนาด \(24\times16\) ซม.
+         ถูกม้วนเป็นผิวข้างของทรงกระบอก ทำได้ 2 แบบ (ม้วนตามด้านยาวหรือด้านสั้น)
+         <br>ทรงกระบอกแบบใดมีปริมาตรมากกว่า และมากกว่ากี่เท่า (ใช้ \(\pi=\tfrac{22}{7}\))</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">คลี่รูป</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u2-solids-s21">ดูเฉลย</button></div><div class="qsol" id="u2-solids-s21" hidden><b>แบบ 1</b> เส้นรอบวง \(=24\Rightarrow r=\tfrac{24}{2\pi}=\tfrac{84}{22}=\tfrac{42}{11}\),
+             \(h=16\)
+             <br>\(V_1=\pi r^{2}h=\dfrac{(2\pi r)^{2}h}{4\pi}=\dfrac{24^{2}(16)}{4\pi}
+             =\dfrac{9216}{4\pi}=\dfrac{2304}{\pi}\)
+             <br><b>แบบ 2</b> เส้นรอบวง \(=16\), \(h=24\):
+             \(V_2=\dfrac{16^{2}(24)}{4\pi}=\dfrac{6144}{4\pi}=\dfrac{1536}{\pi}\)
+             <br>\(\dfrac{V_1}{V_2}=\dfrac{2304}{1536}=\dfrac32\)
+             <br>แบบที่ม้วนให้เส้นรอบวงยาว (แบบ 1) มีปริมาตรมากกว่า \(1.5\) เท่า</div></div><div class="q" data-lvl="apply"><div class="qn">22.</div><div class="qbody">ถังเก็บน้ำทรงกระบอกรัศมี \(1.4\) ม.
+         สูง \(2\) ม. ต้องทาสีกันรั่วทั้งผิวข้างและฐานล่าง
+         <br>สี 1 ลิตรทาได้ \(8\) ตร.ม. ต้องซื้อสีกี่ลิตร (ปัดขึ้นเป็นจำนวนเต็ม)
+         ใช้ \(\pi=\tfrac{22}{7}\)</div><div class="qmeta"><span class="ex-lvl apply">ประยุกต์</span><span class="ex-lvl">ประยุกต์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u2-solids-s22">ดูเฉลย</button></div><div class="qsol" id="u2-solids-s22" hidden>ผิวข้าง \(=2\pi rh=2\cdot\tfrac{22}{7}\cdot1.4\cdot2=17.6\) ตร.ม.
+             <br>ฐานล่าง \(=\pi r^{2}=\tfrac{22}{7}(1.96)=6.16\) ตร.ม.
+             <br>รวม \(=23.76\) ตร.ม. ต้องใช้สี \(\dfrac{23.76}{8}=2.97\) ลิตร
+             <br>ซื้อ \(3\) ลิตร</div></div><div class="q" data-lvl="apply"><div class="qn">23.</div><div class="qbody">แท่งน้ำแข็งรูปปริซึมสี่เหลี่ยมมุมฉาก
+         \(20\times20\times50\) ซม. ละลายกลายเป็นน้ำ โดยน้ำแข็งมีความหนาแน่น
+         \(0.92\) เท่าของน้ำ (ปริมาตรน้ำที่ได้ = \(0.92\) เท่าของปริมาตรน้ำแข็ง)
+         <br>จะได้น้ำกี่ลิตร</div><div class="qmeta"><span class="ex-lvl apply">ประยุกต์</span><span class="ex-lvl">ประยุกต์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u2-solids-s23">ดูเฉลย</button></div><div class="qsol" id="u2-solids-s23" hidden>ปริมาตรน้ำแข็ง \(=20(20)(50)=20\,000\) ลบ.ซม.
+             <br>ปริมาตรน้ำ \(=0.92\times20\,000=18\,400\) ลบ.ซม.
+             <br>\(=18.4\) ลิตร</div></div><div class="q" data-lvl="apply"><div class="qn">24.</div><div class="qbody">โรงงานผลิตกระป๋องทรงกระบอกฐานรัศมี \(4\) ซม.
+         สูง \(12\) ซม. บรรจุในกล่องปริซึมสี่เหลี่ยมมุมฉากพอดี \(3\times4\) กระป๋อง
+         วางตั้งชั้นเดียว
+         <br>(ก) กล่องมีขนาดเท่าใด
+         <br>(ข) ช่องว่างในกล่องเป็นกี่เปอร์เซ็นต์ของปริมาตรกล่อง (ใช้ \(\pi\approx3.14\))</div><div class="qmeta"><span class="ex-lvl apply">ประยุกต์</span><span class="ex-lvl">ประยุกต์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u2-solids-s24">ดูเฉลย</button></div><div class="qsol" id="u2-solids-s24" hidden>(ก) กระป๋องเส้นผ่านศูนย์กลาง \(8\) ซม. ดังนั้นกล่องกว้าง
+             \(3\times8=24\) ซม. ยาว \(4\times8=32\) ซม. สูง \(12\) ซม.
+             <br>(ข) ปริมาตรกล่อง \(=24(32)(12)=9216\) ลบ.ซม.
+             <br>ปริมาตรกระป๋อง 12 ใบ \(=12\times\pi(16)(12)=2304\pi\approx7234.6\) ลบ.ซม.
+             <br>ช่องว่าง \(=9216-7234.6=1981.4\) ลบ.ซม.
+             <br>\(\dfrac{1981.4}{9216}\times100\approx21.5\%\)</div></div><div class="q" data-lvl="apply"><div class="qn">25.</div><div class="qbody">สวนหลังบ้านต้องการถมดินเป็นรูปปริซึม
+         ฐานสี่เหลี่ยมผืนผ้า \(12\times8\) ม. หนา \(25\) ซม.
+         <br>(ก) ต้องใช้ดินกี่ลูกบาศก์เมตร
+         <br>(ข) รถบรรทุกจุดินได้ \(6\) ลบ.ม. ต่อเที่ยว ต้องวิ่งกี่เที่ยว
+         <br>(ค) ถ้าดิน 1 ลบ.ม. ราคา \(350\) บาท ค่าดินทั้งหมดเท่าไร</div><div class="qmeta"><span class="ex-lvl apply">ประยุกต์</span><span class="ex-lvl">ประยุกต์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u2-solids-s25">ดูเฉลย</button></div><div class="qsol" id="u2-solids-s25" hidden>(ก) หนา \(25\) ซม. \(=0.25\) ม.
+             ปริมาตร \(=12\times8\times0.25=24\) ลบ.ม.
+             <br>(ข) \(\dfrac{24}{6}=4\) เที่ยว
+             <br>(ค) \(24\times350=8400\) บาท</div></div><div class="q" data-lvl="apply"><div class="qn">26.</div><div class="qbody">ถังน้ำทรงกระบอกวางตั้ง รัศมี \(30\) ซม.
+         มีน้ำสูง \(80\) ซม. เปิดก๊อกปล่อยน้ำออกในอัตรา \(3\) ลิตรต่อนาที
+         <br>(ก) ในถังมีน้ำกี่ลิตร (ใช้ \(\pi\approx3.14\))
+         <br>(ข) ระดับน้ำลดลงกี่เซนติเมตรในเวลา \(10\) นาที</div><div class="qmeta"><span class="ex-lvl apply">ประยุกต์</span><span class="ex-lvl">ประยุกต์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u2-solids-s26">ดูเฉลย</button></div><div class="qsol" id="u2-solids-s26" hidden>(ก) \(V=\pi(900)(80)=72\,000\pi\approx226\,080\) ลบ.ซม.
+             \(\approx226.1\) ลิตร
+             <br>(ข) ปล่อยออก \(3\times10=30\) ลิตร \(=30\,000\) ลบ.ซม.
+             <br>พื้นที่ฐาน \(=900\pi\approx2826\) ตร.ซม.
+             <br>ระดับลด \(=\dfrac{30\,000}{2826}\approx10.6\) ซม.</div></div><div class="q" data-lvl="apply"><div class="qn">27.</div><div class="qbody">กล่องของขวัญทรงลูกบาศก์ด้านยาว \(20\) ซม.
+         ต้องห่อด้วยกระดาษโดยเผื่อซ้อนทับเพิ่ม \(10\%\) ของพื้นที่ผิว
+         และผูกริบบิ้นรอบกล่องสองวงตั้งฉากกัน เผื่อผูกโบว์เพิ่ม \(30\) ซม.
+         <br>จงหาพื้นที่กระดาษและความยาวริบบิ้นที่ต้องใช้</div><div class="qmeta"><span class="ex-lvl apply">ประยุกต์</span><span class="ex-lvl">ประยุกต์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u2-solids-s27">ดูเฉลย</button></div><div class="qsol" id="u2-solids-s27" hidden>พื้นที่ผิว \(=6(20^{2})=2400\) ตร.ซม.
+             <br>เผื่อ \(10\%\): \(2400\times1.1=2640\) ตร.ซม.
+             <br>ริบบิ้นหนึ่งวงรอบกล่อง \(=4\times20=80\) ซม. สองวง \(=160\) ซม.
+             <br>รวมเผื่อโบว์ \(=160+30=190\) ซม.</div></div><div class="q" data-lvl="apply"><div class="qn">28.</div><div class="qbody">บ่อเลี้ยงปลารูปปริซึมฐานสี่เหลี่ยมผืนผ้า
+         \(5\times3\) ม. ลึก \(1.2\) ม. ต้องปูกระเบื้องทั้งก้นบ่อและผนังด้านในทั้งสี่ด้าน
+         <br>(ก) ปูกระเบื้องกี่ตารางเมตร
+         <br>(ข) กระเบื้องขนาด \(30\times30\) ซม. ต้องใช้กี่แผ่น (เผื่อแตก \(5\%\), ปัดขึ้น)</div><div class="qmeta"><span class="ex-lvl apply">ประยุกต์</span><span class="ex-lvl">ประยุกต์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u2-solids-s28">ดูเฉลย</button></div><div class="qsol" id="u2-solids-s28" hidden>(ก) ก้นบ่อ \(=5\times3=15\) ตร.ม.
+             <br>ผนัง \(=2(5\times1.2)+2(3\times1.2)=12+7.2=19.2\) ตร.ม.
+             <br>รวม \(=34.2\) ตร.ม.
+             <br>(ข) กระเบื้องแผ่นละ \(0.3\times0.3=0.09\) ตร.ม.
+             <br>จำนวน \(=\dfrac{34.2}{0.09}=380\) แผ่น เผื่อ \(5\%\):
+             \(380\times1.05=399\) แผ่น</div></div><div class="q" data-lvl="med"><div class="qn">29.</div><div class="qbody">ปริซึมตรงมีฐานเป็นรูปสี่เหลี่ยมรูปว่าว
+         ที่มีเส้นทแยงมุมยาว \(10\) ซม. และ \(14\) ซม. ตัดกันเป็นมุมฉาก
+         ปริซึมสูง \(8\) ซม. จงหาปริมาตร</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">ปริซึม</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u2-solids-s29">ดูเฉลย</button></div><div class="qsol" id="u2-solids-s29" hidden>รูปว่าวมีเส้นทแยงมุมตั้งฉากกัน พื้นที่ \(=\tfrac12 d_1 d_2
+             =\tfrac12(10)(14)=70\) ตร.ซม.
+             <br>\(V=70\times8=560\) ลบ.ซม.</div></div><div class="q" data-lvl="med"><div class="qn">30.</div><div class="qbody">ทรงกระบอกสองอันมีความสูงเท่ากัน
+         แต่รัศมีเป็น \(3\) ซม. และ \(6\) ซม. ปริมาตรต่างกันกี่เท่า</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">ทรงกระบอก</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u2-solids-s30">ดูเฉลย</button></div><div class="qsol" id="u2-solids-s30" hidden>ความสูงเท่ากัน ปริมาตรแปรตาม \(r^{2}\)
+             <br>\(\dfrac{6^{2}}{3^{2}}=\dfrac{36}{9}=4\) เท่า</div></div><div class="q" data-lvl="hard"><div class="qn">31.</div><div class="qbody">ถังน้ำทำจากทรงกระบอกรัศมี \(7\) ซม.
+         สูง \(20\) ซม. วางซ้อนบนปริซึมสี่เหลี่ยมมุมฉากฐานจัตุรัสด้านยาว \(14\) ซม.
+         สูง \(10\) ซม. โดยฐานทรงกระบอกวางตรงกลางหน้าบนของปริซึม
+         <br>จงหาปริมาตรรวมและพื้นที่ผิวภายนอกทั้งหมด (ใช้ \(\pi=\tfrac{22}{7}\))</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">รูปทรงประกอบ</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u2-solids-s31">ดูเฉลย</button></div><div class="qsol" id="u2-solids-s31" hidden><b>ปริมาตร</b> \(=\tfrac{22}{7}(49)(20)+14^{2}(10)
+             =3080+1960=5040\) ลบ.ซม.
+             <br><b>พื้นที่ผิว</b>
+             <br>ปริซึม: ฐานล่าง \(196\) + ข้าง \(4(14\times10)=560\)
+             + หน้าบนที่เหลือ \(196-\tfrac{22}{7}(49)=196-154=42\)
+             <br>ทรงกระบอก: ผิวข้าง \(2\cdot\tfrac{22}{7}\cdot7\cdot20=880\)
+             + ฝาบน \(154\)
+             <br>รวม \(=196+560+42+880+154=1832\) ตร.ซม.</div></div><div class="q" data-lvl="apply"><div class="qn">32.</div><div class="qbody">โรงงานต้องการออกแบบกระป๋องทรงกระบอก
+         ที่จุของได้ \(1000\) ลบ.ซม. โดยใช้วัสดุ (พื้นที่ผิวทั้งหมด) น้อยที่สุด
+         <br>จงเปรียบเทียบพื้นที่ผิวของแบบ \(r=4\), \(r=5.42\) และ \(r=8\) ซม.
+         แล้วสรุปว่าแบบใดประหยัดที่สุด (ใช้ \(\pi\approx3.14\))</div><div class="qmeta"><span class="ex-lvl apply">ประยุกต์</span><span class="ex-lvl">ประยุกต์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u2-solids-s32">ดูเฉลย</button></div><div class="qsol" id="u2-solids-s32" hidden>จาก \(\pi r^{2}h=1000\) ได้ \(h=\dfrac{1000}{\pi r^{2}}\)
+             และ \(S=2\pi r^{2}+2\pi rh=2\pi r^{2}+\dfrac{2000}{r}\)
+             <br>\(r=4\): \(S=2(3.14)(16)+500=100.5+500=600.5\) ตร.ซม.
+             <br>\(r=5.42\): \(S=2(3.14)(29.4)+369.0=184.6+369.0=553.6\) ตร.ซม.
+             <br>\(r=8\): \(S=2(3.14)(64)+250=401.9+250=651.9\) ตร.ซม.
+             <br><b>แบบ \(r\approx5.42\) ประหยัดที่สุด</b> ซึ่งตรงกับกรณี
+             \(h=2r\) (กระป๋องที่สูงเท่ากับเส้นผ่านศูนย์กลาง)</div></div></section><div class="pager"><a class="pl" href="u1-exponents.html">เลขยกกำลัง</a><a class="pr" href="u3-parallel.html">เส้นขนาน</a></div></main></div></div><footer class="site"><div class="wrap">คณิตศาสตร์ ม.2 · สื่อการเรียนรู้แบบอินเทอร์แอกทีฟ</div></footer>
+<script src="../assets/js/site.js"></script>
+<script src="../assets/js/viz.js"></script>
+<script src="../assets/js/viz3d.js"></script>
+</body>
+</html>

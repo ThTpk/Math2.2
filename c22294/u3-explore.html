@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="th" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>การสำรวจเรขาคณิตเบื้องต้น · เทคโนโลยีเพื่อการศึกษาทางคณิตศาสตร์</title>
+<meta name="description" content="การสร้างวงกลมแนบในและวงกลมล้อมรอบรูปสามเหลี่ยม การสำรวจว่า
+    จุดศูนย์กลางย้ายไปอยู่ที่ใดเมื่อเปลี่ยนรูปสามเหลี่ยม
+    และการสร้างแบบจำลองทางคณิตศาสต">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Serif+Thai:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/site.css">
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+         processEscapes: true },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] },
+  chtml: { mtextInheritFont: true, scale: 1.0 },
+  startup: { typeset: true }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+
+</head>
+<body>
+<nav class="nav"><a class="nav-brand" href="../index.html">คณิต<span>ศาสตร์</span> ม.2</a><div class="nav-links"><a href="../index.html">หน้าแรก</a><a href="../c22122/index.html" title="คณิตศาสตร์ 4">คณิตศาสตร์ 4</a><a href="../c22292/index.html" title="คณิตศาสตร์พัฒนาศักยภาพ 4">พัฒนาศักยภาพ 4</a><a href="../c22294/index.html" aria-current="page" title="เทคโนโลยีเพื่อการศึกษาทางคณิตศาสตร์">เทคโนโลยีคณิตศาสตร์</a><button class="theme-btn" type="button" aria-label="สลับโหมดสี">☾</button></div></nav><div class="wrap"><div class="page"><aside class="toc"><div class="toc-label">หัวข้อในบทนี้</div><ol><li><a href="#circum">วงกลมล้อมรอบ (circumcircle)</a></li><li><a href="#incircle">วงกลมแนบใน (incircle)</a></li><li><a href="#explore">การสำรวจอย่างเป็นระบบ</a></li><li><a href="#drill">แบบฝึกหัดท้ายบท</a></li></ol></aside><main><p class="eyebrow">เทคโนโลยีเพื่อการศึกษาทางคณิตศาสตร์</p><h1>การสำรวจเรขาคณิตเบื้องต้น</h1><p class="lead">การสร้างวงกลมแนบในและวงกลมล้อมรอบรูปสามเหลี่ยม การสำรวจว่า
+    จุดศูนย์กลางย้ายไปอยู่ที่ใดเมื่อเปลี่ยนรูปสามเหลี่ยม
+    และการสร้างแบบจำลองทางคณิตศาสตร์จากสถานการณ์จริง</p><div class="badges"><span class="badge">วงกลมแนบใน</span><span class="badge">วงกลมล้อมรอบ</span><span class="badge">สำรวจการย้ายจุดศูนย์กลาง</span><span class="badge">แบบจำลอง</span><span class="badge on">แบบฝึกหัด 31 ข้อ</span></div><section id="circum"><h2>วงกลมล้อมรอบ (circumcircle)</h2><figure class="fig" data-viz="proof" id="constr-circumcircle"><div class="fig-body"><svg viewBox="0 0 480 400" role="img" aria-labelledby="constr-circumcircle-t constr-circumcircle-d"><title id="constr-circumcircle-t">การสร้างวงกลมล้อมรอบรูปสามเหลี่ยม</title><desc id="constr-circumcircle-d">รูปสามเหลี่ยม ABC มีเส้นแบ่งครึ่งตั้งฉากของด้าน AB และ BC ตัดกันที่จุด O ซึ่งห่างจากจุดยอดทั้งสามเท่ากัน จึงเป็นจุดศูนย์กลางของวงกลมที่ผ่านจุดยอดทั้งสาม</desc><rect width="100%" height="100%" fill="var(--paper-2)"/><defs><marker id="ar" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" class="f-muted"/></marker><marker id="ar-a" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" class="f-accent"/></marker><marker id="ar-l" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" class="f-link"/></marker><marker id="ar-t" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" class="f-teal"/></marker></defs><text x="30" y="30" class="t-tag">สร้างวงกลมล้อมรอบรูปสามเหลี่ยม</text><polygon points="200,70 90,250 350,230" class="f-it"/><polygon points="200,70 90,250 350,230" class="s-ink"/><g data-step="1"><line x1="272.99" y1="238.22" x2="-0.06" y2="71.35" class="s-link dash"/><line x1="178.47" y1="118.65" x2="166.53" y2="111.35" class="s-link"/><line x1="123.47" y1="208.65" x2="111.53" y2="201.35" class="s-link"/><path d="M 139.79 168.53 L 131.25 163.32 L 136.47 154.79" class="s-link"/></g><g data-step="2"><line x1="208.5" y1="90.44" x2="232.27" y2="399.53" class="s-teal dash"/><line x1="152.55" y1="239.17" x2="153.47" y2="251.14" class="s-teal"/><line x1="156.53" y1="238.86" x2="157.45" y2="250.83" class="s-teal"/><line x1="282.55" y1="229.17" x2="283.47" y2="241.14" class="s-teal"/><line x1="286.53" y1="228.86" x2="287.45" y2="240.83" class="s-teal"/><path d="M 229.97 239.23 L 230.74 249.2 L 220.77 249.97" class="s-teal"/></g><g data-step="3"><circle cx="217.24" cy="204.15" r="5.5" class="f-accent"/><text x="231.24" y="210.15" class="t-name t-accent">O</text></g><g data-step="4"><circle cx="217.24" cy="204.15" r="135.25" class="s-accent thick"/><line x1="217.24" y1="204.15" x2="200" y2="70" class="s-accent dash-fine"/><line x1="217.24" y1="204.15" x2="90" y2="250" class="s-accent dash-fine"/><line x1="217.24" y1="204.15" x2="350" y2="230" class="s-accent dash-fine"/><text x="222.62" y="137.07" class="t-mono t-accent">R</text></g><circle cx="200" cy="70" r="4.2" class="f-ink"/><text x="200" y="58" text-anchor="middle" class="t-name">A</text><circle cx="90" cy="250" r="4.2" class="f-ink"/><text x="74" y="260" text-anchor="middle" class="t-name">B</text><circle cx="350" cy="230" r="4.2" class="f-ink"/><text x="366" y="238" text-anchor="middle" class="t-name">C</text><line x1="24" y1="362" x2="456" y2="362" class="s-rule"/><text x="24" y="380" class="t-tag">LEGEND</text><line x1="88" y1="376" x2="108" y2="376" class="s-link dash"/><text x="114" y="380" class="t-mono">เส้นแบ่งครึ่งตั้งฉาก AB</text><line x1="265.2" y1="376" x2="285.2" y2="376" class="s-teal dash"/><text x="291.2" y="380" class="t-mono">เส้นแบ่งครึ่งตั้งฉาก BC</text><line x1="442.4" y1="376" x2="462.4" y2="376" class="s-accent thick"/><text x="468.4" y="380" class="t-mono">วงกลมล้อมรอบ</text></svg><table class="tbl"><thead><tr><th>ข้อความ</th><th>เหตุผล</th></tr></thead><tbody><tr data-prow="1"><td>สร้างเส้นแบ่งครึ่งตั้งฉากของ \(AB\)</td><td>ทุกจุดบนเส้นนี้ห่างจาก \(A,B\) เท่ากัน</td></tr><tr data-prow="2"><td>สร้างเส้นแบ่งครึ่งตั้งฉากของ \(BC\)</td><td>ทุกจุดบนเส้นนี้ห่างจาก \(B,C\) เท่ากัน</td></tr><tr data-prow="3"><td>เส้นสองเส้นตัดกันที่ \(O\) ⇒ \(OA=OB=OC\)</td><td>\(O\) อยู่บนทั้งสองเส้น จึงห่างจากจุดยอดทั้งสามเท่ากัน</td></tr><tr data-prow="4"><td>เขียนวงกลมจุดศูนย์กลาง \(O\) รัศมี \(OA\)</td><td>วงกลมผ่าน \(A,B,C\) ครบทั้งสามจุด</td></tr></tbody></table></div><div class="fig-ctrl"><button type="button" data-act="reset" aria-pressed="false">เริ่มต้น</button><button type="button" data-act="prev" aria-pressed="false">ย้อน</button><button type="button" data-act="next" aria-pressed="false">ขั้นต่อไป</button><button type="button" data-act="all" aria-pressed="false">แสดงทั้งหมด</button><span class="fig-readout" data-readout>ขั้นที่ 4 / 4</span></div><figcaption>สังเกตว่าต้องสร้างเส้นแบ่งครึ่งตั้งฉากเพียง <b>สองเส้น</b> ก็พอ — เส้นที่สามผ่านจุด \(O\) เองอยู่แล้ว เพราะ \(OA=OC\) ทำให้ \(O\) อยู่บนเส้นแบ่งครึ่งตั้งฉากของ \(AC\) ด้วย นี่คือการพิสูจน์ว่าเส้นทั้งสามพบกันที่จุดเดียว (concurrent)</figcaption></figure><div class="box thm"><span class="box-label">สูตรรัศมีวงกลมล้อมรอบ</span>
+             \[R=\frac{abc}{4K}\]
+             <p>โดย \(a,b,c\) เป็นความยาวด้าน และ \(K\) เป็นพื้นที่</p>
+             <p>และกฎของไซน์ให้อีกรูปหนึ่งที่ใช้ง่ายกว่าเมื่อรู้มุม</p>
+             \[\frac{a}{\sin A}=\frac{b}{\sin B}=\frac{c}{\sin C}=2R\]</div><div class="box note"><span class="box-label">จุดศูนย์กลางย้ายไปไหนเมื่อเปลี่ยนรูป</span>
+             <p>ลากจุดยอดใน GeoGebra แล้วสังเกตตำแหน่งของ \(O\)</p>
+             <table class="tbl"><thead><tr><th>รูปสามเหลี่ยม</th>
+             <th>ตำแหน่งของ \(O\)</th></tr></thead><tbody>
+             <tr><td>มุมแหลม (มุมทุกมุม \(&lt;90^\circ\))</td><td><b>ภายใน</b>รูป</td></tr>
+             <tr><td>มุมฉาก</td><td><b>ที่จุดกึ่งกลาง</b>ของด้านตรงข้ามมุมฉาก</td></tr>
+             <tr><td>มุมป้าน</td><td><b>ภายนอก</b>รูป (อยู่คนละข้างของด้านที่ยาวที่สุด)</td></tr>
+             </tbody></table>
+             <p>ต่างจากจุดศูนย์กลางวงกลมแนบใน \(I\) ซึ่ง <b>อยู่ภายในรูปเสมอ</b>
+             เพราะเป็นจุดตัดของเส้นแบ่งครึ่งมุมภายใน</p></div><div class="ex"><div class="ex-head"><span class="ex-tag">ตัวอย่าง 1</span><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">วงกลมล้อมรอบ</span></div><div class="ex-body">
+             รูปสามเหลี่ยมมีด้านยาว \(13,\ 14,\ 15\) หน่วย
+             <br>(ก) จงหาพื้นที่ด้วยสูตรเฮรอน
+             <br>(ข) จงหารัศมีวงกลมล้อมรอบ
+             <br>(ค) จงหารัศมีวงกลมแนบใน
+             <br>(ง) จุดศูนย์กลางวงกลมล้อมรอบอยู่ภายในหรือภายนอกรูป</div><div class="ex-sol"><p class="sol-label">แนวคิดและวิธีทำ</p><ol class="steps"><li>(ก) \(s=\dfrac{13+14+15}{2}=21\)</li><li>\(K=\sqrt{21(8)(7)(6)}=\sqrt{7056}=84\) ตารางหน่วย</li><li>(ข) \(R=\dfrac{abc}{4K}=\dfrac{13(14)(15)}{4(84)}
+                 =\dfrac{2730}{336}=8.125\) หน่วย</li><li>(ค) \(r=\dfrac Ks=\dfrac{84}{21}=4\) หน่วย</li><li>(ง) ตรวจว่ามีมุมป้านหรือไม่ โดยเทียบด้านที่ยาวที่สุด
+                 \(15^{2}=225\) กับ \(13^{2}+14^{2}=169+196=365\)</li><li>\(225<365\) จึงเป็นมุมแหลม — <b>มุมทุกมุมแหลม</b>
+                 ดังนั้น \(O\) อยู่ <b>ภายใน</b> รูป</li></ol><p class="ans">(ก) \(84\)&nbsp;(ข) \(R=8.125\)&nbsp;(ค) \(r=4\)&nbsp;(ง) ภายในรูป</p></div></div></section><section id="incircle"><h2>วงกลมแนบใน (incircle)</h2><p>จุดศูนย์กลางวงกลมแนบใน \(I\) คือจุดตัดของเส้นแบ่งครึ่งมุมภายใน
+             สามเส้น และอยู่ห่างจากด้านทั้งสามเท่ากัน ระยะนั้นคือรัศมี \(r\)</p><figure class="fig" data-viz="incircle" data-ax="180" data-ay="56" data-bx="72" data-by="214" data-cx="318" data-cy="214"><div class="fig-body"><svg viewBox="0 0 440 320" role="img" aria-labelledby="fig-incircle-t fig-incircle-d"><title id="fig-incircle-t">วงกลมแนบในและวงกลมแนบนอกของรูปสามเหลี่ยม</title><desc id="fig-incircle-d">รูปสามเหลี่ยม ABC มีวงกลมแนบในจุดศูนย์กลาง I สัมผัสด้านทั้งสามจากภายใน โดย I คือจุดตัดของเส้นแบ่งครึ่งมุม และมีวงกลมแนบนอกตรงข้ามจุด A ที่เลือกแสดงได้</desc><rect width="100%" height="100%" fill="var(--paper-2)"/><text x="30" y="32" class="t-tag">วงกลมแนบในสัมผัสด้านทั้งสาม</text><polygon points="180,56 72,214 318,214" class="f-it"/><circle cx="204.2" cy="464.49" r="250.49" class="s-violet dash" data-id="exc" opacity="0"/><circle cx="185.8" cy="153.94" r="60.06" class="s-accent thick" data-id="inc"/><polygon points="180,56 72,214 318,214" class="s-ink" data-id="tri"/><line x1="180" y1="56" x2="185.8" y2="153.94" class="s-link dash-fine" data-id="bi1"/><line x1="72" y1="214" x2="185.8" y2="153.94" class="s-link dash-fine" data-id="bi2"/><line x1="318" y1="214" x2="185.8" y2="153.94" class="s-link dash-fine" data-id="bi3"/><circle cx="185.8" cy="214" r="3.4" class="f-accent" data-id="tA"/><circle cx="231.04" cy="114.43" r="3.4" class="f-accent" data-id="tB"/><circle cx="136.22" cy="120.05" r="3.4" class="f-accent" data-id="tC"/><circle cx="180" cy="56" r="4.2" class="f-ink" data-id="ptA"/><text x="180" y="44" text-anchor="middle" class="t-name" data-id="labA">A</text><circle cx="72" cy="214" r="4.2" class="f-ink" data-id="ptB"/><text x="58" y="230" text-anchor="middle" class="t-name" data-id="labB">B</text><circle cx="318" cy="214" r="4.2" class="f-ink" data-id="ptC"/><text x="332" y="230" text-anchor="middle" class="t-name" data-id="labC">C</text><circle cx="185.8" cy="153.94" r="5" class="f-accent" data-id="ptI"/><text x="185.8" y="169.94" text-anchor="middle" class="t-name t-accent" data-id="labI">I</text><circle cx="204.2" cy="464.49" r="5" class="f-violet" data-id="ptIa" opacity="0"/><text x="204.2" y="482.49" text-anchor="middle" class="t-name t-violet" data-id="labIa" opacity="0">Iₐ</text><circle cx="180" cy="56" r="14" class="handle-halo" data-id="halo"/><circle cx="180" cy="56" r="7" class="handle" data-id="handle"/><text x="30" y="268" class="t-val t-accent" data-id="f-r">r = พื้นที่ / s = 194.34 / 32.36 = 6.01</text><text x="30" y="292" class="t-mono" data-id="f-ra">rₐ = พื้นที่ / (s − a) = 25.05</text></svg></div><div class="fig-ctrl"><button type="button" data-act="excircle" aria-pressed="false">แสดงวงกลมแนบนอก</button><span class="fig-readout" data-readout>r = 6.01</span></div><figcaption>จุดศูนย์กลางวงกลมแนบในคือจุดตัดของ <b>เส้นแบ่งครึ่งมุม</b> ทั้งสาม และ \(r=\dfrac{\text{พื้นที่}}{s}\) โดย \(s\) คือครึ่งหนึ่งของความยาวรอบรูป</figcaption></figure><div class="box thm"><span class="box-label">สูตรที่ใช้บ่อย</span>
+             \[r=\frac{K}{s},\qquad K=rs,\qquad r_a=\frac{K}{s-a}\]
+             <p>ความยาวจากจุดยอดถึงจุดสัมผัสของวงกลมแนบใน</p>
+             \[AZ=AY=s-a,\qquad BX=BZ=s-b,\qquad CX=CY=s-c\]
+             <p>สำหรับสามเหลี่ยมมุมฉากที่มีด้านประกอบมุมฉาก \(a,b\)
+             และด้านตรงข้ามมุมฉาก \(c\)</p>
+             \[r=\frac{a+b-c}{2},\qquad R=\frac{c}{2}\]</div><div class="ex"><div class="ex-head"><span class="ex-tag">ตัวอย่าง 2</span><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">จุดสัมผัส</span></div><div class="ex-body">
+             รูปสามเหลี่ยมมีด้าน \(a=BC=10\), \(b=CA=17\), \(c=AB=21\)
+             วงกลมแนบในสัมผัส \(BC,CA,AB\) ที่ \(X,Y,Z\)
+             <br>จงหา \(AZ,\ BX,\ CY\) และตรวจผลรวม</div><div class="ex-sol"><p class="sol-label">แนวคิดและวิธีทำ</p><ol class="steps"><li>\(s=\dfrac{10+17+21}{2}=24\)</li><li>\(AZ=AY=s-a=24-10=14\)</li><li>\(BX=BZ=s-b=24-17=7\)</li><li>\(CX=CY=s-c=24-21=3\)</li><li>ตรวจ: \(AB=AZ+ZB=14+7=21\) ✓</li><li>ตรวจ: \(BC=BX+XC=7+3=10\) ✓</li><li>ตรวจ: \(CA=CY+YA=3+14=17\) ✓</li></ol><p class="ans">\(AZ=14,\ BX=7,\ CY=3\)</p></div></div><div class="ex"><div class="ex-head"><span class="ex-tag">ตัวอย่าง 3</span><span class="ex-lvl apply">ประยุกต์</span><span class="ex-lvl">แบบจำลอง</span></div><div class="ex-body">
+             แปลงปลูกไม้ดอกรูปสามเหลี่ยมในสวนพฤกษศาสตร์มีด้านยาว
+             \(8,\ 15,\ 17\) เมตร
+             <br>(ก) แปลงนี้เป็นสามเหลี่ยมมุมฉากหรือไม่
+             <br>(ข) จะวางบ่อน้ำวงกลมที่ใหญ่ที่สุดในแปลง รัศมีเท่าไร
+             <br>(ค) ถ้าอยากวางศาลาที่ห่างจากมุมทั้งสามเท่ากัน ต้องวางที่ใด
+             และห่างจากมุมเท่าไร
+             <br>(ง) ศาลาอยู่ในแปลงหรือไม่</div><div class="ex-sol"><p class="sol-label">แนวคิดและวิธีทำ</p><ol class="steps"><li>(ก) \(8^{2}+15^{2}=64+225=289=17^{2}\) ✓
+                 <b>เป็นสามเหลี่ยมมุมฉาก</b></li><li>(ข) ใช้สูตรลัด \(r=\dfrac{a+b-c}{2}=\dfrac{8+15-17}{2}
+                 =\dfrac{6}{2}=3\) ม.</li><li>ตรวจ: \(K=\tfrac12(8)(15)=60\), \(s=20\),
+                 \(r=\dfrac{60}{20}=3\) ✓</li><li>(ค) ศาลาต้องอยู่ที่ <b>จุดศูนย์กลางวงกลมล้อมรอบ</b></li><li>สามเหลี่ยมมุมฉาก จุดนี้คือ <b>จุดกึ่งกลางของด้านตรงข้าม
+                 มุมฉาก</b> (ด้านยาว \(17\) ม.)</li><li>ระยะจากมุม \(=R=\dfrac{17}{2}=8.5\) ม.</li><li>(ง) อยู่ <b>บนขอบ</b> แปลงพอดี (บนด้านยาว \(17\) ม.)
+                 ไม่ได้อยู่ภายใน — ถ้าต้องการให้อยู่ในแปลงต้องเลือกจุดอื่น
+                 เช่น จุดเซนทรอยด์</li></ol><p class="ans">(ก) ใช่&nbsp;(ข) \(r=3\) ม.&nbsp;(ค) จุดกึ่งกลางด้าน \(17\) ม. ห่าง \(8.5\) ม.&nbsp;(ง) อยู่บนขอบพอดี</p></div></div></section><section id="explore"><h2>การสำรวจอย่างเป็นระบบ</h2><p>การสำรวจด้วยเรขาคณิตพลวัตมีขั้นตอนที่ทำให้ได้ผลน่าเชื่อถือ
+             ไม่ใช่แค่ลากไปเรื่อย ๆ</p><ol><li><b>สร้างให้ถูก</b> — ใช้เครื่องมือที่บังคับความสัมพันธ์ ไม่ใช่วาดเอา</li><li><b>ทำ drag test</b> — ลากจุดต้นแบบทุกจุด ความสัมพันธ์ต้องคงอยู่</li><li><b>แสดงค่าวัดที่สนใจ</b> — ความยาว มุม พื้นที่ อัตราส่วน</li><li><b>ลากไปตำแหน่งสุดขั้ว</b> — รูปเกือบแบน รูปด้านเท่า รูปมุมฉาก</li><li><b>ตั้งข้อคาดการณ์</b> — เขียนเป็นประโยคที่ชัดเจน ตรวจสอบได้</li><li><b>หาเหตุผล</b> — พิสูจน์ หรืออย่างน้อยอ้างทฤษฎีบทที่รองรับ</li></ol><div class="box trick"><span class="box-label">ตำแหน่งสุดขั้วที่ควรลองทุกครั้ง</span>
+             <ul>
+             <li><b>รูปด้านเท่า</b> — จุดสำคัญทุกจุด (\(G,I,O,H\)) ทับกันหมด</li>
+             <li><b>รูปมุมฉาก</b> — \(O\) ไปอยู่กลางด้านตรงข้ามมุมฉาก
+             และ \(H\) ไปอยู่ที่จุดยอดมุมฉาก</li>
+             <li><b>รูปหน้าจั่ว</b> — จุดสำคัญทุกจุดเรียงบนแกนสมมาตร</li>
+             <li><b>รูปมุมป้านมาก</b> — \(O\) และ \(H\) ออกไปนอกรูป</li>
+             <li><b>รูปเกือบแบน</b> — \(R\) โตขึ้นไม่มีขีดจำกัด (\(K\to0\))</li>
+             </ul></div><div class="ex"><div class="ex-head"><span class="ex-tag">ตัวอย่าง 4</span><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">สำรวจ</span></div><div class="ex-body">
+             ในรูปสามเหลี่ยมด้านเท่า จงแสดงว่าจุดเซนทรอยด์ จุดศูนย์กลาง
+             วงกลมแนบใน และจุดศูนย์กลางวงกลมล้อมรอบ เป็นจุดเดียวกัน
+             และหาอัตราส่วน \(R:r\)</div><div class="ex-sol"><p class="sol-label">แนวคิดและวิธีทำ</p><ol class="steps"><li>ให้ด้านยาว \(a\) เส้นมัธยฐานจากจุดยอดหนึ่งไปจุดกึ่งกลาง
+                 ด้านตรงข้าม</li><li>ในรูปสามเหลี่ยมด้านเท่า เส้นนี้ทำหน้าที่พร้อมกันทั้งเป็น
+                 เส้นมัธยฐาน เส้นแบ่งครึ่งมุม และเส้นแบ่งครึ่งตั้งฉากของด้านตรงข้าม</li><li>ดังนั้นจุดตัดของเส้นสามเส้นนี้ก็เป็นจุดเดียวกันทั้ง \(G,I,O\)</li><li>ความยาวเส้นมัธยฐาน \(m=\dfrac{\sqrt3}{2}a\)</li><li>\(R=\dfrac23 m=\dfrac23\cdot\dfrac{\sqrt3}{2}a
+                 =\dfrac{a}{\sqrt3}\)</li><li>\(r=\dfrac13 m=\dfrac{\sqrt3}{6}a=\dfrac{a}{2\sqrt3}\)</li><li>\(\dfrac Rr=\dfrac{a/\sqrt3}{a/(2\sqrt3)}=2\)</li></ol><p class="ans">จุดทั้งสามทับกัน และ \(R:r=2:1\)</p></div></div></section><section id="drill" class="drill"><div class="drill-head"><h3>แบบฝึกหัดท้ายบท</h3><span class="drill-stat">แสดง 31 / 31 ข้อ</span></div><p>โจทย์เรียงจากปานกลางไปยาก และปิดท้ายด้วยโจทย์ประยุกต์ ลองทำด้วยตัวเองให้ครบก่อนเปิดเฉลย</p><div class="drill-filter"><button class="btn" type="button" data-filter="all" aria-pressed="true">ทั้งหมด (31)</button><button class="btn" type="button" data-filter="med" aria-pressed="false">ปานกลาง (13)</button><button class="btn" type="button" data-filter="hard" aria-pressed="false">ยาก (11)</button><button class="btn" type="button" data-filter="apply" aria-pressed="false">ประยุกต์ (7)</button><button class="btn" type="button" data-sol-all="show">เปิดเฉลยทั้งหมด</button><button class="btn" type="button" data-sol-all="hide">ปิดเฉลยทั้งหมด</button></div><div class="q" data-lvl="med"><div class="qn">1.</div><div class="qbody">สามเหลี่ยมมุมฉากมีด้านตรงข้าม
+         มุมฉากยาว \(26\) ซม. จงหารัศมีวงกลมล้อมรอบ และบอกตำแหน่งจุดศูนย์กลาง</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">วงกลมล้อมรอบ</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u3-explore-s1">ดูเฉลย</button></div><div class="qsol" id="u3-explore-s1" hidden>\(R=\dfrac{26}{2}=13\) ซม.
+             <br>จุดศูนย์กลางอยู่ที่ <b>จุดกึ่งกลางของด้านตรงข้ามมุมฉาก</b></div></div><div class="q" data-lvl="med"><div class="qn">2.</div><div class="qbody">สามเหลี่ยมมุมฉากมีด้านประกอบมุมฉาก
+         \(5\) และ \(12\) ซม. จงหารัศมีวงกลมแนบใน</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">วงกลมแนบใน</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u3-explore-s2">ดูเฉลย</button></div><div class="qsol" id="u3-explore-s2" hidden>ด้านตรงข้ามมุมฉาก \(=13\) ซม.
+             <br>\(r=\dfrac{5+12-13}{2}=\dfrac42=2\) ซม.</div></div><div class="q" data-lvl="med"><div class="qn">3.</div><div class="qbody">สามเหลี่ยมมีด้าน \(7,\ 8,\ 9\)
+         จงหาพื้นที่ (ทศนิยม 2 ตำแหน่ง)</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">เฮรอน</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u3-explore-s3">ดูเฉลย</button></div><div class="qsol" id="u3-explore-s3" hidden>\(s=12\)
+             <br>\(K=\sqrt{12(5)(4)(3)}=\sqrt{720}=12\sqrt5\approx26.83\)
+             ตารางหน่วย</div></div><div class="q" data-lvl="med"><div class="qn">4.</div><div class="qbody">สามเหลี่ยมมีพื้นที่ \(54\) ตร.ซม.
+         และเส้นรอบรูป \(36\) ซม. จงหารัศมีวงกลมแนบใน</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">วงกลมแนบใน</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u3-explore-s4">ดูเฉลย</button></div><div class="qsol" id="u3-explore-s4" hidden>\(s=18\) ซม.
+             <br>\(r=\dfrac{54}{18}=3\) ซม.</div></div><div class="q" data-lvl="med"><div class="qn">5.</div><div class="qbody">จุดศูนย์กลางวงกลมล้อมรอบอยู่ภายใน
+         ภายนอก หรือบนขอบรูป
+         <br>(ก) สามเหลี่ยมด้าน \(6,8,10\)
+         <br>(ข) สามเหลี่ยมด้าน \(6,8,9\)
+         <br>(ค) สามเหลี่ยมด้าน \(6,8,13\)</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">ตำแหน่งจุด</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u3-explore-s5">ดูเฉลย</button></div><div class="qsol" id="u3-explore-s5" hidden>เทียบ \(c^{2}\) กับ \(a^{2}+b^{2}=36+64=100\)
+             <br>(ก) \(100=100\) → มุมฉาก → <b>บนขอบ</b> (กลางด้านยาว)
+             <br>(ข) \(81<100\) → มุมแหลม → <b>ภายใน</b>
+             <br>(ค) \(169>100\) → มุมป้าน → <b>ภายนอก</b></div></div><div class="q" data-lvl="med"><div class="qn">6.</div><div class="qbody">สามเหลี่ยมมีด้าน \(a=9,b=12,c=15\)
+         จงหาความยาวจากจุดยอดแต่ละจุดถึงจุดสัมผัสของวงกลมแนบใน</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">จุดสัมผัส</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u3-explore-s6">ดูเฉลย</button></div><div class="qsol" id="u3-explore-s6" hidden>\(s=18\)
+             <br>จาก \(A\): \(s-a=9\)
+             <br>จาก \(B\): \(s-b=6\)
+             <br>จาก \(C\): \(s-c=3\)</div></div><div class="q" data-lvl="med"><div class="qn">7.</div><div class="qbody">สามเหลี่ยมมีด้าน \(a=10\) ตรงข้ามมุม
+         \(A=30^\circ\) จงหารัศมีวงกลมล้อมรอบ</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">กฎของไซน์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u3-explore-s7">ดูเฉลย</button></div><div class="qsol" id="u3-explore-s7" hidden>\(\dfrac{a}{\sin A}=2R\Rightarrow
+             \dfrac{10}{\sin30^\circ}=\dfrac{10}{0.5}=20=2R\)
+             <br>\(R=10\)</div></div><div class="q" data-lvl="med"><div class="qn">8.</div><div class="qbody">สามเหลี่ยมด้านเท่าด้านยาว \(12\) ซม.
+         จงหา \(R\) และ \(r\) (ใช้ \(\sqrt3\approx1.732\))</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">ด้านเท่า</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u3-explore-s8">ดูเฉลย</button></div><div class="qsol" id="u3-explore-s8" hidden>\(R=\dfrac{a}{\sqrt3}=\dfrac{12}{1.732}\approx6.93\) ซม.
+             <br>\(r=\dfrac{R}{2}\approx3.46\) ซม.</div></div><div class="q" data-lvl="hard"><div class="qn">9.</div><div class="qbody">สามเหลี่ยมมีด้าน \(11,\ 13,\ 20\)
+         <br>(ก) จงหาพื้นที่
+         <br>(ข) จงหา \(R\) และ \(r\)
+         <br>(ค) จุดศูนย์กลางวงกลมล้อมรอบอยู่ภายในหรือภายนอกรูป</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">สำรวจ</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u3-explore-s9">ดูเฉลย</button></div><div class="qsol" id="u3-explore-s9" hidden>(ก) \(s=22\)
+             <br>\(K=\sqrt{22(11)(9)(2)}=\sqrt{4356}=66\) ตารางหน่วย
+             <br>(ข) \(R=\dfrac{11(13)(20)}{4(66)}=\dfrac{2860}{264}
+             \approx10.83\)
+             <br>\(r=\dfrac{66}{22}=3\)
+             <br>(ค) \(20^{2}=400\) กับ \(11^{2}+13^{2}=121+169=290\)
+             <br>\(400>290\) → <b>มุมป้าน</b> → \(O\) อยู่ <b>ภายนอก</b> รูป</div></div><div class="q" data-lvl="hard"><div class="qn">10.</div><div class="qbody">สามเหลี่ยมมีรัศมีวงกลมแนบใน \(4\) ซม.
+         และเส้นรอบรูป \(42\) ซม. จงหาพื้นที่</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">ย้อนกลับ</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u3-explore-s10">ดูเฉลย</button></div><div class="qsol" id="u3-explore-s10" hidden>\(K=rs\) โดย \(s=\dfrac{42}{2}=21\)
+             <br>\(K=4(21)=84\) ตร.ซม.</div></div><div class="q" data-lvl="hard"><div class="qn">11.</div><div class="qbody">สามเหลี่ยมมีด้าน \(13,\ 14,\ 15\)
+         จงหารัศมีวงกลมแนบนอกทั้งสามวง และตรวจเอกลักษณ์
+         \(\dfrac1r=\dfrac1{r_a}+\dfrac1{r_b}+\dfrac1{r_c}\)</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">วงกลมแนบนอก</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u3-explore-s11">ดูเฉลย</button></div><div class="qsol" id="u3-explore-s11" hidden>\(s=21\), \(K=84\), \(r=4\)
+             <br>\(r_a=\dfrac{84}{21-13}=\dfrac{84}{8}=10.5\)
+             <br>\(r_b=\dfrac{84}{21-14}=\dfrac{84}{7}=12\)
+             <br>\(r_c=\dfrac{84}{21-15}=\dfrac{84}{6}=14\)
+             <br><b>ตรวจ</b>: \(\dfrac1{10.5}+\dfrac1{12}+\dfrac1{14}
+             =0.09524+0.08333+0.07143=0.25\)
+             <br>และ \(\dfrac1r=\dfrac14=0.25\) ✓</div></div><div class="q" data-lvl="hard"><div class="qn">12.</div><div class="qbody">จงพิสูจน์สูตร \(r=\dfrac{a+b-c}{2}\)
+         สำหรับสามเหลี่ยมมุมฉากที่มีมุมฉากระหว่างด้าน \(a\) และ \(b\)</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">พิสูจน์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u3-explore-s12">ดูเฉลย</button></div><div class="qsol" id="u3-explore-s12" hidden>ให้มุมฉากอยู่ที่ \(C\) วงกลมแนบในสัมผัส \(CA\) ที่ \(Y\)
+             และ \(CB\) ที่ \(X\)
+             <br>\(ICXY\) มี \(\angle C=90^\circ\), \(\angle IXC=\angle IYC=90^\circ\)
+             (รัศมี ⟂ เส้นสัมผัส) และ \(IX=IY=r\)
+             <br>จึงเป็น <b>สี่เหลี่ยมจัตุรัส</b> ด้านยาว \(r\)
+             <br>ดังนั้น \(CX=CY=r\)
+             <br>จากสูตรจุดสัมผัส \(CX=s-c\) จึงได้ \(r=s-c\)
+             <br>\(r=\dfrac{a+b+c}{2}-c=\dfrac{a+b-c}{2}\) ∎</div></div><div class="q" data-lvl="hard"><div class="qn">13.</div><div class="qbody">จงพิสูจน์ว่า \(K=rs\) โดยใช้
+         การแบ่งรูปสามเหลี่ยมด้วยเส้นจากจุดศูนย์กลางวงกลมแนบใน</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">พิสูจน์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u3-explore-s13">ดูเฉลย</button></div><div class="qsol" id="u3-explore-s13" hidden>ลาก \(IA,IB,IC\) แบ่งรูปสามเหลี่ยมเป็นสามรูปย่อย
+             <br>แต่ละรูปย่อยมีฐานเป็นด้านของรูปเดิม และมีความสูง \(=r\)
+             (ระยะจาก \(I\) ถึงด้านนั้น ซึ่งเท่ากันทุกด้าน)
+             <br>\([IBC]=\tfrac12 ar\), \([ICA]=\tfrac12 br\),
+             \([IAB]=\tfrac12 cr\)
+             <br>รวม: \(K=\tfrac12 r(a+b+c)=\tfrac12 r(2s)=rs\) ∎</div></div><div class="q" data-lvl="hard"><div class="qn">14.</div><div class="qbody">ใน GeoGebra สร้างสามเหลี่ยมแล้วลากจุดยอด
+         จนเกือบเป็นเส้นตรง (รูปแบนมาก)
+         <br>(ก) พื้นที่เป็นอย่างไร
+         <br>(ข) \(r\) เป็นอย่างไร
+         <br>(ค) \(R\) เป็นอย่างไร จงอธิบายจากสูตร</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">สำรวจ</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u3-explore-s14">ดูเฉลย</button></div><div class="qsol" id="u3-explore-s14" hidden>(ก) พื้นที่ \(K\to0\)
+             <br>(ข) \(r=\dfrac Ks\): \(K\to0\) แต่ \(s\) ไม่เป็นศูนย์
+             จึง \(r\to0\) — วงกลมแนบในหดเล็กลงจนหายไป
+             <br>(ค) \(R=\dfrac{abc}{4K}\): ตัวเศษไม่เป็นศูนย์แต่ตัวส่วน \(\to0\)
+             จึง \(R\to\infty\)
+             <br>วงกลมล้อมรอบโตขึ้นไม่มีขีดจำกัด — เพราะจุดสามจุดที่เกือบเรียงกัน
+             ต้องใช้วงกลมที่โค้งน้อยมาก (รัศมีมหาศาล) จึงผ่านได้ทั้งสามจุด</div></div><div class="q" data-lvl="hard"><div class="qn">15.</div><div class="qbody">สามเหลี่ยมมีจุดยอด \(A(0,0)\),
+         \(B(8,0)\), \(C(0,6)\)
+         <br>(ก) จงหาจุดศูนย์กลางวงกลมล้อมรอบและรัศมี
+         <br>(ข) จงหาจุดศูนย์กลางวงกลมแนบในและรัศมี</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">พิกัด</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u3-explore-s15">ดูเฉลย</button></div><div class="qsol" id="u3-explore-s15" hidden>ด้าน: \(AB=8\), \(AC=6\), \(BC=\sqrt{64+36}=10\)
+             มุมฉากที่ \(A\)
+             <br>(ก) \(O=\) จุดกึ่งกลาง \(BC=(4,3)\), \(R=\dfrac{10}{2}=5\)
+             <br>(ข) \(r=\dfrac{8+6-10}{2}=2\)
+             <br>มุมฉากที่จุดกำเนิด วงกลมแนบในจึงสัมผัสแกนทั้งสองที่ระยะ \(r\)
+             <br>\(I=(2,2)\)
+             <br>ตรวจด้วยสูตรบารีเซนทริก:
+             \(I=\dfrac{a\cdot A+b\cdot B+c\cdot C}{a+b+c}\) โดย
+             \(a=BC=10,b=CA=6,c=AB=8\)
+             <br>\(=\dfrac{10(0,0)+6(8,0)+8(0,6)}{24}
+             =\dfrac{(48,48)}{24}=(2,2)\) ✓</div></div><div class="q" data-lvl="hard"><div class="qn">16.</div><div class="qbody">สามเหลี่ยมหนึ่งมี \(O=(2,1)\)
+         และ \(G=(4,3)\) จงหาจุดออร์โทเซนเตอร์ \(H\)
+         <br>(ใช้ข้อเท็จจริงว่า \(O,G,H\) อยู่บนเส้นตรงเดียวกัน
+         และ \(OG:GH=1:2\))</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">เส้นออยเลอร์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u3-explore-s16">ดูเฉลย</button></div><div class="qsol" id="u3-explore-s16" hidden>\(\overrightarrow{OG}=(4-2,\,3-1)=(2,2)\)
+             <br>\(GH=2\times OG\) ในทิศเดียวกัน จึง
+             \(\overrightarrow{GH}=(4,4)\)
+             <br>\(H=G+(4,4)=(8,7)\)
+             <br>ตรวจ: \(OH=(6,6)\) และ \(OG=(2,2)\) → \(OG:OH=1:3\)
+             จึง \(OG:GH=1:2\) ✓</div></div><div class="q" data-lvl="apply"><div class="qn">17.</div><div class="qbody">หมู่บ้านสามแห่งอยู่ที่ \(A,B,C\)
+         ระยะทางระหว่างกันคือ \(AB=20\), \(BC=21\), \(CA=29\) กิโลเมตร
+         <br>(ก) จะสร้างโรงพยาบาลที่ห่างจากทุกหมู่บ้านเท่ากัน ต้องห่างเท่าไร
+         <br>(ข) โรงพยาบาลอยู่ในพื้นที่สามเหลี่ยมหรือไม่
+         <br>(ค) จะสร้างสถานีวิทยุที่ห่างจากถนนทั้งสามสาย (ด้านทั้งสาม) เท่ากัน
+         ต้องห่างเท่าไร</div><div class="qmeta"><span class="ex-lvl apply">ประยุกต์</span><span class="ex-lvl">ประยุกต์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u3-explore-s17">ดูเฉลย</button></div><div class="qsol" id="u3-explore-s17" hidden>(ก) ตรวจ: \(20^{2}+21^{2}=400+441=841=29^{2}\) ✓
+             <b>สามเหลี่ยมมุมฉาก</b>
+             <br>\(R=\dfrac{29}{2}=14.5\) กม.
+             <br>(ข) อยู่ที่จุดกึ่งกลางของด้าน \(CA\) ซึ่ง <b>อยู่บนขอบ</b>
+             ของพื้นที่สามเหลี่ยม
+             <br>(ค) \(r=\dfrac{20+21-29}{2}=\dfrac{12}{2}=6\) กม.</div></div><div class="q" data-lvl="apply"><div class="qn">18.</div><div class="qbody">สวนพฤกษศาสตร์โรงเรียนมีแปลงสามเหลี่ยม
+         ด้านยาว \(30,\ 40,\ 50\) เมตร
+         <br>(ก) จะวางบ่อบัววงกลมใหญ่สุดในแปลง รัศมีเท่าไร พื้นที่กี่ตารางเมตร
+         (ใช้ \(\pi\approx3.14\))
+         <br>(ข) พื้นที่แปลงทั้งหมดเท่าไร
+         <br>(ค) บ่อบัวกินพื้นที่กี่เปอร์เซ็นต์ของแปลง
+         <br>(ง) ถ้าปลูกไม้ดอกรอบบ่อ (พื้นที่ที่เหลือ) ตารางเมตรละ \(120\) บาท
+         ค่าใช้จ่ายเท่าไร</div><div class="qmeta"><span class="ex-lvl apply">ประยุกต์</span><span class="ex-lvl">ประยุกต์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u3-explore-s18">ดูเฉลย</button></div><div class="qsol" id="u3-explore-s18" hidden>(ก) \(30^{2}+40^{2}=2500=50^{2}\) → มุมฉาก
+             <br>\(r=\dfrac{30+40-50}{2}=10\) ม.
+             <br>พื้นที่บ่อ \(=3.14(100)=314\) ตร.ม.
+             <br>(ข) \(K=\tfrac12(30)(40)=600\) ตร.ม.
+             <br>(ค) \(\dfrac{314}{600}\times100\approx52.3\%\)
+             <br>(ง) พื้นที่ที่เหลือ \(=600-314=286\) ตร.ม.
+             <br>ค่าใช้จ่าย \(=286\times120=34\,320\) บาท</div></div><div class="q" data-lvl="apply"><div class="qn">19.</div><div class="qbody">สนามกีฬาสามเหลี่ยมต้องติดไฟสปอตไลต์
+         ที่เสาเดียวให้ส่องถึงทุกมุมสนามเท่ากัน
+         <br>ถ้าสนามมีด้าน \(50,\ 50,\ 60\) เมตร
+         <br>(ก) จงหาพื้นที่สนาม
+         <br>(ข) เสาต้องอยู่ที่ใด และห่างจากมุมเท่าไร
+         <br>(ค) ถ้าไฟส่องได้ไกล \(32\) ม. เพียงพอหรือไม่</div><div class="qmeta"><span class="ex-lvl apply">ประยุกต์</span><span class="ex-lvl">ประยุกต์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u3-explore-s19">ดูเฉลย</button></div><div class="qsol" id="u3-explore-s19" hidden>(ก) \(s=80\)
+             <br>\(K=\sqrt{80(30)(30)(20)}=\sqrt{1\,440\,000}=1200\) ตร.ม.
+             <br>(ข) ที่ <b>จุดศูนย์กลางวงกลมล้อมรอบ</b>
+             <br>\(R=\dfrac{50(50)(60)}{4(1200)}=\dfrac{150\,000}{4800}=31.25\) ม.
+             <br>(ค) \(32>31.25\) → <b>เพียงพอ</b> (เหลือระยะเผื่อ \(0.75\) ม.)
+             <br>ตรวจตำแหน่ง: \(60^{2}=3600\) กับ \(50^{2}+50^{2}=5000\)
+             <br>\(3600<5000\) → มุมแหลม → เสาอยู่ <b>ภายใน</b> สนาม ✓</div></div><div class="q" data-lvl="apply"><div class="qn">20.</div><div class="qbody">ช่างเชื่อมต้องทำวงแหวนเหล็กล้อมรอบ
+         แผ่นสามเหลี่ยมที่มีด้าน \(9,\ 12,\ 15\) ซม. ให้มุมทั้งสามแตะวงแหวนพอดี
+         <br>(ก) วงแหวนมีรัศมีเท่าไร
+         <br>(ข) ต้องใช้เหล็กยาวเท่าไร (ใช้ \(\pi\approx3.1416\))
+         <br>(ค) ช่องว่างระหว่างวงแหวนกับแผ่นสามเหลี่ยมมีพื้นที่เท่าไร</div><div class="qmeta"><span class="ex-lvl apply">ประยุกต์</span><span class="ex-lvl">ประยุกต์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u3-explore-s20">ดูเฉลย</button></div><div class="qsol" id="u3-explore-s20" hidden>(ก) \(9^{2}+12^{2}=81+144=225=15^{2}\) → มุมฉาก
+             <br>\(R=\dfrac{15}{2}=7.5\) ซม.
+             <br>(ข) \(2\pi R=2(3.1416)(7.5)=47.12\) ซม.
+             <br>(ค) พื้นที่วงกลม \(=\pi R^{2}=3.1416(56.25)=176.71\) ตร.ซม.
+             <br>พื้นที่สามเหลี่ยม \(=\tfrac12(9)(12)=54\) ตร.ซม.
+             <br>ช่องว่าง \(=176.71-54=122.71\) ตร.ซม.</div></div><div class="q" data-lvl="apply"><div class="qn">21.</div><div class="qbody">นักเรียนทำโครงงาน GeoGebra
+         สำรวจว่า "รูปสามเหลี่ยมแบบใดที่ \(R\) เล็กที่สุดเมื่อเส้นรอบรูปคงที่"
+         <br>ให้เส้นรอบรูปคงที่ \(=36\) ซม. จงเปรียบเทียบ
+         <br>(ก) สามเหลี่ยมด้านเท่า (\(12,12,12\))
+         <br>(ข) สามเหลี่ยม \(9,12,15\)
+         <br>(ค) สามเหลี่ยม \(5,14,17\)
+         <br>แล้วสรุปข้อคาดการณ์</div><div class="qmeta"><span class="ex-lvl apply">ประยุกต์</span><span class="ex-lvl">ประยุกต์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u3-explore-s21">ดูเฉลย</button></div><div class="qsol" id="u3-explore-s21" hidden>(ก) ด้านเท่า: \(K=\dfrac{\sqrt3}{4}(144)=62.35\)
+             <br>\(R=\dfrac{12^{3}}{4(62.35)}=\dfrac{1728}{249.4}\approx6.93\)
+             <br>(ข) \(s=18\), \(K=\tfrac12(9)(12)=54\)
+             <br>\(R=\dfrac{9(12)(15)}{4(54)}=\dfrac{1620}{216}=7.5\)
+             <br>(ค) \(s=18\), \(K=\sqrt{18(13)(4)(1)}=\sqrt{936}\approx30.59\)
+             <br>\(R=\dfrac{5(14)(17)}{4(30.59)}=\dfrac{1190}{122.4}\approx9.72\)
+             <br><b>ข้อคาดการณ์</b>: เมื่อเส้นรอบรูปคงที่ \(R\) เล็กที่สุด
+             ที่ <b>รูปสามเหลี่ยมด้านเท่า</b> และโตขึ้นเมื่อรูปยิ่งแบน
+             <br>(เหตุผล: \(R=\dfrac{abc}{4K}\) — ด้านเท่าให้ \(K\) มากที่สุด
+             เมื่อเส้นรอบรูปคงที่)</div></div><div class="q" data-lvl="apply"><div class="qn">22.</div><div class="qbody">โต๊ะกลมสามขาวางบนพื้น
+         ขาทั้งสามแตะพื้นที่จุด \(A,B,C\) ซึ่งห่างกัน \(60,\ 60,\ 60\) ซม.
+         <br>(ก) แผ่นโต๊ะกลมที่เล็กที่สุดที่ปิดจุดทั้งสามได้ มีรัศมีเท่าไร
+         (ใช้ \(\sqrt3\approx1.732\))
+         <br>(ข) ถ้าแผ่นโต๊ะมีรัศมี \(40\) ซม. ขาจะยื่นออกนอกขอบโต๊ะหรือไม่
+         <br>(ค) วงกลมที่ใหญ่ที่สุดที่วางได้ภายในสามเหลี่ยมของขาโต๊ะ
+         มีรัศมีเท่าไร</div><div class="qmeta"><span class="ex-lvl apply">ประยุกต์</span><span class="ex-lvl">ประยุกต์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u3-explore-s22">ดูเฉลย</button></div><div class="qsol" id="u3-explore-s22" hidden>ขาโต๊ะเป็นสามเหลี่ยมด้านเท่าด้านยาว \(60\) ซม.
+             <br>(ก) \(R=\dfrac{a}{\sqrt3}=\dfrac{60}{1.732}\approx34.64\) ซม.
+             <br>(ข) \(40>34.64\) → <b>ไม่ยื่น</b> ขาอยู่ภายในขอบโต๊ะ
+             เหลือระยะ \(\approx5.36\) ซม.
+             <br>(ค) \(r=\dfrac R2\approx17.32\) ซม.</div></div><div class="q" data-lvl="med"><div class="qn">23.</div><div class="qbody">สามเหลี่ยมมีด้าน \(5,\ 12,\ 13\)
+         จงหาพื้นที่ด้วยสองวิธี แล้วเทียบกัน</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">เฮรอน</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u3-explore-s23">ดูเฉลย</button></div><div class="qsol" id="u3-explore-s23" hidden><b>วิธีที่ 1</b> ตรวจ \(5^{2}+12^{2}=169=13^{2}\) → มุมฉาก
+             <br>\(K=\tfrac12(5)(12)=30\)
+             <br><b>วิธีที่ 2</b> เฮรอน: \(s=15\)
+             <br>\(K=\sqrt{15(10)(3)(2)}=\sqrt{900}=30\) ✓</div></div><div class="q" data-lvl="med"><div class="qn">24.</div><div class="qbody">สามเหลี่ยมมีพื้นที่ \(120\) ตร.ซม.
+         และ \(r=4\) ซม. จงหาเส้นรอบรูป</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">วงกลมแนบใน</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u3-explore-s24">ดูเฉลย</button></div><div class="qsol" id="u3-explore-s24" hidden>\(K=rs\Rightarrow 120=4s\Rightarrow s=30\)
+             <br>เส้นรอบรูป \(=2s=60\) ซม.</div></div><div class="q" data-lvl="med"><div class="qn">25.</div><div class="qbody">สามเหลี่ยมด้านเท่ามีจุด \(G,I,O,H\)
+         อยู่ที่ใด</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">ตำแหน่งจุด</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u3-explore-s25">ดูเฉลย</button></div><div class="qsol" id="u3-explore-s25" hidden>ทั้งสี่จุดอยู่ที่ <b>จุดเดียวกัน</b> คือจุดศูนย์กลางของรูป
+             <br>เพราะเส้นมัธยฐาน เส้นแบ่งครึ่งมุม เส้นแบ่งครึ่งตั้งฉากของด้าน
+             และเส้นสูง เป็นเส้นเดียวกันทั้งหมดในสามเหลี่ยมด้านเท่า</div></div><div class="q" data-lvl="med"><div class="qn">26.</div><div class="qbody">สามเหลี่ยมมีด้าน \(c=14\)
+         ตรงข้ามมุม \(C=45^\circ\) จงหารัศมีวงกลมล้อมรอบ
+         (ใช้ \(\sqrt2\approx1.414\))</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">กฎของไซน์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u3-explore-s26">ดูเฉลย</button></div><div class="qsol" id="u3-explore-s26" hidden>\(2R=\dfrac{c}{\sin C}=\dfrac{14}{\sin45^\circ}
+             =\dfrac{14}{0.7071}\approx19.80\)
+             <br>\(R\approx9.90\)</div></div><div class="q" data-lvl="med"><div class="qn">27.</div><div class="qbody">สามเหลี่ยมมุมฉากมีด้านประกอบมุมฉาก
+         \(8\) และ \(6\) ซม. จงหาความยาวจากจุดยอดมุมฉากถึงจุดสัมผัสของ
+         วงกลมแนบในบนด้านประกอบมุมฉาก</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">จุดสัมผัส</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u3-explore-s27">ดูเฉลย</button></div><div class="qsol" id="u3-explore-s27" hidden>ด้านตรงข้ามมุมฉาก \(=10\) ซม., \(s=12\)
+             <br>ความยาวจากจุดยอดมุมฉาก \(=s-c=12-10=2\) ซม.
+             <br>(เท่ากับ \(r\) พอดี เพราะบริเวณนั้นเป็นสี่เหลี่ยมจัตุรัสด้าน \(r\))</div></div><div class="q" data-lvl="hard"><div class="qn">28.</div><div class="qbody">สามเหลี่ยมมีด้าน \(7,\ 15,\ 20\)
+         <br>(ก) จงหาพื้นที่
+         <br>(ข) จงหา \(R\)
+         <br>(ค) จุดศูนย์กลางวงกลมล้อมรอบอยู่ภายในหรือภายนอก</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">วงกลมล้อมรอบ</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u3-explore-s28">ดูเฉลย</button></div><div class="qsol" id="u3-explore-s28" hidden>(ก) \(s=21\)
+             <br>\(K=\sqrt{21(14)(6)(1)}=\sqrt{1764}=42\) ตารางหน่วย
+             <br>(ข) \(R=\dfrac{7(15)(20)}{4(42)}=\dfrac{2100}{168}=12.5\)
+             <br>(ค) \(20^{2}=400\) กับ \(7^{2}+15^{2}=49+225=274\)
+             <br>\(400>274\) → มุมป้าน → \(O\) อยู่ <b>ภายนอก</b> รูป</div></div><div class="q" data-lvl="hard"><div class="qn">29.</div><div class="qbody">จงพิสูจน์ว่าในสามเหลี่ยมมุมฉาก
+         จุดศูนย์กลางวงกลมล้อมรอบอยู่ที่จุดกึ่งกลางของด้านตรงข้ามมุมฉาก</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">พิสูจน์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u3-explore-s29">ดูเฉลย</button></div><div class="qsol" id="u3-explore-s29" hidden>ให้มุมฉากอยู่ที่ \(C\) และ \(M\) เป็นจุดกึ่งกลางของ \(AB\)
+             <br>ต่อ \(CM\) ออกไปถึง \(D\) ให้ \(MD=CM\)
+             <br>เส้นทแยงมุม \(CD\) และ \(AB\) แบ่งครึ่งกันที่ \(M\)
+             → \(ACBD\) เป็นสี่เหลี่ยมด้านขนาน
+             <br>มี \(\angle ACB=90^\circ\) จึงเป็น <b>สี่เหลี่ยมมุมฉาก</b>
+             <br>สี่เหลี่ยมมุมฉากมีเส้นทแยงมุมยาวเท่ากันและแบ่งครึ่งกัน
+             <br>ดังนั้น \(MA=MB=MC=MD\)
+             <br>\(M\) ห่างจากจุดยอดทั้งสามเท่ากัน จึงเป็นจุดศูนย์กลาง
+             วงกลมล้อมรอบ และ \(R=\tfrac12 AB\) ∎</div></div><div class="q" data-lvl="hard"><div class="qn">30.</div><div class="qbody">สามเหลี่ยมหน้าจั่วมีด้านประกอบมุมยอด
+         ยาว \(13\) ซม. และฐาน \(10\) ซม.
+         <br>(ก) จงหาความสูงและพื้นที่
+         <br>(ข) จงหา \(r\) และ \(R\)
+         <br>(ค) จุดสำคัญ \(G,I,O\) อยู่บนเส้นเดียวกันหรือไม่ เพราะเหตุใด</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">สำรวจ</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u3-explore-s30">ดูเฉลย</button></div><div class="qsol" id="u3-explore-s30" hidden>(ก) ครึ่งฐาน \(=5\) → \(h=\sqrt{169-25}=12\) ซม.
+             <br>\(K=\tfrac12(10)(12)=60\) ตร.ซม.
+             <br>(ข) \(s=\dfrac{13+13+10}{2}=18\) → \(r=\dfrac{60}{18}
+             =\dfrac{10}{3}\approx3.33\) ซม.
+             <br>\(R=\dfrac{13(13)(10)}{4(60)}=\dfrac{1690}{240}
+             \approx7.04\) ซม.
+             <br>(ค) <b>อยู่บนเส้นเดียวกัน</b> คือบนแกนสมมาตร (เส้นจากมุมยอด
+             ลงไปกลางฐาน)
+             <br>เพราะในสามเหลี่ยมหน้าจั่ว เส้นนี้เป็นทั้งเส้นมัธยฐาน
+             เส้นแบ่งครึ่งมุมยอด เส้นสูง และเส้นแบ่งครึ่งตั้งฉากของฐาน</div></div><div class="q" data-lvl="apply"><div class="qn">31.</div><div class="qbody">สนามเด็กเล่นรูปสามเหลี่ยม
+         ด้านยาว \(24,\ 32,\ 40\) เมตร
+         <br>(ก) จงตรวจว่าเป็นสามเหลี่ยมมุมฉากหรือไม่ และหาพื้นที่
+         <br>(ข) จะวางวงกลมทรายที่ใหญ่ที่สุด รัศมีเท่าไร
+         <br>(ค) ทรายหนา \(0.3\) ม. ต้องใช้ทรายกี่ลูกบาศก์เมตร
+         (ใช้ \(\pi\approx3.14\))</div><div class="qmeta"><span class="ex-lvl apply">ประยุกต์</span><span class="ex-lvl">ประยุกต์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u3-explore-s31">ดูเฉลย</button></div><div class="qsol" id="u3-explore-s31" hidden>(ก) \(24^{2}+32^{2}=576+1024=1600=40^{2}\) ✓ มุมฉาก
+             <br>\(K=\tfrac12(24)(32)=384\) ตร.ม.
+             <br>(ข) \(r=\dfrac{24+32-40}{2}=\dfrac{16}{2}=8\) ม.
+             <br>(ค) พื้นที่วงกลม \(=3.14(64)=200.96\) ตร.ม.
+             <br>ปริมาตรทราย \(=200.96\times0.3\approx60.3\) ลบ.ม.</div></div></section><div class="pager"><a class="pl" href="u2-shapes-area.html">รูปเรขาคณิต มุม และพื้นที่</a><a class="pr" href="u4-transform.html">การแปลงทางเรขาคณิต</a></div></main></div></div><footer class="site"><div class="wrap">คณิตศาสตร์ ม.2 · สื่อการเรียนรู้แบบอินเทอร์แอกทีฟ</div></footer>
+<script src="../assets/js/site.js"></script>
+<script src="../assets/js/viz.js"></script>
+</body>
+</html>

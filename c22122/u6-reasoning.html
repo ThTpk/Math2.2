@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="th" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>การให้เหตุผลทางเรขาคณิต · คณิตศาสตร์ 4</title>
+<meta name="description" content="วิธีเขียนการพิสูจน์แบบสองคอลัมน์ การใช้สมบัติของรูปสามเหลี่ยมและ
+    รูปสี่เหลี่ยมเป็นเหตุผลอ้างอิง การสร้างเส้นช่วย และทฤษฎีบทเส้นกึ่งกลาง
+    ที่ใช้">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Serif+Thai:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/site.css">
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+         processEscapes: true },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] },
+  chtml: { mtextInheritFont: true, scale: 1.0 },
+  startup: { typeset: true }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+
+</head>
+<body>
+<nav class="nav"><a class="nav-brand" href="../index.html">คณิต<span>ศาสตร์</span> ม.2</a><div class="nav-links"><a href="../index.html">หน้าแรก</a><a href="../c22122/index.html" aria-current="page" title="คณิตศาสตร์ 4">คณิตศาสตร์ 4</a><a href="../c22292/index.html" title="คณิตศาสตร์พัฒนาศักยภาพ 4">พัฒนาศักยภาพ 4</a><a href="../c22294/index.html" title="เทคโนโลยีเพื่อการศึกษาทางคณิตศาสตร์">เทคโนโลยีคณิตศาสตร์</a><button class="theme-btn" type="button" aria-label="สลับโหมดสี">☾</button></div></nav><div class="wrap"><div class="page"><aside class="toc"><div class="toc-label">หัวข้อในบทนี้</div><ol><li><a href="#howto">โครงสร้างของการพิสูจน์</a></li><li><a href="#quad">สมบัติของรูปสี่เหลี่ยม</a></li><li><a href="#midseg">ทฤษฎีบทเส้นกึ่งกลาง</a></li><li><a href="#drill">แบบฝึกหัดท้ายบท</a></li></ol></aside><main><p class="eyebrow">คณิตศาสตร์ 4</p><h1>การให้เหตุผลทางเรขาคณิต</h1><p class="lead">วิธีเขียนการพิสูจน์แบบสองคอลัมน์ การใช้สมบัติของรูปสามเหลี่ยมและ
+    รูปสี่เหลี่ยมเป็นเหตุผลอ้างอิง การสร้างเส้นช่วย และทฤษฎีบทเส้นกึ่งกลาง
+    ที่ใช้เชื่อมโจทย์สามเหลี่ยมกับโจทย์สี่เหลี่ยม</p><div class="badges"><span class="badge">พิสูจน์สองคอลัมน์</span><span class="badge">เส้นช่วย</span><span class="badge">ทฤษฎีบทเส้นกึ่งกลาง</span><span class="badge">ไล่ขั้นการพิสูจน์ได้</span><span class="badge on">แบบฝึกหัด 31 ข้อ</span></div><section id="howto"><h2>โครงสร้างของการพิสูจน์</h2><p>การพิสูจน์ทางเรขาคณิตคือการเดินจาก <b>สิ่งที่กำหนดให้</b>
+             ไปถึง <b>สิ่งที่ต้องการแสดง</b> โดยทุกก้าวต้องอ้างเหตุผลได้
+             เหตุผลที่อ้างได้มีสามประเภทเท่านั้น</p><ol><li><b>สิ่งที่โจทย์กำหนดให้</b> (given)</li><li><b>นิยาม</b> เช่น นิยามของจุดกึ่งกลาง เส้นแบ่งครึ่งมุม สี่เหลี่ยมด้านขนาน</li><li><b>สัจพจน์หรือทฤษฎีบทที่พิสูจน์แล้ว</b> เช่น มุมตรงข้ามเท่ากัน มุมภายในรูปสามเหลี่ยมรวมได้ \(180^\circ\) เงื่อนไขความเท่ากันทุกประการ</li></ol><div class="box trick"><span class="box-label">รูปแบบการเขียนสองคอลัมน์</span>
+             <p>คอลัมน์ซ้ายเขียน <b>ข้อความ</b> คอลัมน์ขวาเขียน <b>เหตุผล</b>
+             ของข้อความนั้น หนึ่งบรรทัดหนึ่งก้าว ห้ามข้ามขั้น</p>
+             <p>ข้อความสุดท้ายต้องเป็นสิ่งที่โจทย์ขอให้แสดงพอดี</p></div><figure class="fig" data-viz="proof" id="proof-parallelogram"><div class="fig-body"><svg viewBox="0 0 460 300" role="img" aria-labelledby="proof-parallelogram-t proof-parallelogram-d"><title id="proof-parallelogram-t">การพิสูจน์ว่าเส้นทแยงมุมของสี่เหลี่ยมด้านขนานแบ่งครึ่งกัน</title><desc id="proof-parallelogram-d">รูปสี่เหลี่ยมด้านขนาน ABCD มีเส้นทแยงมุม AC และ BD ตัดกันที่จุด O มีการกำกับมุมแย้งสองคู่และด้านตรงข้ามที่เท่ากัน นำไปสู่ข้อสรุปว่า OA เท่ากับ OC และ OB เท่ากับ OD</desc><rect width="100%" height="100%" fill="var(--paper-2)"/><defs><marker id="ar" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" class="f-muted"/></marker><marker id="ar-a" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" class="f-accent"/></marker><marker id="ar-l" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" class="f-link"/></marker><marker id="ar-t" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" class="f-teal"/></marker></defs><text x="30" y="32" class="t-tag">สี่เหลี่ยมด้านขนาน: เส้นทแยงมุมแบ่งครึ่งกัน</text><polygon points="90,210 300,210 380,90 170,90" class="f-it"/><polygon points="90,210 300,210 380,90 170,90" class="s-ink"/><g data-step="1"><line x1="90" y1="210" x2="380" y2="90" class="s-accent"/><line x1="300" y1="210" x2="170" y2="90" class="s-link"/><circle cx="235" cy="150" r="4.5" class="f-accent"/><text x="247" y="164" text-anchor="middle" class="t-name t-accent">O</text></g><g data-step="2"><path d="M 116 210 A 26 26 0 0 0 114.02 200.06" class="s-accent"/><path d="M 354 90 A 26 26 0 0 0 355.98 99.94" class="s-accent"/></g><g data-step="3"><path d="M 283.83 195.08 A 22 22 0 0 0 278 210" class="s-link"/><path d="M 186.17 104.92 A 22 22 0 0 0 192 90" class="s-link"/></g><g data-step="4"><line x1="195" y1="203" x2="195" y2="217" class="s-teal"/><line x1="275" y1="97" x2="275" y2="83" class="s-teal"/></g><g data-step="5"><line x1="158.36" y1="175.22" x2="162.95" y2="186.31" class="s-accent"/><line x1="162.05" y1="173.69" x2="166.64" y2="184.78" class="s-accent"/><line x1="303.36" y1="115.22" x2="307.95" y2="126.31" class="s-accent"/><line x1="307.05" y1="113.69" x2="311.64" y2="124.78" class="s-accent"/><line x1="266.37" y1="187.12" x2="274.51" y2="178.3" class="s-link"/><line x1="263.43" y1="184.41" x2="271.57" y2="175.59" class="s-link"/><line x1="260.49" y1="181.7" x2="268.63" y2="172.88" class="s-link"/><line x1="201.37" y1="127.12" x2="209.51" y2="118.3" class="s-link"/><line x1="198.43" y1="124.41" x2="206.57" y2="115.59" class="s-link"/><line x1="195.49" y1="121.7" x2="203.63" y2="112.88" class="s-link"/></g><circle cx="90" cy="210" r="4.2" class="f-ink"/><text x="74" y="218" text-anchor="middle" class="t-name">A</text><circle cx="300" cy="210" r="4.2" class="f-ink"/><text x="308" y="230" text-anchor="middle" class="t-name">B</text><circle cx="380" cy="90" r="4.2" class="f-ink"/><text x="396" y="92" text-anchor="middle" class="t-name">C</text><circle cx="170" cy="90" r="4.2" class="f-ink"/><text x="162" y="78" text-anchor="middle" class="t-name">D</text><line x1="24" y1="262" x2="436" y2="262" class="s-rule"/><text x="24" y="280" class="t-tag">LEGEND</text><line x1="88" y1="276" x2="108" y2="276" class="s-accent"/><text x="114" y="280" class="t-mono">คู่ที่ 1</text><line x1="178" y1="276" x2="198" y2="276" class="s-link"/><text x="204" y="280" class="t-mono">คู่ที่ 2</text><line x1="268" y1="276" x2="288" y2="276" class="s-teal"/><text x="294" y="280" class="t-mono">ด้านตรงข้าม</text></svg><table class="tbl"><thead><tr><th>ข้อความ</th><th>เหตุผล</th></tr></thead><tbody><tr data-prow="1"><td>ลาก \(AC\) และ \(BD\) ตัดกันที่ \(O\)</td><td>สร้างเส้นช่วย</td></tr><tr data-prow="2"><td>\(\angle OAB=\angle OCD\)</td><td>มุมแย้งของ \(AB\parallel DC\) ที่มี \(AC\) เป็นเส้นตัด</td></tr><tr data-prow="3"><td>\(\angle OBA=\angle ODC\)</td><td>มุมแย้งของ \(AB\parallel DC\) ที่มี \(BD\) เป็นเส้นตัด</td></tr><tr data-prow="4"><td>\(AB=CD\)</td><td>ด้านตรงข้ามของสี่เหลี่ยมด้านขนานยาวเท่ากัน</td></tr><tr data-prow="5"><td>\(\triangle OAB\equiv\triangle OCD\)</td><td>ม.ด.ม. จากข้อ 2, 4, 3</td></tr><tr data-prow="6"><td>\(OA=OC\) และ \(OB=OD\)</td><td>ส่วนสมนัยของรูปที่เท่ากันทุกประการย่อมเท่ากัน</td></tr></tbody></table></div><div class="fig-ctrl"><button type="button" data-act="reset" aria-pressed="false">เริ่มต้น</button><button type="button" data-act="prev" aria-pressed="false">ย้อน</button><button type="button" data-act="next" aria-pressed="false">ขั้นต่อไป</button><button type="button" data-act="all" aria-pressed="false">แสดงทั้งหมด</button><span class="fig-readout" data-readout>ขั้นที่ 6 / 6</span></div><figcaption>กดปุ่ม <b>ขั้นต่อไป</b> เพื่อไล่ดูการพิสูจน์ทีละขั้น รูปและตารางเหตุผลจะเปิดเผยพร้อมกัน ทำให้เห็นว่าแต่ละข้อความ อ้างอิงอะไรในรูป</figcaption></figure><div class="box warn"><span class="box-label">ข้อผิดพลาดที่พบบ่อย</span>
+             <ul>
+             <li><b>ใช้สิ่งที่ยังไม่ได้พิสูจน์</b> — เช่น สมมติว่ารูปนั้นเป็น
+             สี่เหลี่ยมด้านขนานทั้งที่เป็นสิ่งที่ต้องแสดง</li>
+             <li><b>อ่านจากรูป</b> — มุมที่ "ดูเหมือน" มุมฉากในภาพ
+             อ้างเป็นมุมฉากไม่ได้ ต้องมีเหตุผลรองรับ</li>
+             <li><b>เงื่อนไขผิดตำแหน่ง</b> — เขียน ด.ม.ด. ทั้งที่มุมไม่ได้อยู่
+             ระหว่างด้านทั้งสอง</li>
+             <li><b>ลำดับตัวอักษรสลับ</b> — \(\triangle ABC\equiv\triangle DFE\)
+             ให้ข้อสรุปไม่เหมือน \(\triangle ABC\equiv\triangle DEF\)</li>
+             </ul></div></section><section id="quad"><h2>สมบัติของรูปสี่เหลี่ยม</h2><p>รูปสี่เหลี่ยมแต่ละชนิดมีสมบัติที่อ้างอิงได้ในการพิสูจน์
+             ตารางนี้เรียงจากทั่วไปไปจำเพาะ สมบัติของชนิดที่อยู่ข้างบน
+             ย่อมเป็นจริงกับชนิดที่อยู่ข้างล่างด้วย</p><table class="tbl"><thead><tr><th>ชนิด</th><th>สมบัติเฉพาะที่เพิ่มเข้ามา</th></tr></thead><tbody><tr><td>สี่เหลี่ยมด้านขนาน</td><td>ด้านตรงข้ามขนานและยาวเท่ากัน · มุมตรงข้ามเท่ากัน ·
+                 มุมประชิดรวมกันได้ \(180^\circ\) · <b>เส้นทแยงมุมแบ่งครึ่งกัน</b></td></tr><tr><td>สี่เหลี่ยมมุมฉาก</td><td>มุมทุกมุมเป็นมุมฉาก · <b>เส้นทแยงมุมยาวเท่ากัน</b></td></tr><tr><td>รูปสี่เหลี่ยมขนมเปียกปูน</td><td>ด้านทุกด้านยาวเท่ากัน · <b>เส้นทแยงมุมตั้งฉากกัน</b> และแบ่งครึ่งมุม</td></tr><tr><td>สี่เหลี่ยมจัตุรัส</td><td>มีสมบัติของทั้งสี่เหลี่ยมมุมฉากและขนมเปียกปูนครบ</td></tr><tr><td>สี่เหลี่ยมคางหมู</td><td>มีด้านขนานหนึ่งคู่ · ถ้าเป็นคางหมูหน้าจั่ว เส้นทแยงมุมยาวเท่ากัน และมุมที่ฐานเดียวกันเท่ากัน</td></tr><tr><td>รูปว่าว</td><td>ด้านประชิดเท่ากันสองคู่ · เส้นทแยงมุมเส้นหนึ่งเป็น<b>เส้นแบ่งครึ่งตั้งฉาก</b>ของอีกเส้น</td></tr></tbody></table><div class="box thm"><span class="box-label">เงื่อนไขที่ใช้สรุปว่าเป็นสี่เหลี่ยมด้านขนาน</span>
+             <p>รูปสี่เหลี่ยม \(ABCD\) เป็นสี่เหลี่ยมด้านขนาน
+             ถ้าข้อใดข้อหนึ่งต่อไปนี้เป็นจริง</p>
+             <ol>
+             <li>ด้านตรงข้ามขนานกันทั้งสองคู่ (นิยาม)</li>
+             <li>ด้านตรงข้ามยาวเท่ากันทั้งสองคู่</li>
+             <li>ด้านคู่หนึ่ง <b>ทั้งขนานกันและยาวเท่ากัน</b></li>
+             <li>มุมตรงข้ามเท่ากันทั้งสองคู่</li>
+             <li>เส้นทแยงมุมแบ่งครึ่งกัน</li>
+             </ol>
+             <p>ข้อ 3 เป็นเงื่อนไขที่ใช้ง่ายที่สุดในโจทย์พิสูจน์ จำไว้ให้ดี</p></div><div class="ex"><div class="ex-head"><span class="ex-tag">ตัวอย่าง 1</span><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">พิสูจน์</span></div><div class="ex-body">
+             รูปสี่เหลี่ยมด้านขนาน \(ABCD\) มีจุด \(E\) และ \(F\) เป็นจุดกึ่งกลางของ
+             \(AB\) และ \(CD\) ตามลำดับ
+             <br>จงพิสูจน์ว่า \(AECF\) เป็นสี่เหลี่ยมด้านขนาน</div><div class="ex-sol"><p class="sol-label">แนวคิดและวิธีทำ</p><ol class="steps"><li>\(ABCD\) เป็นสี่เหลี่ยมด้านขนาน จึงได้ \(AB\parallel DC\)
+                 และ \(AB=DC\) — <i>สมบัติของสี่เหลี่ยมด้านขนาน</i></li><li>\(AE=\tfrac12 AB\) — <i>\(E\) เป็นจุดกึ่งกลางของ \(AB\)</i></li><li>\(CF=\tfrac12 DC\) — <i>\(F\) เป็นจุดกึ่งกลางของ \(DC\)</i></li><li>จาก \(AB=DC\) จึงได้ \(AE=CF\)</li><li>\(AE\) อยู่บนเส้น \(AB\) และ \(CF\) อยู่บนเส้น \(DC\)
+                 ซึ่งขนานกัน ดังนั้น \(AE\parallel CF\)</li><li>รูปสี่เหลี่ยม \(AECF\) มีด้านคู่หนึ่ง (\(AE\) กับ \(CF\))
+                 ทั้งขนานกันและยาวเท่ากัน</li><li>ตามเงื่อนไขข้อ 3 จึงสรุปได้ว่า \(AECF\) เป็นสี่เหลี่ยมด้านขนาน</li></ol><p class="ans">\(AECF\) เป็นสี่เหลี่ยมด้านขนาน (ด้านคู่หนึ่งขนานและยาวเท่ากัน)</p></div></div></section><section id="midseg"><h2>ทฤษฎีบทเส้นกึ่งกลาง</h2><figure class="fig" data-viz="proof" id="proof-midsegment"><div class="fig-body"><svg viewBox="0 0 460 280" role="img" aria-labelledby="proof-midsegment-t proof-midsegment-d"><title id="proof-midsegment-t">เส้นกึ่งกลางของรูปสามเหลี่ยม</title><desc id="proof-midsegment-d">รูปสามเหลี่ยม ABC มีจุด M และ N เป็นจุดกึ่งกลางของด้าน AB และ AC ส่วนของเส้นตรง MN ขนานกับด้าน BC และยาวครึ่งหนึ่งของ BC</desc><rect width="100%" height="100%" fill="var(--paper-2)"/><defs><marker id="ar" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" class="f-muted"/></marker><marker id="ar-a" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" class="f-accent"/></marker><marker id="ar-l" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" class="f-link"/></marker><marker id="ar-t" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" class="f-teal"/></marker></defs><text x="30" y="32" class="t-tag">เส้นกึ่งกลางของรูปสามเหลี่ยม</text><polygon points="230,62 80,222 380,222" class="f-it"/><polygon points="230,62 80,222 380,222" class="s-ink"/><g data-step="1"><circle cx="155" cy="142" r="4.5" class="f-accent"/><circle cx="305" cy="142" r="4.5" class="f-accent"/><line x1="197.61" y1="106.79" x2="187.39" y2="97.21" class="s-accent"/><line x1="122.61" y1="186.79" x2="112.39" y2="177.21" class="s-accent"/><line x1="270.51" y1="96.44" x2="261.75" y2="104.64" class="s-accent"/><line x1="273.25" y1="99.36" x2="264.49" y2="107.56" class="s-accent"/><line x1="345.51" y1="176.44" x2="336.75" y2="184.64" class="s-accent"/><line x1="348.25" y1="179.36" x2="339.49" y2="187.56" class="s-accent"/><text x="139" y="142" text-anchor="middle" class="t-name t-accent">M</text><text x="321" y="142" text-anchor="middle" class="t-name t-accent">N</text></g><g data-step="2"><line x1="155" y1="142" x2="305" y2="142" class="s-accent thick"/></g><g data-step="3"><path d="M 154.93 142.07 A 0.1 0.1 0 0 0 155.1 142" class="s-rule"/><path d="M 104 222 A 24 24 0 0 0 96.41 204.49" class="s-link"/><path d="M 175 142 A 20 20 0 0 0 168.68 127.41" class="s-link"/></g><g data-step="4"><text x="230" y="132" text-anchor="middle" class="t-mono t-accent">MN</text><text x="230" y="242" text-anchor="middle" class="t-mono t-accent">BC = 2·MN</text></g><circle cx="230" cy="62" r="4.2" class="f-ink"/><text x="230" y="50" text-anchor="middle" class="t-name">A</text><circle cx="80" cy="222" r="4.2" class="f-ink"/><text x="64" y="238" text-anchor="middle" class="t-name">B</text><circle cx="380" cy="222" r="4.2" class="f-ink"/><text x="396" y="238" text-anchor="middle" class="t-name">C</text></svg><table class="tbl"><thead><tr><th>ข้อความ</th><th>เหตุผล</th></tr></thead><tbody><tr data-prow="1"><td>\(M,N\) เป็นจุดกึ่งกลางของ \(AB,AC\)</td><td>กำหนดให้</td></tr><tr data-prow="2"><td>ลาก \(MN\)</td><td>สร้างเส้นช่วย</td></tr><tr data-prow="3"><td>\(\angle AMN=\angle ABC\)</td><td>จาก \(\triangle AMN\sim\triangle ABC\) (อัตราส่วน \(1:2\) และมุม \(A\) ร่วม)</td></tr><tr data-prow="4"><td>\(MN\parallel BC\) และ \(MN=\tfrac12 BC\)</td><td>มุมแย้งเท่ากัน → ขนาน; อัตราส่วนความคล้าย → ครึ่งหนึ่ง</td></tr></tbody></table></div><div class="fig-ctrl"><button type="button" data-act="reset" aria-pressed="false">เริ่มต้น</button><button type="button" data-act="prev" aria-pressed="false">ย้อน</button><button type="button" data-act="next" aria-pressed="false">ขั้นต่อไป</button><button type="button" data-act="all" aria-pressed="false">แสดงทั้งหมด</button><span class="fig-readout" data-readout>ขั้นที่ 4 / 4</span></div><figcaption><b>ทฤษฎีบทเส้นกึ่งกลาง</b> — ส่วนของเส้นตรงที่เชื่อมจุดกึ่งกลางของด้านสองด้าน ย่อมขนานกับด้านที่สามและยาวเป็นครึ่งหนึ่งของด้านนั้น ทฤษฎีบทนี้ใช้แก้โจทย์รูปสี่เหลี่ยมได้บ่อยมาก</figcaption></figure><div class="box thm"><span class="box-label">ทฤษฎีบทเส้นกึ่งกลาง</span>
+             <p>ถ้า \(M,N\) เป็นจุดกึ่งกลางของด้าน \(AB,AC\) ของรูปสามเหลี่ยม
+             \(ABC\) แล้ว</p>
+             \[MN\parallel BC \quad\text{และ}\quad MN=\tfrac12 BC\]
+             <p><b>บทกลับ</b> ถ้าเส้นที่ผ่านจุดกึ่งกลางของ \(AB\) และขนานกับ
+             \(BC\) แล้วเส้นนั้นย่อมผ่านจุดกึ่งกลางของ \(AC\)</p></div><div class="ex"><div class="ex-head"><span class="ex-tag">ตัวอย่าง 2</span><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">ประยุกต์ทฤษฎีบท</span></div><div class="ex-body">
+             รูปสี่เหลี่ยม \(ABCD\) ใด ๆ (ไม่จำเป็นต้องพิเศษ) มีจุด \(P,Q,R,S\)
+             เป็นจุดกึ่งกลางของด้าน \(AB,BC,CD,DA\) ตามลำดับ
+             <br>จงพิสูจน์ว่า \(PQRS\) เป็นสี่เหลี่ยมด้านขนานเสมอ</div><div class="ex-sol"><p class="sol-label">แนวคิดและวิธีทำ</p><ol class="steps"><li>ลากเส้นทแยงมุม \(AC\) เพื่อแบ่งรูปสี่เหลี่ยมเป็นสองสามเหลี่ยม</li><li>ใน \(\triangle ABC\): \(P,Q\) เป็นจุดกึ่งกลางของ \(AB,BC\)
+                 ทฤษฎีบทเส้นกึ่งกลางให้ \(PQ\parallel AC\) และ \(PQ=\tfrac12 AC\)</li><li>ใน \(\triangle ADC\): \(S,R\) เป็นจุดกึ่งกลางของ \(DA,CD\)
+                 ทฤษฎีบทเส้นกึ่งกลางให้ \(SR\parallel AC\) และ \(SR=\tfrac12 AC\)</li><li>ดังนั้น \(PQ\parallel SR\) (ทั้งคู่ขนานกับ \(AC\)) และ
+                 \(PQ=SR=\tfrac12 AC\)</li><li>รูปสี่เหลี่ยม \(PQRS\) มีด้านคู่หนึ่งทั้งขนานกันและยาวเท่ากัน
+                 จึงเป็นสี่เหลี่ยมด้านขนาน</li><li><b>ข้อสังเกตเพิ่มเติม</b> รูปนี้เรียกว่า Varignon parallelogram
+                 และมีพื้นที่เป็น <b>ครึ่งหนึ่ง</b> ของพื้นที่ \(ABCD\) เสมอ</li></ol><p class="ans">\(PQRS\) เป็นสี่เหลี่ยมด้านขนานเสมอ (และมีพื้นที่ครึ่งหนึ่งของ \(ABCD\))</p></div></div><div class="ex"><div class="ex-head"><span class="ex-tag">ตัวอย่าง 3</span><span class="ex-lvl apply">ประยุกต์</span><span class="ex-lvl">ประยุกต์</span></div><div class="ex-body">
+             ที่ดินรูปสี่เหลี่ยมคางหมูมีด้านขนานยาว \(30\) ม. และ \(50\) ม.
+             เจ้าของต้องการสร้างรั้วเชื่อมจุดกึ่งกลางของด้านที่ไม่ขนานทั้งสอง
+             <br>(ก) รั้วยาวเท่าไร
+             <br>(ข) รั้วขนานกับด้านขนานทั้งสองหรือไม่
+             <br>(ค) รั้วแบ่งที่ดินเป็นสองส่วน อัตราส่วนพื้นที่เท่าไร
+             ถ้าความสูงของคางหมูเป็น \(h\)</div><div class="ex-sol"><p class="sol-label">แนวคิดและวิธีทำ</p><ol class="steps"><li>(ก) เส้นกึ่งกลางของคางหมูยาวเท่ากับ <b>ค่าเฉลี่ย</b>
+                 ของด้านขนานทั้งสอง
+                 \[\frac{30+50}{2}=40\ \text{ม.}\]</li><li>เหตุผล: ลากเส้นทแยงมุมหนึ่งเส้น แล้วใช้ทฤษฎีบทเส้นกึ่งกลาง
+                 สองครั้ง จะได้ส่วนย่อยยาว \(\tfrac12(30)\) และ \(\tfrac12(50)\)
+                 ต่อกันเป็นเส้นตรง</li><li>(ข) <b>ขนาน</b> — เพราะส่วนย่อยทั้งสองขนานกับด้านขนานตามลำดับ
+                 และต่อกันเป็นเส้นตรงเดียวกัน</li><li>(ค) รั้วอยู่กึ่งกลางความสูง จึงแบ่งความสูงเป็น
+                 \(\tfrac h2\) เท่า ๆ กัน
+                 <br>ส่วนบน (คางหมู \(30,40\)):
+                 \(\tfrac12(30+40)\cdot\tfrac h2=\tfrac{70h}{4}\)</li><li>ส่วนล่าง (คางหมู \(40,50\)):
+                 \(\tfrac12(40+50)\cdot\tfrac h2=\tfrac{90h}{4}\)</li><li>อัตราส่วน \(=70:90=7:9\)</li></ol><p class="ans">(ก) \(40\) ม.&nbsp;&nbsp;(ข) ขนาน&nbsp;&nbsp;(ค) \(7:9\)</p></div></div></section><section id="drill" class="drill"><div class="drill-head"><h3>แบบฝึกหัดท้ายบท</h3><span class="drill-stat">แสดง 31 / 31 ข้อ</span></div><p>โจทย์เรียงจากปานกลางไปยาก และปิดท้ายด้วยโจทย์ประยุกต์ ลองทำด้วยตัวเองให้ครบก่อนเปิดเฉลย</p><div class="drill-filter"><button class="btn" type="button" data-filter="all" aria-pressed="true">ทั้งหมด (31)</button><button class="btn" type="button" data-filter="med" aria-pressed="false">ปานกลาง (12)</button><button class="btn" type="button" data-filter="hard" aria-pressed="false">ยาก (13)</button><button class="btn" type="button" data-filter="apply" aria-pressed="false">ประยุกต์ (6)</button><button class="btn" type="button" data-sol-all="show">เปิดเฉลยทั้งหมด</button><button class="btn" type="button" data-sol-all="hide">ปิดเฉลยทั้งหมด</button></div><div class="q" data-lvl="med"><div class="qn">1.</div><div class="qbody">จงเติมเหตุผลให้แต่ละข้อความ
+         <br>(ก) \(\angle AOB=\angle COD\) เมื่อ \(AC\) และ \(BD\) ตัดกันที่ \(O\)
+         <br>(ข) \(AB=AB\)
+         <br>(ค) \(\angle P+\angle Q+\angle R=180^\circ\) ใน \(\triangle PQR\)</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">เหตุผล</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u6-reasoning-s1">ดูเฉลย</button></div><div class="qsol" id="u6-reasoning-s1" hidden>(ก) มุมตรงข้ามเท่ากัน
+             <br>(ข) เป็นด้านร่วม (สมบัติสะท้อนของการเท่ากัน)
+             <br>(ค) ผลรวมมุมภายในของรูปสามเหลี่ยมเท่ากับ \(180^\circ\)</div></div><div class="q" data-lvl="med"><div class="qn">2.</div><div class="qbody">รูปสี่เหลี่ยมด้านขนาน \(ABCD\)
+         มี \(\angle A=117^\circ\) จงหามุมอีกสามมุมพร้อมเหตุผล</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">สี่เหลี่ยม</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u6-reasoning-s2">ดูเฉลย</button></div><div class="qsol" id="u6-reasoning-s2" hidden>\(\angle C=117^\circ\) (มุมตรงข้ามของสี่เหลี่ยมด้านขนานเท่ากัน)
+             <br>\(\angle B=180^\circ-117^\circ=63^\circ\) (มุมประชิดรวมกันได้ \(180^\circ\))
+             <br>\(\angle D=63^\circ\) (มุมตรงข้าม)</div></div><div class="q" data-lvl="med"><div class="qn">3.</div><div class="qbody">รูปสามเหลี่ยม \(ABC\) มี \(BC=18\) ซม.
+         จุด \(M,N\) เป็นจุดกึ่งกลางของ \(AB,AC\) จงหา \(MN\)</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">เส้นกึ่งกลาง</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u6-reasoning-s3">ดูเฉลย</button></div><div class="qsol" id="u6-reasoning-s3" hidden>ทฤษฎีบทเส้นกึ่งกลาง: \(MN=\tfrac12 BC=\tfrac12(18)=9\) ซม.</div></div><div class="q" data-lvl="med"><div class="qn">4.</div><div class="qbody">รูปสามเหลี่ยมมีเส้นกึ่งกลางยาว
+         \(7.5\) ซม. จงหาด้านที่ขนานกับเส้นกึ่งกลางนั้น</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">เส้นกึ่งกลาง</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u6-reasoning-s4">ดูเฉลย</button></div><div class="qsol" id="u6-reasoning-s4" hidden>\(BC=2\times7.5=15\) ซม.</div></div><div class="q" data-lvl="med"><div class="qn">5.</div><div class="qbody">รูปสี่เหลี่ยมคางหมูมีด้านขนานยาว
+         \(12\) และ \(20\) ซม. จงหาความยาวเส้นกึ่งกลาง</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">คางหมู</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u6-reasoning-s5">ดูเฉลย</button></div><div class="qsol" id="u6-reasoning-s5" hidden>\(\dfrac{12+20}{2}=16\) ซม.</div></div><div class="q" data-lvl="med"><div class="qn">6.</div><div class="qbody">รูปสี่เหลี่ยมที่เส้นทแยงมุมแบ่งครึ่งกัน
+         <b>และ</b> ตั้งฉากกัน เป็นรูปอะไร จงให้เหตุผล</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">จำแนก</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u6-reasoning-s6">ดูเฉลย</button></div><div class="qsol" id="u6-reasoning-s6" hidden>แบ่งครึ่งกัน → เป็นสี่เหลี่ยมด้านขนาน
+             <br>สี่เหลี่ยมด้านขนานที่เส้นทแยงมุมตั้งฉากกัน → เป็น
+             <b>รูปสี่เหลี่ยมขนมเปียกปูน</b>
+             <br>(ถ้าเส้นทแยงมุมยาวเท่ากันอีกด้วย จะเป็นสี่เหลี่ยมจัตุรัส)</div></div><div class="q" data-lvl="med"><div class="qn">7.</div><div class="qbody">รูปสี่เหลี่ยมด้านขนานที่เส้นทแยงมุม
+         ยาวเท่ากันเป็นรูปอะไร จงให้เหตุผลสั้น ๆ</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">จำแนก</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u6-reasoning-s7">ดูเฉลย</button></div><div class="qsol" id="u6-reasoning-s7" hidden>เป็น <b>สี่เหลี่ยมมุมฉาก</b>
+             <br>เพราะเส้นทแยงมุมที่ยาวเท่ากันทำให้สามเหลี่ยมสองรูปที่ใช้ด้านร่วม
+             เท่ากันทุกประการ (ด.ด.ด.) ส่วนสมนัยให้มุมประชิดสองมุมเท่ากัน
+             และมุมประชิดของสี่เหลี่ยมด้านขนานรวมได้ \(180^\circ\) จึงเป็น \(90^\circ\)</div></div><div class="q" data-lvl="med"><div class="qn">8.</div><div class="qbody">รูปสี่เหลี่ยมด้านขนาน \(ABCD\) มี
+         \(AB=3x-2\), \(CD=x+8\), \(AD=2y+1\), \(BC=5y-11\) จงหา \(x,y\)</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">หาค่า</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u6-reasoning-s8">ดูเฉลย</button></div><div class="qsol" id="u6-reasoning-s8" hidden>ด้านตรงข้ามยาวเท่ากัน
+             <br>\(3x-2=x+8\Rightarrow 2x=10\Rightarrow x=5\)
+             <br>\(2y+1=5y-11\Rightarrow 3y=12\Rightarrow y=4\)</div></div><div class="q" data-lvl="hard"><div class="qn">9.</div><div class="qbody">จงพิสูจน์ว่าถ้ารูปสี่เหลี่ยมมีด้านตรงข้าม
+         ยาวเท่ากันทั้งสองคู่ แล้วรูปนั้นเป็นสี่เหลี่ยมด้านขนาน</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">พิสูจน์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u6-reasoning-s9">ดูเฉลย</button></div><div class="qsol" id="u6-reasoning-s9" hidden>ให้ \(ABCD\) มี \(AB=CD\) และ \(BC=DA\) ลากเส้นทแยงมุม \(AC\)
+             <br>ใน \(\triangle ABC\) และ \(\triangle CDA\):
+             <br>\(AB=CD\), \(BC=DA\), \(AC=CA\) (ด้านร่วม)
+             <br>จึงได้ \(\triangle ABC\equiv\triangle CDA\) (ด.ด.ด.)
+             <br>ส่วนสมนัย: \(\angle BAC=\angle DCA\) ซึ่งเป็นมุมแย้ง จึงได้
+             \(AB\parallel DC\)
+             <br>ส่วนสมนัย: \(\angle BCA=\angle DAC\) ซึ่งเป็นมุมแย้ง จึงได้
+             \(BC\parallel AD\)
+             <br>ด้านตรงข้ามขนานทั้งสองคู่ → เป็นสี่เหลี่ยมด้านขนาน</div></div><div class="q" data-lvl="hard"><div class="qn">10.</div><div class="qbody">จงพิสูจน์ว่าถ้าเส้นทแยงมุมของรูปสี่เหลี่ยม
+         แบ่งครึ่งกัน แล้วรูปนั้นเป็นสี่เหลี่ยมด้านขนาน</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">พิสูจน์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u6-reasoning-s10">ดูเฉลย</button></div><div class="qsol" id="u6-reasoning-s10" hidden>ให้ \(AC\) และ \(BD\) ตัดกันที่ \(O\) โดย \(AO=OC\)
+             และ \(BO=OD\)
+             <br>ใน \(\triangle AOB\) และ \(\triangle COD\):
+             <br>\(AO=CO\), \(BO=DO\), \(\angle AOB=\angle COD\) (มุมตรงข้าม)
+             <br>จึงได้ \(\triangle AOB\equiv\triangle COD\) (ด.ม.ด.)
+             <br>ส่วนสมนัย: \(AB=CD\) และ \(\angle OAB=\angle OCD\) →
+             \(AB\parallel CD\)
+             <br>มีด้านคู่หนึ่งทั้งขนานและยาวเท่ากัน → เป็นสี่เหลี่ยมด้านขนาน</div></div><div class="q" data-lvl="hard"><div class="qn">11.</div><div class="qbody">รูปสามเหลี่ยม \(ABC\) มีจุด \(D\)
+         เป็นจุดกึ่งกลางของ \(BC\) ต่อ \(AD\) ออกไปถึง \(E\) ให้ \(DE=AD\)
+         <br>จงพิสูจน์ว่า \(ABEC\) เป็นสี่เหลี่ยมด้านขนาน</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">พิสูจน์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u6-reasoning-s11">ดูเฉลย</button></div><div class="qsol" id="u6-reasoning-s11" hidden>เส้นทแยงมุมของ \(ABEC\) คือ \(AE\) และ \(BC\)
+             <br>\(AD=DE\) (สร้างให้เท่ากัน) → \(D\) เป็นจุดกึ่งกลางของ \(AE\)
+             <br>\(BD=DC\) (กำหนดให้) → \(D\) เป็นจุดกึ่งกลางของ \(BC\)
+             <br>ดังนั้นเส้นทแยงมุมทั้งสองแบ่งครึ่งกันที่ \(D\)
+             <br>จึงสรุปได้ว่า \(ABEC\) เป็นสี่เหลี่ยมด้านขนาน</div></div><div class="q" data-lvl="hard"><div class="qn">12.</div><div class="qbody">รูปสี่เหลี่ยม \(ABCD\) มี
+         \(AC=14\) ซม. และ \(BD=10\) ซม. จุด \(P,Q,R,S\) เป็นจุดกึ่งกลางของ
+         \(AB,BC,CD,DA\)
+         <br>จงหาเส้นรอบรูปของ \(PQRS\)</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">เส้นกึ่งกลาง</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u6-reasoning-s12">ดูเฉลย</button></div><div class="qsol" id="u6-reasoning-s12" hidden>จากทฤษฎีบทเส้นกึ่งกลาง
+             <br>\(PQ=SR=\tfrac12 AC=7\) ซม. (ขนานกับ \(AC\))
+             <br>\(QR=PS=\tfrac12 BD=5\) ซม. (ขนานกับ \(BD\))
+             <br>เส้นรอบรูป \(=2(7)+2(5)=24\) ซม.
+             <br><b>ข้อสังเกต</b>: เส้นรอบรูปของ \(PQRS\) เท่ากับผลบวกของ
+             เส้นทแยงมุมทั้งสองของ \(ABCD\) เสมอ</div></div><div class="q" data-lvl="hard"><div class="qn">13.</div><div class="qbody">จากข้อก่อน ถ้า \(AC\perp BD\)
+         รูป \(PQRS\) เป็นรูปอะไร จงให้เหตุผล</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">เส้นกึ่งกลาง</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u6-reasoning-s13">ดูเฉลย</button></div><div class="qsol" id="u6-reasoning-s13" hidden>\(PQ\parallel AC\) และ \(QR\parallel BD\)
+             <br>ถ้า \(AC\perp BD\) แล้ว \(PQ\perp QR\)
+             <br>\(PQRS\) เป็นสี่เหลี่ยมด้านขนานที่มีมุมฉาก จึงเป็น
+             <b>สี่เหลี่ยมมุมฉาก</b>
+             <br>(และถ้า \(AC=BD\) ด้วย จะเป็นสี่เหลี่ยมจัตุรัส)</div></div><div class="q" data-lvl="hard"><div class="qn">14.</div><div class="qbody">รูปสี่เหลี่ยมคางหมู \(ABCD\) มี
+         \(AB\parallel DC\) โดย \(AB=8\) ซม., \(DC=14\) ซม.
+         จุด \(M\) เป็นจุดกึ่งกลางของ \(AD\) และ \(N\) เป็นจุดกึ่งกลางของ \(BC\)
+         <br>จงพิสูจน์ว่า \(MN=11\) ซม. โดยใช้เส้นช่วย</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">เส้นช่วย</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u6-reasoning-s14">ดูเฉลย</button></div><div class="qsol" id="u6-reasoning-s14" hidden>ลากเส้นทแยงมุม \(AC\) ให้ตัด \(MN\) ที่จุด \(K\)
+             <br>ใน \(\triangle ADC\): \(M\) เป็นจุดกึ่งกลาง \(AD\) และ \(MK\parallel DC\)
+             (เพราะ \(MN\parallel DC\)) จึงได้ \(K\) เป็นจุดกึ่งกลางของ \(AC\)
+             (บทกลับของทฤษฎีบทเส้นกึ่งกลาง)
+             <br>และ \(MK=\tfrac12 DC=7\) ซม.
+             <br>ใน \(\triangle ABC\): \(K,N\) เป็นจุดกึ่งกลางของ \(AC,BC\)
+             จึงได้ \(KN=\tfrac12 AB=4\) ซม.
+             <br>\(M,K,N\) เรียงเป็นเส้นตรง ดังนั้น \(MN=7+4=11\) ซม.
+             <br>ตรงกับสูตร \(\dfrac{8+14}{2}=11\) ✓</div></div><div class="q" data-lvl="hard"><div class="qn">15.</div><div class="qbody">จงพิสูจน์ว่าในรูปสามเหลี่ยมใด ๆ
+         ด้านที่อยู่ตรงข้ามมุมที่ใหญ่กว่าย่อมยาวกว่า
+         (แนะนำ: ใช้วิธีขัดแย้งกับทฤษฎีบทสามเหลี่ยมหน้าจั่ว)</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">พิสูจน์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u6-reasoning-s15">ดูเฉลย</button></div><div class="qsol" id="u6-reasoning-s15" hidden>ให้ \(\angle B>\angle C\) ต้องการแสดงว่า \(AC>AB\)
+             <br><b>สมมติตรงกันข้าม</b> ว่า \(AC\le AB\)
+             <br><b>กรณี \(AC=AB\)</b>: ทฤษฎีบทสามเหลี่ยมหน้าจั่วให้
+             \(\angle B=\angle C\) ขัดแย้งกับ \(\angle B>\angle C\)
+             <br><b>กรณี \(AC<AB\)</b>: ตัด \(D\) บน \(AB\) ให้ \(AD=AC\)
+             <br>\(\triangle ADC\) หน้าจั่ว จึงได้ \(\angle ADC=\angle ACD\)
+             <br>\(\angle ADC\) เป็นมุมภายนอกของ \(\triangle BDC\) จึง
+             \(\angle ADC>\angle B\)
+             <br>และ \(\angle ACB>\angle ACD=\angle ADC>\angle B\)
+             <br>ได้ \(\angle C>\angle B\) ขัดแย้งกับที่กำหนด
+             <br>ทั้งสองกรณีขัดแย้ง ดังนั้น \(AC>AB\)</div></div><div class="q" data-lvl="hard"><div class="qn">16.</div><div class="qbody">จงหาค่าที่เป็นไปได้ทั้งหมด
+         ของจำนวนเต็ม \(x\) ที่ทำให้ด้านยาว \(7,\ 11,\ x\) ประกอบเป็นรูปสามเหลี่ยมได้</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">อสมการสามเหลี่ยม</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u6-reasoning-s16">ดูเฉลย</button></div><div class="qsol" id="u6-reasoning-s16" hidden>อสมการสามเหลี่ยม: ผลบวกของสองด้านต้องมากกว่าด้านที่สาม
+             <br>\(7+11>x\Rightarrow x<18\)
+             <br>\(7+x>11\Rightarrow x>4\)
+             <br>\(11+x>7\) เป็นจริงเสมอเมื่อ \(x>0\)
+             <br>ดังนั้น \(4<x<18\) นั่นคือ \(x\in\{5,6,\dots,17\}\) รวม \(13\) ค่า</div></div><div class="q" data-lvl="hard"><div class="qn">17.</div><div class="qbody">รูปสี่เหลี่ยมขนมเปียกปูน \(ABCD\)
+         มีเส้นทแยงมุม \(AC=16\) ซม. และ \(BD=12\) ซม.
+         <br>(ก) จงหาความยาวด้าน
+         <br>(ข) จงหาพื้นที่
+         <br>(ค) จงให้เหตุผลว่าเหตุใดจึงใช้สูตรพื้นที่นั้นได้</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">พิสูจน์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u6-reasoning-s17">ดูเฉลย</button></div><div class="qsol" id="u6-reasoning-s17" hidden>(ก) เส้นทแยงมุมของขนมเปียกปูนแบ่งครึ่งกันและตั้งฉากกัน
+             <br>ครึ่งเส้นทแยงมุมคือ \(8\) และ \(6\) ซม.
+             <br>ด้าน \(=\sqrt{8^{2}+6^{2}}=\sqrt{100}=10\) ซม.
+             <br>(ข) พื้นที่ \(=\tfrac12 d_1 d_2=\tfrac12(16)(12)=96\) ตร.ซม.
+             <br>(ค) เส้นทแยงมุมตั้งฉากกันแบ่งรูปเป็นสามเหลี่ยมมุมฉาก 4 รูป
+             ที่เท่ากันทุกประการ แต่ละรูปมีพื้นที่ \(\tfrac12(8)(6)=24\)
+             <br>รวม \(4(24)=96\) ✓ ซึ่งตรงกับสูตร \(\tfrac12 d_1 d_2\)</div></div><div class="q" data-lvl="apply"><div class="qn">18.</div><div class="qbody">ช่างสำรวจต้องการหาระยะข้ามหนองน้ำ
+         จาก \(B\) ถึง \(C\) จึงวัดจากจุด \(A\) บนฝั่ง หาจุดกึ่งกลาง \(M\) ของ \(AB\)
+         และจุดกึ่งกลาง \(N\) ของ \(AC\) แล้ววัด \(MN\) ได้ \(26\) ม.
+         <br>(ก) ระยะ \(BC\) เท่าไร
+         <br>(ข) จงให้เหตุผลว่าทำไมวิธีนี้ใช้ได้
+         <br>(ค) ถ้าวัด \(MN\) ผิดไป \(0.5\) ม. ระยะ \(BC\) ผิดไปเท่าไร</div><div class="qmeta"><span class="ex-lvl apply">ประยุกต์</span><span class="ex-lvl">ประยุกต์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u6-reasoning-s18">ดูเฉลย</button></div><div class="qsol" id="u6-reasoning-s18" hidden>(ก) \(BC=2\times26=52\) ม.
+             <br>(ข) ทฤษฎีบทเส้นกึ่งกลาง: \(MN\) เชื่อมจุดกึ่งกลางของด้านสองด้าน
+             จึงขนานกับด้านที่สามและยาวครึ่งหนึ่งของด้านนั้น
+             <br>(ค) ผิดไป \(2\times0.5=1\) ม. — <b>ความคลาดเคลื่อนถูกขยายสองเท่า</b>
+             จึงต้องวัด \(MN\) ให้แม่นเป็นพิเศษ</div></div><div class="q" data-lvl="apply"><div class="qn">19.</div><div class="qbody">ประตูรั้วเหล็กรูปสี่เหลี่ยมผืนผ้า
+         กว้าง \(240\) ซม. สูง \(180\) ซม. จะใส่เหล็กค้ำทแยงหนึ่งเส้นเพื่อกันบิด
+         <br>(ก) เหล็กค้ำยาวเท่าไร
+         <br>(ข) ถ้าใส่เหล็กค้ำทั้งสองทแยง เส้นทั้งสองยาวเท่ากันหรือไม่ เพราะเหตุใด
+         <br>(ค) จุดที่เหล็กค้ำสองเส้นตัดกันอยู่ที่ใด</div><div class="qmeta"><span class="ex-lvl apply">ประยุกต์</span><span class="ex-lvl">ประยุกต์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u6-reasoning-s19">ดูเฉลย</button></div><div class="qsol" id="u6-reasoning-s19" hidden>(ก) \(\sqrt{240^{2}+180^{2}}=\sqrt{57600+32400}=\sqrt{90000}=300\) ซม.
+             <br>(ข) <b>ยาวเท่ากัน</b> เพราะสี่เหลี่ยมผืนผ้าเป็นสี่เหลี่ยมมุมฉาก
+             ซึ่งมีสมบัติว่าเส้นทแยงมุมยาวเท่ากัน
+             <br>(ค) ตัดกันที่ <b>จุดกึ่งกลาง</b> ของทั้งสองเส้น เพราะสี่เหลี่ยมมุมฉาก
+             เป็นสี่เหลี่ยมด้านขนาน ซึ่งเส้นทแยงมุมแบ่งครึ่งกัน
+             <br>แต่ละครึ่งยาว \(150\) ซม.</div></div><div class="q" data-lvl="apply"><div class="qn">20.</div><div class="qbody">สวนรูปสี่เหลี่ยมใด ๆ (ไม่พิเศษ)
+         จะปลูกต้นไม้เป็นแนวเชื่อมจุดกึ่งกลางของด้านทั้งสี่
+         <br>(ก) แนวต้นไม้จะได้รูปอะไร
+         <br>(ข) ถ้าสวนมีพื้นที่ \(480\) ตร.ม. พื้นที่ที่ล้อมด้วยแนวต้นไม้เท่าไร
+         <br>(ค) ถ้าเส้นทแยงมุมของสวนยาว \(32\) ม. และ \(26\) ม.
+         แนวต้นไม้ยาวรวมเท่าไร</div><div class="qmeta"><span class="ex-lvl apply">ประยุกต์</span><span class="ex-lvl">ประยุกต์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u6-reasoning-s20">ดูเฉลย</button></div><div class="qsol" id="u6-reasoning-s20" hidden>(ก) <b>สี่เหลี่ยมด้านขนาน</b> เสมอ (Varignon)
+             ตามที่พิสูจน์ในตัวอย่าง 2
+             <br>(ข) พื้นที่เป็นครึ่งหนึ่งของสวน \(=\dfrac{480}{2}=240\) ตร.ม.
+             <br>(ค) ด้านของสี่เหลี่ยมด้านขนานคือครึ่งของเส้นทแยงมุม:
+             \(16\) ม. และ \(13\) ม.
+             <br>เส้นรอบรูป \(=2(16)+2(13)=58\) ม.</div></div><div class="q" data-lvl="apply"><div class="qn">21.</div><div class="qbody">หลังคาโรงจอดรถเป็นรูปสี่เหลี่ยมคางหมู
+         ด้านขนานยาว \(6\) ม. (ด้านบน) และ \(10\) ม. (ด้านล่าง) สูง \(2.4\) ม.
+         <br>ต้องวางคานขวางหนึ่งตัวที่กึ่งกลางความสูง
+         <br>(ก) คานยาวเท่าไร
+         <br>(ข) พื้นที่หลังคาทั้งผืนเท่าไร
+         <br>(ค) คานแบ่งหลังคาเป็นสองส่วน แต่ละส่วนมีพื้นที่เท่าไร</div><div class="qmeta"><span class="ex-lvl apply">ประยุกต์</span><span class="ex-lvl">ประยุกต์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u6-reasoning-s21">ดูเฉลย</button></div><div class="qsol" id="u6-reasoning-s21" hidden>(ก) เส้นกึ่งกลาง \(=\dfrac{6+10}{2}=8\) ม.
+             <br>(ข) พื้นที่ \(=\tfrac12(6+10)(2.4)=\tfrac12(16)(2.4)=19.2\) ตร.ม.
+             <br>(ค) ส่วนบน (คางหมู \(6,8\) สูง \(1.2\)):
+             \(\tfrac12(6+8)(1.2)=8.4\) ตร.ม.
+             <br>ส่วนล่าง (คางหมู \(8,10\) สูง \(1.2\)):
+             \(\tfrac12(8+10)(1.2)=10.8\) ตร.ม.
+             <br>ตรวจ: \(8.4+10.8=19.2\) ✓ (อัตราส่วน \(7:9\))</div></div><div class="q" data-lvl="apply"><div class="qn">22.</div><div class="qbody">ช่างต้องตรวจว่าแผ่นกระเบื้องสี่เหลี่ยม
+         ที่สั่งมาเป็นจัตุรัสจริงหรือไม่ โดยมีแต่สายวัด (วัดความยาวได้ ไม่มีฉาก)
+         <br>(ก) ต้องวัดอะไรและได้ผลอย่างไรจึงสรุปว่าเป็นจัตุรัส
+         <br>(ข) ถ้าวัดได้ด้านเท่ากันสี่ด้านแต่เส้นทแยงมุมไม่เท่ากัน เป็นรูปอะไร
+         <br>(ค) ถ้าวัดได้เส้นทแยงมุมเท่ากันแต่ด้านไม่เท่ากันสี่ด้าน เป็นรูปอะไรได้บ้าง</div><div class="qmeta"><span class="ex-lvl apply">ประยุกต์</span><span class="ex-lvl">ประยุกต์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u6-reasoning-s22">ดูเฉลย</button></div><div class="qsol" id="u6-reasoning-s22" hidden>(ก) วัด <b>ด้านทั้งสี่ให้เท่ากัน</b> และ
+             <b>เส้นทแยงมุมทั้งสองให้เท่ากัน</b>
+             <br>ด้านเท่าสี่ด้าน → ขนมเปียกปูน; เส้นทแยงมุมเท่ากัน → มุมฉาก
+             <br>ทั้งสองอย่างรวมกัน → สี่เหลี่ยมจัตุรัส
+             <br>(ข) <b>รูปสี่เหลี่ยมขนมเปียกปูน</b> (ที่ไม่ใช่จัตุรัส)
+             <br>(ค) อาจเป็น <b>สี่เหลี่ยมผืนผ้า</b> (ถ้าด้านตรงข้ามเท่ากัน)
+             หรือ <b>สี่เหลี่ยมคางหมูหน้าจั่ว</b> — เส้นทแยงมุมเท่ากันเพียงอย่างเดียว
+             ยังไม่พอสรุป ต้องตรวจด้านตรงข้ามด้วย</div></div><div class="q" data-lvl="med"><div class="qn">23.</div><div class="qbody">รูปสามเหลี่ยมมีด้านยาว \(12,16,20\) ซม.
+         จงหาเส้นรอบรูปของรูปสามเหลี่ยมที่เกิดจากการเชื่อมจุดกึ่งกลางของด้านทั้งสาม</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">เส้นกึ่งกลาง</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u6-reasoning-s23">ดูเฉลย</button></div><div class="qsol" id="u6-reasoning-s23" hidden>เส้นกึ่งกลางแต่ละเส้นยาวครึ่งหนึ่งของด้านที่ขนานกับมัน
+             <br>ได้ \(6,8,10\) ซม. เส้นรอบรูป \(=24\) ซม.
+             <br>คือครึ่งหนึ่งของเส้นรอบรูปเดิม (\(48\) ซม.)</div></div><div class="q" data-lvl="med"><div class="qn">24.</div><div class="qbody">รูปว่าวมีเส้นทแยงมุมแบ่งครึ่งกันหรือไม่
+         จงให้เหตุผล</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">จำแนก</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u6-reasoning-s24">ดูเฉลย</button></div><div class="qsol" id="u6-reasoning-s24" hidden><b>ไม่ทั้งสองเส้น</b> — เส้นทแยงมุมเส้นที่เชื่อมจุดยอดที่มี
+             ด้านประชิดเท่ากัน (แกนสมมาตร) จะ <b>แบ่งครึ่ง</b> อีกเส้น
+             และตั้งฉากกับอีกเส้น
+             <br>แต่ตัวมันเองไม่ถูกแบ่งครึ่ง เว้นแต่รูปว่าวนั้นเป็นขนมเปียกปูน</div></div><div class="q" data-lvl="med"><div class="qn">25.</div><div class="qbody">ข้อความใดต่อไปนี้อ้างจากรูปไม่ได้
+         ต้องมีเหตุผลรองรับ
+         <br>(ก) \(\angle AOB\) ดูเหมือนมุมฉาก จึงเป็น \(90^\circ\)
+         <br>(ข) \(A,O,B\) เรียงอยู่บนเส้นตรงเดียวกันตามที่โจทย์ระบุ
+         <br>(ค) \(AB\) ดูยาวเท่ากับ \(CD\) จึงสรุปว่า \(AB=CD\)</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">เหตุผล</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u6-reasoning-s25">ดูเฉลย</button></div><div class="qsol" id="u6-reasoning-s25" hidden>(ก) <b>อ้างไม่ได้</b> — การ "ดูเหมือน" ในภาพไม่ใช่เหตุผล
+             <br>(ข) <b>อ้างได้</b> — เป็นสิ่งที่โจทย์กำหนดให้
+             <br>(ค) <b>อ้างไม่ได้</b> — ต้องมาจากข้อกำหนด นิยาม หรือทฤษฎีบท</div></div><div class="q" data-lvl="hard"><div class="qn">26.</div><div class="qbody">รูปสี่เหลี่ยมด้านขนาน \(ABCD\)
+         มีจุด \(P\) บน \(AB\) และจุด \(Q\) บน \(CD\) โดย \(AP=CQ\)
+         <br>จงพิสูจน์ว่า \(PQ\) และ \(BD\) แบ่งครึ่งกัน</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">พิสูจน์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u6-reasoning-s26">ดูเฉลย</button></div><div class="qsol" id="u6-reasoning-s26" hidden>\(ABCD\) ด้านขนาน จึง \(AB\parallel DC\) และ \(AB=DC\)
+             <br>\(AP=CQ\) จึงได้ \(PB=AB-AP=DC-CQ=QD\)
+             <br>ใน \(PBQD\): \(PB\) อยู่บน \(AB\), \(QD\) อยู่บน \(DC\)
+             ซึ่งขนานกัน จึง \(PB\parallel QD\) และ \(PB=QD\)
+             <br>ด้านคู่หนึ่งขนานและยาวเท่ากัน → \(PBQD\) เป็นสี่เหลี่ยมด้านขนาน
+             <br>เส้นทแยงมุมของสี่เหลี่ยมด้านขนานแบ่งครึ่งกัน
+             <br>เส้นทแยงมุมของ \(PBQD\) คือ \(PQ\) และ \(BD\) จึงแบ่งครึ่งกัน</div></div><div class="q" data-lvl="hard"><div class="qn">27.</div><div class="qbody">รูปสามเหลี่ยมมุมฉาก \(ABC\)
+         มีมุมฉากที่ \(A\) และ \(M\) เป็นจุดกึ่งกลางของด้านตรงข้ามมุมฉาก \(BC\)
+         <br>จงพิสูจน์ว่า \(AM=\tfrac12 BC\)</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">พิสูจน์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u6-reasoning-s27">ดูเฉลย</button></div><div class="qsol" id="u6-reasoning-s27" hidden>ต่อ \(AM\) ออกไปถึง \(D\) ให้ \(MD=AM\)
+             <br>เส้นทแยงมุม \(AD\) และ \(BC\) แบ่งครึ่งกันที่ \(M\)
+             จึงได้ \(ABDC\) เป็นสี่เหลี่ยมด้านขนาน
+             <br>\(\angle BAC=90^\circ\) ดังนั้นสี่เหลี่ยมด้านขนานนี้มีมุมฉาก
+             จึงเป็น <b>สี่เหลี่ยมมุมฉาก</b>
+             <br>สี่เหลี่ยมมุมฉากมีเส้นทแยงมุมยาวเท่ากัน: \(AD=BC\)
+             <br>\(AM=\tfrac12 AD=\tfrac12 BC\)
+             <br><b>ข้อสรุป</b>: จุดกึ่งกลางของด้านตรงข้ามมุมฉากอยู่ห่างจาก
+             จุดยอดทั้งสามเท่ากัน — มันคือจุดศูนย์กลางวงกลมล้อมรอบ</div></div><div class="q" data-lvl="hard"><div class="qn">28.</div><div class="qbody">รูปสามเหลี่ยมมีเส้นรอบรูป
+         \(30\) ซม. และด้านยาวเป็นจำนวนเต็ม โดยด้านที่ยาวที่สุดยาว \(13\) ซม.
+         <br>จงหาความยาวของด้านอีกสองด้านที่เป็นไปได้ทั้งหมด</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">อสมการสามเหลี่ยม</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u6-reasoning-s28">ดูเฉลย</button></div><div class="qsol" id="u6-reasoning-s28" hidden>ให้อีกสองด้านเป็น \(a,b\) โดย \(a+b=30-13=17\) และ
+             \(a\le b\le 13\)
+             <br>อสมการสามเหลี่ยม: \(a+b>13\) เป็นจริง (\(17>13\))
+             <br>\(b\le13\) ให้ \(a\ge4\)
+             <br>และ \(a\le b\) ให้ \(a\le8.5\) นั่นคือ \(a\le8\)
+             <br>ตรวจอีกข้อ \(a+13>b=17-a\Rightarrow 2a>4\Rightarrow a>2\) ✓
+             <br>ดังนั้น \(a\in\{4,5,6,7,8\}\) ได้คู่
+             \((4,13),(5,12),(6,11),(7,10),(8,9)\)
+             <br>แต่ \((4,13)\) ทำให้มีด้านยาวที่สุดสองด้านเท่ากัน ซึ่งยังใช้ได้
+             <br>รวม <b>5 แบบ</b></div></div><div class="q" data-lvl="apply"><div class="qn">29.</div><div class="qbody">บันไดพับรูปตัว A มีขาสองข้างยาว
+         \(2.5\) ม. เท่ากัน และมีคานขวางเชื่อมจุดกึ่งกลางของขาทั้งสอง
+         <br>(ก) ถ้าปลายขาทั้งสองห่างกัน \(1.6\) ม. คานขวางยาวเท่าไร
+         <br>(ข) ถ้ากางขาให้ปลายห่างกัน \(2.0\) ม. คานขวางต้องยาวเท่าไร
+         <br>(ค) ความสูงของบันไดในข้อ (ก) เป็นเท่าไร</div><div class="qmeta"><span class="ex-lvl apply">ประยุกต์</span><span class="ex-lvl">ประยุกต์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u6-reasoning-s29">ดูเฉลย</button></div><div class="qsol" id="u6-reasoning-s29" hidden>(ก) คานขวางเป็นเส้นกึ่งกลางของรูปสามเหลี่ยมหน้าจั่ว
+             จึงยาวครึ่งหนึ่งของฐาน \(=\dfrac{1.6}{2}=0.8\) ม.
+             <br>(ข) \(\dfrac{2.0}{2}=1.0\) ม.
+             <br>(ค) ครึ่งฐาน \(=0.8\) ม. ขายาว \(2.5\) ม.
+             <br>สูง \(=\sqrt{2.5^{2}-0.8^{2}}=\sqrt{6.25-0.64}=\sqrt{5.61}
+             \approx2.37\) ม.</div></div><div class="q" data-lvl="med"><div class="qn">30.</div><div class="qbody">รูปสี่เหลี่ยมขนมเปียกปูนมีมุมหนึ่ง
+         \(64^\circ\) จงหามุมอีกสามมุม และมุมที่เส้นทแยงมุมทำกับด้าน</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">สี่เหลี่ยม</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u6-reasoning-s30">ดูเฉลย</button></div><div class="qsol" id="u6-reasoning-s30" hidden>มุมตรงข้าม \(=64^\circ\); มุมประชิด \(=180-64=116^\circ\)
+             <br>มุมทั้งสี่: \(64^\circ,116^\circ,64^\circ,116^\circ\)
+             <br>เส้นทแยงมุมของขนมเปียกปูนแบ่งครึ่งมุม จึงทำมุมกับด้าน
+             \(32^\circ\) (จากมุม \(64^\circ\)) และ \(58^\circ\) (จากมุม \(116^\circ\))</div></div><div class="q" data-lvl="hard"><div class="qn">31.</div><div class="qbody">รูปสี่เหลี่ยมคางหมู \(ABCD\) มี
+         \(AB\parallel DC\) และเส้นทแยงมุมตัดกันที่ \(O\)
+         <br>จงพิสูจน์ว่า \([AOD]=[BOC]\)</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">พิสูจน์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u6-reasoning-s31">ดูเฉลย</button></div><div class="qsol" id="u6-reasoning-s31" hidden>\(\triangle ABD\) และ \(\triangle ABC\) มีฐาน \(AB\) ร่วมกัน
+             และจุดยอด \(D,C\) อยู่บนเส้น \(DC\) ซึ่งขนานกับ \(AB\)
+             <br>ความสูงจาก \(D\) และจาก \(C\) ลงมายัง \(AB\) จึงเท่ากัน
+             <br>ดังนั้น \([ABD]=[ABC]\)
+             <br>ลบ \([AOB]\) ออกจากทั้งสองข้าง (ซึ่งเป็นส่วนร่วมของทั้งสองรูป)
+             <br>\([ABD]-[AOB]=[AOD]\) และ \([ABC]-[AOB]=[BOC]\)
+             <br>ดังนั้น \([AOD]=[BOC]\) ∎</div></div></section><div class="pager"><a class="pl" href="u5-congruence.html">ความเท่ากันทุกประการ</a><span></span></div></main></div></div><footer class="site"><div class="wrap">คณิตศาสตร์ ม.2 · สื่อการเรียนรู้แบบอินเทอร์แอกทีฟ</div></footer>
+<script src="../assets/js/site.js"></script>
+<script src="../assets/js/viz.js"></script>
+</body>
+</html>

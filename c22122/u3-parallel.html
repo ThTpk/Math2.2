@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="th" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>เส้นขนาน · คณิตศาสตร์ 4</title>
+<meta name="description" content="สมบัติของมุมที่เกิดจากเส้นขนานถูกตัดด้วยเส้นตัด เงื่อนไขที่ใช้สรุปว่า
+    เส้นสองเส้นขนานกัน และการนำสมบัติเหล่านี้ไปใช้กับรูปสามเหลี่ยม
+    รูปสี่เหล">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Serif+Thai:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/site.css">
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+         processEscapes: true },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] },
+  chtml: { mtextInheritFont: true, scale: 1.0 },
+  startup: { typeset: true }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+
+</head>
+<body>
+<nav class="nav"><a class="nav-brand" href="../index.html">คณิต<span>ศาสตร์</span> ม.2</a><div class="nav-links"><a href="../index.html">หน้าแรก</a><a href="../c22122/index.html" aria-current="page" title="คณิตศาสตร์ 4">คณิตศาสตร์ 4</a><a href="../c22292/index.html" title="คณิตศาสตร์พัฒนาศักยภาพ 4">พัฒนาศักยภาพ 4</a><a href="../c22294/index.html" title="เทคโนโลยีเพื่อการศึกษาทางคณิตศาสตร์">เทคโนโลยีคณิตศาสตร์</a><button class="theme-btn" type="button" aria-label="สลับโหมดสี">☾</button></div></nav><div class="wrap"><div class="page"><aside class="toc"><div class="toc-label">หัวข้อในบทนี้</div><ol><li><a href="#angles">มุมที่เกิดจากเส้นตัด</a></li><li><a href="#triangle">มุมในรูปสามเหลี่ยม</a></li><li><a href="#polygon">มุมในรูปหลายเหลี่ยม</a></li><li><a href="#drill">แบบฝึกหัดท้ายบท</a></li></ol></aside><main><p class="eyebrow">คณิตศาสตร์ 4</p><h1>เส้นขนาน</h1><p class="lead">สมบัติของมุมที่เกิดจากเส้นขนานถูกตัดด้วยเส้นตัด เงื่อนไขที่ใช้สรุปว่า
+    เส้นสองเส้นขนานกัน และการนำสมบัติเหล่านี้ไปใช้กับรูปสามเหลี่ยม
+    รูปสี่เหลี่ยม และรูปหลายเหลี่ยม</p><div class="badges"><span class="badge">คู่มุม 4 แบบ</span><span class="badge">มุมภายใน–ภายนอก</span><span class="badge">รูปหลายเหลี่ยม</span><span class="badge">ภาพลากได้</span><span class="badge on">แบบฝึกหัด 32 ข้อ</span></div><section id="angles"><h2>มุมที่เกิดจากเส้นตัด</h2><p>เมื่อเส้นตรงหนึ่งเส้น (เรียกว่า <b>เส้นตัด</b>) ตัดเส้นตรงสองเส้น
+             จะเกิดมุมขึ้นแปดมุม มุมเหล่านี้จับคู่กันได้สี่แบบ และแต่ละแบบมีชื่อเรียกเฉพาะ</p><figure class="fig" data-viz="parallel" data-y1="72" data-y2="188" data-xl="40" data-xr="560" data-px="300" data-a0="58.0"><div class="fig-body"><svg viewBox="0 0 600 300" role="img" aria-labelledby="fig-parallel-t fig-parallel-d"><title id="fig-parallel-t">มุมที่เกิดจากเส้นขนานและเส้นตัด</title><desc id="fig-parallel-d">เส้นขนานสองเส้นถูกตัดด้วยเส้นตัดหนึ่งเส้น เกิดมุมสี่มุมที่จุดตัดแต่ละจุด เน้นคู่มุมที่สัมพันธ์กัน ได้แก่ มุมแย้ง มุมภายในข้างเดียวกัน และมุมตรงข้าม</desc><rect width="100%" height="100%" fill="var(--paper-2)"/><defs><marker id="ar" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" class="f-muted"/></marker><marker id="ar-a" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" class="f-accent"/></marker><marker id="ar-l" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" class="f-link"/></marker><marker id="ar-t" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" class="f-teal"/></marker></defs><text x="30" y="34" class="t-tag">เส้นขนานถูกตัดด้วยเส้นตัด</text><line x1="40" y1="72" x2="560" y2="72" class="s-ink"/><line x1="40" y1="188" x2="560" y2="188" class="s-ink"/><path d="M 511 66 L 520 72 L 511 78" class="s-muted thin"/><path d="M 523 66 L 532 72 L 523 78" class="s-muted thin"/><path d="M 511 182 L 520 188 L 511 194" class="s-muted thin"/><path d="M 523 182 L 532 188 L 523 194" class="s-muted thin"/><text x="44" y="62" class="t-mono">ℓ₁</text><text x="44" y="208" class="t-mono">ℓ₂</text><line x1="162.22" y1="350.49" x2="437.78" y2="-90.49" class="s-link" data-id="tr"/><text x="443.78" y="-90.49" class="t-mono t-link">t</text><path d="M 362.24 72 A 26 26 0 0 0 350.02 49.95" class="s-accent hl" data-id="a1"/><text x="374.73" y="54.67" text-anchor="middle" class="t-mono t-accent" data-id="a1-t" opacity="1">58°</text><path d="M 320.34 97.44 A 30 30 0 0 0 366.24 72" class="s-muted hl off" data-id="a2"/><text x="357.57" y="114.48" text-anchor="middle" class="t-mono" data-id="a2-t" opacity="0.16">122°</text><path d="M 310.24 72 A 26 26 0 0 0 322.46 94.05" class="s-muted hl off" data-id="a3"/><text x="297.76" y="97.33" text-anchor="middle" class="t-mono" data-id="a3-t" opacity="0.16">58°</text><path d="M 352.14 46.56 A 30 30 0 0 0 306.24 72" class="s-muted hl off" data-id="a4"/><text x="314.91" y="37.52" text-anchor="middle" class="t-mono" data-id="a4-t" opacity="0.16">122°</text><circle cx="336.24" cy="72" r="4.2" class="f-ink" data-id="ptA"/><path d="M 289.76 188 A 26 26 0 0 0 277.54 165.95" class="s-accent hl" data-id="b1"/><text x="302.24" y="170.67" text-anchor="middle" class="t-mono t-accent" data-id="b1-t" opacity="1">58°</text><path d="M 247.86 213.44 A 30 30 0 0 0 293.76 188" class="s-muted hl off" data-id="b2"/><text x="285.09" y="230.48" text-anchor="middle" class="t-mono" data-id="b2-t" opacity="0.16">122°</text><path d="M 237.76 188 A 26 26 0 0 0 249.98 210.05" class="s-muted hl off" data-id="b3"/><text x="225.27" y="213.33" text-anchor="middle" class="t-mono" data-id="b3-t" opacity="0.16">58°</text><path d="M 279.66 162.56 A 30 30 0 0 0 233.76 188" class="s-muted hl off" data-id="b4"/><text x="242.43" y="153.52" text-anchor="middle" class="t-mono" data-id="b4-t" opacity="0.16">122°</text><circle cx="263.76" cy="188" r="4.2" class="f-ink" data-id="ptB"/><text x="322.24" y="64" text-anchor="middle" class="t-name" data-id="labA">P</text><text x="249.76" y="206" text-anchor="middle" class="t-name" data-id="labB">Q</text><circle cx="379.49" cy="2.79" r="14" class="handle-halo" data-id="halo"/><circle cx="379.49" cy="2.79" r="7" class="handle" data-id="handle"/><text x="399.49" y="-9.21" class="hint">ลากเพื่อหมุนเส้นตัด</text><text x="30" y="240" class="t-val t-accent" data-id="pair-label">มุมแย้งเท่ากัน (corresponding)</text><text x="30" y="262" class="t-mono" data-id="pair-note">มุมในตำแหน่งเดียวกันของจุดตัดสองจุด</text><text x="30" y="284" class="t-val" data-id="pair-val">58° = 58°</text></svg></div><div class="fig-ctrl"><button type="button" data-act="corr" data-group="pair" aria-pressed="true">มุมแย้งเท่ากัน</button><button type="button" data-act="alt" data-group="pair" aria-pressed="false">มุมแย้ง</button><button type="button" data-act="coint" data-group="pair" aria-pressed="false">ภายในข้างเดียวกัน</button><button type="button" data-act="vert" data-group="pair" aria-pressed="false">มุมตรงข้าม</button><span class="fig-readout" data-readout>มุมแย้งเท่ากัน · 58° = 58°</span></div><figcaption>ลากจุดวงกลมเพื่อหมุนเส้นตัด แล้วสังเกตว่าคู่มุมใดเท่ากันเสมอ และคู่ใดรวมกันได้ \(180^\circ\) ไม่ว่าจะหมุนไปที่มุมใด</figcaption></figure><table class="tbl"><thead><tr><th>ชื่อคู่มุม</th><th>ตำแหน่ง</th><th>เมื่อเส้นทั้งสองขนานกัน</th></tr></thead><tbody><tr><td>มุมแย้งเท่ากัน<br>(corresponding)</td><td>อยู่ข้างเดียวกันของเส้นตัด และอยู่ด้านเดียวกันของเส้นที่ถูกตัด</td><td><b>เท่ากัน</b></td></tr><tr><td>มุมแย้ง<br>(alternate interior)</td><td>อยู่คนละข้างของเส้นตัด และอยู่ภายในระหว่างเส้นขนาน</td><td><b>เท่ากัน</b></td></tr><tr><td>มุมภายในข้างเดียวกัน<br>(co-interior)</td><td>อยู่ข้างเดียวกันของเส้นตัด และอยู่ภายในระหว่างเส้นขนาน</td><td><b>รวมกันได้ \(180^\circ\)</b></td></tr><tr><td>มุมตรงข้าม<br>(vertical)</td><td>อยู่ตรงข้ามกันที่จุดตัดเดียวกัน</td><td>เท่ากันเสมอ (ไม่ต้องขนานก็จริง)</td></tr></tbody></table><div class="box warn"><span class="box-label">แยกให้ชัดระหว่าง “เสมอ” กับ “เมื่อขนาน”</span>
+             <p>มุมตรงข้ามเท่ากัน และมุมประชิดเส้นตรงรวมกันได้ \(180^\circ\)
+             เป็นจริง <b>ทุกกรณี</b> ไม่ว่าเส้นจะขนานหรือไม่</p>
+             <p>แต่ "มุมแย้งเท่ากัน" และ "มุมภายในข้างเดียวกันรวมกันได้ \(180^\circ\)"
+             เป็นจริง <b>เมื่อและเมื่อเส้นทั้งสองขนานกันเท่านั้น</b></p></div><div class="box thm"><span class="box-label">เงื่อนไขที่ใช้สรุปว่าเส้นขนาน</span>
+             <p>ให้เส้นตรง \(\ell_1\) และ \(\ell_2\) ถูกตัดด้วยเส้นตัดเส้นหนึ่ง
+             ข้อความต่อไปนี้สมมูลกัน (จริงพร้อมกัน เท็จพร้อมกัน)</p>
+             <ol>
+             <li>\(\ell_1 \parallel \ell_2\)</li>
+             <li>มุมแย้งเท่ากันคู่หนึ่งเท่ากัน</li>
+             <li>มุมแย้งคู่หนึ่งเท่ากัน</li>
+             <li>มุมภายในข้างเดียวกันคู่หนึ่งรวมกันได้ \(180^\circ\)</li>
+             </ol>
+             <p>ความสมมูลนี้สำคัญมาก เพราะใช้ได้ <b>ทั้งสองทาง</b>:
+             รู้ว่าขนาน → สรุปเรื่องมุม และ รู้เรื่องมุม → สรุปว่าขนาน</p></div><div class="ex"><div class="ex-head"><span class="ex-tag">ตัวอย่าง 1</span><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">หามุม</span></div><div class="ex-body">
+             \(\ell_1\parallel\ell_2\) และเส้นตัดทำให้เกิดมุมหนึ่งขนาด
+             \((3x+10)^\circ\) กับมุมแย้งของมันขนาด \((5x-30)^\circ\)
+             จงหา \(x\) และขนาดของมุมทั้งสอง</div><div class="ex-sol"><p class="sol-label">แนวคิดและวิธีทำ</p><ol class="steps"><li>มุมแย้งของเส้นขนานมีขนาดเท่ากัน จึงได้สมการ \(3x+10=5x-30\)</li><li>\(40=2x\Rightarrow x=20\)</li><li>แทนค่า: \(3(20)+10=70\) และ \(5(20)-30=70\) ✓</li></ol><p class="ans">\(x=20\) และมุมทั้งสองมีขนาด \(70^\circ\)</p></div></div><div class="ex"><div class="ex-head"><span class="ex-tag">ตัวอย่าง 2</span><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">เส้นหักมุม</span></div><div class="ex-body">
+             \(AB\parallel CD\) มีจุด \(P\) อยู่ระหว่างเส้นทั้งสอง
+             โดย \(\angle BAP = 35^\circ\) (วัดจาก \(AB\) ไปหา \(AP\)) และ
+             \(\angle PCD = 48^\circ\) จงหา \(\angle APC\)</div><div class="ex-sol"><p class="sol-label">แนวคิดและวิธีทำ</p><ol class="steps"><li>ลากเส้น \(\ell\) ผ่าน \(P\) ให้ขนานกับ \(AB\)
+                 (จึงขนานกับ \(CD\) ด้วย)</li><li>\(\ell\parallel AB\) ทำให้มุมแย้งเท่ากัน:
+                 มุมระหว่าง \(PA\) กับ \(\ell\) เท่ากับ \(35^\circ\)</li><li>\(\ell\parallel CD\) ทำให้มุมระหว่าง \(PC\) กับ \(\ell\)
+                 เท่ากับ \(48^\circ\)</li><li>\(\ell\) อยู่ระหว่างรังสี \(PA\) และ \(PC\) จึงบวกกันได้
+                 \(\angle APC = 35^\circ+48^\circ\)</li><li><b>เทคนิคสำคัญ</b>: เจอ "เส้นหักมุม" ระหว่างเส้นขนานสองเส้น
+                 ให้ลากเส้นช่วยขนานผ่านจุดหักทุกครั้ง</li></ol><p class="ans">\(\angle APC = 83^\circ\)</p></div></div></section><section id="triangle"><h2>มุมในรูปสามเหลี่ยม</h2><div class="box thm"><span class="box-label">ผลรวมมุมภายในรูปสามเหลี่ยม</span>
+             <p>มุมภายในทั้งสามของรูปสามเหลี่ยมรวมกันได้ \(180^\circ\)</p>
+             <p><b>พิสูจน์โดยใช้เส้นขนาน</b>: ลากเส้นผ่านจุดยอดหนึ่งให้ขนานกับด้านตรงข้าม
+             มุมแย้งสองคู่ย้ายสองมุมของสามเหลี่ยมมาเรียงต่อกับมุมที่สามบนเส้นตรงเดียวกัน
+             ผลรวมจึงเป็นมุมตรง \(=180^\circ\)</p></div><figure class="fig" data-viz="extangle" data-ax="110" data-ay="190" data-bx="300" data-by="190" data-cx="210" data-cy="72"><div class="fig-body"><svg viewBox="0 0 500 316" role="img" aria-labelledby="fig-extangle-t fig-extangle-d"><title id="fig-extangle-t">มุมภายนอกของรูปสามเหลี่ยม</title><desc id="fig-extangle-d">รูปสามเหลี่ยม ABC ต่อด้าน AB ออกไปถึงจุด D เกิดมุมภายนอกที่จุด B ซึ่งเท่ากับผลรวมของมุมภายในที่จุด A และจุด C</desc><rect width="100%" height="100%" fill="var(--paper-2)"/><defs><marker id="ar" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" class="f-muted"/></marker><marker id="ar-a" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" class="f-accent"/></marker><marker id="ar-l" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" class="f-link"/></marker><marker id="ar-t" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" class="f-teal"/></marker></defs><text x="30" y="32" class="t-tag">มุมภายนอก = ผลรวมมุมภายในที่ไม่ประชิด</text><polygon points="110,190 300,190 210,72" class="f-it" data-id="tri"/><polygon points="110,190 300,190 210,72" class="s-ink"/><line x1="300" y1="190" x2="420" y2="190" class="s-accent dash" data-id="ext"/><path d="M 136 190 A 26 26 0 0 0 126.81 170.16" class="s-link" data-id="mA"/><path d="M 194.48 90.31 A 24 24 0 0 0 224.55 91.08" class="s-teal" data-id="mC"/><path d="M 330 190 A 30 30 0 0 0 281.81 166.15" class="s-accent" data-id="mExt"/><path d="M 286.66 172.51 A 22 22 0 0 0 278 190" class="s-muted dash-fine" data-id="mInt"/><text x="148.11" y="176.34" text-anchor="middle" class="t-mono t-link" data-id="tA">50°</text><text x="208.97" y="115.99" text-anchor="middle" class="t-mono t-teal" data-id="tC">78°</text><text x="321.29" y="150.98" text-anchor="middle" class="t-mono t-accent" data-id="tExt">127°</text><circle cx="110" cy="190" r="4" class="f-ink"/><text x="94" y="196" text-anchor="middle" class="t-name" data-id="labA">A</text><circle cx="300" cy="190" r="4" class="f-ink"/><text x="304" y="210" text-anchor="middle" class="t-name" data-id="labB">B</text><circle cx="210" cy="72" r="4" class="f-ink"/><text x="210" y="60" text-anchor="middle" class="t-name" data-id="labC">C</text><text x="430" y="196" class="t-name t-accent" data-id="labD">D</text><circle cx="210" cy="72" r="14" class="handle-halo" data-id="halo"/><circle cx="210" cy="72" r="7" class="handle" data-id="handle"/><text x="30" y="252" class="t-val" data-id="eq">50° + 78° = 127°  =  มุมภายนอก</text><line x1="24" y1="288" x2="476" y2="288" class="s-rule"/><text x="24" y="306" class="t-tag">LEGEND</text><line x1="88" y1="302" x2="108" y2="302" class="s-link"/><text x="114" y="306" class="t-mono">มุม A</text><line x1="178" y1="302" x2="198" y2="302" class="s-teal"/><text x="204" y="306" class="t-mono">มุม C</text><line x1="268" y1="302" x2="288" y2="302" class="s-accent"/><text x="294" y="306" class="t-mono">มุมภายนอกที่ B</text></svg></div><div class="fig-ctrl"><span class="fig-readout" data-readout>Â + Ĉ = มุมภายนอกที่ B</span></div><figcaption>ลากจุด C ไปที่ไหนก็ได้ มุมภายนอกที่ B ยังเท่ากับ \(\hat{A}+\hat{C}\) เสมอ เพราะมุมภายในทั้งสามรวมกันได้ \(180^\circ\) และมุมภายนอกเป็นมุมประชิดเส้นตรงของ \(\hat{B}\)</figcaption></figure><div class="box thm"><span class="box-label">ทฤษฎีบทมุมภายนอก</span>
+             <p>มุมภายนอกของรูปสามเหลี่ยมมีขนาดเท่ากับ
+             <b>ผลรวมของมุมภายในที่ไม่ประชิดกับมุมภายนอกนั้น</b></p>
+             <p>ผลที่ตามมา: มุมภายนอกย่อม <b>มากกว่า</b> มุมภายในที่ไม่ประชิดแต่ละมุม
+             ข้อนี้ใช้เปรียบเทียบขนาดมุมในโจทย์พิสูจน์ได้บ่อย</p></div><div class="ex"><div class="ex-head"><span class="ex-tag">ตัวอย่าง 3</span><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">มุมภายนอก</span></div><div class="ex-body">
+             ในรูปสามเหลี่ยม \(ABC\) มี \(\angle A = 2x\), \(\angle B = 3x\)
+             และมุมภายนอกที่จุด \(C\) มีขนาด \((x+80)^\circ\) จงหา \(x\)
+             และมุมภายในทั้งสาม</div><div class="ex-sol"><p class="sol-label">แนวคิดและวิธีทำ</p><ol class="steps"><li>มุมภายนอกที่ \(C\) เท่ากับผลรวมของมุมภายในที่ไม่ประชิด คือ
+                 \(\angle A+\angle B\)</li><li>\(2x+3x = x+80 \Rightarrow 5x-x=80\Rightarrow 4x=80\Rightarrow x=20\)</li><li>\(\angle A = 40^\circ,\ \angle B = 60^\circ\)</li><li>\(\angle C = 180^\circ-40^\circ-60^\circ = 80^\circ\)</li><li>ตรวจ: มุมภายนอกที่ \(C\) \(=180^\circ-80^\circ=100^\circ=20+80\) ✓</li></ol><p class="ans">\(x=20\); มุมภายใน \(40^\circ,60^\circ,80^\circ\)</p></div></div><div class="ex"><div class="ex-head"><span class="ex-tag">ตัวอย่าง 4</span><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">เส้นแบ่งครึ่งมุม</span></div><div class="ex-body">
+             ในรูปสามเหลี่ยม \(ABC\) เส้นแบ่งครึ่งมุม \(B\) และมุม \(C\)
+             ตัดกันที่จุด \(I\) ถ้า \(\angle A = 50^\circ\) จงหา \(\angle BIC\)</div><div class="ex-sol"><p class="sol-label">แนวคิดและวิธีทำ</p><ol class="steps"><li>ให้ \(\angle B = 2\beta\) และ \(\angle C = 2\gamma\)
+                 เส้นแบ่งครึ่งทำให้ \(\angle IBC=\beta\) และ \(\angle ICB=\gamma\)</li><li>ในสามเหลี่ยม \(ABC\): \(50^\circ+2\beta+2\gamma=180^\circ\)</li><li>ดังนั้น \(\beta+\gamma=65^\circ\)</li><li>ในสามเหลี่ยม \(IBC\): \(\angle BIC = 180^\circ-(\beta+\gamma)
+                 =180^\circ-65^\circ\)</li><li>สูตรทั่วไปที่ควรจำ:
+                 \(\angle BIC = 90^\circ+\tfrac12\angle A\)
+                 (ตรวจ: \(90+25=115\) ✓)</li></ol><p class="ans">\(\angle BIC = 115^\circ\)</p></div></div></section><section id="polygon"><h2>มุมในรูปหลายเหลี่ยม</h2><div class="box thm"><span class="box-label">ผลรวมมุมของรูป n เหลี่ยม</span>
+             \[\text{มุมภายในรวม}=(n-2)\times180^\circ,\qquad
+             \text{มุมภายนอกรวม}=360^\circ\]
+             <p>สำหรับรูป \(n\) เหลี่ยม <b>ด้านเท่ามุมเท่า</b></p>
+             \[\text{มุมภายในแต่ละมุม}=\frac{(n-2)180^\circ}{n},\qquad
+             \text{มุมภายนอกแต่ละมุม}=\frac{360^\circ}{n}\]</div><p>เหตุผลของสูตรมุมภายใน: ลากเส้นทแยงมุมจากจุดยอดหนึ่งไปยังจุดยอดอื่น
+             ทุกจุด จะแบ่งรูป \(n\) เหลี่ยมออกเป็นรูปสามเหลี่ยม \(n-2\) รูป</p><p>เหตุผลของสูตรมุมภายนอก: ลองเดินรอบรูปหลายเหลี่ยมหนึ่งรอบ
+             ทุกครั้งที่ถึงจุดยอดเราหันตัวเท่ากับมุมภายนอกที่จุดนั้น
+             พอกลับมาที่เดิมเราหันครบหนึ่งรอบพอดี คือ \(360^\circ\)
+             — ข้อสังเกตคือสูตรนี้ <b>ไม่ขึ้นกับ \(n\)</b> เลย</p><div class="ex"><div class="ex-head"><span class="ex-tag">ตัวอย่าง 5</span><span class="ex-lvl apply">ประยุกต์</span><span class="ex-lvl">ประยุกต์</span></div><div class="ex-body">
+             รูปหลายเหลี่ยมด้านเท่ามุมเท่ารูปหนึ่งมีมุมภายในแต่ละมุมขนาด \(162^\circ\)
+             <br>(ก) รูปนี้มีกี่ด้าน
+             <br>(ข) รูปนี้มีเส้นทแยงมุมกี่เส้น</div><div class="ex-sol"><p class="sol-label">แนวคิดและวิธีทำ</p><ol class="steps"><li>(ก) มุมภายนอกแต่ละมุม \(=180^\circ-162^\circ=18^\circ\)</li><li>มุมภายนอกรวม \(=360^\circ\) ดังนั้น \(n=\dfrac{360}{18}=20\) ด้าน</li><li>(ข) เส้นทแยงมุมของรูป \(n\) เหลี่ยม \(=\dfrac{n(n-3)}{2}\)</li><li>\(=\dfrac{20(17)}{2}=170\) เส้น</li></ol><p class="ans">(ก) \(20\) ด้าน&nbsp;&nbsp;(ข) \(170\) เส้น</p></div></div></section><section id="drill" class="drill"><div class="drill-head"><h3>แบบฝึกหัดท้ายบท</h3><span class="drill-stat">แสดง 32 / 32 ข้อ</span></div><p>โจทย์เรียงจากปานกลางไปยาก และปิดท้ายด้วยโจทย์ประยุกต์ ลองทำด้วยตัวเองให้ครบก่อนเปิดเฉลย</p><div class="drill-filter"><button class="btn" type="button" data-filter="all" aria-pressed="true">ทั้งหมด (32)</button><button class="btn" type="button" data-filter="med" aria-pressed="false">ปานกลาง (11)</button><button class="btn" type="button" data-filter="hard" aria-pressed="false">ยาก (14)</button><button class="btn" type="button" data-filter="apply" aria-pressed="false">ประยุกต์ (7)</button><button class="btn" type="button" data-sol-all="show">เปิดเฉลยทั้งหมด</button><button class="btn" type="button" data-sol-all="hide">ปิดเฉลยทั้งหมด</button></div><div class="q" data-lvl="med"><div class="qn">1.</div><div class="qbody">\(\ell_1\parallel\ell_2\) มีมุมแย้งคู่หนึ่ง
+         ขนาด \((4x-15)^\circ\) และ \((2x+25)^\circ\) จงหา \(x\) และขนาดของมุม</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">คู่มุม</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u3-parallel-s1">ดูเฉลย</button></div><div class="qsol" id="u3-parallel-s1" hidden>มุมแย้งเท่ากัน: \(4x-15=2x+25\Rightarrow 2x=40\Rightarrow x=20\)
+             <br>ขนาดมุม \(=4(20)-15=65^\circ\)</div></div><div class="q" data-lvl="med"><div class="qn">2.</div><div class="qbody">\(\ell_1\parallel\ell_2\) มีมุมภายในข้างเดียวกัน
+         ขนาด \((3x+20)^\circ\) และ \((2x+10)^\circ\) จงหา \(x\)</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">คู่มุม</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u3-parallel-s2">ดูเฉลย</button></div><div class="qsol" id="u3-parallel-s2" hidden>มุมภายในข้างเดียวกันรวมกันได้ \(180^\circ\):
+             <br>\(3x+20+2x+10=180\Rightarrow 5x=150\Rightarrow x=30\)</div></div><div class="q" data-lvl="med"><div class="qn">3.</div><div class="qbody">รูปสามเหลี่ยมมีมุมภายในอัตราส่วน
+         \(2:3:4\) จงหาขนาดของมุมทั้งสาม</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">สามเหลี่ยม</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u3-parallel-s3">ดูเฉลย</button></div><div class="qsol" id="u3-parallel-s3" hidden>ให้มุมเป็น \(2k,3k,4k\) ได้ \(9k=180\Rightarrow k=20\)
+             <br>มุมคือ \(40^\circ,60^\circ,80^\circ\)</div></div><div class="q" data-lvl="med"><div class="qn">4.</div><div class="qbody">รูปสามเหลี่ยมหน้าจั่วมีมุมยอด \(36^\circ\)
+         จงหามุมที่ฐานแต่ละมุม</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">สามเหลี่ยม</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u3-parallel-s4">ดูเฉลย</button></div><div class="qsol" id="u3-parallel-s4" hidden>มุมที่ฐานเท่ากัน ให้เป็น \(x\) แต่ละมุม
+             <br>\(36+2x=180\Rightarrow x=72^\circ\)</div></div><div class="q" data-lvl="med"><div class="qn">5.</div><div class="qbody">รูปสามเหลี่ยมมีมุมภายในสองมุมขนาด
+         \(48^\circ\) และ \(67^\circ\) จงหามุมภายนอกที่จุดยอดที่สาม</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">มุมภายนอก</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u3-parallel-s5">ดูเฉลย</button></div><div class="qsol" id="u3-parallel-s5" hidden>มุมภายนอก \(=48^\circ+67^\circ=115^\circ\)
+             <br>(ตรวจ: มุมภายในที่สาม \(=65^\circ\) และ \(180-65=115\) ✓)</div></div><div class="q" data-lvl="med"><div class="qn">6.</div><div class="qbody">รูปสิบเอ็ดเหลี่ยมมีผลรวมมุมภายในเท่าไร</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">หลายเหลี่ยม</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u3-parallel-s6">ดูเฉลย</button></div><div class="qsol" id="u3-parallel-s6" hidden>\((11-2)\times180^\circ=9\times180^\circ=1620^\circ\)</div></div><div class="q" data-lvl="med"><div class="qn">7.</div><div class="qbody">รูปหลายเหลี่ยมด้านเท่ามุมเท่ามีมุมภายนอก
+         แต่ละมุม \(24^\circ\) จงหาจำนวนด้านและมุมภายในแต่ละมุม</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">หลายเหลี่ยม</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u3-parallel-s7">ดูเฉลย</button></div><div class="qsol" id="u3-parallel-s7" hidden>\(n=\dfrac{360}{24}=15\) ด้าน
+             <br>มุมภายในแต่ละมุม \(=180-24=156^\circ\)</div></div><div class="q" data-lvl="med"><div class="qn">8.</div><div class="qbody">รูปสี่เหลี่ยมด้านขนาน \(ABCD\)
+         มี \(\angle A = 3x\) และ \(\angle B = 2x+20\) จงหา \(x\) และมุมทั้งสี่</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">สี่เหลี่ยม</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u3-parallel-s8">ดูเฉลย</button></div><div class="qsol" id="u3-parallel-s8" hidden>ใน \(ABCD\) ด้าน \(AD\parallel BC\) ทำให้ \(\angle A,\angle B\)
+             เป็นมุมภายในข้างเดียวกัน จึงรวมกันได้ \(180^\circ\)
+             <br>\(3x+2x+20=180\Rightarrow x=32\)
+             <br>\(\angle A=\angle C=96^\circ\) และ \(\angle B=\angle D=84^\circ\)</div></div><div class="q" data-lvl="med"><div class="qn">9.</div><div class="qbody">เส้นตรงสองเส้นถูกตัดด้วยเส้นตัด เกิดมุมแย้งคู่หนึ่ง
+         ขนาด \(68^\circ\) และ \(72^\circ\) เส้นทั้งสองขนานกันหรือไม่ เพราะเหตุใด</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">เส้นตัด</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u3-parallel-s9">ดูเฉลย</button></div><div class="qsol" id="u3-parallel-s9" hidden><b>ไม่ขนาน</b> เพราะถ้าขนานกัน มุมแย้งต้องเท่ากัน
+             แต่ \(68^\circ\neq72^\circ\)</div></div><div class="q" data-lvl="med"><div class="qn">10.</div><div class="qbody">ถ้า \(\ell_1\parallel\ell_2\) และ
+         \(\ell_2\parallel\ell_3\) จงอธิบายว่าเหตุใด \(\ell_1\parallel\ell_3\)</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">ขนานกับขนาน</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u3-parallel-s10">ดูเฉลย</button></div><div class="qsol" id="u3-parallel-s10" hidden>ลากเส้นตัดเส้นหนึ่งผ่านทั้งสามเส้น
+             <br>มุมแย้งเท่ากันของคู่ \(\ell_1,\ell_2\) ให้ \(a=b\)
+             <br>มุมแย้งเท่ากันของคู่ \(\ell_2,\ell_3\) ให้ \(b=c\)
+             <br>ดังนั้น \(a=c\) ซึ่งเป็นมุมแย้งเท่ากันของคู่ \(\ell_1,\ell_3\)
+             จึงสรุปได้ว่า \(\ell_1\parallel\ell_3\)</div></div><div class="q" data-lvl="hard"><div class="qn">11.</div><div class="qbody">\(AB\parallel CD\) จุด \(P\) อยู่ระหว่าง
+         เส้นทั้งสอง โดย \(\angle BAP=42^\circ\) และ \(\angle APC=100^\circ\)
+         จงหา \(\angle PCD\)</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">เส้นหักมุม</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u3-parallel-s11">ดูเฉลย</button></div><div class="qsol" id="u3-parallel-s11" hidden>ลากเส้นผ่าน \(P\) ขนานกับ \(AB\)
+             <br>มุมแย้งให้ส่วนบนของ \(\angle APC\) เท่ากับ \(42^\circ\)
+             <br>ส่วนล่าง \(=100^\circ-42^\circ=58^\circ\)
+             <br>มุมแย้งกับ \(CD\) ให้ \(\angle PCD=58^\circ\)</div></div><div class="q" data-lvl="hard"><div class="qn">12.</div><div class="qbody">\(AB\parallel CD\) และจุด \(P,Q\)
+         อยู่ระหว่างเส้นขนานทั้งสอง เกิดเส้นหัก \(A\to P\to Q\to D\)
+         โดย \(\angle BAP=34^\circ\), \(\angle APQ=118^\circ\) และ
+         \(\angle PQD=140^\circ\) จงหา \(\angle QDC\)</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">เส้นหักมุม</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u3-parallel-s12">ดูเฉลย</button></div><div class="qsol" id="u3-parallel-s12" hidden>ลากเส้นช่วยขนานกับ \(AB\) ผ่าน \(P\) และผ่าน \(Q\)
+             <br>ที่จุด \(P\): เส้นช่วยแบ่ง \(\angle APQ\) เป็นสองส่วน ส่วนบนเป็นมุมแย้ง
+             กับ \(\angle BAP\) จึงเท่ากับ \(34^\circ\)
+             <br>ส่วนล่างที่ \(P\) \(=118^\circ-34^\circ=84^\circ\)
+             <br>ที่จุด \(Q\): ส่วนบนของ \(\angle PQD\) เป็นมุมแย้งกับส่วนล่างที่ \(P\)
+             จึงเท่ากับ \(84^\circ\)
+             <br>ส่วนล่างที่ \(Q\) \(=140^\circ-84^\circ=56^\circ\)
+             <br>ส่วนล่างนี้เป็นมุมแย้งกับ \(\angle QDC\) ดังนั้น
+             \(\angle QDC=56^\circ\)</div></div><div class="q" data-lvl="hard"><div class="qn">13.</div><div class="qbody">ในรูปสามเหลี่ยม \(ABC\)
+         มี \(\angle A=\angle B+20^\circ\) และ \(\angle C=2\angle B\)
+         จงหามุมทั้งสาม</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">สามเหลี่ยม</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u3-parallel-s13">ดูเฉลย</button></div><div class="qsol" id="u3-parallel-s13" hidden>ให้ \(\angle B=x\) ได้ \(\angle A=x+20\) และ \(\angle C=2x\)
+             <br>\((x+20)+x+2x=180\Rightarrow 4x=160\Rightarrow x=40\)
+             <br>\(\angle A=60^\circ,\angle B=40^\circ,\angle C=80^\circ\)</div></div><div class="q" data-lvl="hard"><div class="qn">14.</div><div class="qbody">ในรูปสามเหลี่ยม \(ABC\)
+         เส้นแบ่งครึ่งมุม \(B\) และ \(C\) ตัดกันที่ \(I\) ถ้า \(\angle BIC=126^\circ\)
+         จงหา \(\angle A\)</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">เส้นแบ่งครึ่ง</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u3-parallel-s14">ดูเฉลย</button></div><div class="qsol" id="u3-parallel-s14" hidden>ใช้สูตร \(\angle BIC = 90^\circ+\tfrac12\angle A\)
+             <br>\(126 = 90+\tfrac12\angle A\Rightarrow \tfrac12\angle A=36
+             \Rightarrow \angle A=72^\circ\)</div></div><div class="q" data-lvl="hard"><div class="qn">15.</div><div class="qbody">ในรูปสามเหลี่ยม \(ABC\)
+         เส้นแบ่งครึ่ง <b>มุมภายนอก</b> ที่ \(B\) และที่ \(C\) ตัดกันที่ \(E\)
+         จงแสดงว่า \(\angle BEC = 90^\circ-\tfrac12\angle A\)</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">มุมภายนอกคู่</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u3-parallel-s15">ดูเฉลย</button></div><div class="qsol" id="u3-parallel-s15" hidden>มุมภายนอกที่ \(B\) \(=180^\circ-\angle B\) ครึ่งหนึ่งคือ
+             \(90^\circ-\tfrac12\angle B\) ซึ่งเท่ากับ \(\angle EBC\)
+             <br>ทำนองเดียวกัน \(\angle ECB=90^\circ-\tfrac12\angle C\)
+             <br>ในสามเหลี่ยม \(EBC\):
+             \(\angle BEC=180^\circ-\left(90-\tfrac{\angle B}{2}\right)
+             -\left(90-\tfrac{\angle C}{2}\right)=\tfrac{\angle B+\angle C}{2}\)
+             <br>และ \(\angle B+\angle C=180^\circ-\angle A\) จึงได้
+             \(\angle BEC=90^\circ-\tfrac12\angle A\)</div></div><div class="q" data-lvl="hard"><div class="qn">16.</div><div class="qbody">ผลรวมมุมภายในของรูปหลายเหลี่ยมหนึ่ง
+         เป็น 4 เท่าของผลรวมมุมภายนอก จงหาจำนวนด้าน</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">หลายเหลี่ยม</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u3-parallel-s16">ดูเฉลย</button></div><div class="qsol" id="u3-parallel-s16" hidden>\((n-2)180 = 4(360)=1440\Rightarrow n-2=8\Rightarrow n=10\) ด้าน</div></div><div class="q" data-lvl="hard"><div class="qn">17.</div><div class="qbody">รูปหลายเหลี่ยมด้านเท่ามุมเท่ารูปหนึ่ง
+         มีมุมภายในมากกว่ามุมภายนอก \(140^\circ\) จงหาจำนวนด้าน</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">หลายเหลี่ยม</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u3-parallel-s17">ดูเฉลย</button></div><div class="qsol" id="u3-parallel-s17" hidden>ให้มุมภายนอก \(=e\) มุมภายใน \(=180-e\)
+             <br>\((180-e)-e=140\Rightarrow 180-2e=140\Rightarrow e=20\)
+             <br>\(n=\dfrac{360}{20}=18\) ด้าน</div></div><div class="q" data-lvl="hard"><div class="qn">18.</div><div class="qbody">รูปสี่เหลี่ยมคางหมู \(ABCD\) มี
+         \(AB\parallel DC\) และ \(AD=BC\) (คางหมูหน้าจั่ว) ถ้า \(\angle A=68^\circ\)
+         จงหามุมอีกสามมุม</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">สี่เหลี่ยม</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u3-parallel-s18">ดูเฉลย</button></div><div class="qsol" id="u3-parallel-s18" hidden>คางหมูหน้าจั่วมีมุมที่ฐานเดียวกันเท่ากัน จึงได้ \(\angle B=68^\circ\)
+             <br>\(AD\) เป็นเส้นตัดของ \(AB\parallel DC\) ดังนั้น
+             \(\angle A+\angle D=180^\circ\Rightarrow\angle D=112^\circ\)
+             <br>ทำนองเดียวกัน \(\angle C=112^\circ\)</div></div><div class="q" data-lvl="hard"><div class="qn">19.</div><div class="qbody">\(\ell_1\parallel\ell_2\) มีเส้นซิกแซกระหว่าง
+         เส้นขนานทั้งสอง เกิดมุมที่จุดหักสามจุดขนาด \(a,b,c\) โดยมุม \(a\) และ \(c\)
+         เปิดไปทางซ้าย มุม \(b\) เปิดไปทางขวา
+         <br>จงแสดงว่า \(b = a + c\)</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">ซิกแซก</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u3-parallel-s19">ดูเฉลย</button></div><div class="qsol" id="u3-parallel-s19" hidden>ลากเส้นช่วยขนานกับ \(\ell_1\) ผ่านจุดหักกลาง (จุดที่เป็นมุม \(b\))
+             <br>เส้นช่วยแบ่ง \(b\) เป็นสองส่วน \(b_1+b_2\)
+             <br>มุมแย้งกับส่วนบนให้ \(b_1=a\) และมุมแย้งกับส่วนล่างให้ \(b_2=c\)
+             <br>ดังนั้น \(b=a+c\)</div></div><div class="q" data-lvl="hard"><div class="qn">20.</div><div class="qbody">จงแสดงว่าในรูปสามเหลี่ยมใด ๆ
+         มุมภายนอกมุมหนึ่งย่อมมากกว่ามุมภายในที่ไม่ประชิดกับมันแต่ละมุม</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">พิสูจน์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u3-parallel-s20">ดูเฉลย</button></div><div class="qsol" id="u3-parallel-s20" hidden>ให้มุมภายนอกที่ \(C\) เป็น \(e\) ตามทฤษฎีบทมุมภายนอก
+             \(e=\angle A+\angle B\)
+             <br>มุมภายในของรูปสามเหลี่ยมเป็นจำนวนบวกทั้งสิ้น จึง \(\angle B>0\)
+             <br>ดังนั้น \(e=\angle A+\angle B>\angle A\) และทำนองเดียวกัน
+             \(e>\angle B\)</div></div><div class="q" data-lvl="hard"><div class="qn">21.</div><div class="qbody">รูปดาวห้าแฉกเกิดจากการต่อด้านของรูปห้าเหลี่ยม
+         ด้านเท่ามุมเท่าออกไป จงหาผลรวมของมุมที่ปลายแฉกทั้งห้า</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">มุมรวม</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u3-parallel-s21">ดูเฉลย</button></div><div class="qsol" id="u3-parallel-s21" hidden>แต่ละแฉกเป็นสามเหลี่ยมที่มีมุมฐานสองมุมเป็นมุมภายนอกของรูปห้าเหลี่ยม
+             ซึ่งมุมละ \(72^\circ\)
+             <br>มุมปลายแฉกแต่ละแฉก \(=180^\circ-2(72^\circ)=36^\circ\)
+             <br>ผลรวม \(=5\times36^\circ=180^\circ\)</div></div><div class="q" data-lvl="hard"><div class="qn">22.</div><div class="qbody">ในรูปสามเหลี่ยม \(ABC\) จุด \(D\)
+         อยู่บน \(BC\) โดย \(AD\) แบ่งครึ่งมุม \(A\) ถ้า \(\angle B=70^\circ\)
+         และ \(\angle C=50^\circ\) จงหา \(\angle ADB\) และ \(\angle ADC\)</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">สามเหลี่ยม</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u3-parallel-s22">ดูเฉลย</button></div><div class="qsol" id="u3-parallel-s22" hidden>\(\angle A=180-70-50=60^\circ\) ดังนั้น
+             \(\angle BAD=\angle CAD=30^\circ\)
+             <br>ในสามเหลี่ยม \(ABD\): \(\angle ADB=180-70-30=80^\circ\)
+             <br>\(\angle ADC=180^\circ-80^\circ=100^\circ\) (มุมประชิดเส้นตรง)</div></div><div class="q" data-lvl="apply"><div class="qn">23.</div><div class="qbody">ถนนสองสายขนานกัน มีถนนเชื่อมตัดผ่าน
+         ทำมุม \(63^\circ\) กับถนนสายแรก
+         <br>(ก) ถนนเชื่อมทำมุมกับถนนสายที่สองเท่าไร
+         <br>(ข) ถ้ามีถนนเชื่อมอีกสายขนานกับสายแรก มุมทั้งหมดที่จุดตัดใหม่เป็นเท่าไร</div><div class="qmeta"><span class="ex-lvl apply">ประยุกต์</span><span class="ex-lvl">ประยุกต์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u3-parallel-s23">ดูเฉลย</button></div><div class="qsol" id="u3-parallel-s23" hidden>(ก) มุมแย้งเท่ากัน จึงได้ \(63^\circ\) (และมุมประชิด \(117^\circ\))
+             <br>(ข) ถนนเชื่อมที่ขนานกับถนนสายแรกจะทำมุม \(63^\circ\) และ \(117^\circ\)
+             ที่จุดตัดใหม่เช่นกัน เพราะมุมแย้งเท่ากันถ่ายทอดผ่านเส้นขนาน</div></div><div class="q" data-lvl="apply"><div class="qn">24.</div><div class="qbody">บันไดพาดกำแพง ขั้นบันไดทุกขั้นขนานกับพื้น
+         ถ้าราวบันไดทำมุม \(28^\circ\) กับพื้น
+         <br>(ก) ราวบันไดทำมุมเท่าไรกับขั้นบันได
+         <br>(ข) ราวบันไดทำมุมเท่าไรกับกำแพง (กำแพงตั้งฉากกับพื้น)</div><div class="qmeta"><span class="ex-lvl apply">ประยุกต์</span><span class="ex-lvl">ประยุกต์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u3-parallel-s24">ดูเฉลย</button></div><div class="qsol" id="u3-parallel-s24" hidden>(ก) ขั้นบันไดขนานกับพื้น ราวบันไดเป็นเส้นตัด
+             มุมแย้งเท่ากันจึงได้ \(28^\circ\)
+             <br>(ข) กำแพงตั้งฉากกับพื้น ในสามเหลี่ยมมุมฉากที่เกิดขึ้น
+             มุมที่ราวบันไดทำกับกำแพง \(=90^\circ-28^\circ=62^\circ\)</div></div><div class="q" data-lvl="apply"><div class="qn">25.</div><div class="qbody">กระเบื้องปูพื้นรูปหลายเหลี่ยมด้านเท่ามุมเท่า
+         ชนิดเดียวจะปูเต็มพื้นได้ ก็เมื่อมุมภายในของรูปนั้นหาร \(360^\circ\) ลงตัว
+         <br>จงตรวจว่ารูปสามเหลี่ยมด้านเท่า รูปสี่เหลี่ยมจัตุรัส รูปห้าเหลี่ยม
+         และรูปหกเหลี่ยมด้านเท่ามุมเท่า รูปใดปูได้</div><div class="qmeta"><span class="ex-lvl apply">ประยุกต์</span><span class="ex-lvl">ประยุกต์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u3-parallel-s25">ดูเฉลย</button></div><div class="qsol" id="u3-parallel-s25" hidden>มุมภายใน: สามเหลี่ยม \(60^\circ\), จัตุรัส \(90^\circ\),
+             ห้าเหลี่ยม \(108^\circ\), หกเหลี่ยม \(120^\circ\)
+             <br>\(360/60=6\) ✓, \(360/90=4\) ✓, \(360/108=3.33\) ✗,
+             \(360/120=3\) ✓
+             <br><b>ปูได้</b>: สามเหลี่ยมด้านเท่า สี่เหลี่ยมจัตุรัส หกเหลี่ยมด้านเท่ามุมเท่า
+             <br><b>ปูไม่ได้</b>: ห้าเหลี่ยมด้านเท่ามุมเท่า</div></div><div class="q" data-lvl="apply"><div class="qn">26.</div><div class="qbody">หลังคาทรงจั่วมีสันหลังคาขนานกับพื้น
+         ด้านลาดทั้งสองข้างทำมุมกับแนวระดับ \(35^\circ\) เท่ากัน
+         <br>(ก) มุมที่ยอดจั่ว (ระหว่างด้านลาดสองด้าน) เป็นเท่าไร
+         <br>(ข) ถ้าต้องการให้มุมยอดจั่วเป็น \(90^\circ\) ด้านลาดต้องทำมุมกับ
+         แนวระดับเท่าไร</div><div class="qmeta"><span class="ex-lvl apply">ประยุกต์</span><span class="ex-lvl">ประยุกต์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u3-parallel-s26">ดูเฉลย</button></div><div class="qsol" id="u3-parallel-s26" hidden>(ก) สามเหลี่ยมหน้าจั่วมีมุมฐานสองมุมเท่ากัน \(35^\circ\)
+             <br>มุมยอด \(=180-2(35)=110^\circ\)
+             <br>(ข) \(180-2x=90\Rightarrow x=45^\circ\)</div></div><div class="q" data-lvl="apply"><div class="qn">27.</div><div class="qbody">สวนรูปห้าเหลี่ยมด้านเท่ามุมเท่าจะล้อมรั้ว
+         โดยที่มุมทุกมุมต้องตัดเสารั้วให้ได้มุมพอดี
+         <br>(ก) ช่างต้องตัดเสาที่มุมละกี่องศา
+         <br>(ข) ถ้าเปลี่ยนเป็นสวนรูปแปดเหลี่ยมด้านเท่ามุมเท่า ต้องตัดกี่องศา
+         <br>(ค) รูปใดตัดง่ายกว่าเมื่อเทียบกับการตัดฉาก \(90^\circ\)</div><div class="qmeta"><span class="ex-lvl apply">ประยุกต์</span><span class="ex-lvl">ประยุกต์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u3-parallel-s27">ดูเฉลย</button></div><div class="qsol" id="u3-parallel-s27" hidden>(ก) มุมภายในห้าเหลี่ยม \(=\dfrac{3(180)}{5}=108^\circ\)
+             <br>(ข) แปดเหลี่ยม \(=\dfrac{6(180)}{8}=135^\circ\)
+             <br>(ค) \(135^\circ=90^\circ+45^\circ\) แบ่งครึ่งมุมฉากได้พอดี
+             จึงตัดง่ายกว่า \(108^\circ\) ที่ไม่ลงตัวกับมุมฉาก</div></div><div class="q" data-lvl="apply"><div class="qn">28.</div><div class="qbody">นักเดินเรือออกจากท่า แล่นไปทางทิศ
+         \(N\,50^\circ E\) เป็นระยะหนึ่ง แล้วหักเลี้ยวแล่นไปทาง \(S\,70^\circ E\)
+         <br>จงหามุมที่เรือหักเลี้ยว (มุมระหว่างเส้นทางเดิมกับเส้นทางใหม่)</div><div class="qmeta"><span class="ex-lvl apply">ประยุกต์</span><span class="ex-lvl">ประยุกต์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u3-parallel-s28">ดูเฉลย</button></div><div class="qsol" id="u3-parallel-s28" hidden>ทิศเดิมทำมุม \(50^\circ\) จากแนวเหนือไปตะวันออก
+             <br>ทิศใหม่ทำมุม \(180^\circ-70^\circ=110^\circ\) จากแนวเหนือ
+             (วัดตามเข็มนาฬิกา)
+             <br>มุมระหว่างสองทิศ \(=110^\circ-50^\circ=60^\circ\)
+             <br>ดังนั้นเรือหักเลี้ยว \(60^\circ\)</div></div><div class="q" data-lvl="apply"><div class="qn">29.</div><div class="qbody">ชั้นวางของติดผนัง ใช้ฉากยึดรูปสามเหลี่ยม
+         โดยด้านหนึ่งแนบผนัง (แนวตั้ง) อีกด้านแนบแผ่นชั้น (แนวนอน)
+         และด้านที่สามเป็นเหล็กค้ำทำมุม \(52^\circ\) กับแผ่นชั้น
+         <br>(ก) เหล็กค้ำทำมุมกับผนังเท่าไร
+         <br>(ข) ถ้าแผ่นชั้นอีกชิ้นติดขนานกับชิ้นแรก เหล็กค้ำชิ้นเดิม (ที่ขนานกัน)
+         จะทำมุมกับแผ่นชั้นใหม่เท่าไร</div><div class="qmeta"><span class="ex-lvl apply">ประยุกต์</span><span class="ex-lvl">ประยุกต์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u3-parallel-s29">ดูเฉลย</button></div><div class="qsol" id="u3-parallel-s29" hidden>(ก) ผนังตั้งฉากกับแผ่นชั้น มุมในสามเหลี่ยมมุมฉาก
+             \(=90^\circ-52^\circ=38^\circ\)
+             <br>(ข) แผ่นชั้นสองแผ่นขนานกัน เหล็กค้ำเป็นเส้นตัด
+             มุมแย้งเท่ากันจึงยังเป็น \(52^\circ\)</div></div><div class="q" data-lvl="med"><div class="qn">30.</div><div class="qbody">เส้นตรงสองเส้นตัดกัน เกิดมุมหนึ่งขนาด
+         \((5x-10)^\circ\) และมุมประชิดเส้นตรงของมันขนาด \((3x+30)^\circ\)
+         จงหา \(x\) และมุมทั้งสี่ที่จุดตัด</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">คู่มุม</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u3-parallel-s30">ดูเฉลย</button></div><div class="qsol" id="u3-parallel-s30" hidden>มุมประชิดเส้นตรงรวมกันได้ \(180^\circ\):
+             \(5x-10+3x+30=180\Rightarrow 8x=160\Rightarrow x=20\)
+             <br>มุมแรก \(=90^\circ\) มุมประชิด \(=90^\circ\)
+             <br>ดังนั้นมุมทั้งสี่เป็น \(90^\circ\) ทั้งหมด (เส้นทั้งสองตั้งฉากกัน)</div></div><div class="q" data-lvl="hard"><div class="qn">31.</div><div class="qbody">ในรูปสามเหลี่ยม \(ABC\) ที่ \(AB=AC\)
+         ต่อ \(BC\) ออกไปถึงจุด \(D\) ถ้ามุมภายนอกที่ \(C\) มีขนาด \(118^\circ\)
+         จงหามุมภายในทั้งสาม</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">สามเหลี่ยม</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u3-parallel-s31">ดูเฉลย</button></div><div class="qsol" id="u3-parallel-s31" hidden>\(\angle ACB=180^\circ-118^\circ=62^\circ\)
+             <br>\(AB=AC\) ทำให้ \(\angle ABC=\angle ACB=62^\circ\)
+             <br>\(\angle BAC=180^\circ-2(62^\circ)=56^\circ\)</div></div><div class="q" data-lvl="hard"><div class="qn">32.</div><div class="qbody">รูปหลายเหลี่ยมนูนรูปหนึ่งมีมุมภายใน
+         เป็นมุมป้าน (มากกว่า \(90^\circ\)) ทุกมุม อย่างน้อยรูปนี้มีกี่ด้าน
+         และมากที่สุดมีมุมฉากได้กี่มุม</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">หลายเหลี่ยม</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u3-parallel-s32">ดูเฉลย</button></div><div class="qsol" id="u3-parallel-s32" hidden>มุมภายนอกรวม \(=360^\circ\) และมุมภายในป้านหมายถึง
+             มุมภายนอกน้อยกว่า \(90^\circ\)
+             <br>ถ้ามี \(n\) มุม แต่ละมุมภายนอก \(<90^\circ\) จึงได้
+             \(360<90n\Rightarrow n>4\) นั่นคือ <b>อย่างน้อย 5 ด้าน</b>
+             <br>มุมฉากทำให้มุมภายนอกเป็น \(90^\circ\) ถ้ามี \(k\) มุมฉาก
+             จะกินมุมภายนอกไป \(90k\le360\) จึงได้ \(k\le4\)
+             <br>แต่รูปนูนที่มีมุมฉากครบ 4 มุมคือสี่เหลี่ยมมุมฉาก
+             ซึ่งไม่มีมุมอื่นเหลือ ดังนั้นในรูปที่มีด้านมากกว่า 4
+             มีมุมฉากได้ <b>มากที่สุด 3 มุม</b></div></div></section><div class="pager"><a class="pl" href="u2-solids.html">พื้นที่ผิวและปริมาตร</a><a class="pr" href="u4-transform.html">การแปลงทางเรขาคณิต</a></div></main></div></div><footer class="site"><div class="wrap">คณิตศาสตร์ ม.2 · สื่อการเรียนรู้แบบอินเทอร์แอกทีฟ</div></footer>
+<script src="../assets/js/site.js"></script>
+<script src="../assets/js/viz.js"></script>
+</body>
+</html>

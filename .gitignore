@@ -1,0 +1,9 @@
+# เอกสารต้นฉบับ (ประมวลรายวิชา) — มีชื่อและข้อมูลผู้สอน จึงไม่เผยแพร่ในรีโป
+reference/
+
+# local tooling
+.claude/settings.local.json
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db

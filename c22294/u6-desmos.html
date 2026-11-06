@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="th" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>การใช้โปรแกรม Desmos · เทคโนโลยีเพื่อการศึกษาทางคณิตศาสตร์</title>
+<meta name="description" content="การใช้เครื่องคิดเลขกราฟิกช่วยแก้ปัญหาคณิตศาสตร์ ตั้งแต่การอ่านกราฟ
+    เส้นตรงและพาราโบลา การใช้ตัวเลื่อนสำรวจผลของสัมประสิทธิ์
+    ไปจนถึงการแก้สมการ">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Serif+Thai:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/site.css">
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+         processEscapes: true },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] },
+  chtml: { mtextInheritFont: true, scale: 1.0 },
+  startup: { typeset: true }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+
+</head>
+<body>
+<nav class="nav"><a class="nav-brand" href="../index.html">คณิต<span>ศาสตร์</span> ม.2</a><div class="nav-links"><a href="../index.html">หน้าแรก</a><a href="../c22122/index.html" title="คณิตศาสตร์ 4">คณิตศาสตร์ 4</a><a href="../c22292/index.html" title="คณิตศาสตร์พัฒนาศักยภาพ 4">พัฒนาศักยภาพ 4</a><a href="../c22294/index.html" aria-current="page" title="เทคโนโลยีเพื่อการศึกษาทางคณิตศาสตร์">เทคโนโลยีคณิตศาสตร์</a><button class="theme-btn" type="button" aria-label="สลับโหมดสี">☾</button></div></nav><div class="wrap"><div class="page"><aside class="toc"><div class="toc-label">หัวข้อในบทนี้</div><ol><li><a href="#basics">อ่านและเขียนสมการจากกราฟ</a></li><li><a href="#sliders">ตัวเลื่อนและการสำรวจพารามิเตอร์</a></li><li><a href="#solve">แก้สมการและอสมการด้วยกราฟ</a></li><li><a href="#drill">แบบฝึกหัดท้ายบท</a></li></ol></aside><main><p class="eyebrow">เทคโนโลยีเพื่อการศึกษาทางคณิตศาสตร์</p><h1>การใช้โปรแกรม Desmos</h1><p class="lead">การใช้เครื่องคิดเลขกราฟิกช่วยแก้ปัญหาคณิตศาสตร์ ตั้งแต่การอ่านกราฟ
+    เส้นตรงและพาราโบลา การใช้ตัวเลื่อนสำรวจผลของสัมประสิทธิ์
+    ไปจนถึงการแก้สมการและอสมการด้วยกราฟ</p><div class="badges"><span class="badge">กราฟเส้นตรง · พาราโบลา</span><span class="badge">ตัวเลื่อนพารามิเตอร์</span><span class="badge">แก้สมการด้วยกราฟ</span><span class="badge">ภาพปรับค่าได้</span><span class="badge on">แบบฝึกหัด 31 ข้อ</span></div><section id="basics"><h2>อ่านและเขียนสมการจากกราฟ</h2><p>สิ่งที่ Desmos ทำได้ดีที่สุดคือเปลี่ยน <b>สมการ</b>
+             ให้เป็น <b>รูปร่าง</b> ทันที การเชื่อมสองสิ่งนี้เข้าหากัน
+             คือทักษะหลักของบทนี้</p><figure class="fig" data-viz="graphlab" data-ox="300" data-oy="170" data-unit="26" data-w="600"><div class="fig-body"><svg viewBox="0 0 600 320" role="img" aria-labelledby="fig-graphlab-t fig-graphlab-d"><title id="fig-graphlab-t">กราฟของฟังก์ชันที่ปรับสัมประสิทธิ์ได้</title><desc id="fig-graphlab-d">ระนาบพิกัดแสดงกราฟของฟังก์ชันที่เลือกได้ระหว่างเส้นตรง พาราโบลา และค่าสัมบูรณ์ โดยปรับสัมประสิทธิ์แล้วกราฟเปลี่ยนรูปทันที</desc><rect width="100%" height="100%" fill="var(--paper-2)"/><defs><marker id="ar" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" class="f-muted"/></marker><marker id="ar-a" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" class="f-accent"/></marker><marker id="ar-l" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" class="f-link"/></marker><marker id="ar-t" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" class="f-teal"/></marker></defs><line x1="14" y1="14" x2="14" y2="300" class="s-rule"/><line x1="40" y1="14" x2="40" y2="300" class="s-rule"/><line x1="66" y1="14" x2="66" y2="300" class="s-rule"/><line x1="92" y1="14" x2="92" y2="300" class="s-rule"/><line x1="118" y1="14" x2="118" y2="300" class="s-rule"/><line x1="144" y1="14" x2="144" y2="300" class="s-rule"/><line x1="170" y1="14" x2="170" y2="300" class="s-rule"/><line x1="196" y1="14" x2="196" y2="300" class="s-rule"/><line x1="222" y1="14" x2="222" y2="300" class="s-rule"/><line x1="248" y1="14" x2="248" y2="300" class="s-rule"/><line x1="274" y1="14" x2="274" y2="300" class="s-rule"/><line x1="300" y1="14" x2="300" y2="300" class="s-rule"/><line x1="326" y1="14" x2="326" y2="300" class="s-rule"/><line x1="352" y1="14" x2="352" y2="300" class="s-rule"/><line x1="378" y1="14" x2="378" y2="300" class="s-rule"/><line x1="404" y1="14" x2="404" y2="300" class="s-rule"/><line x1="430" y1="14" x2="430" y2="300" class="s-rule"/><line x1="456" y1="14" x2="456" y2="300" class="s-rule"/><line x1="482" y1="14" x2="482" y2="300" class="s-rule"/><line x1="508" y1="14" x2="508" y2="300" class="s-rule"/><line x1="534" y1="14" x2="534" y2="300" class="s-rule"/><line x1="560" y1="14" x2="560" y2="300" class="s-rule"/><line x1="586" y1="14" x2="586" y2="300" class="s-rule"/><line x1="14" y1="14" x2="586" y2="14" class="s-rule"/><line x1="14" y1="40" x2="586" y2="40" class="s-rule"/><line x1="14" y1="66" x2="586" y2="66" class="s-rule"/><line x1="14" y1="92" x2="586" y2="92" class="s-rule"/><line x1="14" y1="118" x2="586" y2="118" class="s-rule"/><line x1="14" y1="144" x2="586" y2="144" class="s-rule"/><line x1="14" y1="170" x2="586" y2="170" class="s-rule"/><line x1="14" y1="196" x2="586" y2="196" class="s-rule"/><line x1="14" y1="222" x2="586" y2="222" class="s-rule"/><line x1="14" y1="248" x2="586" y2="248" class="s-rule"/><line x1="14" y1="274" x2="586" y2="274" class="s-rule"/><line x1="14" y1="300" x2="586" y2="300" class="s-rule"/><line x1="6" y1="170" x2="592" y2="170" class="s-soft" marker-end="url(#ar)"/><line x1="300" y1="308" x2="300" y2="8" class="s-soft" marker-end="url(#ar)"/><text x="594" y="174" class="t-mono">x</text><text x="290" y="10" text-anchor="middle" class="t-mono">y</text><line x1="14" y1="167" x2="14" y2="173" class="s-soft"/><line x1="40" y1="167" x2="40" y2="173" class="s-soft"/><line x1="66" y1="167" x2="66" y2="173" class="s-soft"/><line x1="92" y1="167" x2="92" y2="173" class="s-soft"/><line x1="118" y1="167" x2="118" y2="173" class="s-soft"/><line x1="144" y1="167" x2="144" y2="173" class="s-soft"/><line x1="170" y1="167" x2="170" y2="173" class="s-soft"/><line x1="196" y1="167" x2="196" y2="173" class="s-soft"/><line x1="222" y1="167" x2="222" y2="173" class="s-soft"/><line x1="248" y1="167" x2="248" y2="173" class="s-soft"/><line x1="274" y1="167" x2="274" y2="173" class="s-soft"/><line x1="326" y1="167" x2="326" y2="173" class="s-soft"/><line x1="352" y1="167" x2="352" y2="173" class="s-soft"/><line x1="378" y1="167" x2="378" y2="173" class="s-soft"/><line x1="404" y1="167" x2="404" y2="173" class="s-soft"/><line x1="430" y1="167" x2="430" y2="173" class="s-soft"/><line x1="456" y1="167" x2="456" y2="173" class="s-soft"/><line x1="482" y1="167" x2="482" y2="173" class="s-soft"/><line x1="508" y1="167" x2="508" y2="173" class="s-soft"/><line x1="534" y1="167" x2="534" y2="173" class="s-soft"/><line x1="560" y1="167" x2="560" y2="173" class="s-soft"/><line x1="586" y1="167" x2="586" y2="173" class="s-soft"/><line x1="297" y1="300" x2="303" y2="300" class="s-soft"/><line x1="297" y1="274" x2="303" y2="274" class="s-soft"/><line x1="297" y1="248" x2="303" y2="248" class="s-soft"/><line x1="297" y1="222" x2="303" y2="222" class="s-soft"/><line x1="297" y1="196" x2="303" y2="196" class="s-soft"/><line x1="297" y1="144" x2="303" y2="144" class="s-soft"/><line x1="297" y1="118" x2="303" y2="118" class="s-soft"/><line x1="297" y1="92" x2="303" y2="92" class="s-soft"/><line x1="297" y1="66" x2="303" y2="66" class="s-soft"/><line x1="297" y1="40" x2="303" y2="40" class="s-soft"/><path d="M 232.4 -5.76 L 234.48 4.89 L 236.56 15.21 L 238.64 25.19 L 240.72 34.84 L 242.8 44.16 L 244.88 53.15 L 246.96 61.8 L 249.04 70.12 L 251.12 78.11 L 253.2 85.76 L 255.28 93.08 L 257.36 100.07 L 259.44 106.73 L 261.52 113.05 L 263.6 119.04 L 265.68 124.7 L 267.76 130.02 L 269.84 135.01 L 271.92 139.67 L 274 144 L 276.08 147.99 L 278.16 151.65 L 280.24 154.98 L 282.32 157.98 L 284.4 160.64 L 286.48 162.97 L 288.56 164.97 L 290.64 166.63 L 292.72 167.96 L 294.8 168.96 L 296.88 169.63 L 298.96 169.96 L 301.04 169.96 L 303.12 169.63 L 305.2 168.96 L 307.28 167.96 L 309.36 166.63 L 311.44 164.97 L 313.52 162.97 L 315.6 160.64 L 317.68 157.98 L 319.76 154.98 L 321.84 151.65 L 323.92 147.99 L 326 144 L 328.08 139.67 L 330.16 135.01 L 332.24 130.02 L 334.32 124.7 L 336.4 119.04 L 338.48 113.05 L 340.56 106.73 L 342.64 100.07 L 344.72 93.08 L 346.8 85.76 L 348.88 78.11 L 350.96 70.12 L 353.04 61.8 L 355.12 53.15 L 357.2 44.16 L 359.28 34.84 L 361.36 25.19 L 363.44 15.21 L 365.52 4.89 L 367.6 -5.76" class="s-accent thick" data-id="curve"/><circle cx="300" cy="170" r="5" class="f-accent" data-id="vertex"/><text x="30" y="302" class="t-val t-accent" data-id="eq">y = 1x² + 0x + 0</text></svg></div><div class="fig-ctrl"><button type="button" data-act="quad" data-group="kind" aria-pressed="true">y = ax²+bx+c</button><button type="button" data-act="lin" data-group="kind" aria-pressed="false">y = ax+c</button><button type="button" data-act="abs" data-group="kind" aria-pressed="false">y = a|x|+c</button><label for="r-a">a</label><input type="range" id="r-a" data-input="a" min="-3" max="3" step="0.1" value="1"><label for="r-b">b</label><input type="range" id="r-b" data-input="b" min="-4" max="4" step="0.1" value="0"><label for="r-c">c</label><input type="range" id="r-c" data-input="c" min="-4" max="4" step="0.1" value="0"><span class="fig-readout" data-readout>y = x²</span></div><figcaption>ปรับ \(a\) เพื่อดูการยืด–หดและการพลิกกราฟ ปรับ \(b\) เพื่อเลื่อนจุดยอดในแนวเฉียง และปรับ \(c\) เพื่อเลื่อนกราฟขึ้นลง — เหมือนที่ทำได้ใน Desmos</figcaption></figure><table class="tbl"><thead><tr><th>รูปสมการ</th><th>กราฟ</th><th>อ่านอะไรได้ทันที</th></tr></thead><tbody><tr><td>\(y=mx+c\)</td><td>เส้นตรง</td><td>\(m\) = ความชัน · \(c\) = จุดตัดแกน \(y\)</td></tr><tr><td>\(y=a(x-h)^{2}+k\)</td><td>พาราโบลา</td><td>จุดยอด \((h,k)\) · \(a>0\) หงาย, \(a<0\) คว่ำ</td></tr><tr><td>\(y=ax^{2}+bx+c\)</td><td>พาราโบลา</td><td>แกนสมมาตร \(x=-\dfrac{b}{2a}\) · จุดตัดแกน \(y\) ที่ \(c\)</td></tr><tr><td>\(y=a|x-h|+k\)</td><td>รูปตัววี</td><td>จุดหักมุมที่ \((h,k)\) · \(a\) คุมความชันของขา</td></tr><tr><td>\((x-h)^{2}+(y-k)^{2}=r^{2}\)</td><td>วงกลม</td><td>จุดศูนย์กลาง \((h,k)\) · รัศมี \(r\)</td></tr></tbody></table><div class="box trick"><span class="box-label">แปลงรูปทั่วไปเป็นรูปจุดยอด</span>
+             <p>จาก \(y=ax^{2}+bx+c\) ไปเป็น \(y=a(x-h)^{2}+k\)</p>
+             \[h=-\frac{b}{2a},\qquad k=c-\frac{b^{2}}{4a}
+             \ \ \left(\text{หรือแทน }h\text{ กลับเข้าสมการ}\right)\]
+             <p>วิธีที่พลาดน้อยที่สุดคือหา \(h\) ก่อน แล้วแทน \(x=h\)
+             เข้าสมการเดิมเพื่อหา \(k\)</p></div><div class="ex"><div class="ex-head"><span class="ex-tag">ตัวอย่าง 1</span><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">อ่านกราฟ</span></div><div class="ex-body">
+             พาราโบลาหนึ่งมีสมการ \(y=2x^{2}-12x+13\)
+             <br>(ก) จงหาจุดยอดและแกนสมมาตร
+             <br>(ข) กราฟหงายหรือคว่ำ
+             <br>(ค) จงหาจุดตัดแกน \(y\)
+             <br>(ง) จงเขียนในรูปจุดยอด</div><div class="ex-sol"><p class="sol-label">แนวคิดและวิธีทำ</p><ol class="steps"><li>(ก) \(h=-\dfrac{b}{2a}=-\dfrac{-12}{2(2)}=3\)</li><li>แทน \(x=3\): \(k=2(9)-12(3)+13=18-36+13=-5\)</li><li>จุดยอด \((3,-5)\) และแกนสมมาตร \(x=3\)</li><li>(ข) \(a=2>0\) → <b>หงาย</b> (จุดยอดเป็นจุดต่ำสุด)</li><li>(ค) แทน \(x=0\): \(y=13\) → จุดตัดแกน \(y\) ที่ \((0,13)\)</li><li>(ง) \(y=2(x-3)^{2}-5\)</li><li>ตรวจด้วย Desmos: พิมพ์ทั้งสองสมการ กราฟต้องทับกันสนิท</li></ol><p class="ans">จุดยอด \((3,-5)\) · \(x=3\) · หงาย · \((0,13)\) · \(y=2(x-3)^{2}-5\)</p></div></div></section><section id="sliders"><h2>ตัวเลื่อนและการสำรวจพารามิเตอร์</h2><p>พิมพ์สมการที่มีตัวอักษรที่ยังไม่นิยาม Desmos จะเสนอให้
+             สร้าง <b>ตัวเลื่อน</b> (slider) ให้อัตโนมัติ
+             นี่คือเครื่องมือสำรวจที่ทรงพลังที่สุดของโปรแกรม</p><table class="tbl"><thead><tr><th>ปรับ</th><th>ผลที่เกิดกับ \(y=a(x-h)^{2}+k\)</th></tr></thead><tbody><tr><td>\(a\) โตขึ้น (บวก)</td><td>กราฟแคบลง (ชันขึ้น) จุดยอดอยู่ที่เดิม</td></tr><tr><td>\(a\) เปลี่ยนเครื่องหมาย</td><td>กราฟพลิกจากหงายเป็นคว่ำ</td></tr><tr><td>\(a\to0\)</td><td>กราฟแบนลงเรื่อย ๆ จนเกือบเป็นเส้นตรง \(y=k\)</td></tr><tr><td>\(h\) เพิ่ม</td><td>กราฟเลื่อนไปทาง <b>ขวา</b> \(h\) หน่วย</td></tr><tr><td>\(k\) เพิ่ม</td><td>กราฟเลื่อน <b>ขึ้น</b> \(k\) หน่วย</td></tr></tbody></table><div class="box warn"><span class="box-label">กับดักเครื่องหมายของ h</span>
+             <p>ใน \(y=a(x-h)^{2}+k\) จุดยอดอยู่ที่ \(x=h\) ไม่ใช่ \(x=-h\)</p>
+             <p>ดังนั้น \(y=(x-3)^{2}\) มีจุดยอดที่ \(x=3\) (เลื่อนไปขวา)
+             และ \(y=(x+3)^{2}=(x-(-3))^{2}\) มีจุดยอดที่ \(x=-3\)
+             (เลื่อนไปซ้าย)</p>
+             <p>ลองสร้างตัวเลื่อน \(h\) ใน Desmos แล้วลากดู — เห็นทันที</p></div><div class="ex"><div class="ex-head"><span class="ex-tag">ตัวอย่าง 2</span><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">หาสมการจากเงื่อนไข</span></div><div class="ex-body">
+             พาราโบลาหนึ่งมีจุดยอด \((2,-3)\) และผ่านจุด \((5,15)\)
+             <br>(ก) จงหาสมการในรูปจุดยอด
+             <br>(ข) จงเขียนในรูป \(y=ax^{2}+bx+c\)
+             <br>(ค) จงหาจุดตัดแกน \(x\) (ถ้ามี)</div><div class="ex-sol"><p class="sol-label">แนวคิดและวิธีทำ</p><ol class="steps"><li>(ก) เริ่มจาก \(y=a(x-2)^{2}-3\)</li><li>แทนจุด \((5,15)\): \(15=a(5-2)^{2}-3=9a-3\)</li><li>\(9a=18\Rightarrow a=2\)</li><li>สมการ: \(y=2(x-2)^{2}-3\)</li><li>(ข) กระจาย: \(y=2(x^{2}-4x+4)-3=2x^{2}-8x+8-3
+                 =2x^{2}-8x+5\)</li><li>(ค) ตั้ง \(y=0\): \(2(x-2)^{2}=3\Rightarrow
+                 (x-2)^{2}=1.5\)</li><li>\(x-2=\pm\sqrt{1.5}\Rightarrow x=2\pm1.2247\)</li><li>จุดตัดแกน \(x\) ที่ \(x\approx0.775\) และ \(x\approx3.225\)</li><li>(จุดยอดอยู่ใต้แกน \(x\) และกราฟหงาย จึงมีจุดตัดสองจุดแน่นอน)</li></ol><p class="ans">(ก) \(y=2(x-2)^{2}-3\)&nbsp;(ข) \(y=2x^{2}-8x+5\)&nbsp;(ค) \(x\approx0.775,\ 3.225\)</p></div></div></section><section id="solve"><h2>แก้สมการและอสมการด้วยกราฟ</h2><div class="box thm"><span class="box-label">หลักการแปลงสมการเป็นกราฟ</span>
+             <p><b>แก้สมการ \(f(x)=g(x)\)</b> → พล็อต \(y=f(x)\) และ \(y=g(x)\)
+             คำตอบคือพิกัด \(x\) ของ <b>จุดตัด</b></p>
+             <p><b>หรือ</b> จัดให้อยู่ในรูป \(f(x)-g(x)=0\)
+             แล้วหาจุดตัดแกน \(x\) ของกราฟเดียว</p>
+             <p><b>แก้อสมการ \(f(x)>g(x)\)</b> → หาช่วงของ \(x\) ที่กราฟของ
+             \(f\) อยู่ <b>เหนือ</b> กราฟของ \(g\)</p>
+             <p><b>ระบบสมการสองตัวแปร</b> → พล็อตทั้งสองสมการ
+             คำตอบคือพิกัดของจุดตัด</p></div><div class="ex"><div class="ex-head"><span class="ex-tag">ตัวอย่าง 3</span><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">ระบบสมการ</span></div><div class="ex-body">
+             จงใช้กราฟช่วยแก้ระบบสมการ
+             \[y=x^{2}-2x-3,\qquad y=2x-3\]
+             แล้วตรวจคำตอบด้วยพีชคณิต</div><div class="ex-sol"><p class="sol-label">แนวคิดและวิธีทำ</p><ol class="steps"><li>พล็อตทั้งสองใน Desmos — เห็นจุดตัดสองจุด</li><li><b>ตรวจด้วยพีชคณิต</b> ตั้งให้เท่ากัน
+                 \[x^{2}-2x-3=2x-3\]</li><li>\(x^{2}-4x=0\Rightarrow x(x-4)=0\)</li><li>\(x=0\) หรือ \(x=4\)</li><li>แทนใน \(y=2x-3\): \(x=0\to y=-3\); \(x=4\to y=5\)</li><li>จุดตัด \((0,-3)\) และ \((4,5)\)</li><li>ตรวจกับพาราโบลา: \(0-0-3=-3\) ✓ และ
+                 \(16-8-3=5\) ✓</li></ol><p class="ans">\((0,-3)\) และ \((4,5)\)</p></div></div><div class="ex"><div class="ex-head"><span class="ex-tag">ตัวอย่าง 4</span><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">อสมการ</span></div><div class="ex-body">
+             จงแก้อสมการ \(x^{2}-x-6<0\) ด้วยการอ่านกราฟ
+             พร้อมอธิบายว่าอ่านอะไรจากกราฟ</div><div class="ex-sol"><p class="sol-label">แนวคิดและวิธีทำ</p><ol class="steps"><li>พล็อต \(y=x^{2}-x-6\) — เป็นพาราโบลาหงาย</li><li>หาจุดตัดแกน \(x\): \(x^{2}-x-6=0\)</li><li>\((x-3)(x+2)=0\Rightarrow x=-2\) หรือ \(x=3\)</li><li>อสมการถาม \(y<0\) คือถามว่ากราฟอยู่ <b>ใต้แกน \(x\)</b>
+                 ที่ช่วงใด</li><li>พาราโบลาหงายจึงอยู่ใต้แกน \(x\) <b>ระหว่าง</b>
+                 จุดตัดสองจุดเท่านั้น</li><li>คำตอบ: \(-2<x<3\)</li><li><b>ข้อสังเกต</b> ถ้าอสมการเป็น \(x^{2}-x-6>0\)
+                 คำตอบจะกลับเป็น \(x<-2\) หรือ \(x>3\)
+                 (สองช่วงที่กราฟอยู่เหนือแกน)</li></ol><p class="ans">\(-2<x<3\)</p></div></div><div class="ex"><div class="ex-head"><span class="ex-tag">ตัวอย่าง 5</span><span class="ex-lvl apply">ประยุกต์</span><span class="ex-lvl">ประยุกต์</span></div><div class="ex-body">
+             ลูกบอลถูกโยนขึ้นจากความสูง \(1.5\) เมตร ความสูง \(h\) (เมตร)
+             หลังเวลา \(t\) วินาที เป็น
+             \[h=-4.9t^{2}+14.7t+1.5\]
+             <br>(ก) จงหาเวลาที่ลูกบอลขึ้นถึงจุดสูงสุด และความสูงนั้น
+             <br>(ข) ลูกบอลตกถึงพื้นเมื่อใด (ทศนิยม 2 ตำแหน่ง)
+             <br>(ค) ลูกบอลอยู่สูงกว่า \(10\) เมตรในช่วงเวลาใด</div><div class="ex-sol"><p class="sol-label">แนวคิดและวิธีทำ</p><ol class="steps"><li>(ก) จุดยอดที่ \(t=-\dfrac{b}{2a}=-\dfrac{14.7}{2(-4.9)}
+                 =\dfrac{14.7}{9.8}=1.5\) วินาที</li><li>\(h=-4.9(1.5)^{2}+14.7(1.5)+1.5
+                 =-11.025+22.05+1.5=12.525\) เมตร</li><li>(ข) ตั้ง \(h=0\): \(-4.9t^{2}+14.7t+1.5=0\)</li><li>คูณ \(-1\): \(4.9t^{2}-14.7t-1.5=0\)</li><li>\(t=\dfrac{14.7\pm\sqrt{14.7^{2}+4(4.9)(1.5)}}{2(4.9)}
+                 =\dfrac{14.7\pm\sqrt{216.09+29.4}}{9.8}</li><li>\(=\dfrac{14.7\pm\sqrt{245.49}}{9.8}
+                 =\dfrac{14.7\pm15.668}{9.8}\)</li><li>\(t\approx3.10\) (ทิ้งรากลบ \(-0.099\) เพราะเวลาเป็นลบไม่ได้)</li><li>(ค) ตั้ง \(h>10\): \(-4.9t^{2}+14.7t+1.5>10\)</li><li>\(-4.9t^{2}+14.7t-8.5>0\) หรือ \(4.9t^{2}-14.7t+8.5<0\)</li><li>\(t=\dfrac{14.7\pm\sqrt{216.09-166.6}}{9.8}
+                 =\dfrac{14.7\pm\sqrt{49.49}}{9.8}
+                 =\dfrac{14.7\pm7.035}{9.8}\)</li><li>\(t\approx0.782\) และ \(t\approx2.218\)</li><li>พาราโบลาคว่ำจึงอยู่เหนือ \(10\) <b>ระหว่าง</b> สองค่านี้:
+                 \(0.78<t<2.22\) วินาที</li></ol><p class="ans">(ก) \(t=1.5\) วินาที สูง \(12.525\) ม.&nbsp;(ข) \(t\approx3.10\) วินาที&nbsp;(ค) \(0.78<t<2.22\) วินาที</p></div></div></section><section id="drill" class="drill"><div class="drill-head"><h3>แบบฝึกหัดท้ายบท</h3><span class="drill-stat">แสดง 31 / 31 ข้อ</span></div><p>โจทย์เรียงจากปานกลางไปยาก และปิดท้ายด้วยโจทย์ประยุกต์ ลองทำด้วยตัวเองให้ครบก่อนเปิดเฉลย</p><div class="drill-filter"><button class="btn" type="button" data-filter="all" aria-pressed="true">ทั้งหมด (31)</button><button class="btn" type="button" data-filter="med" aria-pressed="false">ปานกลาง (13)</button><button class="btn" type="button" data-filter="hard" aria-pressed="false">ยาก (11)</button><button class="btn" type="button" data-filter="apply" aria-pressed="false">ประยุกต์ (7)</button><button class="btn" type="button" data-sol-all="show">เปิดเฉลยทั้งหมด</button><button class="btn" type="button" data-sol-all="hide">ปิดเฉลยทั้งหมด</button></div><div class="q" data-lvl="med"><div class="qn">1.</div><div class="qbody">จงหาความชันและจุดตัดแกน \(y\)
+         ของเส้น \(3x+4y=12\) แล้วบอกจุดตัดแกน \(x\)</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">เส้นตรง</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u6-desmos-s1">ดูเฉลย</button></div><div class="qsol" id="u6-desmos-s1" hidden>จัดรูป: \(4y=-3x+12\Rightarrow y=-\tfrac34x+3\)
+             <br>ความชัน \(=-\tfrac34\), จุดตัดแกน \(y\) ที่ \((0,3)\)
+             <br>จุดตัดแกน \(x\): ตั้ง \(y=0\Rightarrow x=4\) → \((4,0)\)</div></div><div class="q" data-lvl="med"><div class="qn">2.</div><div class="qbody">จงหาจุดยอดและแกนสมมาตรของ
+         \(y=x^{2}-6x+5\)</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">พาราโบลา</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u6-desmos-s2">ดูเฉลย</button></div><div class="qsol" id="u6-desmos-s2" hidden>\(h=-\dfrac{-6}{2}=3\); \(k=9-18+5=-4\)
+             <br>จุดยอด \((3,-4)\), แกนสมมาตร \(x=3\)</div></div><div class="q" data-lvl="med"><div class="qn">3.</div><div class="qbody">จงเขียน \(y=x^{2}+8x+11\)
+         ในรูปจุดยอด</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">พาราโบลา</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u6-desmos-s3">ดูเฉลย</button></div><div class="qsol" id="u6-desmos-s3" hidden>\(h=-4\); \(k=16-32+11=-5\)
+             <br>\(y=(x+4)^{2}-5\)</div></div><div class="q" data-lvl="med"><div class="qn">4.</div><div class="qbody">จงหาจุดตัดแกน \(x\) ของ
+         \(y=x^{2}-7x+12\)</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">จุดตัดแกน</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u6-desmos-s4">ดูเฉลย</button></div><div class="qsol" id="u6-desmos-s4" hidden>\(x^{2}-7x+12=(x-3)(x-4)=0\)
+             <br>\(x=3\) และ \(x=4\) → จุด \((3,0)\) และ \((4,0)\)</div></div><div class="q" data-lvl="med"><div class="qn">5.</div><div class="qbody">กราฟ \(y=x^{2}\) ถูกเลื่อนไปขวา
+         \(5\) หน่วย และลง \(2\) หน่วย จงเขียนสมการใหม่</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">การเลื่อน</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u6-desmos-s5">ดูเฉลย</button></div><div class="qsol" id="u6-desmos-s5" hidden>\(y=(x-5)^{2}-2\)</div></div><div class="q" data-lvl="med"><div class="qn">6.</div><div class="qbody">จงหาจุดศูนย์กลางและรัศมีของวงกลม
+         \((x-3)^{2}+(y+4)^{2}=25\)</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">วงกลม</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u6-desmos-s6">ดูเฉลย</button></div><div class="qsol" id="u6-desmos-s6" hidden>จุดศูนย์กลาง \((3,-4)\), รัศมี \(5\)</div></div><div class="q" data-lvl="med"><div class="qn">7.</div><div class="qbody">กราฟ \(y=|x-2|+3\)
+         มีจุดหักมุมที่ใด และความชันของขาทั้งสองเป็นเท่าไร</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">ค่าสัมบูรณ์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u6-desmos-s7">ดูเฉลย</button></div><div class="qsol" id="u6-desmos-s7" hidden>จุดหักมุม \((2,3)\)
+             <br>ขาขวาความชัน \(+1\), ขาซ้ายความชัน \(-1\)</div></div><div class="q" data-lvl="med"><div class="qn">8.</div><div class="qbody">จงแก้ระบบ \(y=2x+1\) และ
+         \(y=-x+7\) ด้วยกราฟ แล้วตรวจด้วยพีชคณิต</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">ระบบสมการ</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u6-desmos-s8">ดูเฉลย</button></div><div class="qsol" id="u6-desmos-s8" hidden>\(2x+1=-x+7\Rightarrow 3x=6\Rightarrow x=2\)
+             <br>\(y=2(2)+1=5\)
+             <br>จุดตัด \((2,5)\)</div></div><div class="q" data-lvl="med"><div class="qn">9.</div><div class="qbody">จงแก้อสมการ \(2x-3>x+4\)
+         และอธิบายว่าอ่านจากกราฟอย่างไร</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">อสมการ</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u6-desmos-s9">ดูเฉลย</button></div><div class="qsol" id="u6-desmos-s9" hidden>\(x>7\)
+             <br><b>อ่านจากกราฟ</b>: พล็อต \(y=2x-3\) และ \(y=x+4\)
+             <br>สองเส้นตัดกันที่ \(x=7\) และเส้น \(y=2x-3\) ชันกว่า
+             <br>จึงอยู่เหนืออีกเส้นเมื่อ \(x>7\)</div></div><div class="q" data-lvl="hard"><div class="qn">10.</div><div class="qbody">พาราโบลามีจุดยอด \((-1,4)\)
+         และผ่าน \((2,-5)\) จงหาสมการในรูป \(y=ax^{2}+bx+c\)</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">หาสมการ</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u6-desmos-s10">ดูเฉลย</button></div><div class="qsol" id="u6-desmos-s10" hidden>\(y=a(x+1)^{2}+4\)
+             <br>แทน \((2,-5)\): \(-5=a(9)+4\Rightarrow 9a=-9\Rightarrow a=-1\)
+             <br>\(y=-(x+1)^{2}+4=-(x^{2}+2x+1)+4=-x^{2}-2x+3\)</div></div><div class="q" data-lvl="hard"><div class="qn">11.</div><div class="qbody">พาราโบลาตัดแกน \(x\) ที่ \(x=-3\)
+         และ \(x=5\) และผ่านจุด \((1,-32)\) จงหาสมการ</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">หาสมการ</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u6-desmos-s11">ดูเฉลย</button></div><div class="qsol" id="u6-desmos-s11" hidden>รูปตัดแกน: \(y=a(x+3)(x-5)\)
+             <br>แทน \((1,-32)\): \(-32=a(4)(-4)=-16a\Rightarrow a=2\)
+             <br>\(y=2(x+3)(x-5)=2(x^{2}-2x-15)=2x^{2}-4x-30\)
+             <br>จุดยอด: \(h=1\), \(k=2-4-30=-32\) → \((1,-32)\)
+             (ซึ่งเป็นจุดที่โจทย์ให้พอดี — จุดนั้นคือจุดยอด)</div></div><div class="q" data-lvl="hard"><div class="qn">12.</div><div class="qbody">จงแก้ระบบ \(y=x^{2}-4\) และ
+         \(y=3x\)</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">ระบบสมการ</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u6-desmos-s12">ดูเฉลย</button></div><div class="qsol" id="u6-desmos-s12" hidden>\(x^{2}-4=3x\Rightarrow x^{2}-3x-4=0\)
+             <br>\((x-4)(x+1)=0\Rightarrow x=4\) หรือ \(x=-1\)
+             <br>\(x=4\to y=12\); \(x=-1\to y=-3\)
+             <br>จุดตัด \((4,12)\) และ \((-1,-3)\)</div></div><div class="q" data-lvl="hard"><div class="qn">13.</div><div class="qbody">จงหาว่าเส้น \(y=2x+k\)
+         ตัดพาราโบลา \(y=x^{2}\) ที่จุดเดียว (สัมผัส) เมื่อ \(k\) เท่าใด</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">ระบบสมการ</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u6-desmos-s13">ดูเฉลย</button></div><div class="qsol" id="u6-desmos-s13" hidden>\(x^{2}=2x+k\Rightarrow x^{2}-2x-k=0\)
+             <br>สัมผัสคือมีรากซ้ำ ดิสคริมิแนนต์เป็นศูนย์
+             <br>\((-2)^{2}-4(1)(-k)=0\Rightarrow 4+4k=0\Rightarrow k=-1\)
+             <br>จุดสัมผัส: \(x^{2}-2x+1=0\Rightarrow x=1\), \(y=1\) → \((1,1)\)</div></div><div class="q" data-lvl="hard"><div class="qn">14.</div><div class="qbody">จงแก้อสมการ \(x^{2}-5x+4\ge0\)</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">อสมการ</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u6-desmos-s14">ดูเฉลย</button></div><div class="qsol" id="u6-desmos-s14" hidden>\((x-1)(x-4)=0\Rightarrow x=1,4\)
+             <br>พาราโบลาหงาย จึงอยู่เหนือหรือบนแกน \(x\) <b>นอก</b>
+             ช่วงรากทั้งสอง
+             <br>คำตอบ: \(x\le1\) หรือ \(x\ge4\)</div></div><div class="q" data-lvl="hard"><div class="qn">15.</div><div class="qbody">จงแก้อสมการ \(x^{2}<4x+5\)</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">อสมการ</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u6-desmos-s15">ดูเฉลย</button></div><div class="qsol" id="u6-desmos-s15" hidden>จัดรูป: \(x^{2}-4x-5<0\)
+             <br>\((x-5)(x+1)<0\)
+             <br>รากคือ \(-1\) และ \(5\) พาราโบลาหงายจึงต่ำกว่าศูนย์
+             <b>ระหว่าง</b> ราก
+             <br>คำตอบ: \(-1<x<5\)</div></div><div class="q" data-lvl="hard"><div class="qn">16.</div><div class="qbody">ใน Desmos พล็อต
+         \(y=ax^{2}+2x+1\) โดยให้ \(a\) เป็นตัวเลื่อน
+         <br>(ก) กราฟตัดแกน \(x\) สองจุดเมื่อ \(a\) อยู่ในช่วงใด
+         <br>(ข) สัมผัสแกน \(x\) เมื่อ \(a\) เท่าใด
+         <br>(ค) ไม่ตัดแกน \(x\) เลยเมื่อ \(a\) อยู่ในช่วงใด
+         <br>(ง) เกิดอะไรขึ้นเมื่อ \(a=0\)</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">สำรวจพารามิเตอร์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u6-desmos-s16">ดูเฉลย</button></div><div class="qsol" id="u6-desmos-s16" hidden>ดิสคริมิแนนต์ \(D=2^{2}-4(a)(1)=4-4a\)
+             <br>(ก) สองจุดเมื่อ \(D>0\): \(4-4a>0\Rightarrow a<1\)
+             (และ \(a\neq0\))
+             <br>(ข) สัมผัสเมื่อ \(D=0\): \(a=1\)
+             <br>(ค) ไม่ตัดเมื่อ \(D<0\): \(a>1\)
+             <br>(ง) \(a=0\) ทำให้สมการกลายเป็น \(y=2x+1\) ซึ่งเป็น
+             <b>เส้นตรง</b> ไม่ใช่พาราโบลา — ตัดแกน \(x\) จุดเดียวที่
+             \(x=-0.5\)</div></div><div class="q" data-lvl="hard"><div class="qn">17.</div><div class="qbody">จงหาจุดตัดของวงกลม
+         \(x^{2}+y^{2}=25\) กับเส้น \(y=x+1\)</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">วงกลมกับเส้น</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u6-desmos-s17">ดูเฉลย</button></div><div class="qsol" id="u6-desmos-s17" hidden>แทน: \(x^{2}+(x+1)^{2}=25\)
+             <br>\(x^{2}+x^{2}+2x+1=25\Rightarrow 2x^{2}+2x-24=0\)
+             <br>\(x^{2}+x-12=0\Rightarrow(x+4)(x-3)=0\)
+             <br>\(x=-4\to y=-3\); \(x=3\to y=4\)
+             <br>จุดตัด \((-4,-3)\) และ \((3,4)\)
+             <br>ตรวจ: \(16+9=25\) ✓ และ \(9+16=25\) ✓</div></div><div class="q" data-lvl="hard"><div class="qn">18.</div><div class="qbody">จงหาค่าสูงสุดของ
+         \(y=-3x^{2}+12x-7\) และบอกว่าเกิดที่ \(x\) เท่าใด</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">ค่าสูงสุด–ต่ำสุด</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u6-desmos-s18">ดูเฉลย</button></div><div class="qsol" id="u6-desmos-s18" hidden>\(a=-3<0\) → กราฟคว่ำ จุดยอดเป็นจุดสูงสุด
+             <br>\(x=-\dfrac{12}{2(-3)}=2\)
+             <br>\(y=-3(4)+24-7=-12+24-7=5\)
+             <br>ค่าสูงสุด \(=5\) ที่ \(x=2\)</div></div><div class="q" data-lvl="apply"><div class="qn">19.</div><div class="qbody">ร้านขายเสื้อพบว่าถ้าตั้งราคา \(p\) บาท
+         จะขายได้ \(q=600-2p\) ตัวต่อเดือน
+         <br>(ก) จงเขียนรายรับ \(R\) เป็นฟังก์ชันของ \(p\)
+         <br>(ข) ควรตั้งราคาเท่าไรให้รายรับสูงสุด และรายรับสูงสุดเท่าไร
+         <br>(ค) ราคาในช่วงใดที่ทำให้รายรับเกิน \(40\,000\) บาท</div><div class="qmeta"><span class="ex-lvl apply">ประยุกต์</span><span class="ex-lvl">ประยุกต์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u6-desmos-s19">ดูเฉลย</button></div><div class="qsol" id="u6-desmos-s19" hidden>(ก) \(R=pq=p(600-2p)=600p-2p^{2}\)
+             <br>(ข) \(p=-\dfrac{600}{2(-2)}=150\) บาท
+             <br>\(R=600(150)-2(22500)=90\,000-45\,000=45\,000\) บาท
+             <br>(ค) \(-2p^{2}+600p>40\,000\)
+             <br>\(p^{2}-300p+20\,000<0\)
+             <br>\(p=\dfrac{300\pm\sqrt{90\,000-80\,000}}{2}
+             =\dfrac{300\pm100}{2}\)
+             <br>ได้ \(p=100\) และ \(p=200\)
+             <br>คำตอบ: \(100<p<200\) บาท</div></div><div class="q" data-lvl="apply"><div class="qn">20.</div><div class="qbody">จะล้อมรั้วแปลงผักรูปสี่เหลี่ยมผืนผ้า
+         โดยด้านหนึ่งติดกำแพง (ไม่ต้องล้อม) และมีรั้วยาว \(60\) เมตร
+         <br>(ก) ถ้าด้านตั้งฉากกำแพงยาว \(x\) ม. จงเขียนพื้นที่เป็นฟังก์ชันของ \(x\)
+         <br>(ข) \(x\) เท่าไรให้พื้นที่มากที่สุด และพื้นที่นั้นเท่าไร
+         <br>(ค) ถ้าต้องการพื้นที่อย่างน้อย \(400\) ตร.ม. \(x\) อยู่ในช่วงใด</div><div class="qmeta"><span class="ex-lvl apply">ประยุกต์</span><span class="ex-lvl">ประยุกต์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u6-desmos-s20">ดูเฉลย</button></div><div class="qsol" id="u6-desmos-s20" hidden>(ก) รั้วใช้ไป \(2x\) สำหรับสองด้านตั้งฉาก
+             เหลือ \(60-2x\) สำหรับด้านขนานกำแพง
+             <br>\(A=x(60-2x)=60x-2x^{2}\)
+             <br>(ข) \(x=-\dfrac{60}{2(-2)}=15\) ม.
+             <br>\(A=15(60-30)=15(30)=450\) ตร.ม.
+             <br>(ค) \(60x-2x^{2}\ge400\Rightarrow x^{2}-30x+200\le0\)
+             <br>\((x-10)(x-20)\le0\Rightarrow 10\le x\le20\) ม.</div></div><div class="q" data-lvl="apply"><div class="qn">21.</div><div class="qbody">สะพานโค้งมีหน้าตัดเป็นพาราโบลา
+         ช่วงกว้าง \(40\) เมตร สูงที่กลาง \(8\) เมตร
+         <br>(ก) จงหาสมการโดยวางจุดกำเนิดที่กลางสะพานระดับพื้น
+         <br>(ข) ที่ระยะ \(12\) ม. จากกลางสะพาน ความสูงเท่าไร
+         <br>(ค) รถสูง \(5\) ม. ผ่านได้ในช่วงกว้างเท่าไรรอบกลางสะพาน</div><div class="qmeta"><span class="ex-lvl apply">ประยุกต์</span><span class="ex-lvl">ประยุกต์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u6-desmos-s21">ดูเฉลย</button></div><div class="qsol" id="u6-desmos-s21" hidden>(ก) จุดยอด \((0,8)\) และผ่าน \((\pm20,0)\)
+             <br>\(y=a x^{2}+8\); แทน \((20,0)\): \(0=400a+8
+             \Rightarrow a=-0.02\)
+             <br>\(y=-0.02x^{2}+8\)
+             <br>(ข) \(y=-0.02(144)+8=-2.88+8=5.12\) ม.
+             <br>(ค) ตั้ง \(y\ge5\): \(-0.02x^{2}+8\ge5
+             \Rightarrow 0.02x^{2}\le3\)
+             <br>\(x^{2}\le150\Rightarrow|x|\le12.247\)
+             <br>ช่วงกว้าง \(=2(12.247)\approx24.5\) เมตร</div></div><div class="q" data-lvl="apply"><div class="qn">22.</div><div class="qbody">น้ำพุพุ่งน้ำเป็นเส้นโค้งพาราโบลา
+         ออกจากหัวฉีดที่ความสูง \(0.5\) ม. ขึ้นสูงสุด \(3.5\) ม.
+         ที่ระยะ \(2\) ม. จากหัวฉีด
+         <br>(ก) จงหาสมการ (ให้หัวฉีดอยู่ที่ \(x=0\))
+         <br>(ข) น้ำตกถึงพื้นที่ระยะเท่าไรจากหัวฉีด
+         <br>(ค) ถ้าวางอ่างรับน้ำขอบสูง \(0.5\) ม. ที่ระยะ \(4\) ม.
+         น้ำจะตกในอ่างหรือไม่</div><div class="qmeta"><span class="ex-lvl apply">ประยุกต์</span><span class="ex-lvl">ประยุกต์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u6-desmos-s22">ดูเฉลย</button></div><div class="qsol" id="u6-desmos-s22" hidden>(ก) จุดยอด \((2,3.5)\): \(y=a(x-2)^{2}+3.5\)
+             <br>แทน \((0,0.5)\): \(0.5=4a+3.5\Rightarrow a=-0.75\)
+             <br>\(y=-0.75(x-2)^{2}+3.5\)
+             <br>(ข) ตั้ง \(y=0\): \(0.75(x-2)^{2}=3.5
+             \Rightarrow(x-2)^{2}=4.667\)
+             <br>\(x-2=\pm2.160\Rightarrow x\approx4.160\)
+             (ทิ้งรากลบ)
+             <br>(ค) ที่ \(x=4\): \(y=-0.75(4)+3.5=-3+3.5=0.5\) ม.
+             <br>ความสูงน้ำ \(=0.5\) ม. พอดีเท่าขอบอ่าง
+             <br><b>น้ำตกที่ขอบอ่างพอดี</b> — เสี่ยงที่จะกระเด็นออก
+             ควรขยับอ่างเข้ามาเล็กน้อยหรือเพิ่มขนาดอ่าง</div></div><div class="q" data-lvl="apply"><div class="qn">23.</div><div class="qbody">นักเรียนใช้ Desmos สร้างโมเดล
+         อุณหภูมิห้องที่เปิดแอร์ โดยวัดได้ว่า
+         \[t=0:\ 30^\circ C,\quad t=10:\ 24^\circ C,\quad t=20:\ 22^\circ C\]
+         (เวลา \(t\) เป็นนาที)
+         <br>(ก) ถ้าใช้โมเดลเส้นตรงจากสองจุดแรก ที่ \(t=20\) ทำนายได้เท่าไร
+         <br>(ข) ค่าจริงคือ \(22^\circ C\) โมเดลเส้นตรงคลาดเท่าไร
+         <br>(ค) จงอธิบายว่าเหตุใดโมเดลเส้นตรงจึงใช้ไม่ได้ในระยะยาว</div><div class="qmeta"><span class="ex-lvl apply">ประยุกต์</span><span class="ex-lvl">ประยุกต์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u6-desmos-s23">ดูเฉลย</button></div><div class="qsol" id="u6-desmos-s23" hidden>(ก) ความชัน \(=\dfrac{24-30}{10-0}=-0.6\)
+             <br>\(T=30-0.6t\); ที่ \(t=20\): \(T=30-12=18^\circ C\)
+             <br>(ข) คลาด \(22-18=4^\circ C\) (ทำนายเย็นเกินไป)
+             <br>(ค) โมเดลเส้นตรงลดลงเรื่อย ๆ ไม่มีที่สิ้นสุด
+             <br>ที่ \(t=50\) จะทำนาย \(T=0^\circ C\) และ \(t=100\)
+             ทำนาย \(-30^\circ C\) ซึ่งเป็นไปไม่ได้
+             <br>ความจริงอุณหภูมิจะ <b>ลดลงช้าลงเรื่อย ๆ</b> และเข้าใกล้
+             อุณหภูมิที่ตั้งแอร์ไว้ (ราว \(21\)–\(22^\circ C\))
+             <br>โมเดลที่เหมาะกว่าคือ <b>ฟังก์ชันเลขชี้กำลัง</b>
+             เช่น \(T=21+9(0.8)^{t/10}\) ซึ่งลองพล็อตใน Desmos
+             เทียบกับข้อมูลได้</div></div><div class="q" data-lvl="apply"><div class="qn">24.</div><div class="qbody">บริษัทผลิตสินค้า \(x\) ชิ้นต่อวัน
+         มีต้นทุน \(C=0.5x^{2}-20x+450\) บาท
+         <br>(ก) ผลิตกี่ชิ้นต้นทุนต่ำสุด และต้นทุนนั้นเท่าไร
+         <br>(ข) ถ้าขายได้ชิ้นละ \(30\) บาท จงเขียนกำไรเป็นฟังก์ชันของ \(x\)
+         <br>(ค) ผลิตกี่ชิ้นได้กำไรสูงสุด และกำไรเท่าไร
+         <br>(ง) ผลิตในช่วงใดจึงไม่ขาดทุน</div><div class="qmeta"><span class="ex-lvl apply">ประยุกต์</span><span class="ex-lvl">ประยุกต์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u6-desmos-s24">ดูเฉลย</button></div><div class="qsol" id="u6-desmos-s24" hidden>(ก) \(x=-\dfrac{-20}{2(0.5)}=20\) ชิ้น
+             <br>\(C=0.5(400)-400+450=200-400+450=250\) บาท
+             <br>(ข) รายรับ \(=30x\)
+             <br>กำไร \(P=30x-(0.5x^{2}-20x+450)
+             =-0.5x^{2}+50x-450\)
+             <br>(ค) \(x=-\dfrac{50}{2(-0.5)}=50\) ชิ้น
+             <br>\(P=-0.5(2500)+2500-450=-1250+2500-450=800\) บาท
+             <br>(ง) \(P\ge0\): \(-0.5x^{2}+50x-450\ge0\)
+             <br>\(x^{2}-100x+900\le0\)
+             <br>\(x=\dfrac{100\pm\sqrt{10\,000-3600}}{2}
+             =\dfrac{100\pm80}{2}\)
+             <br>ได้ \(x=10\) และ \(x=90\)
+             <br>ไม่ขาดทุนเมื่อ \(10\le x\le90\) ชิ้น</div></div><div class="q" data-lvl="med"><div class="qn">25.</div><div class="qbody">จงหาจุดยอดของ \(y=-2x^{2}+4x+1\)
+         และบอกว่าเป็นจุดสูงสุดหรือต่ำสุด</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">พาราโบลา</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u6-desmos-s25">ดูเฉลย</button></div><div class="qsol" id="u6-desmos-s25" hidden>\(h=-\dfrac{4}{2(-2)}=1\); \(k=-2+4+1=3\)
+             <br>จุดยอด \((1,3)\)
+             <br>\(a=-2<0\) → กราฟคว่ำ → เป็น <b>จุดสูงสุด</b></div></div><div class="q" data-lvl="med"><div class="qn">26.</div><div class="qbody">จงหาสมการของเส้นที่ผ่าน \((2,-1)\)
+         และ \((6,7)\)</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">เส้นตรง</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u6-desmos-s26">ดูเฉลย</button></div><div class="qsol" id="u6-desmos-s26" hidden>ความชัน \(=\dfrac{7-(-1)}{6-2}=\dfrac84=2\)
+             <br>\(y+1=2(x-2)\Rightarrow y=2x-5\)</div></div><div class="q" data-lvl="med"><div class="qn">27.</div><div class="qbody">กราฟ \(y=|x|\) ถูกเลื่อนไปซ้าย \(3\)
+         และขึ้น \(1\) จงเขียนสมการและหาจุดหักมุม</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">การเลื่อน</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u6-desmos-s27">ดูเฉลย</button></div><div class="qsol" id="u6-desmos-s27" hidden>\(y=|x+3|+1\)
+             <br>จุดหักมุม \((-3,1)\)</div></div><div class="q" data-lvl="med"><div class="qn">28.</div><div class="qbody">จงเขียนสมการวงกลมที่มีจุดศูนย์กลาง
+         \((-2,5)\) และผ่านจุด \((1,9)\)</div><div class="qmeta"><span class="ex-lvl ">ปานกลาง</span><span class="ex-lvl">วงกลม</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u6-desmos-s28">ดูเฉลย</button></div><div class="qsol" id="u6-desmos-s28" hidden>รัศมี \(=\sqrt{(1+2)^{2}+(9-5)^{2}}=\sqrt{9+16}=5\)
+             <br>\((x+2)^{2}+(y-5)^{2}=25\)</div></div><div class="q" data-lvl="hard"><div class="qn">29.</div><div class="qbody">จงหาค่า \(k\) ที่ทำให้เส้น
+         \(y=k\) ตัดพาราโบลา \(y=x^{2}-6x+5\) ที่จุดสองจุด จุดเดียว
+         และไม่ตัดเลย</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">ระบบสมการ</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u6-desmos-s29">ดูเฉลย</button></div><div class="qsol" id="u6-desmos-s29" hidden>จุดยอด: \(h=3\), \(k_v=9-18+5=-4\) → \((3,-4)\)
+             กราฟหงาย
+             <br>เส้น \(y=k\) เป็นเส้นนอน
+             <br><b>สองจุด</b> เมื่อ \(k>-4\)
+             <br><b>จุดเดียว</b> เมื่อ \(k=-4\) (สัมผัสที่จุดยอด)
+             <br><b>ไม่ตัด</b> เมื่อ \(k<-4\)</div></div><div class="q" data-lvl="hard"><div class="qn">30.</div><div class="qbody">จงแก้อสมการ \(-x^{2}+6x-5>0\)</div><div class="qmeta"><span class="ex-lvl hard">ยาก</span><span class="ex-lvl">อสมการ</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u6-desmos-s30">ดูเฉลย</button></div><div class="qsol" id="u6-desmos-s30" hidden>คูณ \(-1\) (กลับเครื่องหมายอสมการ):
+             \(x^{2}-6x+5<0\)
+             <br>\((x-1)(x-5)<0\)
+             <br>คำตอบ: \(1<x<5\)
+             <br><b>ตรวจด้วยกราฟ</b>: \(y=-x^{2}+6x-5\) เป็นพาราโบลาคว่ำ
+             ตัดแกน \(x\) ที่ \(1,5\) จึงอยู่เหนือแกนระหว่างราก ✓</div></div><div class="q" data-lvl="apply"><div class="qn">31.</div><div class="qbody">เรือแล่นจากท่า A ตามเส้นทาง
+         \(y=0.5x+2\) และอีกลำแล่นจาก B ตามเส้นทาง \(y=-x+11\)
+         (หน่วยกิโลเมตร)
+         <br>(ก) เส้นทางสองลำตัดกันที่ใด
+         <br>(ข) ถ้ามีแนวปะการังเป็นวงกลม \((x-6)^{2}+(y-5)^{2}=4\)
+         เส้นทางลำแรกผ่านแนวปะการังหรือไม่
+         <br>(ค) ถ้าผ่าน จงหาจุดเข้าและจุดออก</div><div class="qmeta"><span class="ex-lvl apply">ประยุกต์</span><span class="ex-lvl">ประยุกต์</span><button class="sol-toggle" type="button" aria-expanded="false" aria-controls="u6-desmos-s31">ดูเฉลย</button></div><div class="qsol" id="u6-desmos-s31" hidden>(ก) \(0.5x+2=-x+11\Rightarrow 1.5x=9\Rightarrow x=6\)
+             <br>\(y=0.5(6)+2=5\) → จุดตัด \((6,5)\)
+             <br>(ข) จุด \((6,5)\) คือ <b>จุดศูนย์กลาง</b> ของแนวปะการังพอดี
+             <br>เส้นทางลำแรกผ่านจุดนั้น จึง <b>ผ่านแนวปะการัง</b> (ผ่านกลางเลย)
+             <br>(ค) แทน \(y=0.5x+2\) ลงในสมการวงกลม:
+             <br>\((x-6)^{2}+(0.5x+2-5)^{2}=4\)
+             <br>\((x-6)^{2}+(0.5x-3)^{2}=4\)
+             <br>\((x-6)^{2}+0.25(x-6)^{2}=4\)
+             <br>\(1.25(x-6)^{2}=4\Rightarrow(x-6)^{2}=3.2\)
+             <br>\(x=6\pm1.789\) → \(x\approx4.21\) และ \(x\approx7.79\)
+             <br>จุดเข้า \(\approx(4.21,\,4.11)\), จุดออก \(\approx(7.79,\,5.89)\)</div></div></section><div class="pager"><a class="pl" href="u5-statistics.html">สถิติ</a><span></span></div></main></div></div><footer class="site"><div class="wrap">คณิตศาสตร์ ม.2 · สื่อการเรียนรู้แบบอินเทอร์แอกทีฟ</div></footer>
+<script src="../assets/js/site.js"></script>
+<script src="../assets/js/viz.js"></script>
+</body>
+</html>
